@@ -32,7 +32,7 @@ module.exports.custom = {
   * > that is displayed all over the app when it's first generated.         *
   *                                                                         *
   **************************************************************************/
-  platformCopyrightYear: '2021',
+  platformCopyrightYear: '2023',
 
   /**************************************************************************
   *                                                                         *
@@ -68,14 +68,14 @@ module.exports.custom = {
   //--------------------------------------------------------------------------
 
   // The sender that all outgoing emails will appear to come from.
-  fromEmailAddress: 'noreply@example.com',
-  fromName: 'The NEW_APP_NAME Team',
+  fromEmailAddress: process.env.FROM_EMAIL_ADDRESS,
+  fromName: process.env.FROM_NAME,
 
   // Email address for receiving support messages & other correspondences.
   // > If you're using the default privacy policy, this will be referenced
   // > as the contact email of your "data protection officer" for the purpose
   // > of compliance with regulations such as GDPR.
-  internalEmailAddress: 'support+development@example.com',
+  internalEmailAddress: process.env.INTERNAL_EMAIL_ADDRESS,
 
   // Whether to require proof of email address ownership any time a new user
   // signs up, or when an existing user attempts to change their email address.
@@ -88,8 +88,8 @@ module.exports.custom = {
   * (https://dashboard.stripe.com/account/apikeys)                          *
   *                                                                         *
   **************************************************************************/
-  // stripePublishableKey: 'pk_test_Zzd814nldl91104qor5911gjald',
-  // stripeSecret: 'sk_test_Zzd814nldl91104qor5911gjald',
+  // stripePublishableKey: process.env.STRIPE_PUBLISHABLE_KEY,
+  // stripeSecret: process.env.STRIPE_SECRET,
   //--------------------------------------------------------------------------
   // /\  Configure these to enable support for billing features.
   // ||  (Or if you don't need billing, feel free to remove them.)
