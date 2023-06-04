@@ -1,4 +1,10 @@
 {
-  "Welcome": "Welcome",
-  "A brand new app.": "A brand new app."
+	"Welcome": "Welcome!",
+	"A brand new app.": "Cristian Care is a Brand New App.",
+	"homepage": {
+		"title": "Cristian Care",
+		"whatIsIt": "It is a software to help cristian communities to manager its members and to integrate each other",
+		"whoShouldUseIt": "Any church with two or more members",
+		"howToUseIt": "Click here to know more"
+	}
 }
