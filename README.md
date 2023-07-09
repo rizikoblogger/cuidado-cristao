@@ -36,6 +36,7 @@ um Projeto [Sails v1](https://sailsjs.com)
 
 * `dotenv-safe: npm i dotenv-safe --save`
 * `mongodb: npm i moongodb --save`
+* `sails mongo adapter: npm i sails-mongo --save`
 
 6) Uma vez instalado o dotenv-safe, será necessário criar na raíz do Projeto dois arquivos, são eles _.env.example_ e _
    .env_:
@@ -132,12 +133,11 @@ Observe que as respostas (response) atribuídas a variável res (passada como pa
 &lt;html lang='pt-br'&gt;
 &lt;head&gt;&lt;/head&gt;
 &lt;body&gt;
- Mostrando a palavra {{param}} aqui.
- ou
- Monstando &lt;%=param %&gt; também.
-
+ Mostrando a palavra <%=param%> aqui.
+ 
  Acessando a variavel de ambiente environment exposta em SAILS_LOCALS
- cujo valor seria o definido na variável de ambiente NODE_ENV ('development') <%- _environment %>
+ cujo valor seria o definido na variável de ambiente NODE_ENV ('development')
+ <%- _environment %>
 
 <%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>
 
@@ -172,13 +172,9 @@ Para executar um laço durante a renderização, fariamos:
 
 ### Obtendo parametros da requisição:
 
-13) Considerando uma requisição com a seguinte assinatura
+13) Para capturar parametros de uma requisição HTTP
 
-<pre>
-POST /api/v1/aluno/:id
-</pre>
-
-executada do seguinte modo
+Considerando a requisição abaixo:
 
 <pre>
 POST http://localhost:1337/api/v1/aluno/34?page=2&size=10
@@ -191,12 +187,18 @@ Content-Type: application/json
 
 </pre>
 
-e uma função:
+definida em uma rota no arquivo `config/routes.js` como:
+
+<pre>
+'POST  /api/v1/aluno/:id': { controller: 'AlunoController.save' },
+</pre>
+
+e uma função-método:
 
 <pre>
 module.exports = {
 
-  getNotas: async function (req, res) { ... },
+  save: async function (req, res) { ... },
 
 }
 </pre>
@@ -211,12 +213,17 @@ const matricula = req.body.matricula // seria 123
 const disciplina = req.body.disciplina // seria 18
 </pre>
 
-### Exemplo completo:
+### Exemplo completo RESTfull:
 
 <pre>
+
+
+
+
 /**
 
-* InfoController
+* InfoController: 
+* ex.: 'GET /info', {controller: 'InfoController.[get|getOne|getAll  ...]'}
 *
 * @description :: Server-side actions for handling incoming requests.
 * @help        :: See https://sailsjs.com/docs/concepts/actions
