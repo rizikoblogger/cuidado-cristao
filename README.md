@@ -190,7 +190,7 @@ Content-Type: application/json
 definida em uma rota no arquivo `config/routes.js` como:
 
 <pre>
-'POST  /api/v1/aluno/:id': { controller: 'AlunoController.save' },
+'POST  /api/v1/aluno/:id': 'AlunoController.save',
 </pre>
 
 e uma função-método:

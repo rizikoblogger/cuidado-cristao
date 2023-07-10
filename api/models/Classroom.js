@@ -1,5 +1,5 @@
 /**
- * Project.js
+ * Classroom.js
  *
  * @description :: A model definition represents a database table/collection.
  * @docs        :: https://sailsjs.com/docs/concepts/models-and-orm/models
@@ -12,14 +12,11 @@ module.exports = {
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-
-    taskName: {type: 'string', required: true},
-    taskDescription: {type: 'string', required: true},
-    complexity: {type: 'number', required: true},
-
-    todo: {type: 'ref',columnType: 'boolean'},
-    doing: {type: 'ref',columnType: 'boolean'},
-    done: {type: 'ref',columnType: 'boolean'},
+    name: {
+      type: 'string',
+      description: 'The name of classroom.',
+      required: true
+    }
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
@@ -29,9 +26,7 @@ module.exports = {
     //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
-    userTodo: {type: 'string', required: false},
-    userDoing: {type: 'string', required: false},
-    userDone: {type: 'string', required: false},
+    /* 1 to n with UserClassroom.js */
 
   },
 

@@ -155,6 +155,12 @@ without necessarily having a billing card.`
       example: 1502844074211
     },
 
+    churchId: {
+      type: 'string',
+      description: 'The church this user is associated',
+      required: false
+    },
+
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
     //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝
