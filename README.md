@@ -6,7 +6,8 @@ um Projeto [Sails v1](https://sailsjs.com)
 
 ### Este tutorial considera que você já possui conhecimento mínimo nas seguintes tecnologias:
 
-* Javascript ES6; e
+* Javascript ES6; 
+* Sails.js e
 * MongoDB 3+.
 
 ### Consideramos ainda que você já instalou o Node.js na sua estação de trabalho e possui conhecimento mínimo quanto aos seguintes comandos de console:
@@ -14,80 +15,16 @@ um Projeto [Sails v1](https://sailsjs.com)
 * npm; e
 * node;
 
-### Passos iniciais:
+### Criando novas funcionalidades:
 
-1) Instalar o sails.js
-   `npm i sails -g`
-
-2) Criar seu primeiro template de Projeto
-   `sails new nome-do-meu-projeto`
-
-- Quando perguntado, responda 1 - Web
-
-3) Navegue para o diretorio criado
-   `cd nome-do-meu-projeto`
-
-4) Execute seu projeto recém criado para verificar se tudo está ok.
-   `sails lift`
-
-   Se tudo estiver ok, voce poderá navegar para `http://localhost:1337` e ver seu primeiro projeto funcionando.
-
-5) Como boa prática, sugere-se instalar os seguintes pacotes adicionais:
-
-* `dotenv-safe: npm i dotenv-safe --save`
-* `mongodb: npm i moongodb --save`
-* `sails mongo adapter: npm i sails-mongo --save`
-
-6) Uma vez instalado o dotenv-safe, será necessário criar na raíz do Projeto dois arquivos, são eles _.env.example_ e _
-   .env_:
-
-* .env.example - conterá o nome das variáveis de ambiente que deverão ser carregadas em memória antes da execução do
-  Projeto. Este arquivo DEVE SER ENVIADO PARA o repositório Git(ou equivalente); e
-* .env - conterá o nome das variáveis e os valores associdas as mesmas. Este arquivo NÃO PODE SER ENVIADO PARA O
-  repositório Git (ou equivalente). Deve existir somente na estação do desenvolvedor.
-
-<pre>
-# .env.example
-
-NODE_ENV=
-</pre>
-
-<pre>
-# .env
-
-NODE_ENV=development
-</pre>
-
-7) O Sails.js foi concebido para execução em ambiente Linux e, mesmo sendo multiplataforma, requer alguns peguenos
-   ajustes se você pretende utilizá-lo no Windows.
-
-* No arquivo package.json, altere a linha ["start": "NODE_ENV=production node app.js",] para ["start": "node app.js",]
-* No arquivo package.json, remova a
-  linha ["deploy": "echo 'This script assumes a dead-simple, opinionated setup on Heroku.'...]
-* No arquivo app.js, adicione uma primeira linha com o seguinte conteúdo:
-
-`
-require('dotenv-safe').config();
-`
-
-8) Agora podemos executar o Sails em ambiente de desenvolvimento, em Stagging ou em produção, bastando alterar o
-   conteúdo do arquivo .env e executar o Projeto com um dos seguintes comandos:
-
-* npm start; ou
-* node app.js; ou
-* sails lift (este último sempre carregará o Sails em ambiente de desenvolvimento, independente do valor atribuído a
-  variável NODE_ENV, do arquivo .env.
-
-### Criando minhas funcionalidades:
-
-9) Para criar uma nova funcionalidade, tanto do tipo view quanto um Endpoint de API, utilize o comando abaixo.
+1) Para criar uma nova funcionalidade, tanto do tipo view quanto um Endpoint de API, utilize o comando abaixo.
    Este comando criará um Controller (/api/controllers/NomefuncionalidadeController.js)
    e uma entidade de persistencia chamada NomeFuncionalidade (/api/models/NomeFuncionalidade,js)
 
    `sails generate api nome-funcionalidade`
 
 
-10) Para implementar comportamento na Nova Funcionalidade,
+2) Para implementar comportamento na Nova Funcionalidade,
 
 * localize o respectivo Controller criado e adicione os métodos necessários. Ex.:
 
@@ -153,7 +90,7 @@ Para executar um laço durante a renderização, fariamos:
 
 ### Para manipular dados de/para banco de dados
 
-12) Para acessar os dados em tabelas ou coleções de dados (noSQL) o Sails se utiliza da biblioteca
+3) Para acessar os dados em tabelas ou coleções de dados (noSQL) o Sails se utiliza da biblioteca
     Waterline (https://waterlinejs.org/).
     Como já visto anteriormente, o comando `sails generate api nome-controller` cria um arquivo controller e um arquivo
     model para ser utilizado como ORM de persistência.
@@ -172,7 +109,7 @@ Para executar um laço durante a renderização, fariamos:
 
 ### Obtendo parametros da requisição:
 
-13) Para capturar parametros de uma requisição HTTP
+4) Para capturar parametros de uma requisição HTTP
 
 Considerando a requisição abaixo:
 
@@ -216,10 +153,6 @@ const disciplina = req.body.disciplina // seria 18
 ### Exemplo completo RESTfull:
 
 <pre>
-
-
-
-
 /**
 
 * InfoController: 
@@ -299,7 +232,7 @@ module.exports = {
 
 ### Definindo o tipo e versão do banco de dados
 
-14) O Sails se utiliza de adaptadores javascript para conexao com diversos bancos de dados.
+5) O Sails se utiliza de adaptadores javascript para conexao com diversos bancos de dados.
     Inicialmente, por padrão, o Sails já está configurado para conexão com o adaptador SailsDisk.
     Atualmente os adaptadores que compoem a instalação padrão do Sails são:
 
@@ -364,7 +297,7 @@ e não se esqueça de criar também o PATH no arquivo routes.js.
 
 ### Links Adicionais
 
-+ [Documentação do Sails framework](https://sailsjs.com/get-starte*
++ [Documentação do Sails framework](https://sailsjs.com/get-starte*)
 + [Notas da Versão/Atualização](https://sailsjs.com/documentation/upgrading)
 + [Dicas para deploy](https://sailsjs.com/documentation/concepts/deployment)
 + [Opções de Support gratúito](https://sailsjs.com/support)
@@ -372,17 +305,11 @@ e não se esqueça de criar também o PATH no arquivo routes.js.
 
 ### Informações da versão (Inglês)
 
-This app was originally generated on Tue Jan 10 2023 15:35:58 GMT-0300 (Horário Padrão de Brasíli* using Sails v1.5.3.
+Este aplicativo foi originalmente gerado em 10 de janeiro de 2023 GMT-0300 (Horário Padrão de Brasília, usando Sails v1.5.3.)
 
-<!-- Internally, Sails used [`sails-generate@2.0.7`](https://github.com/balderdashy/sails-generate/tree/v2.0.7/lib/core-generators/new). -->
+Internamente, Sails usou  o ['sails-generate@2.0.7'](https://github.com/balderdashy/sails-generate/tree/v2.0.7/lib/core-generators/new).
 
-
-This project's boilerplate is based on an expanded seed app provided by the [Sails core team](https://sailsjs.com/about)
-to make it easier for you to build on top of ready-made features like authentication, enrollment, email verification,
-and billing. For more information, [drop us a line](https://sailsjs.com/support).
+O template deste projeto é baseado em um aplicativo de geração de código expandido fornecido pela [equipe principal do Sails](https://sailsjs.com/about) com o propósito de tornar mais fácil para você criar em cima de recursos prontos, como autenticação, registro, verificação de e-mail, e faturamento. Para mais informações, [faça contato conosco](https://sailsjs.com/support).
 
 
-<!--
-Note:  Generators are usually run using the globally-installed `sails` CLI (command-line interface).  This CLI version is _environment-specific_ rather than app-specific, thus over time, as a project's dependencies are upgraded or the project is worked on by different developers on different computers using different versions of Node.js, the Sails dependency in its package.json file may differ from the globally-installed Sails CLI release it was originally generated with.  (Be sure to always check out the relevant [upgrading guides](https://sailsjs.com/upgrading) before upgrading the version of Sails used by your app.  If you're stuck, [get help here](https://sailsjs.com/support).)
--->
-
+Observação: Os geradores de código são geralmente executados usando a CLI (interface de linha de comando) 'sails' instalada globalmente.  Esta versão da CLI é _environment-specific_ em vez de específica do aplicativo, portanto, ao longo do tempo, à medida que as dependências de um projeto são atualizadas ou o projeto é trabalhado por diferentes desenvolvedores em computadores diferentes usando versões diferentes do Node.js, a dependência do Sails em seu arquivo package.json pode diferir da versão da CLI do Sails instalada globalmente com a qual foi originalmente gerada.  
