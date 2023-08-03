@@ -1,0 +1,59 @@
+<div id="church-edit" v-cloak>
+
+<div class="display-3"><%=__(`Church Edit`)%></div>
+<hr>
+
+<ajax-form>
+
+  <label for="fullName"><%=__('Full Name')%></label>
+  <input type="text" class="form-control" id="fullName" name="fullName" v-model="formControl.fullName">
+
+  fullName: {
+    type: 'string',
+    description: 'The full name of Church',
+    required: true
+  },
+
+  shortName: {
+    type: 'string',
+    description: 'The short name or alias',
+    required: true
+  },
+
+  email: {
+    type: 'string',
+    description: 'The main email of Church',
+    example: 'ghospel@mychurch.org',
+    required: true
+  },
+
+  address: {
+    type: 'string',
+    description: 'Full address with street, number, zip, et.al.',
+    required: false
+  },
+
+  site: {
+    type: 'string',
+    example: 'http://www.mychurch.org',
+    description: 'The internet address of church',
+    required: false
+  },
+
+  phone: {
+    type: 'string',
+    description: 'The church`s phone number (or numbers)',
+    required: false
+  },
+
+  linktree: {
+    type: 'string',
+    description: 'The url / internet address to linktree server site',
+    required: false
+  },
+
+</ajax-form>
+  
+
+</div>
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>

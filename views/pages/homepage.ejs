@@ -1,8 +1,7 @@
 <div id="homepage" class="container" v-cloak>
 
-  <div class="display-3">
+  <div class="display-2 fw-bolder">
     <%= __(`homepage.title`) %>
-
   </div>
   <em>
     <%= __(`Welcome`) %>
@@ -15,25 +14,45 @@
   </p>
   <p>
   </p>
-  <h4>
+  <div class="display-5">
+    <strong>
+      <%= __(`homepage.what`) %>
+    </strong>:
+
+  </div>
+  <div class="display-6">
     <%= __(`homepage.whatIsIt`) %>
-  </h4>
-  <h4>
+
+  </div>
+  <div class="display-5">
+    <strong>
+      <%= __(`homepage.who`) %>
+    </strong>:
+  </div>
+  <div class="display-6">
     <%= __(`homepage.whoShouldUseIt`) %>
 
-  <h4>
+  </div>
+  <div class="display-5">
+    <strong>
+      <%= __(`homepage.how`) %>
+    </strong>:
+  </div>
 
-  <h4>
+  <div class="display-6">
     <a href="/faq">
       <%= __(`homepage.howToUseIt`) %>
     </a>
-  </h4>
-  <h4>
-    <a href="/login">      
+  </div>
+
+  <div class="display-5"><strong>Login/Entrar</strong></div>
+
+  <div class="display-6">
+
+    <a href="/login">
       <%= __('Click here to login')%>
     </a>
-  </h4>
-
+  </div>
 
 </div>
 <%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>

@@ -6,6 +6,9 @@ module.exports = {
 
   description: 'Display the dashboard "Welcome" page.',
 
+  inputs: {
+    id: {type: `string`, required: true}
+  },
 
   exits: {
 
@@ -17,9 +20,15 @@ module.exports = {
   },
 
 
-  fn: async function () {
+  fn: async function ({id}) {
 
-    return {};
+    let churchs = []
+    let temples = await Church.find({})
+    let userChurch = await UserChurch.find({userId: id})
+    if(userChurch.lenght > 0){
+      churchs = await Church.find({id: userChurch[0].churchId})     
+    }
+    return {churchs, temples}
 
   }
 

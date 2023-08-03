@@ -4,7 +4,8 @@ parasails.registerPage('welcome', {
   //  ╩╝╚╝╩ ╩ ╩╩ ╩╩═╝  ╚═╝ ╩ ╩ ╩ ╩ ╚═╝
   data: {
     modal: '',
-    pageLoadedAt: Date.now()
+    pageLoadedAt: Date.now(),
+    temples: []
   },
 
   //  ╦  ╦╔═╗╔═╗╔═╗╦ ╦╔═╗╦  ╔═╗
@@ -14,7 +15,8 @@ parasails.registerPage('welcome', {
     //…
   },
   mounted: async function() {
-    //…
+    _.extend(this, window.SAILS_LOCALS)
+    /* gets churchs array from view-welcome */   
   },
 
   //  ╦  ╦╦╦═╗╔╦╗╦ ╦╔═╗╦    ╔═╗╔═╗╔═╗╔═╗╔═╗
@@ -53,6 +55,10 @@ parasails.registerPage('welcome', {
       // ```
       // this.modal = '';
       // ```
+    },
+
+    goToCreateNewChurch: function () {
+      this.goto('/church-edit/new')
     },
 
   }

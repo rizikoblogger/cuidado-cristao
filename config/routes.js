@@ -14,7 +14,7 @@ module.exports.routes = {
   //  ║║║║╣ ╠╩╗╠═╝╠═╣║ ╦║╣ ╚═╗
   //  ╚╩╝╚═╝╚═╝╩  ╩ ╩╚═╝╚═╝╚═╝
   'GET /': { action: 'view-homepage-or-redirect' },
-  'GET /welcome/:unused?': { action: 'dashboard/view-welcome' },
+  'GET /welcome/:id': { action: 'dashboard/view-welcome' },
 
   'GET /faq': { action: 'view-faq' },
   'GET /legal/terms': { action: 'legal/view-terms' },
@@ -34,6 +34,7 @@ module.exports.routes = {
   'GET /account/profile': { action: 'account/view-edit-profile' },
   
   'GET /church/search': 'ChurchController.getAll',
+  'GET /church/church-edit/:id': { action: 'church/view-church-edit' },
 
 
   //  ╔╦╗╦╔═╗╔═╗  ╦═╗╔═╗╔╦╗╦╦═╗╔═╗╔═╗╔╦╗╔═╗   ┬   ╔╦╗╔═╗╦ ╦╔╗╔╦  ╔═╗╔═╗╔╦╗╔═╗
