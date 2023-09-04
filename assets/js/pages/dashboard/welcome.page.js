@@ -5,7 +5,9 @@ parasails.registerPage('welcome', {
   data: {
     modal: '',
     pageLoadedAt: Date.now(),
-    temples: []
+    temples: [],
+    churchSelecionadaId: '',
+    showChurchList: false
   },
 
   //  ╦  ╦╔═╗╔═╗╔═╗╦ ╦╔═╗╦  ╔═╗
@@ -16,7 +18,7 @@ parasails.registerPage('welcome', {
   },
   mounted: async function() {
     _.extend(this, window.SAILS_LOCALS)
-    /* gets churchs array from view-welcome */   
+    /* gets churchs array from view-welcome */
   },
 
   //  ╦  ╦╦╦═╗╔╦╗╦ ╦╔═╗╦    ╔═╗╔═╗╔═╗╔═╗╔═╗
@@ -57,9 +59,19 @@ parasails.registerPage('welcome', {
       // ```
     },
 
+    toogleChurchList: function () {
+      this.showChurchList = !this.showChurchList
+    },
+
     goToCreateNewChurch: function () {
       this.goto('/church-edit/new')
     },
+
+    selecionar: async function () {
+      let result = await Cloud.associarIgreja.with({userId: this.me.id, churchId: this.churchSelecionadaId })
+      alert(result)
+      window.location.reload()
+    }
 
   }
 });

@@ -303,10 +303,13 @@
 			"rotateLeft": "Girar à Esquerda"
 		}
 	},
-	"Need help": "Need help",
-	"Your are not member of any Church yet": "Your are not member of any Church yet",
-	"Joint to a Church": "Joint to a Church",
-	"Join to a Church": "Join to a Church",
-	"Create": "Create",
-	"New": "New"
+	"Need help": "Precisa de ajuda",
+	"Your are not member of any Church yet": "Ainda não é membro de nenhuma Igreja",
+	"Joint to a Church": "Junte-se a uma Igreja",
+	"Join to a Church": "Junte-se a uma Igreja",
+	"Create": "Criar",
+	"New": "Novo",
+	"Select": "Selecionar",
+	"Church": "Igreja",
+	"Joined to a Church": "Já se juntou a Igreja"
 }

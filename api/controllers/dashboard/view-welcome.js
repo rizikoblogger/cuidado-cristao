@@ -25,8 +25,8 @@ module.exports = {
     let churchs = []
     let temples = await Church.find({})
     let userChurch = await UserChurch.find({userId: id})
-    if(userChurch.lenght > 0){
-      churchs = await Church.find({id: userChurch[0].churchId})     
+    if(userChurch.length > 0){
+      churchs = await Church.find({id: userChurch[0].churchId})
     }
     return {churchs, temples}
 

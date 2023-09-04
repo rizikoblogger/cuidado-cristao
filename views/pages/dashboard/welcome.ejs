@@ -3,48 +3,51 @@
   <div class="container pt-5 pb-5">
     <h1><%=__('Welcome')%> <%=me.fullName%> !</h1>
     <hr/>
-    <p>    
+    <p>
     </p>
     <div class="buttons">
-      <a class="btn btn-info" href="/account/profile"><%=__('Update my email')%></a>            
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><%=__('Joint to a Church')%></button>
+      <a class="btn btn-info" href="/account/profile"><%=__('Update my email')%></a>
+      <button type="button" class="btn btn-primary" @click="toogleChurchList()"><%=__('Joint to a Church')%></button>
     </div>
 
+
+    <div class="display-5 mt-2"><%=__('Joined to a Church')%></div>
     <div class="mt-2" v-if="churchs.length < 1">
       <span class="text-warning"><%=__('Your are not member of any Church yet')%>!</span>
     </div>
-    
-    <ul class="list-group mt-3">      
-      <li class="list-group-item" v-for="church in churchs">{{church.shortName}}</li>
+
+    <ul class="list-group mt-3">
+      <li class="list-group-item" v-for="church in churchs">{{church.tipo}}: {{church.fullName}}</li>
     </ul>
   </div>
 
   <router-view></router-view>
+
+    <div v-if="showChurchList">
+
+        <div class="card">
+            <div class="card-header"><%=__('Church')%> <%=__('Select')%></div>
+            <div class="card-body">
+                <select name="church" id="church" class="form-select"  v-model="churchSelecionadaId">
+                    <% temples.forEach(temple=> { %>
+                    <option value="<%=temple.id%>" label="<%=temple.fullName%>"></option>
+                    <%})%>
+                </select>
+            </div>
+            <div class="card-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @click="selecionar()" ><%=__('Select')%></button>
+                <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal" @click="goToCreateNewChurch()" ><%=__('Create')%> <%=__('New')%></button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><%=__('Close')%></button>
+            </div>
+        </div>
+
+
+    </div>
 
   </div>
 
   <!--modal choose one church -->
   <!-- Button trigger modal -->
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"><%=__('Join to a Church')%></h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <ul class="list-group">
-          <li class="list-group-item" v-for="temple in temples" >{{temple.shortName}}</li>
-        </ul>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @click="goToCreateNewChurch()" ><%=__('Create')%> <%=__('New')%></button>        
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><%=__('Close')%></button>        
-      </div>
-    </div>
-  </div>
-</div>
 
   <%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>
