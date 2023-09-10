@@ -1,19 +1,40 @@
 # cuidado-cristao
 
-um Projeto [Sails v1](https://sailsjs.com)
+um Protótipo [Sails v1](https://sailsjs.com)
 
-## Criando meu primeiro projeto Sails
+## Sobre o Protótipo
+
+### O que é?
+
+É um software para ajudar as comunidades cristãs a gerenciar seus membros e a se integrarem.
+
+### Quem pode utilizá-lo?
+
+Qualquer igreja com dois ou mais membros
+
+### Como posso colaborar com o Protótipo?
+
+* Se você é um desenvolvedor de software, pode integrar a nossa equipe;
+* Se você é um especialista em Node.js, pode recomendar configurações de segurança e desempenho;
+* Se você é um especialista em Design (UIX) pode colaborar com o visual;
+* Se você é um apaixonado por computadores pode integrar nossa equipe de teste;
+
+* Mas principalmente, se você é um Crente, **pode cobrir todas as equipes com suas orações**!
+
+## Desenvolvedores...
 
 ### Este tutorial considera que você já possui conhecimento mínimo nas seguintes tecnologias:
 
-* Javascript ES6; 
-* Sails.js e
-* MongoDB 3+.
+* [Javascript ES6](https://www.w3schools.com/js/) ; 
+* [Sails.js](https://sailsjs.com) e
+* [MongoDB 3+](https://www.w3schools.com/mongodb/).
 
 ### Consideramos ainda que você já instalou o Node.js na sua estação de trabalho e possui conhecimento mínimo quanto aos seguintes comandos de console:
 
 * npm; e
 * node;
+
+## Criando meu primeiro Protótipo Sails
 
 ### Criando novas funcionalidades:
 
@@ -24,7 +45,7 @@ um Projeto [Sails v1](https://sailsjs.com)
    `sails generate api nome-funcionalidade`
 
 
-2) Para implementar comportamento na Nova Funcionalidade,
+2) Para implementar comportamento (também chamado _actions_) na Nova Funcionalidade,
 
 * localize o respectivo Controller criado e adicione os métodos necessários. Ex.:
 
@@ -61,9 +82,19 @@ Observe que as respostas (response) atribuídas a variável res (passada como pa
 * res.redirect('/addr') para informar ao requisitante que a requisição deve ser redirecionada para outro endereço
   informado (addr); ou
 * res.view('', {}) para renderizar uma arquivo .ejs e enviá-lo como resposta. O arquivo deve estar abaixo do diretório
-  /view do Projeto e {} corresponde a um objeto a ser passado como parametro.
+  /views do Protótipo e {} corresponde a um objeto a ser passado como parametro.
   Ex.: `res.view('pages/faq',{param: 'teste'})`
 * Para visualizar os dados passados como parametro para a View renderizada com EJS (https://ejs.co/) faça o seguinte:
+
+a) Localize o arquivo /views/pages/faq.ejs;
+
+b) Abra o arquivo para edição;
+
+c) Adicione a linha ```Monstrando a palavra <%=param%> aqui.```; e
+
+d) Reinicialize seu Protótipo. Se tudo estiver certo, a palavra 'teste  ' aparecerá na página FAQ do endereço (http://localhost:1337/faq).
+
+Exemplos:
 
 <pre>
 &lt;!DOCTYPE html&gt;
@@ -94,16 +125,16 @@ Para executar um laço durante a renderização, fariamos:
     Waterline (https://waterlinejs.org/).
     Como já visto anteriormente, o comando `sails generate api nome-controller` cria um arquivo controller e um arquivo
     model para ser utilizado como ORM de persistência.
-    Este arquivo define um Objeto Persistente que estará acessível para todos os componentes do Projeto.
+    Este arquivo define um Objeto Persistente que estará acessível para todos os componentes do Protótipo.
     Uma "Classe" Waterline possui atributos que podem ser manipulados e persistidos. Para saber como definir estes
     atributos no Sails.js consulte: https://sailsjs.com/docs/concepts/models-and-orm/models.
     Os métodos de manipulação mais comuns são:
 
-* await NomeObjeto.find({}).then(result=>console.log(result)) - lista de todos os objetos
-* await NomeObjeto.create({JSON contendo os dados}) - adicione um novo registro ao banco de dados
-* await NomeObjeto.destroyOne({id: _id}) - remove um registro cujo atributo id corresponda ao parametro _id
-* await NomeObjeto.find({id: 3}).then(result=>console.log(result)) - lista objetos cujop parametro id corresponda a 3
-* await NomeObjeto.count({atributo: _criterio}) - conta o total de registros que correspondem ao criterio passado
+* NomeObjeto.find({}).**then**(result=>console.log(result)) - lista de todos os objetos
+* **await** NomeObjeto.create({JSON contendo os dados}) - adicione um novo registro ao banco de dados
+* **await** NomeObjeto.destroyOne({id: _id}) - remove um registro cujo atributo id corresponda ao parametro _id
+* NomeObjeto.find({id: 3}).**then**(result=>console.log(result)) - lista objetos cujo parametro id corresponda a 3
+* **await** NomeObjeto.count({atributo: _criterio}) - conta o total de registros que correspondem ao criterio passado
   como parametro.
 
 
@@ -130,7 +161,7 @@ definida em uma rota no arquivo `config/routes.js` como:
 'POST  /api/v1/aluno/:id': 'AlunoController.save',
 </pre>
 
-e uma função-método:
+e uma função-action:
 
 <pre>
 module.exports = {
@@ -166,7 +197,7 @@ module.exports = {
 
   get: async function (req, res) {
     const id = req.params['id'];
-    await Info.find({id: id})
+    Info.find({id: id})
       .then(
         info => {
           res.json(info);
@@ -178,7 +209,7 @@ module.exports = {
   },
 
   getOne: async function (req, res) {
-    await Info.find({})
+    Info.find({})
       .then(
         info => {
           if (info.length > 0) {
@@ -199,7 +230,7 @@ module.exports = {
       const page = req.query.page | 0;
       const size = req.query.size | 0;
 
-      await Info
+      Info
         .find()
         .skip(page*size)
         .limit(size)
@@ -218,7 +249,7 @@ module.exports = {
   },
 
   post: async function (req, res) {
-    await Info.create(req.body).then(
+    Info.create(req.body).then(
       info => res.json(info)
     ).catch(err => console.log(err));
   },
@@ -246,7 +277,7 @@ Existe uma série de outros adaptadores não nativos, como por exemplo OracleDB
 
 Para conectar a um banco MongoDB, por exemplo, é preciso:
 
-i) instalar o pacote sails-mongo (o mongodb já foi instalado anteriormente);
+i) instalar o pacote sails-mongo e o mongodb;
 ii) adicionar ao arquivo /config/datastores.js as seguintes linhas:
 
 <pre>
@@ -285,7 +316,7 @@ migrate: 'alter',
 
 </pre>
 
-### Pronto, O Projeto está funcionando!
+### Pronto, O Protótipo está funcionando!
 
 Para criar novos Endpoints isolados, ou seja, sem associação direta com um Modelo do Banco de Dados, utilize o comando:
 `
@@ -297,6 +328,7 @@ e não se esqueça de criar também o PATH no arquivo routes.js.
 
 ### Links Adicionais
 
++ [Sails.js Tech](https://www.sailsjs.tec.br)
 + [Documentação do Sails framework](https://sailsjs.com/get-starte*)
 + [Notas da Versão/Atualização](https://sailsjs.com/documentation/upgrading)
 + [Dicas para deploy](https://sailsjs.com/documentation/concepts/deployment)
@@ -309,7 +341,7 @@ Este aplicativo foi originalmente gerado em 10 de janeiro de 2023 GMT-0300 (Hor�
 
 Internamente, Sails usou  o ['sails-generate@2.0.7'](https://github.com/balderdashy/sails-generate/tree/v2.0.7/lib/core-generators/new).
 
-O template deste projeto é baseado em um aplicativo de geração de código expandido fornecido pela [equipe principal do Sails](https://sailsjs.com/about) com o propósito de tornar mais fácil para você criar em cima de recursos prontos, como autenticação, registro, verificação de e-mail, e faturamento. Para mais informações, [faça contato conosco](https://sailsjs.com/support).
+O template deste Protótipo é baseado em um aplicativo de geração de código expandido fornecido pela [equipe principal do Sails](https://sailsjs.com/about) com o propósito de tornar mais fácil para você criar em cima de recursos prontos, como autenticação, registro, verificação de e-mail, e faturamento. Para mais informações, [faça contato conosco](https://sailsjs.com/support).
 
 
-Observação: Os geradores de código são geralmente executados usando a CLI (interface de linha de comando) 'sails' instalada globalmente.  Esta versão da CLI é _environment-specific_ em vez de específica do aplicativo, portanto, ao longo do tempo, à medida que as dependências de um projeto são atualizadas ou o projeto é trabalhado por diferentes desenvolvedores em computadores diferentes usando versões diferentes do Node.js, a dependência do Sails em seu arquivo package.json pode diferir da versão da CLI do Sails instalada globalmente com a qual foi originalmente gerada.  
+Observação: Os geradores de código são geralmente executados usando a CLI (interface de linha de comando) 'sails' instalada globalmente.  Esta versão da CLI é _environment-specific_ em vez de específica do aplicativo, portanto, ao longo do tempo, à medida que as dependências de um Protótipo são atualizadas ou o Protótipo é trabalhado por diferentes desenvolvedores em computadores diferentes usando versões diferentes do Node.js, a dependência do Sails em seu arquivo package.json pode diferir da versão da CLI do Sails instalada globalmente com a qual foi originalmente gerada.  
