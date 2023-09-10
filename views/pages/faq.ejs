@@ -1,153 +1,385 @@
 <div id="faq">
-  <!-- It was not translated by Sails.js Tec intentionally -->
-  <div class="container pt-5 pb-5">
-    <h1>FAQ</h1>
-    <p><small><em class="text-info"><%=__('It was not translated by Sails.js Tec intentionally')%></em></small></p>
-    <div>
-      <hr class="mt-4 mb-4"/>
-      <h4>What is this page for?</h4>
-      <p>This is a template for building your own "Frequently Asked Questions" page.  It was generated automatically as part of the expanded seed app provided by <a href="https://sailsjs.com/about">Sails</a>.  On top of its primary purpose as a template, this page doubles as a handy guide about the seed app itself.</p>
-      <p><small>Before you deploy this app to production, be sure to replace the content on this page with real questions and answers that are relevant to your project.  Or if you don't need an FAQ, just delete this file altogether.</small></p>
+    <div class="container pt-5 pb-5">
+        <h1>Perguntas Frequentes</h1>
+        <div>
+            <hr class="mt-4 mb-4"/>
+            <h4>Para que serve esta página?</h4>
+            <p>Este é um modelo para criar sua própria página de "Perguntas Frequentes". Ele foi gerado convertido
+                para
+                a língua portuguesa a partir da versão gerada como parte do gerador de códigos <a
+                        href="https://sailsjs.com/about">Sails</a>.
+                Além de cumprir seu objetivo principal como um modelo, esta página funciona como um guia prático
+                sobre o
+                próprio gerador de códigos do Sails.</p>
+            <p><small>
+                    Antes de implantar este aplicativo em produção, certifique-se de substituir o conteúdo desta página
+                    por
+                    perguntas e respostas reais que são relevantes para o seu projeto. Ou se você não precisa de um FAQ,
+                    basta excluir este arquivo completamente.
+                </small></p>
+        </div>
+        <div>
+            <hr class="mt-4 mb-4"/>
+            <h4>Além do Sails, de quais tecnologias, estruturas ou serviços esse aplicativo depende?</h4>
+            <p>
+                Este aplicativo inclui várias ferramentas e integrações que usamos frequentemente no topo do Sails.
+                Eles
+                funcionaram bem para nós no passado; permitindo que nos concentremos no desenvolvimento de novos
+                recursos com o mínimo de sobrecarga.
+                Alguns são arquivos que nós mesmos desenvolvemos, e o resto são serviços e estruturas de terceiros
+                (3rd).
+                Embora alguns deles exijam que você crie uma conta (ou obtenha uma chave de API, etc.), queremos
+                enfatizar que incluímos apenas ferramentas confiáveis que nos sentimos confortáveis em usar em
+                nossos
+                próprios projetos e nos projetos de nossos clientes.
+            </p>
+            <ul class="pl-3 pl-sm-5">
+                <li><a target="_blank"
+                       href="http://getbootstrap.com/docs/4.0/getting-started/introduction/"><strong>Bootstrap
+                            4</strong></a> - Biblioteca de Componentes para Front-end
+                </li>
+                <li><a target="_blank" href="http://fontawesome.io/icons/"><strong>Font Awesome 4</strong></a> -
+                    Ícones
+                </li>
+                <li><a target="_blank" href="https://vuejs.org/"><strong>Vue.js</strong></a> - Ferramenta para
+                    desenvolvimento de Front-end
+                </li>
+                <li><a target="_blank" href="https://npmjs.com/package/parasails"><strong>parasails.js</strong></a>
+                    -
+                    Camada fina de convenções agrupadas para uso do Vue.js (Vue2) com o Sails.js e SDK gerado
+                    dinamicamente para lidar com solicitações AJAX e/ou WebSocket do front-end para as ações em seu
+                    aplicativo Sails (Veja mais informações sobre o uso abaixo).
+                </li>
+                <li><a target="_blank" href="https://www.sendgrid.com/"><strong>Sendgrid</strong></a>* - API para
+                    envio
+                    de Emails
+                </li>
+                <li><a target="_blank" href="https://stripe.com/docs"><strong>Stripe</strong></a>* - API para gestão
+                    de
+                    Pagamentos
+                </li>
+            </ul>
+            <p><small>* requer uma chave de API</small></p>
+        </div>
+        <div>
+            <hr class="mt-4 mb-4"/>
+            <h4>Por que vejo espaços reservados como "NEW_APP_NAME" em todos os lugares? Qual é a melhor maneira de
+                personalizá-los?</h4>
+            <p>Como os projetos geralmente são gerados antes que os nomes de produtos e/ou empresas sejam
+                finalizados,
+                achamos que fazia mais sentido usar espaços reservados facilmente localizáveis e substituíveis do
+                que
+                solicitar um nome de aplicativo ou empresa no início. (É muito mais fácil encontrar/substituir
+                "NEW_APP_NAME" sem conflitos do que encontrar/substituir uma palavra mais comumente usada.)</p>
+            <p>Quando você tiver seu produto, nome da empresa e marca finalizados, aqui estão os espaços reservados
+                que
+                você deverá trocar:</p>
+            <ul class="pl-3 pl-sm-5">
+                <li><strong purpose="placeholder">NEW_APP_NAME</strong> - O Nome do seu produto de software.</li>
+                <li><strong purpose="placeholder">NEW_APP_COMPANY_NAME</strong> - Esse espaço reservado é usado para
+                    o
+                    nome da entidade nos termos legais e na política de privacidade e pode ser substituído pelo nome
+                    da
+                    empresa por trás do seu aplicativo.
+                </li>
+                <li><strong purpose="placeholder">DATE_PRIVACY_POLICY_LAST_UPDATED</strong> - Substitua isso pela
+                    data
+                    em que sua Política de Privacidade foi atualizada (portanto, se você estiver trocando o nome da
+                    empresa, a data é hoje).
+                </li>
+                <li><strong purpose="placeholder">DATE_TERMS_OF_SERVICE_LAST_UPDATED</strong> - Substitua isso pela
+                    data
+                    em que seus Termos de Serviço foram atualizados (portanto, se você estiver trocando o nome da
+                    empresa, a data é hoje).
+                </li>
+                <li><strong purpose="placeholder">NEW_APP_COMPANY_ABOUT_HREF</strong> - Este é o link na seção de
+                    direitos autorais do rodapé. Você provavelmente vai querer trocá-lo por um link para a página
+                    sobre
+                    a sua empresa ou site de marketing.
+                </li>
+                <li>Espaço reservado para o Logotipo - Para usar sua marca personalizada, você pode simplesmente
+                    substituir o arquivo de imagem em <code>assets/images/logo.png</code> por uma imagem
+                    personalizada
+                    de mesmo nome, ou alterar a imagem <code>src</code> no cabeçalho em
+                    <code>views/layouts/layout.ejs</code>.
+                </li>
+            </ul>
+            <blockquote><small>Apenas um alerta: os dois parágrafos anteriores farão muito menos sentido depois que
+                    você
+                    tiver feito uma localização/substituição em cada uma dessas palavras de espaço reservado.</small>
+            </blockquote>
+        </div>
+        <div>
+            <hr class="mt-4 mb-4"/>
+            <h4>Como configuro um novo método para ser usado com o cloud.js?</h4>
+            <p>
+                Depois de criar uma ação de controlador (controllers/*.js) com um dos comandos <code>sails generate
+                    page
+                    -nome-da-pagina-</code> ou <code>sails generate action</code> e adicioná-la às suas rotas
+                (routes.js)
+                (consulte os documentos <a target="_blank" href="https://sailsjs.com/documentation/concepts/routes">Sails.js
+                    para obter mais informações sobre como fazer isso), há apenas algumas etapas simples para
+                    adicioná-la</a> ao seu SDK <code>Cloud</code> global:
+            </p>
+            <ul class="pl-3 pl-sm-5">
+                <li>Reconstrua o SDK personalizado deste aplicativo usando o comando <code>sails run
+                        scripts/rebuild-cloud-sdk</code>. (Isso regenerará automaticamente as definições de método em
+                    seu
+                    arquivo <code>assets/js/cloud.setup.js</code> com base em suas rotas configuradas.)
+                </li>
+                <li>Você pode então chamar quaisquer novas ações relevantes como "métodos de nuvem" em seu código de
+                    frontend (dentro de um arquivo *.js) assim: <code>await Cloud.doSomething.with({...})</code>
+                </li>
+                <li>Desta forma o Cloud.js irá buscar no arquivo cloud.setup.js pela rota doSomething a criará uma
+                    requisição HTTP passando o conteúdo do método with() como parâmetros de query.
+                </li>
+            </ul>
+        </div>
+        <div>
+            <hr class="mt-4 mb-4"/>
+            <h4>Como faço para registrar uma nova página com parasails.js?</h4>
+            <p>Para gerar arquivos para uma nova página (por exemplo, "hotels-overview"), execute:</p>
+            <p><code>sails generate page hotels-overview</code></p>
+            <p>Em seguida, você pode adicionar uma rota para a nova ação de exibição (view) para torná-la acessível
+                a
+                partir do navegador. Por exemplo:</p>
+            <p><code>'GET /hotels': { action: 'view-hotels-overview' }</code></p>
+            <p>Para registrar uma nova página sem o gerador, verifique se o elemento de nível superior da exibição
+                que
+                você deseja registrar tem uma propriedade <code>id</code> (por exemplo, <code>&lt;div
+                    id="my-new-page"&gt;...
+                    &lt;/div&gt;</code>). Em seguida, crie um novo arquivo JavaScript e inclua <code>parasails.registerPage('my-new-page',
+                    { /* options for the Vue.js instance */ }).</code> Para obter exemplos mais completos, pesquise
+                em
+                <code>assets/js/pages/</code>.</small></p>
+        </div>
+        <div>
+            <hr class="mt-4 mb-4"/>
+            <h4>O que acontecerá com todos os estilos (css styles) em linha?</h4>
+            <p>
+                Como este aplicativo, inicialmente, usa a biblioteca css Bootstrap, queríamos deixar um pouco mais
+                claro
+                onde nossos estilos personalizados terminam e os estilos do Bootstrap começam.
+                Sempre que possível, você verá <code>style="..."</code> no HTML. Se, por algum motivo, uma tag de
+                estilo
+                não funcionar (por exemplo, para consultas de mídia), você verá purpose=<code>"..."</code> no HTML e
+                <code>[purpose='...']</code>
+                no arquivo .less – adotamos essa abordagem, em vez de usar nomes de classe personalizados, para
+                ajudar a
+                evitar confusão sobre quais classes vêm do Bootstrap e quais nós mesmos adicionamos.
+            </p>
+            <p>Outro motivo: copiar/colar! Com os estilos embutidos, é muito mais fácil copiar HTML de uma página
+                sem a
+                necessidade de também duplicar estilos dos arquivos .less correspondentes.</p>
+        </div>
+        <div>
+            <hr class="mt-4 mb-4"/>
+            <h4>Como implantar na Heroku?</h4>
+            <p>No painel <a target="_blank" href="https://dashboard.heroku.com">Heroku</a>, configure seu aplicativo
+                para implantação automática a partir da ramificação (branch) de <code>deploy</code> do repositório
+                GitHub deste projeto. Em seguida, a partir da linha de comando, execute <code>sails run
+                    deploy</code>.
+            </p>
+            <p>Para obter mais dicas de deploy, <a href="https://sailsjs.com/documentation/concepts/deployment">consulte
+                    este link</a>.</p>
+            <p><strong>Nota para usuários Windows:</strong>o script associado ao comando deploy registrado no
+                arquivo
+                <code>package.json</code> foi escrito pelos desenvolvedores do Sails para uso no Linux, portanto,
+                antes
+                de executá-lo, altere-o.</p>
+        </div>
+        <div>
+            <hr class="mt-4 mb-4"/>
+            <h4>Tenho mesmo que hospedar na Heroku?</h4>
+            <p>De maneira nenhuma! Você pode implantar seu aplicativo <a target="_blank"
+                                                                         href="https://sailsjs.com/documentation/concepts/deployment/hosting">em
+                    qualquer lugar que ofereça suporte a Node.js</a>.</p>
+        </div>
+        <div>
+            <hr class="mt-4 mb-4"/>
+            <h4>Como faço para verificar os endereços de e-mail do meu usuário?</h4>
+            <p>Por padrão, a verificação de e-mail não é necessária para se inscrever, nem para quando um usuário
+                existente altera seu endereço de e-mail na página da conta. Para habilitar uma etapa de verificação
+                de
+                e-mail para ambas as ações, abra <code>config/custom.js</code> e altere verifyEmailAddresses: false
+                para
+                <code>verifyEmailAddresses: true</code></p>
+        </div>
+        <div>
+            <hr class="mt-4 mb-4"/>
+            <h4>Como termino de configurar o Sendgrid?</h4>
+            <p>Para usar o Sendgrid, você precisará <a target="_blank" href="https://www.sendgrid.com/">se inscrever
+                    em
+                    uma conta</a>. (Embora este <em>seja</em> um serviço pago em níveis de uso mais altos, você deve ser
+                capaz de usar o Sendgrid no desenvolvimento sem ter que fornecer nenhuma informação de cartão de
+                crédito.)</p>
+            <p>Depois de criar uma conta, você precisará adicionar a Chave Secreta da API do Sendgrid à configuração
+                personalizada. (No desenvolvimento, isso será em config/<code>custom</code>.js ou em um arquivo
+                <code>local.js</code>
+                que você adicionar à sua pasta <code>config/</code>.
+                Para sua implantação de preparo ou produção, convém defini-las usando variáveis de ambiente do
+                sistema
+                -- também conhecidas como "variáveis de configuração" na Heroku.)</p>
+            <p>Se você já possui um domínio para seu aplicativo, pode seguir as instruções do próprio Sendgrid para
+                configurar um domínio de envio.</p>
+            <p>Caso contrário, para enviar e-mails deste aplicativo <em>sem</em> configurar um domínio de envio,
+                você
+                pode <a target="_blank" href="https://app.sendgrid.com/settings/sender_auth">verificar um único
+                    remetente</a>. Apenas certifique-se de definir <code>sails.config.custom.fromEmailAddress</code>
+                para usar o e-mail verificado, ou haverá erros dos <em>endpoints</em> de API que tentam enviar
+                e-mails.
+            </p>
+        </div>
+        <div>
+            <hr class="mt-4 mb-4"/>
+            <h4>Como termino de configurar o Stripe?</h4>
+            <p>Para usar o Stripe para o processamento de pagamentos do seu aplicativo, você precisará <a
+                        target="_blank" href="https://stripe.com">se inscrever em uma conta</a>.</p>
+            <p>Depois de ter uma conta, você precisará incluir suas chaves públicas e privadas na configuração
+                personalizada do seu aplicativo como sails.config.custom.stripePublishableKey e <code>sails.config.custom.stripeSecret.</code><code></code>
+                No desenvolvimento, você pode adicionar suas chaves de teste ao config/custom.js ou em um arquivo
+                <code>local.js</code>
+                que você adiciona à sua pasta <code>config/</code>.<code></code></p>
+            <p>
+                Em sua implantação de homologação ou produção, você desejará definir suas chaves de API usando
+                variáveis
+                de ambiente do sistema (também conhecidas como "variáveis de configuração" na Heroku) e precisará
+                garantir que seu site atenda aos requisitos HTTPS do Stripe para que o Stripe Checkout funcione.
+                Para obter mais informações, consulte Guia de checkout detalhado <a target="_blank"
+                                                                                    href="https://stripe.com/docs/checkout">Detailed
+                    Checkout</a>.
+            </p>
+        </div>
+        <div>
+            <hr class="mt-4 mb-4"/>
+            <h4>Como faço para desabilitar ___________?</h4>
+            <p class="pt-4 text-muted"><strong><em>Para desativar a estrutura do Bootstrap:</em></strong></p>
+            <ul class="pl-3 pl-sm-5">
+                <li>Excluir os arquivos da pasta/<code>depencies/bootstrap/</code></li>
+                <li>No arquivo <code>tasks/pipeline.js</code>, apague <code>'dependencies/bootstrap/dependencies/**/*.js',</code>
+                    da seção
+                    <code>jsFilesToInject</code></li>
+            </ul>
+            <p class="pt-4 text-muted"><strong><em>Para desativar o FontAwesome:</em></strong></p>
+            <ul class="pl-3 pl-sm-5">
+                <li>Exclua a pasta em <code>assets/dependencies/font-awesome-4/</code>.
+                    (Você provavelmente também vai querer pesquisar no projeto por "fa fa-" para verificar se há
+                    ícones
+                    remanescentes no HTML.)
+                </li>
+            </ul>
+            <p class="pt-4 text-muted"><strong><em>Para trocar o Sendgrid:</em></strong></p>
+            <p>Escolhemos o Sendgrid por causa de seu nível gratuito muito generoso (você pode enviar até 100
+                e-mails
+                por dia). Além disso, ele se integra facilmente, já existe há algum tempo (por isso é estável e faz
+                um
+                bom trabalho evitando filtros de spam) e é usado internamente em empresas como Slack e Medium.</p>
+            <p>Está pronto para uso, mas se o Sendgrid não estiver configurado para este aplicativo, o formulário de
+                contato e o fluxo de recuperação de senha falharão completamente, a menos que um endereço de e-mail
+                terminado em "@example.com" seja usado. Felizmente, se você deseja usar este recurso,
+                como <a target="_blank" href="https://stackshare.io/twilio-sendgrid">uma solução diferente para
+                    enviar
+                    e-mails automatizados o Twilio</a>.
+                Para alternar para um serviço diferente do Sendgrid, você precisará fazer as seguintes alterações no
+                código:</p>
+            <ul class="pl-3 pl-sm-5">
+                <li>Modifique o código em <code>api/helpers/send-template-email.js</code> para usar o serviço de
+                    e-mail
+                    de sua escolha.
+                </li>
+                <li>Em <code>api/hooks/custom/index.js</code>, remova os avisos relacionados ao Sendgrid.</li>
+            </ul>
+            <p class="pt-4 text-muted"><strong><em>Para remover ou substituir a integração do Stripe:</em></strong>
+            </p>
+            <p>Escolhemos o Stripe porque é o processador de pagamentos mais fácil de integrar do mercado.
+                Suas taxas são aproximadamente as mesmas <a target="_blank"
+                                                            href="https://stackshare.io/stripe/alternatives"> que
+                    seus
+                    concorrentes</a>,
+                mas mesmo que esse não fosse o caso, o foco da Stripe na felicidade do desenvolvedor provavelmente
+                compensaria.
+                O Stripe processa pagamentos, descontos e muito mais para <a target="_blank"
+                                                                             href="https://stripe.com/us/customers">centenas
+                    de milhares de empresas</a> em todo o mundo.</p>
+            <p>
+                Por padrão, os recursos relacionados ao faturamento são desabilitados automaticamente se você não
+                tiver
+                uma chave publica do Stripe e uma chave privada em sua configuração personalizada
+                (sails.config.custom.stripePublishableKey e <code>sails.config.custom.stripeSecret</code>,
+                respectivamente).<code></code> Seu aplicativo não será afetado negativamente ou aparecerá quebrado;
+                ele
+                simplesmente terá algum código estranho em lugares.
+
+            </p>
+            <ul class="pl-3 pl-sm-5">
+                Se você não prevê a integração de recursos de faturamento em seu aplicativo e deseja remover esse
+                código
+                completamente, você pode fazer
+                as seguintes alterações:
+                <li>In the <code>User</code> model definition at <code>api/models/User.js</code>, remove the <code>stripeCustomerId</code>,
+                    <code>billingCardBrand</code>, <code>billingCardLast4</code>, <code>billingCardExpMonth</code>,
+                    and
+                    <code>billingCardExpYear</code> attribute definitions.
+                </li>
+                <li>Na ação "signup" em <code>api/controllers/entrance/signup.js</code>:
+                    <ul class="pl-3 pl-sm-5">
+                        <li>Remova a linha na parte superior que requer a dependência de Stripe</li>
+                        <li>Remova o bloco de código que cria um cliente Stripe. (Se você tiver problemas para
+                            encontrar
+                            onde isso acontece, leia os comentários).
+                        </li>
+                        <li>Na chamada para <code>User.create()</code>, remova a propriedade
+                            <code>stripeCustomerId</code>.
+                        </li>
+                    </ul>
+                </li>
+                <li>Na ação "confirmar e-mail" em <code>api/controllers/entrance/confirm-email.js</code>:
+                    <ul class="pl-3 pl-sm-5">
+                        <li>Remova a linha na parte superior que requer a dependência Stripe.</li>
+                        <li>Remova o bloco de código que lida com a criação/atualização de um cliente Stripe. (Se
+                            você
+                            tiver problemas para encontrar onde isso acontece, leia os comentários.)
+                        </li>
+                    </ul>
+                </li>
+                <li>Remova o <em>endpoint</em> do cartão de cobrança de atualização e todas as referências a ele
+                    fazendo
+                    o seguinte:
+                    <ul class="pl-3 pl-sm-5">
+                        <li>Exclua o arquivo em <code>api/controllers/account/update-billing-card.js</code>.</li>
+                        <li>Em <code>config/routes.js</code>, exclua a configuração de rota para <code>'PUT
+                                /api/v1/account/update-billing-card'</code>.
+                        </li>
+                        <li>Em <code>assets/js/cloud.setup.js</code>, exclua o método <code>updateBillingCard</code>.
+                        </li>
+                        <li> Em <code>assets/js/pages/account/account-overview.page.js</code>, remova o método
+                            <code>clickStripeCheckoutButton</code>
+                        </li>
+                        <li>
+                            Em views/pages/account<code>/account-overview.ejs</code>, remova o HTML relacionado a
+                            faturamento.
+                        </li>
+                    </ul>
+                </li>
+                <li>Em <code>api/hooks/custom/index.js</code>, remova os avisos relacionados ao Stripe.</li>
+                <li>Em <code>api/hooks/custom/index.js, remova sails.config.custom.enableBillingFeatures</code>
+                    <code>=
+                        !isMissingStripeConfig;</code>.
+                </li>
+            </ul>
+        </div>
+        <div>
+            <hr class="mt-4 mb-4"/>
+            <h4>Onde posso pedir mais ajuda?</h4>
+            <p>Se você tiver problemas, você poderá encontrar a resposta na documentação do <a target="_blank"
+                                                                                               href="http://sailsjs.com/documentation">Sails.js
+                </a>. Se você não tem certeza sobre como proceder, ou está completamente perplexo, não deixe de conferir
+                o endereço <a target="_blank" href="http://sailsjs.com/support">últimos recursos disponíveis</a>.
+            </p>
+            <p><strong>Nota para nativos da língua portuguesa:</strong><em>A RIZ | iko Softwarehouse pode ser seu
+                    facilitador neste processo.
+                    <a href="https://www.riziko.com.br/contato">Clique aqui para saber como</a></em></p>
+        </div>
     </div>
-    <div>
-      <hr class="mt-4 mb-4"/>
-      <h4>Other than Sails, what technologies, frameworks, or services does this app rely on?</h4>
-      <p>This app includes several tools and integrations that we use frequently on top of Sails.  They've worked well for us in the past; allowing us to focus on developing new features with minimal overhead.  Some are files we've rolled ourselves, and the rest are 3rd party services and frameworks. While a couple of these will require you to make an account (or obtain an API key, etc.), we want to emphasize that we only included trusted, reliable tools that we feel comfortable using on our own projects, and our customers' projects.</p>
-      <ul class="pl-3 pl-sm-5">
-        <li><a target="_blank" href="http://getbootstrap.com/docs/4.0/getting-started/introduction/"><strong>Bootstrap 4</strong></a> - Front-end component library</li>
-        <li><a target="_blank" href="http://fontawesome.io/icons/"><strong>Font Awesome 4</strong></a> - Icons</li>
-        <li><a target="_blank" href="https://vuejs.org/"><strong>Vue.js</strong></a> - Front-end framework</li>
-        <li><a target="_blank" href="https://npmjs.com/package/parasails"><strong>parasails.js</strong></a> - Thin layer of bundled conventions for using Vue.js with Sails.js, and dynamically-generated SDK for handling AJAX and/or WebSocket requests from the front-end to the actions in your Sails app. (More info on usage below.)</li>
-        <li><a target="_blank" href="https://www.sendgrid.com/"><strong>Sendgrid</strong></a>* - Emails</li>
-        <li><a target="_blank" href="https://stripe.com/docs"><strong>Stripe</strong></a>* - Payments</li>
-      </ul>
-      <p><small>* requires an API key</small></p>
-    </div>
-    <div>
-      <hr class="mt-4 mb-4"/>
-      <h4>Why do I see placeholders like "Cuidado Cristao" all over the place? What's the best way to customize these?</h4>
-      <p>Because projects are often generated before product and/or company names are finalized, we felt it made more sense to use easily find-and-replaceable placeholders than to prompt for an app or company name at the beginning. (It's a lot easier to find/replace "Cuidado Cristao" without conflicts than it is to find/replace a more commonly-used word.)</p>
-      <p>When you've got your product, company name, and branding finalized, here are the placeholders you'll want to switch out:</p>
-      <ul class="pl-3 pl-sm-5">
-        <li><strong purpose="placeholder">Cuidado Cristao</strong> - You can replace this with the name of your product.</li>
-        <li><strong purpose="placeholder">Cuidado Cristao</strong> - This placeholder is used for the entity name in the default legal terms &amp; privacy policy, and can be replaced with the name of the company behind your app.</li>
-        <li><strong purpose="placeholder">DATE_PRIVACY_POLICY_LAST_UPDATED</strong> - Replace this with the date your Privacy Policy was updated (so if you're switching out the company name: today).</li>
-        <li><strong purpose="placeholder">DATE_TERMS_OF_SERVICE_LAST_UPDATED</strong> - Replace this with the date your Terms of Service were updated (so if you're switching out the company name: today).</li>
-        <li><strong purpose="placeholder">https://www.riziko.com.br</strong> - This is the link in the copyright section of the footer. You'll probably want to switch it out for a link to your company's about page or marketing site.</li>
-        <li>Placeholder logo - To use your custom branding, you can simply replace the image file at <code>assets/images/logo.png</code> with a custom image of the same name, or change the image <code>src</code> in the header in <code>views/layouts/layout.ejs</code>.</li>
-      </ul>
-      <blockquote><small>Just a heads up, the previous couple paragraphs will make a lot less sense once you've done a find/replace on each of those placeholder words.</small></blockquote>
-    </div>
-    <div>
-      <hr class="mt-4 mb-4"/>
-      <h4>How do I configure a new method to use with cloud.js?</h4>
-      <p>Once you've created a controller action and added it to your routes (see the <a target="_blank" href="https://sailsjs.com/documentation/concepts/routes">Sails.js docs for more info on how to do that</a>), there are just a few simple steps to add it to your global <code>Cloud</code> SDK:</p>
-      <ul class="pl-3 pl-sm-5">
-        <li>Rebuild this app's custom SDK using <code>sails run scripts/rebuild-cloud-sdk</code>.  (This automatically regenerates the method definitions in your <code>assets/js/cloud.setup.js</code> file based on your configured routes.)</li>
-        <li>You can then call any relevant new actions as "cloud methods" in your frontend code like so: <code>await Cloud.doSomething.with({…})</code></li>
-      </ul>
-    </div>
-    <div>
-      <hr class="mt-4 mb-4"/>
-      <h4>How do I register a new page with parasails.js?</h4>
-      <p>To generate files for a new page (for example, "hotels-overview"), run:</p>
-      <p><code>sails generate page hotels-overview</code></p>
-      <p>Then you can add a route for the new view action to make it accessible from the browser.  For example:</p>
-      <p><code>'GET /hotels': { action: 'view-hotels-overview' }</code></p>
-      <p><small>To register a new page without the generator, make sure the top-level element of the view you wish to register has an <code>id</code> property (e.g. <code>&lt;div id="my-new-page"&gt;...&lt;/div&gt;</code>). Then, create a new javascript file, and include <code>parasails.registerPage('my-new-page', { /* options for the Vue.js instance */ })</code>. For more thorough examples, dig around in <code>assets/js/pages/</code>.</small></p>
-    </div>
-    <div>
-      <hr class="mt-4 mb-4"/>
-      <h4>What's up with all the inline styles?</h4>
-      <p>Since this starter app uses Bootstrap, we wanted to make it a little clearer where our custom styles end and Bootstrap styles begin. Wherever possible, you'll see <code>style="..."</code> in the HTML. If for some reason a style tag wouldn't work (e.g. for media queries), you'll see <code>purpose="..."</code> in the HTML, and <code>[purpose='...']</code> in the .less file– we took that approach, rather than using custom class names, to help avoid confusion about which classes come from Bootstrap and which ones we added ourselves.</p>
-      <p>Another reason: copy/pasting! With the styles inline, it's easy to copy HTML from a page without the need to also duplicate styles from the matching .less files.</p>
-    </div>
-    <div>
-      <hr class="mt-4 mb-4"/>
-      <h4>How do I deploy to Heroku?</h4>
-      <p>In your <a target="_blank" href="https://dashboard.heroku.com">Heroku dashboard</a>, configure your app to auto-deploy from the <code>deploy</code> branch of this project's GitHub repository. Then, from the command line, run <code>sails run deploy</code>.</p>
-      <p>For more deployment tips, <a href="https://sailsjs.com/documentation/concepts/deployment">click here</a>.</p>
-    </div>
-    <div>
-      <hr class="mt-4 mb-4"/>
-      <h4>Do I have to host on Heroku?</h4>
-      <p>No way!  You can deploy your app <a target="_blank" href="https://sailsjs.com/documentation/concepts/deployment/hosting">anywhere that supports Node.js</a>.</p>
-    </div>
-    <div>
-      <hr class="mt-4 mb-4"/>
-      <h4>How do I verify my user's email addresses?</h4>
-      <p>By default, email verification is neither required for signup, nor for when an existing user changes their email address from their account page.  To enable an email verification step for both of these actions, open <code>config/custom.js</code> and change <code>verifyEmailAddresses: false</code> to <code>verifyEmailAddresses: true</code>.</p>
-    </div>
-    <div>
-      <hr class="mt-4 mb-4"/>
-      <h4>How do I finish setting up Sendgrid?</h4>
-      <p>To use Sendgrid, you'll need to <a target="_blank" href="https://www.sendgrid.com/">sign up for an account</a>. (While this <em>is</em> a paid service at higher usage levels, you should be able to use Sendgrid in development without having to provide any credit card information.)</p>
-      <p>After you've created an account, you'll need to add your Sendgrid API secret to your custom config. (In development, this will be either in <code>config/custom.js</code>, or in a <code>local.js</code> file you add to your <code>config/</code> folder. For your staging or production deployment, you'll want to set these using system environment variables -- aka "config variables" in Heroku.)</p>
-      <p>If you already own a domain for your app, you can follow Sendgrid's instructions for configuring a sending domain.</p>
-      <p>Otherwise, to send emails from this app <em>without</em> configuring a sending domain, you can <a target="_blank" href="https://app.sendgrid.com/settings/sender_auth">verify a single sender</a>. Just be sure to set <code>sails.config.custom.fromEmailAddress</code> to use the verified email, or there will be errors from the endpoints that attempt to send emails.</p>
-    </div>
-    <div>
-      <hr class="mt-4 mb-4"/>
-      <h4>How do I finish setting up Stripe?</h4>
-      <p>To use Stripe for your app's payment processing, you'll need to <a target="_blank" href="https://stripe.com">sign up for an account</a>.</p>
-      <p>Once you have an account, you'll need to include your publishable and secret keys in your app's custom config as <code>sails.config.custom.stripePublishableKey</code> and <code>sails.config.custom.stripeSecret</code>. In development, you can add your test keys to <code>config/custom.js</code>, or in a <code>local.js</code> file you add to your <code>config/</code> folder.</p>
-      <p>In your staging or production deployment, you'll want to set your API keys using system environment variables (aka "config variables" in Heroku), and you will need ensure that your site meets Stripe's HTTPS requirements in order for Stripe Checkout to work. For more information, see Stripe's <a target="_blank" href="https://stripe.com/docs/checkout">Detailed Checkout Guide</a>.</p>
-    </div>
-    <div>
-      <hr class="mt-4 mb-4"/>
-      <h4>How do I disable ___________?</h4>
-      <p class="pt-4 text-muted"><strong><em>To disable the Bootstrap framework:</em></strong></p>
-      <ul class="pl-3 pl-sm-5">
-        <li>Delete the folder <code>assets/dependencies/bootstrap/</code></li>
-        <li>In <code>tasks/pipeline.js</code>, delete <code>'dependencies/bootstrap/dependencies/**/*.js',</code> from <code>jsFilesToInject</code></li>
-      </ul>
-      <p class="pt-4 text-muted"><strong><em>To disable FontAwesome:</em></strong></p>
-      <ul class="pl-3 pl-sm-5">
-        <li>Delete the folder at <code>assets/dependencies/font-awesome-4/</code>. (You'll also likely want to search the project for "fa fa-" to check for any lingering icons in the HTML.)</li>
-      </ul>
-      <p class="pt-4 text-muted"><strong><em>To swap out Sendgrid:</em></strong></p>
-      <p>We chose Sendgrid because of its very generous free tier (you can send up to 100 emails per day).  Plus, it integrates easily, it's been around for a while (so it's stable and does a good job evading spam filters), and it's used internally at companies like Slack and Medium.</p>
-      <p>Out-of-the box, if Sendgrid is not configured for this app, the contact form and password recovery flow will fail outright unless an email address ending in "@example.com" is used.  Luckily, if you wish to use <a target="_blank" href="https://stackshare.io/twilio-sendgrid">a different solution for sending automated emails</a>, the logic for sending emails is fairly contained. To switch to a service other than Sendgrid, you'll need to make the following changes to your code:</p>
-      <ul class="pl-3 pl-sm-5">
-        <li>Modify the code in <code>api/helpers/send-template-email.js</code> to use the email service of your choice.</li>
-        <li>In <code>api/hooks/custom/index.js</code>, remove the warnings related to Sendgrid.</li>
-      </ul>
-      <p class="pt-4 text-muted"><strong><em>To remove or replace Stripe integration:</em></strong></p>
-      <p>We chose Stripe because it is the easiest-to-integrate payment processor in the industry.  Its rates are about the same <a target="_blank" href="https://stackshare.io/stripe/alternatives">as its competitors'</a>, but even if that weren't the case, Stripe's focus on developer happiness would probably make up for it.  Stripe processes payments, payouts, and more for <a target="_blank" href="https://stripe.com/us/customers">hundreds of thousands of businesses</a> all around the world.</p>
-      <p>By default, features related to billing are automatically disabled if you don't have a Stripe publishable key &amp; secret key in your custom config (<code>sails.config.custom.stripePublishableKey</code> and <code>sails.config.custom.stripeSecret</code>, respectively). Your app will not be negatively impacted or appear broken; it will merely have some extraneous code in places. If you don't anticipate integrating billing features into your app and want to remove this code entirely, you can make the following changes:</p>
-      <ul class="pl-3 pl-sm-5">
-        <li>In the <code>User</code> model definition at <code>api/models/User.js</code>, remove the <code>stripeCustomerId</code>, <code>billingCardBrand</code>, <code>billingCardLast4</code>, <code>billingCardExpMonth</code>, and <code>billingCardExpYear</code> attribute definitions.</li>
-        <li>In the "signup" action at <code>api/controllers/entrance/signup.js</code>:
-          <ul class="pl-3 pl-sm-5">
-            <li>Remove the line at the top requiring the Stripe dependency</li>
-            <li>Remove the block of code creating a Stripe customer. (If you have trouble finding where this happens, be sure to read the comments.)</li>
-            <li>In the call to <code>User.create()</code>, remove the <code>stripeCustomerId</code> property.</li>
-          </ul>
-        </li>
-        <li>In the "confirm email" action at <code>api/controllers/entrance/confirm-email.js</code>:
-          <ul class="pl-3 pl-sm-5">
-            <li>Remove the line at the top requiring the Stripe dependency.</li>
-            <li>Remove the block of code that handles creating/updating a Stripe customer. (If you have trouble finding where this happens, be sure to read the comments.)</li>
-          </ul>
-        </li>
-        <li>Remove the update billing card endpoint and all references to it by doing the following:
-          <ul class="pl-3 pl-sm-5">
-            <li>Delete the file at <code>api/controllers/account/update-billing-card.js</code>.</li>
-            <li>In <code>config/routes.js</code>, delete the route configuration for <code>'PUT /api/v1/account/update-billing-card'</code>.</li>
-            <li>In <code>assets/js/cloud.setup.js</code>, delete the <code>updateBillingCard</code> method.</li>
-            <li>In <code>assets/js/pages/account/account-overview.page.js</code>, remove the <code>clickStripeCheckoutButton</code> method.</li>
-            <li>In <code>views/pages/account/account-overview.ejs</code>, remove the HTML related to billing.</li>
-          </ul>
-        </li>
-        <li>In <code>api/hooks/custom/index.js</code>, remove the warnings related to Stripe.</li>
-        <li>In <code>api/hooks/custom/index.js</code>, remove <code>sails.config.custom.enableBillingFeatures = !isMissingStripeConfig;</code>.</li>
-      </ul>
-    </div>
-    <div>
-      <hr class="mt-4 mb-4"/>
-      <h4>Where can I go for more help?</h4>
-      <p>If you run into trouble, you can often find the answer in the <a target="_blank" href="http://sailsjs.com/documentation">Sails.js documentation</a>.  If you're unsure about how to proceed, or completely stumped, be sure to check out the <a target="_blank" href="http://sailsjs.com/support">latest available resources</a>.</p>
-    </div>
-  </div>
 </div>
 <%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>

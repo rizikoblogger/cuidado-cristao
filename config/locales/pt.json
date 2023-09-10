@@ -301,7 +301,8 @@
 			"zoomOut": "Menos Zoom",
 			"rotateRight": "Girar à Direita",
 			"rotateLeft": "Girar à Esquerda"
-		}
+		},
+		"or": "or"
 	},
 	"Need help": "Precisa de ajuda",
 	"Your are not member of any Church yet": "Ainda não é membro de nenhuma Igreja",
