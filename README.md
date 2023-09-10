@@ -25,7 +25,7 @@ Qualquer igreja com dois ou mais membros
 
 ### Este tutorial considera que você já possui conhecimento mínimo nas seguintes tecnologias:
 
-* [Javascript ES6](https://www.w3schools.com/js/) ; 
+* [Javascript ES6](https://www.w3schools.com/js/) ;
 * [Sails.js](https://sailsjs.com) e
 * [MongoDB 3+](https://www.w3schools.com/mongodb/).
 
@@ -102,7 +102,7 @@ Exemplos:
 &lt;head&gt;&lt;/head&gt;
 &lt;body&gt;
  Mostrando a palavra <%=param%> aqui.
- 
+
  Acessando a variavel de ambiente environment exposta em SAILS_LOCALS
  cujo valor seria o definido na variável de ambiente NODE_ENV ('development')
  <%- _environment %>
@@ -136,6 +136,13 @@ Para executar um laço durante a renderização, fariamos:
 * NomeObjeto.find({id: 3}).**then**(result=>console.log(result)) - lista objetos cujo parametro id corresponda a 3
 * **await** NomeObjeto.count({atributo: _criterio}) - conta o total de registros que correspondem ao criterio passado
   como parametro.
+
+### Criando dados para teste
+
+Um arquivo especial do Protótipo é o ```/scripts/cria-dados-para-teste.js```. Este arquivo é um _Script_
+preparado para ser executado pelo comando de console ``sails run cria-dados-para-teste``. Ao executar
+este arquivo você poderar inserir dados no Modelo de Dados (/api/models/NomeObjeto.js) para teste.
+**A medida que seus Modelos de Dados forem sendo criados**, novos dados teste podem ser adicionados.
 
 
 ### Obtendo parametros da requisição:
@@ -186,7 +193,7 @@ const disciplina = req.body.disciplina // seria 18
 <pre>
 /**
 
-* InfoController: 
+* InfoController:
 * ex.: 'GET /info', {controller: 'InfoController.[get|getOne|getAll  ...]'}
 *
 * @description :: Server-side actions for handling incoming requests.
@@ -344,4 +351,4 @@ Internamente, Sails usou  o ['sails-generate@2.0.7'](https://github.com/balderda
 O template deste Protótipo é baseado em um aplicativo de geração de código expandido fornecido pela [equipe principal do Sails](https://sailsjs.com/about) com o propósito de tornar mais fácil para você criar em cima de recursos prontos, como autenticação, registro, verificação de e-mail, e faturamento. Para mais informações, [faça contato conosco](https://sailsjs.com/support).
 
 
-Observação: Os geradores de código são geralmente executados usando a CLI (interface de linha de comando) 'sails' instalada globalmente.  Esta versão da CLI é _environment-specific_ em vez de específica do aplicativo, portanto, ao longo do tempo, à medida que as dependências de um Protótipo são atualizadas ou o Protótipo é trabalhado por diferentes desenvolvedores em computadores diferentes usando versões diferentes do Node.js, a dependência do Sails em seu arquivo package.json pode diferir da versão da CLI do Sails instalada globalmente com a qual foi originalmente gerada.  
+Observação: Os geradores de código são geralmente executados usando a CLI (interface de linha de comando) 'sails' instalada globalmente.  Esta versão da CLI é _environment-specific_ em vez de específica do aplicativo, portanto, ao longo do tempo, à medida que as dependências de um Protótipo são atualizadas ou o Protótipo é trabalhado por diferentes desenvolvedores em computadores diferentes usando versões diferentes do Node.js, a dependência do Sails em seu arquivo package.json pode diferir da versão da CLI do Sails instalada globalmente com a qual foi originalmente gerada.
