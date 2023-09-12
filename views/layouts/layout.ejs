@@ -39,16 +39,15 @@
 
   <% /* Auto-injected «link» tags: */ %>
   <!--STYLES-->
-  <link rel="stylesheet" href="/dependencies/bootstrap/bootstrap-5.css">
+  <link rel="stylesheet" href="/dependencies/bootstrap-4/bootstrap-5.css">
   <link rel="stylesheet" href="/dependencies/fontawesome.css">
-  <link rel="stylesheet" href="/styles/custom.css">
   <link rel="stylesheet" href="/styles/importer.css">
   <!--STYLES END-->
 </head>
 <body class='m-2'>
 <div purpose="page-wrap">
   <header class="p-2 navbar navbar-expand-sm navbar-dark bg-dark flex-column flex-md-row justify-content-between" purpose="page-header">
-    <a style="cursor: pointer;" class="navbar-brand mr-0" href="/"><img style="height: 20px;" class="logo" alt="Cuidado Cristao logo" src="/images/logo.png"/></a>
+    <a style="cursor: pointer;" class="navbar-brand mr-0" href="/"><img style="height: 20px;" class="logo" alt="Cuidado Cristao logo" src="/images/hero-cloud.png"/></a>
     <div class="navbar-nav flex-row">
       <!-- LOGGED-IN NAVIGATION -->
       <% if(me) { %>
@@ -107,7 +106,7 @@
       <small class="nav-item d-inline-block"><a class="nav-link text-info px-1 px-sm-3" href="/logout"><%=__('Sign out')%></a></small>
       <% } %>
     </div>
-      <small purpose="footer-copy">Copyright &copy; <%= sails.config.custom.platformCopyrightYear %> <a target="_blank" href="NEW_APP_COMPANY_ABOUT_HREF">NEW_APP_COMPANY_NAME</a>.
+      <small purpose="footer-copy">Copyright &copy; <%= sails.config.custom.platformCopyrightYear %> <a target="_blank" href="NEW_APP_COMPANY_ABOUT_HREF">NOME_MINHA_IGREJA</a>.
           <br class="d-block d-sm-none"/><%= __('All rights reserved')%>.</small>
   </footer>
 </div>
@@ -139,7 +138,7 @@ by the asset pipeline between "SCRIPTS" and "SCRIPTS END", or both.
 <script src="/dependencies/jquery.min.js"></script>
 <script src="/dependencies/vue.js"></script>
 <script src="/dependencies/vue-router.js"></script>
-<script src="/dependencies/bootstrap/bootstrap-5.bundle.js"></script>
+<script src="/dependencies/bootstrap-4/bootstrap-5.bundle.js"></script>
 <script src="/dependencies/cloud.js"></script>
 <script src="/dependencies/moment.js"></script>
 <script src="/dependencies/parasails.js"></script>
@@ -150,12 +149,15 @@ by the asset pipeline between "SCRIPTS" and "SCRIPTS END", or both.
 <script src="/js/components/cloud-error.component.js"></script>
 <script src="/js/components/js-timestamp.component.js"></script>
 <script src="/js/components/modal.component.js"></script>
+<script src="/js/components/paginador.js"></script>
 <script src="/js/components/stripe-card-element.component.js"></script>
 <script src="/js/utilities/open-stripe-checkout.js"></script>
 <script src="/js/pages/account/account-overview.page.js"></script>
 <script src="/js/pages/account/edit-password.page.js"></script>
 <script src="/js/pages/account/edit-profile.page.js"></script>
-<script src="/js/pages/church/church-edit.page.js"></script>
+<script src="/js/pages/church/edit-church.page.js"></script>
+<script src="/js/pages/church/search-church.page.js"></script>
+<script src="/js/pages/classe/search-classe.page.js"></script>
 <script src="/js/pages/contact.page.js"></script>
 <script src="/js/pages/dashboard/welcome.page.js"></script>
 <script src="/js/pages/entrance/confirmed-email.page.js"></script>

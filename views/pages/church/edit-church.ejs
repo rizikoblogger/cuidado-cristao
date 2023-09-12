@@ -1,0 +1,72 @@
+<div id="edit-church" class="container" v-cloak>
+
+    <div class="display-3"><%= __('Editar Igreja') ;%></div>
+    <em class="text-muted">{{igreja.id}}</em>
+    <hr>
+
+    <form action="/api/v1/save-church" method="post">
+
+
+        <input type="hidden" name="_csrf" id="_csrf" value="<%=_csrf%>">
+        <input type="hidden" name="id" id="id" value="<%=igreja.id%>">
+
+        <label for="shortName"><%= __('Nome Curto') ;%></label>
+        <input type="text" class="form-control" id="shortName" name="shortName" v-model="igreja.shortName" required
+               minlength="3">
+
+        <label for="fullName"><%= __('Nome Completo') ;%></label>
+        <input type="text" class="form-control" id="fullName" name="fullName" v-model="igreja.fullName" required
+               minlength="10">
+
+        <label for="email"><%= __('Email') ;%></label>
+        <input type="email" class="form-control" id="email" name="email" required minlength="5" v-model="igreja.email">
+
+        <label for="address"><%= __('Endereco') ;%></label>
+        <input type="text" class="form-control" id="address" name="address" v-model="igreja.address">
+
+        <label for="site"><%= __('Site') ;%></label>
+        <input type="url" class="form-control" id="site" name="site" v-model="igreja.site">
+
+        <label for="phone"><%= __('Telefone') ;%></label>
+        <input type="tel" class="form-control" id="phone" name="phone" v-model="igreja.phone">
+
+        <label for="linktree"><%= __('Linktree') ;%></label>
+        <input type="url" class="form-control" id="linktree" name="linktree" v-model="igreja.linktree">
+
+        <label for="tipo"><%= __('Tipo') ;%></label>
+        <select name="tipo" id="tipo" class="form-select" v-model="igreja.tipo" required>
+            <option value="MOTHER"><%= __('Igreja Mae') ;%></option>
+            <option value="DAUGHTER"><%= __('Igreja Filha') ;%></option>
+            <option value=""></option>
+        </select>
+
+        <div class="btn-group mt-2">
+            <button type="submit" class="btn btn-primary m-1"><%= __('Save') ;%></button>
+            <button type="button" class="btn btn-danger m-1" data-bs-toggle="modal" data-bs-target="#exampleModal"><%= __('Delete') ;%></button>
+            <button class="btn btn-secondary m-1" @click="goToBack()"><%= __('Cancel') ;%></button>
+        </div>
+
+    </form>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"><%=__('Remover Igreja')%></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <span class="fw-bolder"><%=__('Tem certeza')%>:</span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary m-1" @click="remover()"><%=__('Sim')%></button>
+                    <button type="button" class="btn btn-secondary m-1" data-bs-dismiss="modal"><%=__('Nao')%></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser(); %>

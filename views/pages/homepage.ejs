@@ -40,19 +40,16 @@
   </div>
 
   <div class="display-6">
-    <a href="/faq">
-      <%= __(`homepage.howToUseIt`) %>
-    </a>
+    <%=__('Voce pode utilizar este sistema em um computador, tablet ou celular')%>.
+    <%=__('Voce pode acessar com congregado, membro, diacono, pastor ou administrador')%>
   </div>
 
-  <div class="display-5"><strong>Login/Entrar</strong></div>
+    <div class="text-center mt-5">
+        <span><a href="/faq"><%=__('Perguntas Frequentes')%></a> | <a href="/login"><%=__('Entrar')%></a> | <a
+                    href="/signup"><%=__('Cadastrar-se')%></a></span>
+    </div>
 
-  <div class="display-6">
 
-    <a href="/login">
-      <%= __('Click here to login')%>
-    </a>
-  </div>
 
 </div>
 <%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>

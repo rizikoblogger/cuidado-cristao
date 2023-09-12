@@ -4,10 +4,9 @@
 		"whatIsIt": "It is a software to help cristian communities to manager its members and to integrate each other",
 		"whoShouldUseIt": "Any church with two or more members",
 		"howToUseIt": "Click here to know more",
-    "what":"What is it",
-    "who":"Who can use it",
-    "how":"How to use it"
-
+		"what": "What is it",
+		"who": "Who can use it",
+		"how": "How to use it"
 	},
 	"Click here to login": "Click here to login",
 	"Church Search": "Church Search",
@@ -303,6 +302,41 @@
 			"zoomOut": "Zoom Out",
 			"rotateRight": "Rotate Right",
 			"rotateLeft": "Rotate Left"
-		}
-	}
+		},
+		"or": "or"
+	},
+	"Voce esta autenticado como SuperAdmin": "Voce esta autenticado como SuperAdmin",
+	"Gerenciar Igrejas": "Gerenciar Igrejas",
+	"Gerenciar Celulas": "Gerenciar Celulas",
+	"Joint to a Church": "Joint to a Church",
+	"Joined to a Church": "Joined to a Church",
+	"Your are not member of any Church yet": "Your are not member of any Church yet",
+	"Church": "Church",
+	"Select": "Select",
+	"Create": "Create",
+	"New": "New",
+	"Need help": "Need help",
+	"Voce pode utilizar este sistema em um computador, tablet ou celular": "Voce pode utilizar este sistema em um computador, tablet ou celular",
+	"Voce pode acessar com congregado, membro, diacono, pastor ou administrador": "Voce pode acessar com congregado, membro, diacono, pastor ou administrador",
+	"Perguntas Frequentes": "Perguntas Frequentes",
+	"Entrar": "Entrar",
+	"Cadastrar-se": "Cadastrar-se",
+	"Pesquisar Igrejas": "Pesquisar Igrejas",
+	"Nome Curto": "Nome Curto",
+	"Editar Igreja": "Editar Igreja",
+	"Nome Completo": "Nome Completo",
+	"Endereco": "Endereco",
+	"Site": "Site",
+	"Telefone": "Telefone",
+	"Linktree": "Linktree",
+	"Tipo": "Tipo",
+	"Igreja Mae": "Igreja Mae",
+	"Igreja Filha": "Igreja Filha",
+	"Save": "Save",
+	"Chose": "Chose",
+	"Delete": "Delete",
+	"Remover Igreja": "Remover Igreja",
+	"Tem certeza": "Tem certeza",
+	"Sim": "Sim",
+	"Nao": "Nao"
 }

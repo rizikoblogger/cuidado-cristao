@@ -1,0 +1,41 @@
+<div id="search-church" class="container" v-cloak>
+
+    <div class="display-3"><%=__('Pesquisar Igrejas')%></div>
+    <hr>
+    <table class="table table-hover">
+        <caption></caption>
+        <thead>
+            <tr>
+                <th id="1"></th>
+                <th id="2"><%=__('Nome Curto')%></th>
+                <th id="3"><%__('Nome Completo')%></th>
+                <th id="4"><%__('Tipo')%></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="igreja in page.content">
+                <td headers="1"><button class="btn btn-primary btn-sm" @click="goToEdit(igreja.id)"><em class="fa fa-pencil"></em></button></td>
+                <td headers="2">{{igreja.shortName}}</td>
+                <td headers="3">{{igreja.fullName}}</td>
+                <td headers="4">{{igreja.tipo}}</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4">
+                 <paginador :content="page.content" :number="page.number" :size="page.size" :total="page.totalRecords" v-on:paginated="paginate($event)"></paginador>
+
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <div class="btn-group mt-2">
+        <button class="btn btn-secondary" @click="goToBack()"><%=__('Cancel')%></button>
+    </div>
+
+
+
+
+</div>
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>

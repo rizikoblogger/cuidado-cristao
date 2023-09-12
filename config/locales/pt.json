@@ -312,5 +312,14 @@
 	"New": "Novo",
 	"Select": "Selecionar",
 	"Church": "Igreja",
-	"Joined to a Church": "Já se juntou a Igreja"
+	"Joined to a Church": "Já se juntou a Igreja",
+	"Voce pode utilizar este sistema em um computador, tablet ou celular": "Voce pode utilizar este sistema em um computador, tablet ou celular",
+	"Voce pode acessar com congregado, membro, diacono, pastor ou administrador": "Voce pode acessar com congregado, membro, diacono, pastor ou administrador",
+	"Perguntas Frequentes": "Perguntas Frequentes",
+	"Entrar": "Entrar",
+	"Cadastrar-se": "Cadastrar-se",
+	"Voce esta autenticado como SuperAdmin": "Voce esta autenticado como SuperAdmin",
+	"Gerenciar Igrejas": "Gerenciar Igrejas",
+	"Gerenciar Celulas": "Gerenciar Celulas",
+	"Pesquisar Igrejas": "Pesquisar Igrejas"
 }

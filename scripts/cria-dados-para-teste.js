@@ -1,3 +1,4 @@
+const {faker} = require('@faker-js/faker');
 module.exports = {
 
 
@@ -18,6 +19,17 @@ module.exports = {
     let user = users[0]
 
     let church = await Church.create({
+      fullName: faker.company.name(),
+      shortName: faker.company.buzzNoun(),
+      email: faker.internet.email(),
+      address: faker.location.streetAddress(),
+      site: faker.internet.url(),
+      phone: faker.phone.number(),
+      linktree: `https://linktr.ee/fake-cuidado-cristao`,
+      tipo: 'DAUGHTER'
+    }).fetch()
+
+    await Church.create({
       fullName: faker.company.name(),
       shortName: faker.company.buzzNoun(),
       email: faker.internet.email(),
