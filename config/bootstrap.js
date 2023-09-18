@@ -62,6 +62,8 @@ module.exports.bootstrap = async function() {
   await User.createEach([
     { emailAddress: 'admin@example.com', fullName: 'Ryan Dahl', isSuperAdmin: true, password: await sails.helpers.passwords.hashPassword('abc123') },
   ]);
+  // run fake data creator
+  await require('../scripts/cria-dados-para-teste').fn()
 
   // Save new bootstrap version
   await sails.helpers.fs.writeJson.with({

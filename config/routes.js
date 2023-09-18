@@ -70,6 +70,7 @@ module.exports.routes = {
   'POST  /api/v1/observe-my-session':                 { action: 'observe-my-session', hasSocketFeatures: true },
 
   'POST /api/v1/save-church': { action: 'save-church' },
-  'DELETE /api/v1/delete-church': { action: 'delete-church' }
+  'POST /api/v1/save-user-church': { action: 'save-user-church' },
+  'DELETE /api/v1/delete-church': { action: 'delete-church' },
 
 };

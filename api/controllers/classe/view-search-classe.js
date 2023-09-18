@@ -18,8 +18,8 @@ module.exports = {
 
   fn: async function () {
 
-    // Respond with view.
-    return {};
+    const classes = await Classroom.find()
+    return {classes};
 
   }
 

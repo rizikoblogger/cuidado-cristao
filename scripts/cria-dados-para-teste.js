@@ -13,10 +13,10 @@ module.exports = {
 
     sails.log('Running custom shell script... (`sails run cria-dados-para-teste`)');
 
-    const {faker} = require('@faker-js/faker')
+    const {faker} = require('@faker-js/faker');
 
-    let users = await User.find()
-    let user = users[0]
+    let users = await User.find();
+    let user = users[0];
 
     let church = await Church.create({
       fullName: faker.company.name(),
@@ -25,9 +25,9 @@ module.exports = {
       address: faker.location.streetAddress(),
       site: faker.internet.url(),
       phone: faker.phone.number(),
-      linktree: `https://linktr.ee/fake-cuidado-cristao`,
+      linktree: `https://linktr.ee/fake-cuidado-cristao-daughther`,
       tipo: 'DAUGHTER'
-    }).fetch()
+    }).fetch();
 
     await Church.create({
       fullName: faker.company.name(),
@@ -36,15 +36,16 @@ module.exports = {
       address: faker.location.streetAddress(),
       site: faker.internet.url(),
       phone: faker.phone.number(),
-      linktree: `https://linktr.ee/fake-cuidado-cristao`,
-      tipo: 'DAUGHTER'
-    }).fetch()
+      linktree: `https://linktr.ee/fake-cuidado-cristao-mother`,
+      tipo: 'MOTHER'
+    }).fetch();
 
 
     for (let i = 1; i < 5; i++) {
       await Classroom.create({
-        name: faker.lorem.word()
-      })
+        name: faker.lorem.word(),
+        churchId: church.id
+      });
     }
 
     for (let i = 1; i < 5; i++) {
@@ -53,7 +54,7 @@ module.exports = {
         value: faker.commerce.price(),
         propose: faker.commerce.productDescription(),
         userId: user.id
-      })
+      });
     }
 
     for (let i = 1; i < 5; i++) {
@@ -61,7 +62,7 @@ module.exports = {
         userId: user.id,
         dtContact: new Date(),
         record: faker.lorem.paragraph({min: 1, max: 3})
-      })
+      });
     }
 
     await UserChurch.create({
@@ -69,16 +70,19 @@ module.exports = {
       userId: user.id,
       type: 'CONGREGATION',
       dtAssociation: new Date()
-    })
+    });
 
-    let classrooms = await Classroom.find()
+    let classrooms = await Classroom.find();
     classrooms.forEach(classroom=>{
       UserClassroom.create({
         dtAssociation: new Date(),
         type: 'CLASSMATE',
-        userId: user.id
-      }).then().catch(err=>console.log(err))
-    })
+        userId: user.id,
+        classroomId: classroom.id
+      }).then().catch(err=>console.log(err));
+    });
+
+
 
     sails.log('Finished custom shell script... (`sails run cria-dados-para-teste`)');
 

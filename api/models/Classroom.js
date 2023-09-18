@@ -16,7 +16,7 @@ module.exports = {
       type: 'string',
       description: 'The name of classroom.',
       required: true
-    }
+    },
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
@@ -27,7 +27,7 @@ module.exports = {
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
     /* 1 to n with UserClassroom.js */
-
+    churchId: {type: `string`}
   },
 
 };

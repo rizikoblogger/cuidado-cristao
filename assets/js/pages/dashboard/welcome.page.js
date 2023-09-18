@@ -68,7 +68,10 @@ parasails.registerPage('welcome', {
     },
 
     selecionar: async function () {
-      let result = await Cloud.associarIgreja.with({userId: this.me.id, churchId: this.churchSelecionadaId })
+      let result = await Cloud.saveUserChurch.with({
+        userId: this.me.id,
+        churchId: this.churchSelecionadaId,
+        type: 'CONGREGATION' })
       alert(result)
       window.location.reload()
     }
