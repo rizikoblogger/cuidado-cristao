@@ -7,7 +7,12 @@ parasails.registerPage('welcome', {
     pageLoadedAt: Date.now(),
     temples: [],
     churchSelecionadaId: '',
-    showChurchList: false
+    showChurchList: false,
+    message: {
+      severity: ``,
+      summary: ``,
+      details: ''
+    }
   },
 
   //  ╦  ╦╔═╗╔═╗╔═╗╦ ╦╔═╗╦  ╔═╗
@@ -31,10 +36,10 @@ parasails.registerPage('welcome', {
     // corresponds with `:unused?` in the server-side route for this page.
     switch (virtualPageSlug) {
       case 'hello':
-        this.modal = 'example';
-        break;
+        this.modal = 'example'
+        break
       default:
-        this.modal = '';
+        this.modal = ''
     }
   },
 
@@ -44,7 +49,7 @@ parasails.registerPage('welcome', {
   methods: {
 
     clickOpenExampleModalButton: async function() {
-      this.goto('/welcome/hello');
+      this.goto('/welcome/hello')
       // Or, without deep links, instead do:
       // ```
       // this.modal = 'example';
@@ -52,7 +57,7 @@ parasails.registerPage('welcome', {
     },
 
     closeExampleModal: async function() {
-      this.goto('/welcome');
+      this.goto('/welcome')
       // Or, without deep links, instead do:
       // ```
       // this.modal = '';
@@ -67,14 +72,28 @@ parasails.registerPage('welcome', {
       this.goto('/church-edit/new')
     },
 
-    selecionar: async function () {
-      let result = await Cloud.saveUserChurch.with({
+    selecionar: function (churchSelecionadaId) {
+      Cloud.saveUserChurch.with({
         userId: this.me.id,
-        churchId: this.churchSelecionadaId,
-        type: 'CONGREGATION' })
-      alert(result)
-      window.location.reload()
+        churchId: churchSelecionadaId,
+        type: 'CONGREGATION' }).then(result=>{
+        this.message = {
+          severity: `success`,
+          summary: `Saved successfully`,
+          details: result
+        }
+
+      }).catch(err=>console.log(err))
+
+    },
+
+    cleanMessage: function () {
+      this.message = {
+        severity: ``,
+        summary: ``,
+        details: ''
+      }
     }
 
   }
-});
+})

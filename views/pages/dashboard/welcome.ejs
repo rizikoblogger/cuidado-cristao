@@ -42,7 +42,7 @@
                 </div>
                 <div class="card-footer">
                     <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
-                            @click="selecionar()"><%= __('Select') %></button>
+                            @click="selecionar(churchSelecionadaId)"><%= __('Select') %></button>
                     <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal"
                             @click="goToCreateNewChurch()"><%= __('Create') %> <%= __('New') %></button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><%= __('Close') %></button>
@@ -53,8 +53,8 @@
         </div>
 
     </div>
-
-    <message severity="error" summary="alerta" details="teste de detalhes em quantidade"></message>
+    {{message.summary}}
+    <message id="msg" v-on:close="cleanMessage()" :severity="message.severity" v-bind:summary="message.summary" :details="message.details"></message>
 
     <router-view></router-view>
 
