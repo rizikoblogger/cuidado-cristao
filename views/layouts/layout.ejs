@@ -54,7 +54,7 @@
       <a class="nav-item nav-link ml-2 ml-md-0 mr-2 mr-md-0" href="/contact"><%=__('Help')%></a>
       <!-- Only in desktop nav -->
       <div class="nav-item dropdown d-none d-sm-block">
-        <a class="nav-link dropdown-toggle" id="header-account-menu-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%=__('Account')%></a>
+        <a class="nav-link dropdown-toggle" id="header-account-menu-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%=__('Account')%></a>
         <div style="left: auto; right: 0;" class="dropdown-menu" aria-labelledby="header-account-menu-link">
           <a class="dropdown-item" href="/account"><%=__('Settings')%></a>
           <a class="dropdown-item" href="/logout"><%=__('Sign out')%></a>
@@ -94,11 +94,12 @@
   </div>
   <% } %>
 
-   <div >
-       <img src="/images/hero-bg-1.jpg" style="opacity: 20%; overflow: visible; z-index: -99; position: absolute" alt="church">
+   <img src="/images/hero-bg-1.jpg" style="opacity: 20%; overflow: visible; z-index: -99; position: absolute" alt="church">
+   <div style="overflow: visible; z-index: 99">
        <%- body %>
-
    </div>
+
+
 
   <footer class="navbar navbar-light justify-content-between flex-row-reverse" purpose="page-footer">
     <div class="nav" purpose="footer-nav">

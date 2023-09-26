@@ -3,16 +3,22 @@
     <div class="container pt-5 pb-5">
         <h1><%= __('Welcome') %> <%= me.fullName %> !</h1>
         <hr/>
-        <p>
+
  <% if(me.isSuperAdmin) { %>
-            <span class="text-primary"> <%= __('Voce esta autenticado como SuperAdmin') %> </span>
+        <p>
+        <span class="text-primary"> <%= __('Voce esta autenticado como SuperAdmin') %> </span>
         <div class="buttons">
             <a class="btn btn-primary" href="/church/search-church"><%= __('Gerenciar Igrejas') %></a>
             <a class="btn btn-primary" href="/classe/search-classe"><%= __('Gerenciar Celulas') %></a>
+            <a class="btn btn-primary" href="/#">                   <%= __('Gerenciar Recursos') %></a>
+            <a class="btn btn-primary" href="/#">                   <%= __('Gerenciar Sermoes') %></a>
+            <a class="btn btn-primary" href="/#">                   <%= __('Gerenciar Usuarios') %></a>
+            <a class="btn btn-primary" href="/#">                   <%= __('Gerenciar Sermoes') %></a>
 
         </div>
-  <% } %>
         </p>
+  <% } %>
+
         <div class="buttons">
             <a class="btn btn-primary" href="/account/profile"><%= __('Update my email') %></a>
             <button type="button" class="btn btn-primary"

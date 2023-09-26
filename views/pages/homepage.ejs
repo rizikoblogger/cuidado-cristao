@@ -1,55 +1,311 @@
-<div id="homepage" class="container" v-cloak>
+<div id="homepage" v-cloak>
 
-  <div class="display-2 fw-bolder">
-    <%= __(`homepage.title`) %>
-  </div>
-  <em>
-    <%= __(`Welcome`) %>
-      <%= __(`A brand new app.`) %>
-  </em>
-  <hr>
-  <p>
-  </p>
-  <p>
-  </p>
-  <p>
-  </p>
-  <div class="display-5">
-    <strong>
-      <%= __(`homepage.what`) %>
-    </strong>:
+    <section id="home">
 
-  </div>
-  <div class="display-6">
-    <%= __(`homepage.whatIsIt`) %>
+        <div class="container">
 
-  </div>
-  <div class="display-5">
-    <strong>
-      <%= __(`homepage.who`) %>
-    </strong>:
-  </div>
-  <div class="display-6">
-    <%= __(`homepage.whoShouldUseIt`) %>
+            <div class="btn-group">
+                <button class="btn btn-lg btn-outline-primary m-5"
+                        onclick="window.location.href='#home'"><%= __('Home') %></button>
+                <button class="btn btn-lg btn-outline-primary m-5"
+                        onclick="window.location.href='#service'"><%= __('Services') %></button>
+                <button class="btn btn-lg btn-outline-primary m-5"
+                        onclick="window.location.href='#groups'"><%= __('Groups') %></button>
+                <button class="btn btn-lg btn-outline-primary m-5"
+                        onclick="window.location.href='#sermons'"><%= __('Sermons') %></button>
+                <button class="btn btn-lg btn-outline-primary m-5"
+                        onclick="window.location.href='#social'"><%= __('Social') %></button>
+                <button class="btn btn-lg btn-outline-primary m-5"
+                        onclick="window.location.href='#contacts'"><%= __('Contacts') %></button>
+            </div>
+        </div>
 
-  </div>
-  <div class="display-5">
-    <strong>
-      <%= __(`homepage.how`) %>
-    </strong>:
-  </div>
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="display-2 text-center fw-bolder"><%= __('God is good') %></div>
+                    <div class="text-center">
+                        <button class="btn btn-lg btn-outline-primary m-5"><%= __('Go to') %></button>
+                    </div>
+                    <div class="text-center text-dark-emphasis">
+                        <%= __('Visit your local church and become a part of the flock by contributing to the community in any way you possibly can.') %>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="display-2 text-center fw-bolder"><%= __('Join the prayer') %></div>
+                    <div class="text-center">
+                        <button class="btn btn-lg btn-outline-primary m-5"><%= __('Go to') %></button>
+                    </div>
+                    <div class="text-center text-dark-emphasis">
+                        <%= __('Visit your local church and become a part of the flock by contributing to the community in any way you possibly can.') %>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="display-2 text-center fw-bolder"><%= __('Visit us') %></div>
+                    <div class="text-center">
+                        <button class="btn btn-lg btn-outline-primary m-5"><%= __('Go to') %></button>
+                    </div>
+                    <div class="text-center text-dark-emphasis">
+                        <%= __('Visit your local church and become a part of the flock by contributing to the community in any way you possibly can.') %>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden"><%= __('Previous') %></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden"><%= __('Next') %></span>
+            </button>
+        </div>
 
-  <div class="display-6">
-    <%=__('Voce pode utilizar este sistema em um computador, tablet ou celular')%>.
-    <%=__('Voce pode acessar com congregado, membro, diacono, pastor ou administrador')%>
-  </div>
+        <div class="h-25"></div>
 
-    <div class="text-center mt-5">
-        <span><a href="/faq"><%=__('Perguntas Frequentes')%></a> | <a href="/login"><%=__('Entrar')%></a> | <a
-                    href="/signup"><%=__('Cadastrar-se')%></a></span>
-    </div>
+        <div class="card-group mt-5">
+            <div class="card text-primary text-center p-3 h-25">
+                <div class="display-6"><%= __('Our Community') %></div>
+                <hr>
+                <p>
+                    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
+                    deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non
+                    provident, similique
+                </p>
+            </div>
+            <div class="card text-primary text-center p-3 h-25">
+                <div class="display-6"><%= __('Church Mission') %></div>
+                <hr>
+                <p>
+                    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
+                    deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non
+                    provident, similique
+                </p>
+            </div>
+            <div class="card text-primary text-center p-3 h-25">
+                <div class="display-6"><%= __('Join a Group') %></div>
+                <hr>
+                <p>
+                    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
+                    deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non
+                    provident, similique
+                </p>
+            </div>
+            <div class="card text-primary text-center p-3 h-25">
+                <div class="display-6"><%= __('Church Beliefs') %></div>
+                <hr>
+                <p>
+                    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
+                    deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non
+                    provident, similique
+                </p>
+            </div>
+        </div>
+    </section>
 
+    <hr>
 
+    <section id="service">
 
+        <div class="display-4 text-center"><%= __('Services') %></div>
+        <div class="container">
+            <div class="card-group">
+
+                <div class="card m-3">
+                    <div class="card-header">
+                        <img src="/images/hero-bg-3.jpg" alt=church"" class="card-img">
+                    </div>
+                    <div class="card-body">
+                        <div class="display-6"><%= __('Church Facilities') %></div>
+                        <ul>
+                            <li>Ad loren practises natos</li>
+                            <li>Ad loren practises natos</li>
+                            <li>Ad loren practises natos</li>
+                            <li>Ad loren practises natos</li>
+                            <li>Ad loren practises natos</li>
+                            <li>Ad loren practises natos</li>
+                            <li>Ad loren practises natos</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <a href="/contact"><%= __('Contact us') %></a>
+                    </div>
+                </div>
+
+                <div class="card m-3">
+                    <div class="card-header">
+                        <img src="/images/hero-bg-3.jpg" alt=church"" class="card-img">
+                    </div>
+                    <div class="card-body">
+                        <div class="display-6"><%= __('Learning') %></div>
+                        <ul>
+                            <li>Ad aprendictus morales</li>
+                            <li>Ad aprendictus morales</li>
+                            <li>Ad aprendictus morales</li>
+                            <li>Ad aprendictus morales</li>
+                            <li>Ad aprendictus morales</li>
+                            <li>Ad aprendictus morales</li>
+
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <a href="/contact"><%= __('Contact us') %></a>
+                    </div>
+                </div>
+
+                <div class="card m-3">
+                    <div class="card-header">
+                        <img src="/images/hero-bg-3.jpg" alt=church"" class="card-img">
+                    </div>
+                    <div class="card-body">
+                        <div class="display-6"><%= __('Meetings') %></div>
+                        <ul>
+                            <li>Me cono liratum practius</li>
+                            <li>Me cono liratum practius</li>
+                            <li>Me cono liratum practius</li>
+                            <li>Me cono liratum practius</li>
+
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <a href="/contact"><%= __('Contact us') %></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <hr>
+
+    <section id="groups">
+        <div class="display-5 text-center"><%= __('Groups') %></div>
+
+        <div class="container">
+            <div class="card-group">
+                <div class="card m-2">
+                    <div class="card-header">
+                        <img class="card-img" src="images/divider-img-2.jpg" alt="">
+                    </div>
+                </div>
+                <div class="card m-2">
+                    <div class="card-body">
+                        <p class="display-6">Search for and Join to</p>
+                        <ul>
+                            <li>Ecnos grupis lactos sanitus</li>
+                            <li>Ecnos grupis lactos sanitus</li>
+                            <li>Ecnos grupis lactos sanitus</li>
+                            <li>Ecnos grupis lactos sanitus</li>
+                            <li>Ecnos grupis lactos sanitus</li>
+                            <li>Ecnos grupis lactos sanitus</li>
+                        </ul>
+                        <div class="text-center">
+                            <a href="/signup" class="btn btn-primary"><%= __('Join us') %></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <hr>
+
+    <section id="sermons">
+
+        <div class="display-5 text-center"><%= __('Sermons') %></div>
+        <div class="card-group mt-2">
+            <div class="card">
+                <div class="card-body">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/oxmA4NtqR7s?si=pzjvV0CgJsLpaiLE"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe>
+                </div>
+                <div class="card-footer">
+                    <a href="https://www.youtube.com/watch?v=oxmA4NtqR7s" target="_blank"><%= __('Go to') %></a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/MqBsFnFCeHM?si=3OGv9llRtfj8F2RP"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe>
+                </div>
+                <div class="card-footer">
+                    <a href="https://www.youtube.com/watch?v=oxmA4NtqR7s" target="_blank"><%= __('Go to') %></a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/t-jAhs-2BYI?si=BYASQkvLOQC1YYcS"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe>
+                </div>
+                <div class="card-footer">
+                    <a href="https://www.youtube.com/watch?v=t-jAhs-2BYI&t=1s" target="_blank"><%= __('Go to') %></a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <hr>
+
+    <section id="social">
+
+        <div class="display-5 text-center"><%=__('Social')%></div>
+        <div class="card-group mt-2 container">
+            <div class="card m-2">
+                <div class="display-6">We help our neighborhood with</div>
+                <ul>
+                    <li>alures tamo capivari uminum le</li>
+                    <li>alures tamo capivari uminum le</li>
+                    <li>alures tamo capivari uminum le</li>
+                    <li>alures tamo capivari uminum le</li>
+                    <li>alures tamo capivari uminum le</li>
+                </ul>
+
+                <a class="btn btn-primary" href="/social"><%=__('Go to')%></a>
+            </div>
+            <div class="card m-2">
+                <img src="/images/divider-img.jpg" alt="social">
+            </div>
+        </div>
+
+    </section>
+
+    <hr>
+
+    <section id="contacts">
+
+        <div class="display-5 text-center"><%=__('Contact')%></div>
+
+        <div class="container">
+            <p class="display-6 text-dark-emphasis">
+                <%=__('We really appreciate hearing from you about needs and worriers. Contact us ')%>
+            </p>
+        </div>
+
+    </section>
+
+</div>
+
+<div class="fixed-bottom text-end p-5 m-5">
+    <a href="#home">
+        <em class="fa fa-home border-1 border border-primary p-3"></em>
+    </a>
 </div>
 <%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>
