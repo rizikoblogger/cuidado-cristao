@@ -38,7 +38,9 @@ module.exports.routes = {
 
   'GET /classe/search-classe': { action: 'classe/view-search-classe' },
 
+  'GET /map/map-search': { action: 'map/view-map-search' },
 
+  'GET /social/social-search': { action: 'social/view-social-search' },
 
   //  ╔╦╗╦╔═╗╔═╗  ╦═╗╔═╗╔╦╗╦╦═╗╔═╗╔═╗╔╦╗╔═╗   ┬   ╔╦╗╔═╗╦ ╦╔╗╔╦  ╔═╗╔═╗╔╦╗╔═╗
   //  ║║║║╚═╗║    ╠╦╝║╣  ║║║╠╦╝║╣ ║   ║ ╚═╗  ┌┼─   ║║║ ║║║║║║║║  ║ ║╠═╣ ║║╚═╗

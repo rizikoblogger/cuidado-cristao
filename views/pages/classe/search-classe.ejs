@@ -1,13 +1,14 @@
 <div id="search-classe" class="container" v-cloak>
 
-    <div class="display-3"><%=__('Pesquisar Celulas')%></div>
+    <div class="display-3"><%=__('Group Search')%></div>
     <hr>
-    ...
-    <div class="display-5"><%=__('Celulas da Minha Igreja')%></div>
-    ...
-    <div class="display-5"><%=__('Todas as Celulas')%></div>
-    <ul class="list-group">
-        <li class="list-group-item" v-for="celula in classes" >{{celula.name}}</li>
+    <div class="display-5"><%=__('My Groups')%></div>
+    <ul class="list-group mt-2">
+        <li class="list-group-item" v-for="celula in classes" > <button class="btn btn-sm btn-primary"> <em class="fa fa-sign-out" title="<%=__('Leave')%>"></em><%=__('Leave')%> </button> {{celula.name}}</li>
+    </ul>
+    <div class="display-5"><%=__('Groups of my Church')%></div>
+    <ul class="list-group mt-2">
+        <li class="list-group-item" v-for="celula in classes" > <button class="btn btn-sm btn-primary"> <em class="fa fa-sign-in" title="<%=__('Enter')%>"></em><%=__('Enter')%> </button> {{celula.name}}</li>
     </ul>
 
 </div>

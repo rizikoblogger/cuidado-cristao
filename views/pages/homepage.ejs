@@ -33,7 +33,7 @@
                 <div class="carousel-item active">
                     <div class="display-2 text-center fw-bolder"><%= __('God is good') %></div>
                     <div class="text-center">
-                        <button class="btn btn-lg btn-outline-primary m-5"><%= __('Go to') %></button>
+                        <button class="btn btn-lg btn-outline-primary m-5" onclick="window.location.href='/map/map-search'" ><%= __('Go to') %></button>
                     </div>
                     <div class="text-center text-dark-emphasis">
                         <%= __('Visit your local church and become a part of the flock by contributing to the community in any way you possibly can.') %>
@@ -42,7 +42,7 @@
                 <div class="carousel-item">
                     <div class="display-2 text-center fw-bolder"><%= __('Join the prayer') %></div>
                     <div class="text-center">
-                        <button class="btn btn-lg btn-outline-primary m-5"><%= __('Go to') %></button>
+                        <button class="btn btn-lg btn-outline-primary m-5" onclick="window.location.href='/map/map-search'"><%= __('Go to') %></button>
                     </div>
                     <div class="text-center text-dark-emphasis">
                         <%= __('Visit your local church and become a part of the flock by contributing to the community in any way you possibly can.') %>
@@ -51,7 +51,7 @@
                 <div class="carousel-item">
                     <div class="display-2 text-center fw-bolder"><%= __('Visit us') %></div>
                     <div class="text-center">
-                        <button class="btn btn-lg btn-outline-primary m-5"><%= __('Go to') %></button>
+                        <button class="btn btn-lg btn-outline-primary m-5"  onclick="window.location.href='/map/map-search'"><%= __('Go to') %></button>
                     </div>
                     <div class="text-center text-dark-emphasis">
                         <%= __('Visit your local church and become a part of the flock by contributing to the community in any way you possibly can.') %>
@@ -210,7 +210,7 @@
                             <li>Ecnos grupis lactos sanitus</li>
                         </ul>
                         <div class="text-center">
-                            <a href="/signup" class="btn btn-primary"><%= __('Join us') %></a>
+                            <a href="/classe/search-classe" class="btn btn-primary"><%= __('Join us') %></a>
                         </div>
                     </div>
                 </div>
@@ -268,7 +268,7 @@
 
         <div class="display-5 text-center"><%=__('Social')%></div>
         <div class="card-group mt-2 container">
-            <div class="card m-2">
+            <div class="card card-body m-2">
                 <div class="display-6">We help our neighborhood with</div>
                 <ul>
                     <li>alures tamo capivari uminum le</li>
@@ -278,9 +278,9 @@
                     <li>alures tamo capivari uminum le</li>
                 </ul>
 
-                <a class="btn btn-primary" href="/social"><%=__('Go to')%></a>
+                <a class="btn btn-primary" href="/social/social-search"><%=__('Go to')%></a>
             </div>
-            <div class="card m-2">
+            <div class="card card-body m-2">
                 <img src="/images/divider-img.jpg" alt="social">
             </div>
         </div>

@@ -18,6 +18,12 @@ module.exports = {
       required: true
     },
 
+    local: {
+      type: 'string',
+      description: 'The location of class. it can be at Church or some home out there',
+      required: true
+    },
+
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
     //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝

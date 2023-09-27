@@ -39,7 +39,9 @@
     "_": true,
 
     // Models:
-    "User": true
+    "User": true,
+    "Church": true,
+    "Classroom": true
 
     // …and any others.
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

@@ -44,6 +44,7 @@ module.exports = {
     for (let i = 1; i < 5; i++) {
       await Classroom.create({
         name: faker.lorem.word(),
+        local: faker.lorem.word()+`, #`+faker.number.int(),
         churchId: church.id
       });
     }

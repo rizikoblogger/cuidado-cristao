@@ -21,5 +21,9 @@ module.exports.policies = {
   'legal/view-terms': true,
   'legal/view-privacy': true,
   'deliver-contact-form-message': true,
+  'map/view-map-search': true,
+
+  'classe/view-search-classe': true,
+  'social/view-social-search': true,
 
 };

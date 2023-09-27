@@ -25,6 +25,8 @@ Qualquer igreja com dois ou mais membros
 
 ### Este tutorial considera que você já possui conhecimento mínimo nas seguintes tecnologias:
 
+* [HTML 5](https://www.w3schools.com/html/);
+* [CSS](https://www.w3schools.com/html/css/);
 * [Javascript ES6](https://www.w3schools.com/js/) ;
 * [Sails.js](https://sailsjs.com) e
 * [MongoDB 3+](https://www.w3schools.com/mongodb/).
@@ -58,7 +60,7 @@ adapter: 'sails-mongo',
 url: 'mongodb://user:password@host:port/database',
 </pre>
 
-Os dados de conexão acima são um template e deve ser atualizado para os dados reais de conexão com o BD.
+Os dados de conexão acima são um _template_ e deve ser atualizado para os dados reais de conexão com o BD.
 
 iii) Configurar a política de atualização manipulação dos dados no arquivo congig/models.js, podendo ser:
 
