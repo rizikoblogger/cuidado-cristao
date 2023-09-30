@@ -6,22 +6,21 @@
 
  <% if(me.isSuperAdmin) { %>
 
-        <span class="text-primary"> <%= __('Voce esta autenticado como SuperAdmin') %> </span>
+        <span class="text-info"> <%= __('You had logged in as SuperAdmin') %> </span>
         <div class="buttons">
-            <a class="btn btn-primary" href="/church/search-church"><%= __('Gerenciar Igrejas') %></a>
-            <a class="btn btn-primary" href="/classe/search-classe"><%= __('Gerenciar Celulas') %></a>
-            <a class="btn btn-primary" href="/#">                   <%= __('Gerenciar Recursos') %></a>
-            <a class="btn btn-primary" href="/#">                   <%= __('Gerenciar Sermoes') %></a>
-            <a class="btn btn-primary" href="/#">                   <%= __('Gerenciar Usuarios') %></a>
-            <a class="btn btn-primary" href="/#">                   <%= __('Gerenciar Sermoes') %></a>
+            <a class="btn btn-primary m-1" href="/church/search-church"><%= __('To manage Churchs') %></a>
+            <a class="btn btn-primary m-1" href="/classe/search-classe"><%= __('To manage Groups') %></a>
+            <a class="btn btn-primary m-1" href="/#">                   <%= __('To manage Resources') %></a>
+            <a class="btn btn-primary m-1" href="/#">                   <%= __('To manage Sermoes') %></a>
+            <a class="btn btn-primary m-1" href="/#">                   <%= __('To manage Users') %></a>
 
         </div>
 
   <% } %>
 
         <div class="buttons">
-            <a class="btn btn-primary" href="/account/profile"><%= __('Update my email') %></a>
-            <button type="button" class="btn btn-primary"
+            <a class="btn btn-primary m-1" href="/account/profile"><%= __('Update my email') %></a>
+            <button type="button" class="btn btn-primary m-1"
                     @click="toogleChurchList()"><%= __('Joint to a Church') %></button>
         </div>
 
@@ -47,7 +46,7 @@
                     </select>
                 </div>
                 <div class="card-footer">
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                    <button type="button" class="btn btn-primary m-1" data-bs-dismiss="modal"
                             @click="selecionar(churchSelecionadaId)"><%= __('Select') %></button>
                     <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal"
                             @click="goToCreateNewChurch()"><%= __('Create') %> <%= __('New') %></button>

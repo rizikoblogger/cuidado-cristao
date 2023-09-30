@@ -11,5 +11,7 @@
         <li class="list-group-item" v-for="celula in classes" > <button class="btn btn-sm btn-primary"> <em class="fa fa-sign-in" title="<%=__('Enter')%>"></em><%=__('Enter')%> </button> {{celula.name}}</li>
     </ul>
 
+    <button class="btn btn-secondary m-1" @click="goback()"><%=__('Cancel')%></button>
+
 </div>
 <%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>
