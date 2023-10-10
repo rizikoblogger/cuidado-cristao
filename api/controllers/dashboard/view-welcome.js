@@ -14,16 +14,28 @@ module.exports = {
       description: 'Display the welcome page for authenticated users.'
     },
 
+
+
   },
 
 
   fn: async function () {
 
-    const temples = await Church.find()
-    const churchs = await Church.find()
-    return {temples, churchs};
+    const allTemples = await Church.find()
+
+    const userChurchs = await UserChurch.find({userId: this.req.me.id})
+
+    const myChurchs = []
+    if(userChurchs.length > 0){
+      const _id = userChurchs[0].churchId
+      let church = await Church.findOne({id: _id})
+      myChurchs.push(church)
+    }
+
+    return {allTemples, myChurchs}
+
 
   }
 
 
-};
+}

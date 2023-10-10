@@ -22,7 +22,23 @@ module.exports = {
 
   fn: async function ({id}) {
 
-    const igreja = await Church.findOne({id: id})
+    if (id === 'new') {
+      return {
+        igreja: {
+          id: '',
+          fullName: '',
+          shortName: '',
+          email: '',
+          address: '',
+          site: '',
+          phone: '',
+          linktree: '',
+          tipo: 'DAUGHTER'
+        }
+      };
+    }
+
+    const igreja = await Church.findOne({id: id});
     return {igreja};
 
   }

@@ -30,6 +30,10 @@ parasails.registerPage('search-church', {
 
     goToBack: function () {
       this.goto(`/welcome`)
+    },
+
+    create: function() {
+      this.goto('/church/edit-church/new')
     }
   }
 });

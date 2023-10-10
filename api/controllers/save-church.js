@@ -1,11 +1,8 @@
 module.exports = {
 
-
   friendlyName: 'Save church',
 
-
   description: '',
-
 
   inputs: {
 
@@ -54,14 +51,24 @@ module.exports = {
       description: 'The url / internet address to linktree server site',
       required: false
     },
-
     tipo: {
       type: `string`,
       description: 'The type of MOTHER or DAUGHTER',
       required: true
-    }
+    },
+    ourCommunityText: {
+      type: `string`
+    },
+    churchMissionText: {
+      type: 'string'
+    },
+    joinToGroupText: {
+      type: 'string'
+    },
+    churchBeliefsText: {
+      type: `string`
+    },
   },
-
 
   exits: {
     redirect: {
@@ -71,38 +78,40 @@ module.exports = {
     }
   },
 
-
-  fn: async function ({ id, fullName,shortName,email,address,site, phone,linktree, tipo}) {
-
-    if(id){
-      const church = await Church.updateOne({id: id},
+  fn: async function (inputs) {
+    if (inputs.id) {
+      const church = await Church.updateOne({id: inputs.id},
         {
-          fullName: fullName,
-          shortName: shortName,
-          email: email,
-          address: address,
-          site: site,
-          phone: phone,
-          tipo: tipo,
-          linktree: linktree
-        });
-      throw {redirect: '/church/search-church'};
+          fullName: inputs.fullName,
+          shortName: inputs.shortName,
+          email: inputs.email,
+          address: inputs.address,
+          site: inputs.site,
+          phone: inputs.phone,
+          tipo: inputs.tipo,
+          linktree: inputs.linktree,
+          ourCommunityText: inputs.ourCommunityText,
+          churchMissionText: inputs.churchMissionText,
+          joinToGroupText: inputs.joinToGroupText,
+          churchBeliefsText: inputs.churchBeliefsText
+        })
+      throw {redirect: '/church/search-church'}
     } else {
-      const church = await Church.create( {
-        fullName: fullName,
-        shortName: shortName,
-        email: email,
-        address: address,
-        site: site,
-        phone: phone,
-        tipo: tipo,
-        linktree: linktree
-      }).fetch();
-      throw {redirect: '/church/search-church'};
+      const church = await Church.create({
+        fullName: inputs.fullName,
+        shortName: inputs.shortName,
+        email: inputs.email,
+        address: inputs.address,
+        site: inputs.site,
+        phone: inputs.phone,
+        tipo: inputs.tipo,
+        linktree: inputs.linktree,
+        ourCommunityText: inputs.ourCommunityText,
+        churchMissionText: inputs.churchMissionText,
+        joinToGroupText: inputs.joinToGroupText,
+        churchBeliefsText: inputs.churchBeliefsText
+      }).fetch()
+      throw {redirect: '/church/search-church'}
     }
-
-
   }
-
-
-};
+}

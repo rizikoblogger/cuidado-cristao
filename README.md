@@ -93,9 +93,23 @@ migrate: 'alter',
 
 ## Criando meu primeiro Protótipo Sails
 
-Instruções detalhadas de **como criar novas funcionalidades** pode ser encontrada na
-[Segunda Etapa](https://www.sailsjs.tec.br/ext/passo-a-passo-faq.html) destas Orientações
-passo-a-passo.
+I) Localize e altere os seguintes textos contidos no Protótipo:
+
+Quando você tiver seu produto, nome da empresa e marca finalizados, aqui estão os espaços reservados que você deverá trocar:
+
+* NEW_APP_NAME - O Nome do seu produto de software.
+* NEW_APP_COMPANY_NAME - Esse espaço reservado é usado para o nome da entidade nos termos legais e na política de privacidade e pode ser substituído pelo nome da empresa por trás do seu aplicativo.
+* DATE_PRIVACY_POLICY_LAST_UPDATED - Substitua isso pela data em que sua Política de Privacidade foi atualizada (portanto, se você estiver trocando o nome da empresa, a data é hoje).
+* DATE_TERMS_OF_SERVICE_LAST_UPDATED - Substitua isso pela data em que seus Termos de Serviço foram atualizados (portanto, se você estiver trocando o nome da empresa, a data é hoje).
+* NEW_APP_COMPANY_ABOUT_HREF - Este é o link na seção de direitos autorais do rodapé. Você provavelmente vai querer trocá-lo por um link para a página sobre a sua empresa ou site de marketing.
+Espaço reservado para o Logotipo - Para usar sua marca personalizada, você pode simplesmente substituir o arquivo de imagem em assets/images/logo.png por uma imagem personalizada de mesmo nome, ou alterar a imagem src no cabeçalho em views/layouts/layout.ejs.
+
+II) Instruções detalhadas de como personalizar as integrações: https://www.sailsjs.tec.br/content/faq.ejs.html
+
+III) Instruções detalhadas de **como criar novas funcionalidades** pode ser encontrada na
+[Segunda Etapa destas Orientações passo-a-passo](https://www.sailsjs.tec.br/ext/passo-a-passo-faq.html) .
+
+
 
 ## Be happy!
 

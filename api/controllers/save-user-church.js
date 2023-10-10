@@ -26,25 +26,18 @@ module.exports = {
 
   fn: async function (inputs) {
 
-    const exist = (await UserChurch.find({userId: inputs.userId, churchId: inputs.churchId})).size > 0;
+    await UserChurch.destroy({userId: inputs.userId})
 
-    if(exist){
-      const userchurch = await UserChurch.updateOne({userId: inputs.userId, churchId: inputs.churchId} ,{
-        churchId: inputs.churchId,
-        userId: inputs.churchId,
-        type: inputs.type
-      });
-    }else{
-      const userchurch = await UserChurch.create({
-        dtAssociation: new Date(),
-        churchId: inputs.churchId,
-        userId: inputs.churchId,
-        type: inputs.type
-      });
-      return userchurch;
-    }
+    const userchurch = await UserChurch.create({
+      dtAssociation: new Date(),
+      churchId: inputs.churchId,
+      userId: inputs.churchId,
+      type: inputs.type
+    }).fetch()
+
+    return userchurch
 
   }
 
 
-};
+}

@@ -80,19 +80,23 @@ parasails.registerPage('welcome', {
         this.message = {
           severity: `success`,
           summary: `Saved successfully`,
-          details: result
+          details: `ID ${result.id}`
         }
+        this.myChurchs = []
+        this.showChurchList = false
+
 
       }).catch(err=>console.log(err))
 
     },
 
-    cleanMessage: function () {
+    update: function () {
       this.message = {
         severity: ``,
         summary: ``,
         details: ''
       }
+      window.location.reload()
     }
 
   }

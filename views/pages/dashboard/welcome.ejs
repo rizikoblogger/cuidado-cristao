@@ -10,9 +10,9 @@
         <div class="buttons">
             <a class="btn btn-primary m-1" href="/church/search-church"><%= __('To manage Churchs') %></a>
             <a class="btn btn-primary m-1" href="/classe/search-classe"><%= __('To manage Groups') %></a>
-            <a class="btn btn-primary m-1" href="/#">                   <%= __('To manage Resources') %></a>
-            <a class="btn btn-primary m-1" href="/#">                   <%= __('To manage Sermoes') %></a>
-            <a class="btn btn-primary m-1" href="/#">                   <%= __('To manage Users') %></a>
+            <a class="btn btn-primary m-1" href="/not-yet">                   <%= __('To manage Resources') %></a>
+            <a class="btn btn-primary m-1" href="/not-yet">                   <%= __('To manage Sermoes') %></a>
+            <a class="btn btn-primary m-1" href="/not-yet">                   <%= __('To manage Users') %></a>
 
         </div>
 
@@ -25,13 +25,12 @@
         </div>
 
 
-        <div class="display-5 mt-2"><%= __('Joined to a Church') %></div>
-        <div class="mt-2" v-if="churchs.length < 1">
+        <div class="display-5 mt-2"><%= __('Joined to...') %></div>
+        <div class="mt-2" v-if="myChurchs.length < 1">
             <span class="text-warning"><%= __('Your are not member of any Church yet') %>!</span>
         </div>
-
         <ul class="list-group mt-3">
-            <li class="list-group-item" v-for="church in churchs">{{church.tipo}}: {{church.fullName}}</li>
+            <li class="list-group-item" v-for="church in myChurchs">{{church.tipo}}: {{church.fullName}}</li>
         </ul>
 
         <div v-if="showChurchList">
@@ -40,8 +39,8 @@
                 <div class="card-header"><%= __('Church') %> <%= __('Select') %></div>
                 <div class="card-body">
                     <select name="church" id="church" class="form-select" v-model="churchSelecionadaId">
-                        <% temples.forEach(temple=> { %>
-                            <option value="<%= temple.id %>" label="<%= temple.fullName %>"></option>
+                        <% allTemples.forEach(temple=> { %>
+                            <option value="<%= temple.id %>" label="<%= temple.fullName %> - <%= temple.tipo%>"></option>
                         <% }) %>
                     </select>
                 </div>
@@ -58,8 +57,8 @@
         </div>
 
     </div>
-    {{message.summary}}
-    <message id="msg" v-on:close="cleanMessage()" :severity="message.severity" v-bind:summary="message.summary" :details="message.details"></message>
+
+    <message id="msg" v-on:close="update()" :severity="message.severity" v-bind:summary="message.summary" :details="message.details"></message>
 
     <router-view></router-view>
 

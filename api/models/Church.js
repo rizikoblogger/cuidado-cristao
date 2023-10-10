@@ -60,7 +60,19 @@ module.exports = {
       type: `string`,
       description: 'The type of MOTHER or DAUGHTER',
       required: true
-    }
+    },
+    ourCommunityText: {
+      type: `string`
+    },
+    churchMissionText: {
+      type: 'string'
+    },
+    joinToGroupText: {
+      type: 'string'
+    },
+    churchBeliefsText: {
+      type: `string`
+    },
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
@@ -70,7 +82,11 @@ module.exports = {
     //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
-
+    churchId: {
+      type: 'string',
+      description: 'Key (id) of Church.js model associated as mother',
+      required: false
+    },
 
   },
 

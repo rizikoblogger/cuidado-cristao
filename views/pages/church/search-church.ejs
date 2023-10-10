@@ -14,7 +14,11 @@
         </thead>
         <tbody>
             <tr v-for="igreja in page.content">
-                <td headers="1"><button class="btn btn-primary btn-sm" @click="goToEdit(igreja.id)"><em class="fa fa-pencil"></em></button></td>
+                <td headers="1">
+                    <button v-if="me.isSuperAdmin" class="btn btn-primary btn-sm" @click="goToEdit(igreja.id)"><em class="fa fa-pencil"></em></button>
+                    <button v-if="me.isSuperAdmin" class="btn btn-danger btn-sm" @click="goToEdit(igreja.id)"><em class="fa fa-trash"></em></button>
+
+                </td>
                 <td headers="2">{{igreja.shortName}}</td>
                 <td headers="3">{{igreja.fullName}}</td>
                 <td headers="4">{{igreja.tipo}}</td>
@@ -31,7 +35,8 @@
     </table>
 
     <div class="btn-group mt-2">
-        <button class="btn btn-secondary" @click="goToBack()"><%=__('Cancel')%></button>
+        <button class="btn btn-secondary m-1" @click="goToBack()"><%=__('Cancel')%></button>
+        <button v-if="me.isSuperAdmin" class="btn btn-success m-1" @click="create()"><%=__('Create')%> <%=__('New')%></button>
     </div>
 
 
