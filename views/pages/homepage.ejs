@@ -70,6 +70,8 @@
             </button>
         </div>
 
+
+
         <div class="h-25"></div>
 
         <div class="card-group mt-5">
@@ -77,36 +79,28 @@
                 <div class="display-6"><%= __('Our Community') %></div>
                 <hr>
                 <p>
-                    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
-                    deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non
-                    provident, similique
+                   <%=mainChurch.ourCommunityText%>
                 </p>
             </div>
             <div class="card text-primary text-center p-3 h-25">
                 <div class="display-6"><%= __('Church Mission') %></div>
                 <hr>
                 <p>
-                    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
-                    deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non
-                    provident, similique
+                   <%=mainChurch.churchMissionText%>
                 </p>
             </div>
             <div class="card text-primary text-center p-3 h-25">
                 <div class="display-6"><%= __('Join a Group') %></div>
                 <hr>
                 <p>
-                    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
-                    deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non
-                    provident, similique
+                   <%=mainChurch.joinToGroupText%>
                 </p>
             </div>
             <div class="card text-primary text-center p-3 h-25">
                 <div class="display-6"><%= __('Church Beliefs') %></div>
                 <hr>
                 <p>
-                    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
-                    deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non
-                    provident, similique
+                   <%=mainChurch.churchBeliefsText%>
                 </p>
             </div>
         </div>
@@ -127,13 +121,7 @@
                     <div class="card-body">
                         <div class="display-6"><%= __('Church Facilities') %></div>
                         <ul>
-                            <li>Ad loren practises natos</li>
-                            <li>Ad loren practises natos</li>
-                            <li>Ad loren practises natos</li>
-                            <li>Ad loren practises natos</li>
-                            <li>Ad loren practises natos</li>
-                            <li>Ad loren practises natos</li>
-                            <li>Ad loren practises natos</li>
+                            <li v-for="facilitie in mainChurch.churchFacilities">{{facilitie}}</li>
                         </ul>
                     </div>
                     <div class="card-footer">
@@ -148,12 +136,7 @@
                     <div class="card-body">
                         <div class="display-6"><%= __('Learning') %></div>
                         <ul>
-                            <li>Ad aprendictus morales</li>
-                            <li>Ad aprendictus morales</li>
-                            <li>Ad aprendictus morales</li>
-                            <li>Ad aprendictus morales</li>
-                            <li>Ad aprendictus morales</li>
-                            <li>Ad aprendictus morales</li>
+                            <li v-for="learning in mainChurch.churchLearnings">{{learning}}</li>
 
                         </ul>
                     </div>
@@ -169,10 +152,7 @@
                     <div class="card-body">
                         <div class="display-6"><%= __('Meetings') %></div>
                         <ul>
-                            <li>Me cono liratum practius</li>
-                            <li>Me cono liratum practius</li>
-                            <li>Me cono liratum practius</li>
-                            <li>Me cono liratum practius</li>
+                            <li v-for="meeting in mainChurch.churchMeetings">{{meeting}}</li>
 
                         </ul>
                     </div>
@@ -202,12 +182,7 @@
                     <div class="card-body">
                         <p class="display-6">Search for and Join to</p>
                         <ul>
-                            <li>Ecnos grupis lactos sanitus</li>
-                            <li>Ecnos grupis lactos sanitus</li>
-                            <li>Ecnos grupis lactos sanitus</li>
-                            <li>Ecnos grupis lactos sanitus</li>
-                            <li>Ecnos grupis lactos sanitus</li>
-                            <li>Ecnos grupis lactos sanitus</li>
+                            <li v-for="classroom in classRooms">{{classroom.name}}</li>
                         </ul>
                         <div class="text-center">
                             <a href="/classe/search-classe" class="btn btn-primary"><%= __('Join us') %></a>

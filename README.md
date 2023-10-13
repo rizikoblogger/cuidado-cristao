@@ -109,7 +109,13 @@ II) Instruções detalhadas de como personalizar as integrações: https://www.s
 III) Instruções detalhadas de **como criar novas funcionalidades** pode ser encontrada na
 [Segunda Etapa destas Orientações passo-a-passo](https://www.sailsjs.tec.br/ext/passo-a-passo-faq.html) .
 
+## Adicionando dados falsos para teste
 
+Para adicionar dados falsos ao seu Protótipo:
+
+* Localize o arquivo ```scripts/cria-dados-para-teste``` e prepare-se para editá-lo;
+* Siga o modelo já implantando para expandir sua carga de dados;
+* Para conhecer mais recursos de criação de dados _fake_ visite o site [@Faker.js](https://fakerjs.dev/), mas preste bem a atenção em qual das versões está instalada no seu Protótipo.
 
 ## Be happy!
 

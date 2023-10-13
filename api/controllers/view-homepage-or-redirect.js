@@ -26,12 +26,15 @@ module.exports = {
   fn: async function () {
 
     if (this.req.me) {
-      throw {redirect:'/welcome'};
+      throw {redirect:'/welcome'}
     }
 
-    return {};
+    const mainChurch = await Church.findOne({tipo: 'MOTHER'})
+    const classRooms = await Classroom.find()
+
+    return {mainChurch: mainChurch, classRooms: classRooms }
 
   }
 
 
-};
+}

@@ -38,6 +38,9 @@ module.exports = {
       churchMissionText: faker.lorem.paragraph(),
       joinToGroupText: faker.lorem.paragraph(),
       churchBeliefsText:faker.lorem.paragraph(),
+      churchFacilities:  await sails.helpers.geraListaPalavras(3,4),
+      churchLearnings:  await sails.helpers.geraListaPalavras(3,5),
+      churchMeetings:  await sails.helpers.geraListaPalavras(3,3),
     }).fetch()
 
     let church = await Church.create({

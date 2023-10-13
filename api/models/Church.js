@@ -73,6 +73,22 @@ module.exports = {
     churchBeliefsText: {
       type: `string`
     },
+    churchFacilities: {
+      type: 'ref',
+      description: `list of facilites as text`,
+      example: `['lorem ipsu', 'loren tatus', 'loren ur']`
+    },
+    churchLearnings: {
+      type: 'ref',
+      description: `list of learning as text`,
+      example: `['lorem ipsu', 'loren tatus', 'loren ur']`
+    },
+    churchMeetings: {
+      type: 'ref',
+      description: `list of meetings as text`,
+      example: `['lorem ipsu', 'loren tatus', 'loren ur']`
+    },
+
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
