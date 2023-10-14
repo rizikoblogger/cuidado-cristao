@@ -98,13 +98,19 @@ module.exports = {
     //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
-    churchId: {
-      type: 'string',
-      description: 'Key (id) of Church.js model associated as mother',
-      required: false
+    users: {
+      collection: `user`,
+      via: 'church'
     },
+
+    classrooms: {
+      collection: 'Classroom',
+      via: 'church'
+    }
 
   },
 
-};
+  tableName: 'churchEclesia'
+
+}
 

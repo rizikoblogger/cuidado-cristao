@@ -1,0 +1,59 @@
+<div id="social-edit" v-cloak>
+
+    <div class="container">
+        <h1><%= __(`Social Edit`) ;%></h1>
+        <hr>
+
+        <message id="msg" v-on:close="cleanMessage()" :severity="message.severity" :summary="message.summary" :details="message.details"></message>
+
+        <ajax-form action="saveSocial"
+                   :syncing.sync="syncing"
+                   :cloud-error.sync="cloudError"
+                   :form-data="formData"
+                   :form-rules="formRules"
+                   :form-errors.sync="formErrors"
+                   @submitted="submittedForm()">
+
+            <label for="nome"><%= __('Name') ;%></label>
+            <input class="form-control"
+                   id="nome"
+                   name="nome"
+                   type="text"
+                   :class="[formErrors.nome ? 'is-invalid' : '']"
+                   v-model.trim="formData.nome"
+                   placeholder="<%= __(`Type a Name`) ;%>"
+                   focus-first>
+
+            <label for="descricao"><%= __('Description') ;%></label>
+            <textarea class="form-control"
+                   id="descricao"
+                   name="descricao"
+                   :class="[formErrors.descricao ? 'is-invalid' : '']"
+                   v-model.trim="formData.descricao"
+                   placeholder="<%= __(`Type a description`) ;%>"
+                     ></textarea>
+
+            <label for="users"><%= __('Volunteers') ;%></label>
+            <ul class="list-group">
+                <li v-if="social.users.length < 1" class="list-group-item"><%= __('No record found') ;%></li>
+                <li class="list-group-item" v-for="user in social.users">{{user.fullName}}</li>
+            </ul>
+
+            <input type="hidden" name="id" value="<%=social.id%>">
+            <input type="hidden" name="users" value="<%=social.users%>">
+
+            <cloud-error v-if="cloudError"></cloud-error>
+
+            <div class="btn-group mt-2">
+                <ajax-button type="submit" :syncing="syncing"
+                             class="btn btn-primary m-1"><%= __('Save') ;%></ajax-button>
+                <button class="btn btn-primary m-1" @click="goBack()"><%= __(`Cancel`) ;%></button>
+            </div>
+
+        </ajax-form>
+
+
+    </div>
+
+</div>
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser(); %>

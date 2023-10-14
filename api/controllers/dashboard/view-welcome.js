@@ -21,16 +21,10 @@ module.exports = {
 
   fn: async function () {
 
+    const user = await User.findOne({id: this.req.me.id}).populate(`church`)
     const allTemples = await Church.find()
-
-    const userChurchs = await UserChurch.find({userId: this.req.me.id})
-
     const myChurchs = []
-    if(userChurchs.length > 0){
-      const _id = userChurchs[0].churchId
-      let church = await Church.findOne({id: _id})
-      myChurchs.push(church)
-    }
+    if(user.church) myChurchs.push(user.church)
 
     return {allTemples, myChurchs}
 

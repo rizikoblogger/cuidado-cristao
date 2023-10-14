@@ -68,6 +68,15 @@ module.exports = {
     churchBeliefsText: {
       type: `string`
     },
+    churchFacilities: {
+      type: 'ref'
+    },
+    churchLearnings: {
+      type: 'ref'
+    },
+    churchMeetings: {
+      type: 'ref'
+    },
   },
 
   exits: {
@@ -93,7 +102,10 @@ module.exports = {
           ourCommunityText: inputs.ourCommunityText,
           churchMissionText: inputs.churchMissionText,
           joinToGroupText: inputs.joinToGroupText,
-          churchBeliefsText: inputs.churchBeliefsText
+          churchBeliefsText: inputs.churchBeliefsText,
+          churchFacilities: inputs.churchFacilities,
+          churchLearnings:inputs.churchLearnings,
+          churchMeetings: inputs.churchMeetings
         })
       throw {redirect: '/church/search-church'}
     } else {
@@ -109,7 +121,10 @@ module.exports = {
         ourCommunityText: inputs.ourCommunityText,
         churchMissionText: inputs.churchMissionText,
         joinToGroupText: inputs.joinToGroupText,
-        churchBeliefsText: inputs.churchBeliefsText
+        churchBeliefsText: inputs.churchBeliefsText,
+        churchFacilities: inputs.churchFacilities,
+        churchLearnings:inputs.churchLearnings,
+        churchMeetings: inputs.churchMeetings
       }).fetch()
       throw {redirect: '/church/search-church'}
     }

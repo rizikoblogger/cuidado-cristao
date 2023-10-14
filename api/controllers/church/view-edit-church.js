@@ -22,6 +22,8 @@ module.exports = {
 
   fn: async function ({id}) {
 
+    const countChurch = await Church.count()
+
     if (id === 'new') {
       return {
         igreja: {
@@ -33,15 +35,15 @@ module.exports = {
           site: '',
           phone: '',
           linktree: '',
-          tipo: 'DAUGHTER'
+          tipo: countChurch > 0?'DAUGHTER':'MOTHER'
         }
-      };
+      }
     }
 
-    const igreja = await Church.findOne({id: id});
-    return {igreja};
+    const igreja = await Church.findOne({id: id})
+    return {igreja}
 
   }
 
 
-};
+}

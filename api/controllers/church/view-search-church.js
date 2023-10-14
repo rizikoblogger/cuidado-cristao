@@ -23,20 +23,20 @@ module.exports = {
 
   fn: async function ({page, size}) {
 
-    const number = page | 0;
-    const limit = size | 20;
+    const number = page | 0
+    const limit = size | 20
 
-    const count = await Church.count();
-    const list = await Church.find({skip: number * limit, limit: limit});
+    const count = await Church.count()
+    const list = await Church.find({skip: number * limit, limit: limit})
 
     return await sails.helpers.pageFactory.with({
       list: list,
       page: number,
       size: limit,
       totalRecords: count
-    });
+    })
 
   }
 
 
-};
+}

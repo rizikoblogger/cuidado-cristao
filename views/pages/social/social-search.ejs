@@ -3,19 +3,17 @@
     <div class="display-3"><%=__('Social Search')%></div>
     <hr>
 
+    <button v-if="me.isSuperAdmin" class="btn btn-primary mt-2" @click="novo()"><%=__('Create New')%></button>
+
     <div class="display-6">
         <%=__('We need volunteers to help us on...')%>
     </div>
 
     <ul class="list-group mt-2">
-        <li class="list-group-item"><button class="btn btn-sm btn-primary"><%=__('Join us')%></button> Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</li>
-        <li class="list-group-item"><button class="btn btn-sm btn-primary"><%=__('Join us')%></button> Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</li>
-        <li class="list-group-item"><button class="btn btn-sm btn-primary"><%=__('Join us')%></button> Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</li>
-        <li class="list-group-item"><button class="btn btn-sm btn-primary"><%=__('Join us')%></button> Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</li>
-        <li class="list-group-item"><button class="btn btn-sm btn-primary"><%=__('Join us')%></button> Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</li>
-        <li class="list-group-item"><button class="btn btn-sm btn-primary"><%=__('Join us')%></button> Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</li>
-        <li class="list-group-item"><button class="btn btn-sm btn-primary"><%=__('Join us')%></button> Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</li>
+        <li v-for="social in list"  class="list-group-item"><button class="btn btn-sm btn-primary"><em class="fa fa-sign-in"></em></button> {{social.nome}}: {{social.descricao}} </li>
     </ul>
+
+    <div v-if="list.length < 1" class="text-danger fw-bolder"><%=__(`No record found`)%></div>
 
 
 </div>

@@ -41,7 +41,10 @@
     // Models:
     "User": true,
     "Church": true,
-    "Classroom": true
+    "Classroom": true,
+    "Contribution": true,
+    "SocialService": true,
+    "Usercare": true
 
     // …and any others.
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

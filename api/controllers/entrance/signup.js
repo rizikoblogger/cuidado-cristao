@@ -68,11 +68,14 @@ the account verification message.)`,
 
   fn: async function ({emailAddress, password, fullName}) {
 
-    var newEmailAddress = emailAddress.toLowerCase();
+    const countUsers = await User.count()
+
+    var newEmailAddress = emailAddress.toLowerCase()
 
     // Build up data for the new user record and save it to the database.
     // (Also use `fetch` to retrieve the new ID so that we can use it below.)
     var newUserRecord = await User.create(_.extend({
+      isSuperAdmin: countUsers < 1,
       fullName,
       emailAddress: newEmailAddress,
       password: await sails.helpers.passwords.hashPassword(password),
@@ -84,27 +87,27 @@ the account verification message.)`,
     }:{}))
     .intercept('E_UNIQUE', 'emailAlreadyInUse')
     .intercept({name: 'UsageError'}, 'invalid')
-    .fetch();
+    .fetch()
 
     // If billing feaures are enabled, save a new customer entry in the Stripe API.
     // Then persist the Stripe customer id in the database.
     if (sails.config.custom.enableBillingFeatures) {
       let stripeCustomerId = await sails.helpers.stripe.saveBillingInfo.with({
         emailAddress: newEmailAddress
-      }).timeout(5000).retry();
+      }).timeout(5000).retry()
       await User.updateOne({id: newUserRecord.id})
       .set({
         stripeCustomerId
-      });
+      })
     }
 
     // Store the user's new id in their session.
-    this.req.session.userId = newUserRecord.id;
+    this.req.session.userId = newUserRecord.id
 
     // In case there was an existing session (e.g. if we allow users to go to the signup page
     // when they're already logged in), broadcast a message that we can display in other open tabs.
     if (sails.hooks.sockets) {
-      await sails.helpers.broadcastSessionChange(this.req);
+      await sails.helpers.broadcastSessionChange(this.req)
     }
 
     if (sails.config.custom.verifyEmailAddresses) {
@@ -117,11 +120,11 @@ the account verification message.)`,
           fullName,
           token: newUserRecord.emailProofToken
         }
-      });
+      })
     } else {
-      sails.log.info('Skipping new account email verification... (since `verifyEmailAddresses` is disabled)');
+      sails.log.info('Skipping new account email verification... (since `verifyEmailAddresses` is disabled)')
     }
 
   }
 
-};
+}

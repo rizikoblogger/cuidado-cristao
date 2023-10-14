@@ -153,7 +153,7 @@ without necessarily having a billing card.`
       type: 'number',
       description: 'A JS timestamp (epoch ms) representing the moment at which this user most recently interacted with the backend while logged in (or 0 if they have not interacted with the backend at all yet).',
       example: 1502844074211
-    },   
+    },
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
@@ -163,7 +163,31 @@ without necessarily having a billing card.`
     //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
-    // n/a
+    church: {
+      model: 'Church'
+    },
 
-  },  
-};
+    userCares: {
+      collection: `Usercare`,
+      via: `user`
+    },
+
+    socialServices: {
+      collection: `SocialService`,
+      via: `users`
+    },
+
+    contributions: {
+      collection: `Contribution`,
+      via: `user`
+    },
+
+    classrooms: {
+      collection: `Classroom`,
+      via: `users`
+    }
+
+  },
+
+  tableName: `userEclesia`
+}

@@ -20,6 +20,8 @@ parasails.registerPage('social-search', {
   //  ║║║║ ║ ║╣ ╠╦╝╠═╣║   ║ ║║ ║║║║╚═╗
   //  ╩╝╚╝ ╩ ╚═╝╩╚═╩ ╩╚═╝ ╩ ╩╚═╝╝╚╝╚═╝
   methods: {
-    //…
+    novo: function() {
+      this.goto(`/social/social-edit/new`)
+    }
   }
 });

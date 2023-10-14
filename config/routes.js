@@ -41,6 +41,8 @@ module.exports.routes = {
   'GET /map/map-search': { action: 'map/view-map-search' },
 
   'GET /social/social-search': { action: 'social/view-social-search' },
+  'GET /social/social-edit/:id': { action: 'social/view-social-edit' },
+
 
 
   'GET /not-yet': { action: 'view-not-yet' },
@@ -74,8 +76,10 @@ module.exports.routes = {
   'POST  /api/v1/deliver-contact-form-message':          { action: 'deliver-contact-form-message' },
   'POST  /api/v1/observe-my-session':                 { action: 'observe-my-session', hasSocketFeatures: true },
 
-  'POST /api/v1/save-church': { action: 'save-church' },
-  'POST /api/v1/save-user-church': { action: 'save-user-church' },
-  'DELETE /api/v1/delete-church': { action: 'delete-church' },
+  'POST /api/v1/save-church': { action: 'church/save-church' },
+  'DELETE /api/v1/delete-church': { action: 'church/delete-church' },
 
-};
+  'POST /api/v1/social/save-social': { action: 'social/save-social' },
+
+
+}

@@ -12,7 +12,8 @@ parasails.registerPage('welcome', {
       severity: ``,
       summary: ``,
       details: ''
-    }
+    },
+    church: {}
   },
 
   //  ╦  ╦╔═╗╔═╗╔═╗╦ ╦╔═╗╦  ╔═╗

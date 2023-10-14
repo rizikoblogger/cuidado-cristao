@@ -32,9 +32,16 @@ module.exports = {
     //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
-    /* 1 to n with UserClassroom.js */
-    churchId: {type: `string`}
+    /* 1 to n with Church */
+    church : { model: `Church`},
+
+    users: {
+      collection: `User`,
+      via: 'classrooms'
+    }
   },
 
-};
+  tableName: 'classroomEclesia'
+
+}
 

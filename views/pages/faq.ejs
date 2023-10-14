@@ -44,9 +44,25 @@
         <%=__('You can access with congregant, member, deacon, pastor, or administrator')%>
     </div>
 
-    <div class="text-center mt-5">
-        <span><a href="/faq"><%=__('Frequent Asked Questions')%></a> | <a href="/login"><%=__('Enter')%></a> | <a
-                    href="/signup"><%=__('Signup')%></a></span>
+    <hr>
+
+    <p>This FAQ page is available in English and Brazilian Portuguese Only</p>
+    <p>Esta página FAQ está disponível somente em Inglês e Português do Brazil</p>
+
+    <div class="row mt-2">
+        <div class="col m-1 border border-1 border-primary">
+        <h3 class="text-primary">English</h3>
+            <ol>
+                <li v-for="faq in listEnglish" ><span class="fw-bolder">{{faq.question}}</span>: <em>{{faq.answer}}</em></li>
+            </ol>
+        </div>
+        <div class="col m-1 border border-1 border-primary">
+            <h3 class="text-primary">Português</h3>
+            <ol>
+                <li v-for="faq in listPortuguese" ><span class="fw-bolder">{{faq.question}}</span>: <em>{{faq.answer}}</em></li>
+            </ol>
+        </div>
+
     </div>
 
 

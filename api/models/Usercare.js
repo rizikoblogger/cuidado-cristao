@@ -23,6 +23,11 @@ module.exports = {
       description: 'Write down here the record of occurences during this relationship'
     },
 
+    whoCares: {
+      type: `string`,
+      description: `The name of who is taking care of this User`
+    },
+
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
     //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝
@@ -31,11 +36,13 @@ module.exports = {
     //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
-    userId: {
-      type: 'string',
+    user: {
+      model: `User`,
       description: 'Record of contact, pray, service or any other relationship with User'
     }
   },
 
-};
+  tableName: 'usercareEclesia'
+
+}
 
