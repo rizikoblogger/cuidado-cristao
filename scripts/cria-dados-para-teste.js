@@ -96,6 +96,30 @@ module.exports = {
         users: [].push(user.id)
       })
     }
+    
+    
+    for (let i = 1; i < 4; i++) {
+      await Sermon.createEach([
+        {
+        titulo: faker.lorem.words(3),
+        comentario: faker.lorem.paragraph(),
+        videoUrl: 'https://www.youtube.com/embed/oxmA4NtqR7s?si=pzjvV0CgJsLpaiLE',
+        church: mother.id
+       },
+        {
+        titulo: faker.lorem.words(3),
+        comentario: faker.lorem.paragraph(),
+        videoUrl: 'https://www.youtube.com/embed/MqBsFnFCeHM?si=3OGv9llRtfj8F2RP',
+        church: mother.id
+       },
+        {
+        titulo: faker.lorem.words(3),
+        comentario: faker.lorem.paragraph(),
+        videoUrl: 'https://www.youtube.com/embed/t-jAhs-2BYI?si=BYASQkvLOQC1YYcS',
+        church: mother.id
+       },
+    ])
+    }
 
 
     sails.log('Finished custom shell script... (`sails run cria-dados-para-teste`)')

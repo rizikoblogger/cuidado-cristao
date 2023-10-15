@@ -34,11 +34,12 @@ module.exports = {
       const mainChurch = await Church.findOne({tipo: 'MOTHER'})
       const classRooms = await Classroom.find()
       const socialServices = await SocialService.find()
+      const sermons = await Sermon.find()
 
-      return {mainChurch: mainChurch, classRooms: classRooms, socialServices: socialServices }
+      return {mainChurch: mainChurch, classRooms: classRooms, socialServices: socialServices, sermons: sermons }
 
     }else{
-      return {mainChurch: {shortName: ``}, classRooms: [], socialServices: []}
+      return {mainChurch: {shortName: ``}, classRooms: [], socialServices: [], sermons: []}
     }
 
   }

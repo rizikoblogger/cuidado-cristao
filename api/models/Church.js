@@ -106,6 +106,11 @@ module.exports = {
     classrooms: {
       collection: 'Classroom',
       via: 'church'
+    },
+
+    sermons: {
+      collection: 'Sermon',
+      via: 'sermon'
     }
 
   },

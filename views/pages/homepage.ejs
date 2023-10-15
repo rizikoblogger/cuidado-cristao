@@ -216,43 +216,20 @@
 
             <div class="display-5 text-center"><%= __('Sermons') ;%></div>
             <div class="card-group mt-2">
-                <div class="card">
+                <div class="card" v-if="sermon in sermons">
                     <div class="card-body">
                         <iframe width="560" height="315"
-                                src="https://www.youtube.com/embed/oxmA4NtqR7s?si=pzjvV0CgJsLpaiLE"
-                                title="YouTube video player" frameborder="0"
+                                :src="sermon.videoUrl"
+                                :title="sermon.titulo" frameborder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                 allowfullscreen></iframe>
                     </div>
                     <div class="card-footer">
+                        <em class="text-muted">{{sermon.comentario}}</em>
                         <a href="https://www.youtube.com/watch?v=oxmA4NtqR7s" target="_blank"><%= __('Go to') ;%></a>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-body">
-                        <iframe width="560" height="315"
-                                src="https://www.youtube.com/embed/MqBsFnFCeHM?si=3OGv9llRtfj8F2RP"
-                                title="YouTube video player" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowfullscreen></iframe>
-                    </div>
-                    <div class="card-footer">
-                        <a href="https://www.youtube.com/watch?v=oxmA4NtqR7s" target="_blank"><%= __('Go to') ;%></a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <iframe width="560" height="315"
-                                src="https://www.youtube.com/embed/t-jAhs-2BYI?si=BYASQkvLOQC1YYcS"
-                                title="YouTube video player" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowfullscreen></iframe>
-                    </div>
-                    <div class="card-footer">
-                        <a href="https://www.youtube.com/watch?v=t-jAhs-2BYI&t=1s"
-                           target="_blank"><%= __('Go to') ;%></a>
-                    </div>
-                </div>
+              
             </div>
 
         </section>
