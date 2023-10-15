@@ -3,7 +3,7 @@ parasails.registerPage('social-search', {
   //  ║║║║║ ║ ║╠═╣║    ╚═╗ ║ ╠═╣ ║ ║╣
   //  ╩╝╚╝╩ ╩ ╩╩ ╩╩═╝  ╚═╝ ╩ ╩ ╩ ╩ ╚═╝
   data: {
-    //…
+    loggedIn: false,
   },
 
   //  ╦  ╦╔═╗╔═╗╔═╗╦ ╦╔═╗╦  ╔═╗
@@ -13,7 +13,8 @@ parasails.registerPage('social-search', {
     //…
   },
   mounted: async function() {
-    //…
+    _.extend(this, window.SAILS_LOCALS)
+    this.loggedIn = this.me?true:false;
   },
 
   //  ╦╔╗╔╔╦╗╔═╗╦═╗╔═╗╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
