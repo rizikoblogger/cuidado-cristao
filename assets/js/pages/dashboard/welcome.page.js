@@ -81,7 +81,7 @@ parasails.registerPage('welcome', {
         this.message = {
           severity: `success`,
           summary: `Saved successfully`,
-          details: `ID ${result.id}`
+          details: ``
         }
         this.myChurchs = []
         this.showChurchList = false

@@ -2,42 +2,35 @@
 
     <div class="display-3"><%=__('Church Search')%></div>
     <hr>
-    <table class="table table-hover">
-        <caption></caption>
-        <thead>
-            <tr>
-                <th id="1"></th>
-                <th id="2"><%=__('Short Name')%></th>
-                <th id="3"><%=__('Full Name')%></th>
-                <th id="4"><%=__('Hierachy')%></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr v-for="igreja in page.content">
-                <td headers="1">
-                    <button v-if="me.isSuperAdmin" class="btn btn-primary btn-sm" @click="goToEdit(igreja.id)"><em class="fa fa-pencil"></em></button>
-                    <button v-if="me.isSuperAdmin" class="btn btn-danger btn-sm" @click="goToEdit(igreja.id)"><em class="fa fa-trash"></em></button>
-
-                </td>
-                <td headers="2">{{igreja.shortName}}</td>
-                <td headers="3">{{igreja.fullName}}</td>
-                <td headers="4">{{igreja.tipo}}</td>
-            </tr>
-        </tbody>
-        <tfoot>
-            <tr>
-                <td colspan="4">
-                 <paginador :content="page.content" :number="page.number" :size="page.size" :total="page.totalRecords" v-on:paginated="paginate($event)"></paginador>
-
-                </td>
-            </tr>
-        </tfoot>
-    </table>
 
     <div class="btn-group mt-2">
         <button class="btn btn-secondary m-1" @click="goToBack()"><%=__('Cancel')%></button>
         <button v-if="me.isSuperAdmin" class="btn btn-success m-1" @click="create()"><%=__('Create')%> <%=__('New')%></button>
     </div>
+
+    <div class="mt-2 card-group" >
+        <div class="card m-1" v-for="igreja in page.content">
+            <div class="card-header">
+                <span class="fw-bolder">{{igreja.shortName}}</span>
+
+            </div>
+            <div class="card-body">
+                {{igreja.fullName}}<br>
+                {{igreja.tipo}}
+            </div>
+            <div class="card-footer">
+                <div class="btn-group">
+                    <button v-if="me.isSuperAdmin" class="btn btn-primary bnt-lg m-1" @click="goToEdit(igreja.id)"><em class="fa fa-pencil"></em></button>
+                    <button v-if="me.isSuperAdmin" class="btn btn-danger btn-lg m-1" @click="goToEdit(igreja.id)"><em class="fa fa-trash"></em></button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
 
 
 

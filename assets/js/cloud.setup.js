@@ -47,7 +47,9 @@ Cloud.setup({
       'args': ['id', 'fullName', 'shortName', 'email', 'address', 'site', 'phone', 'linktree', 'tipo', 'ourCommunityText', 'churchMissionText', 'joinToGroupText', 'churchBeliefsText', 'churchFacilities', 'churchLearnings', 'churchMeetings']
     },
     'deleteChurch': {'verb': 'DELETE', 'url': '/api/v1/delete-church', 'args': ['id']},
-    'saveSocial': {'verb': 'POST', 'url': '/api/v1/social/save-social', 'args': ['id', 'nome', 'descricao', 'users']}
+    'saveSocial': {'verb': 'POST', 'url': '/api/v1/social/save-social', 'args': ['id', 'nome', 'descricao', 'users']},
+    'saveUserClasse': {'verb': 'POST', 'url': '/api/v1/classe/save-user-classe', 'args': ['userId', 'classroomId']},
+    'saveUserChurch': {'verb': 'POST', 'url': '/api/v1/church/save-user-church', 'args': ['userId', 'churchId']}
   }
   /* eslint-enable */
 

@@ -1,11 +1,15 @@
 <div id="not-yet" v-cloak>
 
-  <h1>TODO: Implement this page.</h1>
-  <p>This page has been not created yet!</p>
+    <h1>TODO: Implement this page.</h1>
+    <p>This page has been not created yet!</p>
 
-  <em class="text-muted"><small>
-    Probably, some developer thing about creating it, otherwise he didn't do it until now.
-  </small></em>
+    <em class="text-muted"><small>
+            Probably, some developer thing about creating it, otherwise he didn't do it until now.
+        </small></em>
+
+    <br>
+    <a class="mt-2" href="#" onclick="window.history.back()"><%= __('Go Back') %></a>
+
 
 </div>
 <%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>

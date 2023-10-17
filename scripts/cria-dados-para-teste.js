@@ -1,4 +1,3 @@
-
 module.exports = {
 
 
@@ -12,7 +11,7 @@ module.exports = {
   Este é um recurso sails que pode ser executado na console / terminal / shell do desenvolvedor.
   Modifique-o para adicionar novos dados a medida em que seu Protótipo for evoluíndo em funcionalidades.
 
-  Para executá-lo, digite em um terminal, a partir da raíz do Protótipo: [sails run cria-dad-s-para-teste]
+  Para executá-lo, digite em um terminal, a partir da raíz do Protótipo: [sails run cria-dados-para-teste]
 
   `,
 
@@ -25,13 +24,20 @@ module.exports = {
     const {faker} = require('@faker-js/faker')
 
     let user = {}
-    if(await User.count() > 0) {
+    if (await User.count() > 0) {
       let users = await User.find()
       user = users[0]
-    }else{
+      console.log(`Usuario encontrado`)
+    } else {
       user = await User.create(
-        { emailAddress: 'admin@example.com', fullName: 'Ryan Dahl', isSuperAdmin: true, password: await sails.helpers.passwords.hashPassword('abc123') },
+        {
+          emailAddress: 'admin@example.com',
+          fullName: 'Ryan Dahl',
+          isSuperAdmin: true,
+          password: await sails.helpers.passwords.hashPassword('abc123')
+        },
       ).fetch()
+      console.log(`Usuario criado`)
     }
 
     let mother = await Church.create({
@@ -46,11 +52,12 @@ module.exports = {
       ourCommunityText: faker.lorem.paragraph(),
       churchMissionText: faker.lorem.paragraph(),
       joinToGroupText: faker.lorem.paragraph(),
-      churchBeliefsText:faker.lorem.paragraph(),
-      churchFacilities:  await sails.helpers.geraListaPalavras(3,4),
-      churchLearnings:  await sails.helpers.geraListaPalavras(3,5),
-      churchMeetings:  await sails.helpers.geraListaPalavras(3,3),
+      churchBeliefsText: faker.lorem.paragraph(),
+      churchFacilities: await sails.helpers.geraListaPalavras(3, 4),
+      churchLearnings: await sails.helpers.geraListaPalavras(3, 5),
+      churchMeetings: await sails.helpers.geraListaPalavras(3, 3),
     }).fetch()
+    console.log(`Igreja MOTHER criada`)
 
     let daugther = await Church.create({
       fullName: faker.company.name(),
@@ -63,14 +70,16 @@ module.exports = {
       tipo: 'DAUGHTER',
       church: mother.id
     }).fetch()
+    console.log(`Igreja DAUGHTER criada`)
 
     for (let i = 1; i < 5; i++) {
       await Classroom.create({
         name: faker.lorem.word(),
-        local: faker.lorem.word()+`, #`+faker.number.int(),
+        local: faker.lorem.word() + `, #` + faker.number.int(),
         church: daugther.id
       })
     }
+    console.log(`Classroom criada`)
 
     for (let i = 1; i < 5; i++) {
       await Contribution.create({
@@ -79,6 +88,8 @@ module.exports = {
         propose: faker.commerce.productDescription(),
         user: user.id
       })
+      console.log(`Contribution #${i} criada`)
+
     }
 
     for (let i = 1; i < 5; i++) {
@@ -87,39 +98,43 @@ module.exports = {
         record: faker.lorem.paragraph({min: 1, max: 3}),
         user: user.id
       })
+      console.log(`Usercare #${i} criada`)
     }
 
     for (let i = 1; i < 5; i++) {
+      let users = []
+      users.push(user.id)
       await SocialService.create({
         nome: faker.company.buzzPhrase(),
         descricao: faker.lorem.paragraph(),
-        users: [].push(user.id)
+        users: users
       })
+      console.log(`SocialService #${i} criada`)
     }
-    
-    
-    for (let i = 1; i < 4; i++) {
-      await Sermon.createEach([
-        {
+
+
+    // eslint-disable-next-line no-undef
+    await Sermon.createEach([
+      {
         titulo: faker.lorem.words(3),
         comentario: faker.lorem.paragraph(),
         videoUrl: 'https://www.youtube.com/embed/oxmA4NtqR7s?si=pzjvV0CgJsLpaiLE',
         church: mother.id
-       },
-        {
+      },
+      {
         titulo: faker.lorem.words(3),
         comentario: faker.lorem.paragraph(),
         videoUrl: 'https://www.youtube.com/embed/MqBsFnFCeHM?si=3OGv9llRtfj8F2RP',
         church: mother.id
-       },
-        {
+      },
+      {
         titulo: faker.lorem.words(3),
         comentario: faker.lorem.paragraph(),
         videoUrl: 'https://www.youtube.com/embed/t-jAhs-2BYI?si=BYASQkvLOQC1YYcS',
         church: mother.id
-       },
+      },
     ])
-    }
+    console.log(`Sermoes criados`)
 
 
     sails.log('Finished custom shell script... (`sails run cria-dados-para-teste`)')

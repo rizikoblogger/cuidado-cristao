@@ -80,6 +80,9 @@ module.exports.routes = {
   'DELETE /api/v1/delete-church': { action: 'church/delete-church' },
 
   'POST /api/v1/social/save-social': { action: 'social/save-social' },
+  'POST /api/v1/classe/save-user-classe': { action: 'classe/save-user-classe' },
+  'POST /api/v1/church/save-user-church': { action: 'church/save-user-church' },
+
 
 
 }

@@ -73,6 +73,7 @@ module.exports = {
     churchBeliefsText: {
       type: `string`
     },
+
     churchFacilities: {
       type: 'ref',
       description: `list of facilites as text`,
@@ -110,7 +111,7 @@ module.exports = {
 
     sermons: {
       collection: 'Sermon',
-      via: 'sermon'
+      via: 'church'
     }
 
   },

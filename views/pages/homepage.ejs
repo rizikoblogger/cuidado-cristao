@@ -216,7 +216,7 @@
 
             <div class="display-5 text-center"><%= __('Sermons') ;%></div>
             <div class="card-group mt-2">
-                <div class="card" v-if="sermon in sermons">
+                <div class="card" v-for="sermon in sermons">
                     <div class="card-body">
                         <iframe width="560" height="315"
                                 :src="sermon.videoUrl"
@@ -229,7 +229,7 @@
                         <a href="https://www.youtube.com/watch?v=oxmA4NtqR7s" target="_blank"><%= __('Go to') ;%></a>
                     </div>
                 </div>
-              
+
             </div>
 
         </section>

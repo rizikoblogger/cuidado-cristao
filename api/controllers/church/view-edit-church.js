@@ -15,7 +15,9 @@ module.exports = {
 
     success: {
       viewTemplatePath: 'pages/church/edit-church'
-    }
+    },
+
+
 
   },
 
@@ -40,7 +42,7 @@ module.exports = {
       }
     }
 
-    const igreja = await Church.findOne({id: id})
+    const igreja = await Church.findOne({id: id}).populate(`classrooms`).populate(`sermons`)
     return {igreja}
 
   }
