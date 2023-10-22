@@ -49,9 +49,20 @@ Quando você tiver seu produto, nome da empresa e marca finalizados, aqui estão
 * NEW_APP_COMPANY_ABOUT_HREF - Este é o link na seção de direitos autorais do rodapé. Você provavelmente vai querer trocá-lo por um link para a página sobre a sua empresa ou site de marketing.
 Espaço reservado para o Logotipo - Para usar sua marca personalizada, você pode simplesmente substituir o arquivo de imagem em assets/images/logo.png por uma imagem personalizada de mesmo nome, ou alterar a imagem src no cabeçalho em views/layouts/layout.ejs.
 
-II) Instruções detalhadas de como personalizar as integrações: https://www.sailsjs.tec.br/content/faq.ejs.html
+II) Altere o dicionário de internacionalização:
 
-III) Instruções detalhadas de **como criar novas funcionalidades** pode ser encontrada na
+A internacionalização consiste em substituir palavras chaves existentes nos templates por seus significados em dicionário. Este dicionário considera a **localidade** 
+configurada no navegador para selecionar qual dos dicionários disponíveis será utilizado. Por exemplo, se o navegador está configurado para o francês, então o Sails
+utilizará as definições constantes do arquivo ``config/locales/fr.json``.
+
+* Utilize <%=__('Welcome')%> para definir uma chave de tradução, no corpo de um arquivo **.EJS**;
+* Utilize "Welcome":"Bem vindo" para definir o significado da chave, no arquivo en.json, por exemplo.
+* Quando o Sails não encontra uma correspondência de chave x significado, ele cria (em tempo de execução) um par chave:significado no arquivo associado a localidade e reproduz a chave (que agora é igual ao significado) na tela. Ex. Se utilizarmos <%=__('teste')%> e o arquivo de tradução principal for o português, então o Sails criará uma linha "teste":"teste" no arquivo pt.json e você verá na tela **teste**.
+* Para alterar o dicionário padrão, edite o arquivo ```config/i18n.js```
+
+III) Instruções detalhadas de como personalizar as integrações: https://www.sailsjs.tec.br/content/faq.ejs.html
+
+IV) Instruções detalhadas de **como criar novas funcionalidades** pode ser encontrada na
 [Segunda Etapa destas Orientações passo-a-passo](https://www.sailsjs.tec.br/ext/passo-a-passo-faq.html) .
 
 ### Definindo o tipo e versão do banco de dados
