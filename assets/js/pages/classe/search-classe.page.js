@@ -39,9 +39,24 @@ parasails.registerPage('search-classe', {
           console.log(err)
         })
     },
+    leave: function(classe){
+      Cloud
+        .removeUserClasse(this.me.id, classe.id)
+        .then(result=>{
+          this.message = {severity: `success`, summary: `Removido com sucesso`, details: ``}
+          console.log(result)
+        })
+        .catch(err=>{
+          this.message = {severity: `error`, summary: `Impossivel remover`, details: ``}
+          console.log(err)
+        })
+    },
     cleanMessage: function () {
       this.message = {}
       window.location.reload()
+    },
+    edit: function (classe) {
+      this.goto(`/classe/edit-classe/${classe.id}`)
     }
   }
 })

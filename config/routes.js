@@ -37,6 +37,7 @@ module.exports.routes = {
   'GET /church/edit-church/:id': { action: 'church/view-edit-church' },
 
   'GET /classe/search-classe': { action: 'classe/view-search-classe' },
+  'GET /classe/edit-classe/:id': { action: 'classe/view-edit-classe' },
 
   'GET /map/map-search': { action: 'map/view-map-search' },
 
@@ -81,6 +82,7 @@ module.exports.routes = {
 
   'POST /api/v1/social/save-social': { action: 'social/save-social' },
   'POST /api/v1/classe/save-user-classe': { action: 'classe/save-user-classe' },
+  'DELETE /api/v1/classe/remove-user-classe': { action: 'classe/remove-user-classe' },
   'POST /api/v1/church/save-user-church': { action: 'church/save-user-church' },
 
 
