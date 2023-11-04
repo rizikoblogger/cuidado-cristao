@@ -128,7 +128,7 @@ Para adicionar dados falsos ao seu Protótipo:
 * Siga o modelo já implantando para expandir sua carga de dados;
 * Para conhecer mais recursos de criação de dados _fake_ visite o site [@Faker.js](https://fakerjs.dev/), mas preste bem a atenção em qual das versões está instalada no seu Protótipo.
 
-## Be happy!
+## God bless you!
 
 ### Links Adicionais
 
