@@ -1,12 +1,25 @@
 <div id="edit-classe" v-cloak>
 
 <div class="container">
-  <div class="display-3"><%=__('Edit Group')</div>
+  <div class="display-3"><%=__('Edit Group')%></div>
   <hr>
   <em class="text-muted"><%=classe.id%></em>
 
-  <span class="form-control"><%=classe.church.fullName %></span>
-  
+    <message id="msg" v-on:close="cleanMessage()" :severity="message.severity" :summary="message.summary" :details="message.details"></message>
+
+    <label for="church"><%=__(`This class belongs to`)%></label>
+    <span id="church" class="form-control"><%=classe.church.fullName %> (<%=classe.church.tipo%>)</span>
+
+    <label for="name"><%=__(`Name`)%></label>
+    <input type="text" id="name" name="name" class="form-control" v-model="classe.name">
+
+    <label for="local"><%=__(`Local`)%></label>
+    <input type="text" id="local" name="local" class="form-control" v-model="classe.local">
+
+    <input type="hidden" name="_csrf" value="<%=_csrf%>">
+
+
+
 </div>
 
 </div>
