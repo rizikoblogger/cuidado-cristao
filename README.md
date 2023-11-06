@@ -120,6 +120,72 @@ migrate: 'alter',
 
 </pre>
 
+## Configurando a estação local de desenvolvimento
+
+Sails permite isolar os parâmetros de configuração para o ambiente de desenvolvimento de
+forma bem simples, **basta adicionar ao seu Projeto o arquivo** ```config/local.js```.
+
+Este arquivo será lido pelo Sails e tudo que estiver definido lá irá sobrepor as demais
+definições do diretório```config/*.js```. Este é o **local** no qual suas definições **locais** da
+sua estação **local** devem ser adicionados.
+
+O arquivo ```.gitignore``` já deve ter uma entrada informado ao Git que este arquivo deve ser mantido
+restrito ao computador do desenvolvedor, mas sempre vale a pena dar uma conferida. Verifique se a entrada
+abaixo está presente no ````.gitignore````:
+
+<pre>
+################################################
+# Local Configuration
+#
+# Explicitly ignore files which contain:
+#
+# 1. Sensitive information you'd rather not push to
+#    your git repository.
+#    e.g., your personal API keys or passwords.
+#
+# 2. Developer-specific configuration
+#    Basically, anything that would be annoying
+#    to have to change every time you do a
+#    `git pull` on your laptop.
+#    e.g. your local development database, or
+#    the S3 bucket you're using for file uploads
+#    during development.
+#
+################################################
+
+config/local.js
+</pre>
+
+O arquivo ```config/local.js``` deve ter a seguinte estrutura:
+
+<pre>
+/**
+ * Local environment settings
+ *
+ * Use this file to specify configuration settings for use while developing
+ * the app on your personal system.
+ *
+ * For more information, check out:
+ * https://sailsjs.com/docs/concepts/configuration/the-local-js-file
+ */
+
+module.exports = {
+
+ // Any configuration settings may be overridden below, whether it's built-in Sails
+ // options or custom configuration specifically for your app (e.g. Stripe, Sendgrid, etc.)
+
+ // O exemplo abaixo reescreve as definições do arquivo do dicionário
+ // 'adapter' em 'config/datastores.js'
+
+ datastores: {
+    default: {
+      adapter: 'sails-disk'
+    }
+ }
+
+};
+</pre>
+
 ## Adicionando dados falsos para teste
 
 Para adicionar dados falsos ao seu Protótipo:
@@ -128,7 +194,7 @@ Para adicionar dados falsos ao seu Protótipo:
 * Siga o modelo já implantando para expandir sua carga de dados;
 * Para conhecer mais recursos de criação de dados _fake_ visite o site [@Faker.js](https://fakerjs.dev/), mas preste bem a atenção em qual das versões está instalada no seu Protótipo.
 
-## God bless you!
+
 
 ### Links Adicionais
 
