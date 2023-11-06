@@ -51,7 +51,7 @@ Espaço reservado para o Logotipo - Para usar sua marca personalizada, você pod
 
 II) Altere o dicionário de internacionalização:
 
-A internacionalização consiste em substituir palavras chaves existentes nos templates por seus significados em dicionário. Este dicionário considera a **localidade** 
+A internacionalização consiste em substituir palavras chaves existentes nos templates por seus significados em dicionário. Este dicionário considera a **localidade**
 configurada no navegador para selecionar qual dos dicionários disponíveis será utilizado. Por exemplo, se o navegador está configurado para o francês, então o Sails
 utilizará as definições constantes do arquivo ``config/locales/fr.json``.
 
@@ -147,7 +147,7 @@ Internamente, Sails usou  o ['sails-generate@2.0.7'](https://github.com/balderda
 
 O template deste Protótipo é baseado em um aplicativo de geração de código expandido fornecido pela [equipe principal do Sails](https://sailsjs.com/about) com o propósito de tornar mais fácil para você criar em cima de recursos prontos, como autenticação, registro, verificação de e-mail, e faturamento. Para mais informações, [faça contato conosco](https://sailsjs.com/support).
 
-Mais informações em português podem ser encontradas no sítio [Sails.j Tech Brazil](https://www.sailsjs.tec.br)
+### Mais informações em português podem ser encontradas no sítio [Sails.j Tech Brazil](https://www.sailsjs.tec.br)
 
 
 Observação: Os geradores de código são geralmente executados usando a CLI (interface de linha de comando) 'sails' instalada globalmente.  Esta versão da CLI é _environment-specific_ em vez de específica do aplicativo, portanto, ao longo do tempo, à medida que as dependências de um Protótipo são atualizadas ou o Protótipo é trabalhado por diferentes desenvolvedores em computadores diferentes usando versões diferentes do Node.js, a dependência do Sails em seu arquivo package.json pode diferir da versão da CLI do Sails instalada globalmente com a qual foi originalmente gerada.
