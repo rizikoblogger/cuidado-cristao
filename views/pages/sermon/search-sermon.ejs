@@ -1,0 +1,27 @@
+<div id="search-sermon" v-cloak>
+
+    <div class="container">
+      <h1><%=__('Search Sermon')%></h1>
+      <hr>
+      <table class="table table-striped">
+        <caption><%=__('Total')%>: {{sermons.length}}</caption>
+        <thead>
+          <tr>
+            <th id="1"><%=__('Church')%></th>
+            <th id="2"><%=__('Title')%></th>
+            <th id="3"><%=__('Video URL')%></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="sermon in sermons">
+            <td headers="1">{{sermon.church.shortName}}</td>
+            <td headers="2">{{sermon.titulo}}</td>
+            <td headers="3">{{sermon.videoUrl}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+ 
+</div>
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>
