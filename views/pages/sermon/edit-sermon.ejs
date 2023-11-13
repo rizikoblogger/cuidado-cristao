@@ -1,7 +1,48 @@
 <div id="edit-sermon" v-cloak>
 
-  <h1>TODO: Implement this page.</h1>
-  <p>(See also <em>assets/styles/pages/sermon/edit-sermon.less</em>, <em>assets/js/pages/sermon/edit-sermon.page.js</em>, and <em>api/controllers/sermon/view-edit-sermon.js</em>.)</p>
+  <div class="container">
 
+    <message id="msg" v-on:close="cleanMessage()" :severity="message.severity" :summary="message.summary" :details="message.details"></message>
+
+    <div class="display-3">
+      <%=__('Edit Sermon')%>
+    </div>
+    <em class="text-muted">
+      <%=sermon.id%>
+    </em>
+    <hr>
+    
+    <label for="title"><%=__('Title')%></label>
+    <input type="text" class="form-control" id="title" v-model="sermon.titulo" minlength="3" maxlength="50" required placeholder="<%=__('Title for Sermon')%>">
+
+    <label for="comentario"><%=__('Comment')%></label>
+    <input type="text" class="form-control" id="comentario" v-model="sermon.comentario" minlength="3" maxlength="200" required placeholder="<%=__('Full comment or description')%>">
+
+    <label for="videourl"><%=__('Video URL') %></label>
+    <input type="url" class="form-control" id="videourl" v-model="sermon.videoUrl" minlength="5"  maxlength="100" required placeholder="<%=__('https://www.youtube.com/embed/oxmA4NtqR33?si=pzjvV0CgJsLpaxxe')%>">
+
+    <label for="church"><%=__(`Church`)%></label>
+    <span class="form-control" id="church">{{sermon.church.shortName}} - {{sermon.church.fullName}}</span>
+
+    <div class="btn-group mt-2">
+      <button class="btn btn-primary m-1" @click="save(sermon)"><%=__('Save')%></button>
+      <button class="btn btn-primary m-1" @click="cancel()"><%=__('Cancel')%></button>
+    </div>
+
+    <hr>
+
+    <label for="churchs"><%=__('Available Churchs')%></label>
+    <ul class="list-group" id="churchs">
+      <em class="text-muted"><%=__('Click to select')%></em>
+      <li class="list-group-item" v-for="church in churchs">
+        <button class="btn btn-primary m-1" title="<%=__(`Select`)%>" @click="selectChurch(church)"><em class="fa fa-plus"></em> </button>
+        {{church.shortName}} -  {{church.fullName}}
+      </li>
+    </ul>
+
+    
+    
+    
+  </div>
 </div>
 <%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>

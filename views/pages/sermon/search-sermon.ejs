@@ -1,12 +1,13 @@
 <div id="search-sermon" v-cloak>
 
     <div class="container">
-      <h1><%=__('Search Sermon')%></h1>
+      <div class="display-3"><%=__('Search Sermon')%></div>
       <hr>
       <table class="table table-striped">
         <caption><%=__('Total')%>: {{sermons.length}}</caption>
         <thead>
           <tr>
+            <th id="0"></th>
             <th id="1"><%=__('Church')%></th>
             <th id="2"><%=__('Title')%></th>
             <th id="3"><%=__('Video URL')%></th>
@@ -14,12 +15,20 @@
         </thead>
         <tbody>
           <tr v-for="sermon in sermons">
+            <td headers="0"> 
+              <a :href="`/sermon/edit-sermon/`+sermon.id" class="btn btn-sm btn-primary"><em class="fa fa-pencil"></em></a>
+            </td>
             <td headers="1">{{sermon.church.shortName}}</td>
             <td headers="2">{{sermon.titulo}}</td>
             <td headers="3">{{sermon.videoUrl}}</td>
           </tr>
         </tbody>
       </table>
+
+      <div class="btn-group mt-2">
+        <a href="/sermon/edit-sermon/new" class="btn btn-primary m-1"><%=__('Create New')%></a>
+        <a href="/welcome" class="btn btn-primary m-1"><%=__('Cancel')%></a>
+      </div>
 
     </div>
  

@@ -22,8 +22,9 @@ module.exports = {
 
   fn: async function ({id}) {
 
+    const churchs = await Church.find()
     const sermon = await Sermon.findOne({id: id}).populate('church')
-    return {sermon};
+    return {sermon: sermon, churchs: churchs};
 
   }
 
