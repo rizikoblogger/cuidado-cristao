@@ -30,16 +30,17 @@
         <input type="email" class="form-control" id="email" name="email" required minlength="5" v-model="igreja.email">
 
         <label for="address"><%= __('Address'); %></label>
-        <input type="text" class="form-control" id="address" name="address" v-model="igreja.address">
-
-        <label for="site"><%= __('Site'); %></label>
-        <input type="url" class="form-control" id="site" name="site" v-model="igreja.site">
-
-        <label for="phone"><%= __('Phone'); %></label>
-        <input type="tel" class="form-control" id="phone" name="phone" v-model="igreja.phone">
+        <input type="text" class="form-control" id="address" name="address" v-model="igreja.address">      
 
         <div class="row m-1">
             <div class="col">
+
+                <label for="site"><%= __('Site'); %></label>
+                <input type="url" class="form-control" id="site" name="site" v-model="igreja.site">
+        
+                <label for="phone"><%= __('Phone'); %></label>
+                <input type="tel" class="form-control" id="phone" name="phone" v-model="igreja.phone">   
+
                 <label for="linktree"><%= __('Linktree'); %></label>
                 <input type="url" class="form-control" id="linktree" name="linktree" v-model="igreja.linktree">
 
@@ -70,14 +71,8 @@
                 <label for="sermons"><%=__(`Sermons`)%></label>
                 <ul class="list-group">
                     <li class="list-group-item" v-for="sermao in igreja.sermons">{{sermao.titulo}}</li>
-                </ul>
-                <div class="text-center">
-                    <span><%=__(`Manage`)%>:
-                        <a href="/sermon/search-sermon"><%=__(`Sermon`) %></a> |
-                        <a href="/not-yet"><%=__(`Group`) %></a>
-                    </span>
-                </div>
-                <hr>
+                </ul>           
+              
                 <label for="meetings"><%=__(`Meetings`)%></label>
                 <ul class="list-group">
                     <li class="list-group-item" v-for="meet in igreja.churchMeetings">{{meet}}</li>
@@ -86,15 +81,17 @@
                 <ul class="list-group">
                     <li class="list-group-item" v-for="learn in igreja.churchLearnings">{{learn}}</li>
                 </ul>
-                <label for="facilites"><%__(`Facilities`)%></label>
+                <label for="facilites"><%=__(`Facilities`)%></label>
                 <ul class="list-group">
-                    <li class="list-group-item" v-for="fac in igreja.churchFacilities"></li>
+                    <li class="list-group-item" v-for="fac in igreja.churchFacilities">{{fac}}</li>
                 </ul>
                 <div class="text-center">
                     <span><%=__(`Manage`)%>:
-                        <a href="/not-yet"><%=__(`Meettings`) %></a> |
-                        <a href="/not-yet"><%=__(`Learning`) %></a> |
-                        <a href="/not-yet"><%=__(`Facilites`) %></a> |
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#meetings"><%=__(`Meettings`) %></a> |
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#learning"><%=__(`Learning`) %></a> |
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#facilities"><%=__(`Facilites`) %></a> |
+                        <a href="/sermon/search-sermon"><%=__(`Sermon`) %></a> |
+                        <a href="/classe/search-classe"><%=__(`Group`) %></a>
                     </span>
                 </div>
             </div>
@@ -130,12 +127,79 @@
                     <span class="fw-bolder"><%= __('Tem certeza') %>:</span>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary m-1" data-bs-dismiss="modal" @click="remover()"><%= __('Sim') %></button>
-                    <button type="button" class="btn btn-secondary m-1" data-bs-dismiss="modal"><%= __('Nao') %></button>
+                    <button type="button" class="btn btn-primary m-1" data-bs-dismiss="modal" @click="remover()"><%= __('Yes') %></button>
+                    <button type="button" class="btn btn-secondary m-1" data-bs-dismiss="modal"><%= __('Not') %></button>
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="meetings" tabindex="-1" aria-labelledby="meetingsLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="meetingsLabel"><%= __('Manage') %> <%=__('Meetings')%></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul class="list-group mt-1">
+                        <li class="list-group-item" v-for="meet in igreja.churchMeetings">
+                            <button class="btn btn-danger m-1" @click="removeMeeting(meet)"><em class="fa fa-trash"></em></button>
+                            {{meet}}
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal-footer">                    
+                    <button type="button" class="btn btn-secondary m-1" data-bs-dismiss="modal"><%= __('Close') %></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="learning" tabindex="-1" aria-labelledby="learningLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="learningLabel"><%= __('Manage') %> <%=__('Learnings')%></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul class="list-group mt-1">
+                        <li class="list-group-item" v-for="learning in igreja.churchLearnings">
+                            <button class="btn btn-danger m-1" @click="removeLearning(learning)"><em class="fa fa-trash"></em></button>
+                            {{learning}}
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal-footer">                    
+                    <button type="button" class="btn btn-secondary m-1" data-bs-dismiss="modal"><%= __('Close') %></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="facilities" tabindex="-1" aria-labelledby="facilitiesLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="facilitiesLabel"><%= __('Manage') %> <%=__('Facilities')%></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul class="list-group mt-1">
+                        <li class="list-group-item" v-for="facility in igreja.churchFacilities">
+                            <button class="btn btn-danger m-1" @click="removeFacility(facility)"><em class="fa fa-trash"></em></button>
+                            {{facility}}
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal-footer">                    
+                    <button type="button" class="btn btn-secondary m-1" data-bs-dismiss="modal"><%= __('Close') %></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 </div>
 <%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser(); %>

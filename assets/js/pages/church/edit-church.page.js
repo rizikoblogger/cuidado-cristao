@@ -102,6 +102,21 @@ parasails.registerPage('edit-church', {
         console.log(err)
       })
 
+    },
+
+    removeMeeting: function (meet) {
+      const index = this.igreja.churchMeetings.indexOf(meet)
+      this.igreja.churchMeetings.splice(index,1)
+    },
+    
+    removeLearning: function (learning) {
+      const index = this.igreja.churchLearnings.indexOf(learning)
+      this.igreja.churchLearnings.splice(index,1)
+    },
+
+    removeFacility: function (facility){
+      const index = this.igreja.churchFacilities.indexOf(facility)
+      this.igreja.churchFacilities.splice(index,1)
     }
 
 

@@ -4,8 +4,8 @@
     <hr>
 
     <div class="btn-group mt-2">
-        <button class="btn btn-secondary m-1" @click="goToBack()"><%=__('Cancel')%></button>
         <button v-if="me.isSuperAdmin" class="btn btn-success m-1" @click="create()"><%=__('Create')%> <%=__('New')%></button>
+        <button class="btn btn-secondary m-1" @click="goToBack()"><%=__('Cancel')%></button>
     </div>
 
     <div class="mt-2 card-group" >
