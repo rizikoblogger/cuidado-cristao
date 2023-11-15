@@ -33,6 +33,9 @@ module.exports.routes = {
   'GET /account/password':   { action: 'account/view-edit-password' },
   'GET /account/profile':    { action: 'account/view-edit-profile' },
 
+  'GET /projeto/overview-pt': { action: 'projeto/view-overview-pt' },
+  'GET /projeto/overview-en': { action: 'projeto/view-overview-en' },
+
   'GET /church/search-church': { action: 'church/view-search-church' },
   'GET /church/edit-church/:id': { action: 'church/view-edit-church' },
 
@@ -46,6 +49,9 @@ module.exports.routes = {
 
   'GET /sermon/search-sermon': { action: 'sermon/view-search-sermon' },
   'GET /sermon/edit-sermon/:id': { action: 'sermon/view-edit-sermon' },
+
+  'GET /resource/search-resource': { action: 'resource/view-search-resource' },
+  'GET /resource/edit-resource/:id': { action: 'resource/view-edit-resource' },
 
 
 

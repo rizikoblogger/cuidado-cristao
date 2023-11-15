@@ -1,0 +1,34 @@
+<div id="edit-resource" v-cloak>
+
+ <div class="container">
+  <div class="display-3"><%-__(`Edit Resource`)%></div>
+  <em class="text muted"><%=resource.id%></em>
+  <hr>
+  <label for="name"><%=__(`Name`)%></label>
+  <input type="text" class="form-control" id="name" minlength="3" maxlength="50" v-model="resource.name">
+  <label for="detail"><%=__(`Description`)%></label>
+  <input type="text" class="form-control" id="detail" maxlength="200" v-model="resource.detail">
+  <label for="location"><%=__(`Location`)%></label>
+  <input type="text" class="form-control" id="location" maxlength="200" v-model="resource.location">
+  <label for="church"><%=__(`Church`)%></label>
+  <span class="form-control">{{resource.church?resource.church.fullName:``}}</span>
+
+  <div class="btn-group-mt-2">
+     <button class="btn btn-primary m-1"><%=__(`Save`)%></button>  
+     <button class="btn btn-primary m-1"><%=__(`Cancel`)%></button>  
+  </div>
+
+  <hr>
+
+  <label for="churchs"><%=__(`Available Churchs`)%></label>
+  <ul class="list-group" id="churchs">    
+    <li class="list-group-item" v-for="church in churchs">
+      <button class="btn btn-primary m-1"><em class="fa fa-plus"></em></button>
+      {{church.fullName}} - {{church.tipo}}
+    </li>  
+  </ul>
+
+ </div>
+  
+</div>
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>

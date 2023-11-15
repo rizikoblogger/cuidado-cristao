@@ -43,6 +43,7 @@ I) Localize e altere os seguintes textos contidos no Protótipo:
 Quando você tiver seu produto, nome da empresa e marca finalizados, aqui estão os espaços reservados que você deverá trocar:
 
 * NEW_APP_NAME - O Nome do seu produto de software.
+* NOME_MINHA_IGREJA - Esse espaço reservado é usado para o nome da sua Igreja.
 * NEW_APP_COMPANY_NAME - Esse espaço reservado é usado para o nome da entidade nos termos legais e na política de privacidade e pode ser substituído pelo nome da empresa por trás do seu aplicativo.
 * DATE_PRIVACY_POLICY_LAST_UPDATED - Substitua isso pela data em que sua Política de Privacidade foi atualizada (portanto, se você estiver trocando o nome da empresa, a data é hoje).
 * DATE_TERMS_OF_SERVICE_LAST_UPDATED - Substitua isso pela data em que seus Termos de Serviço foram atualizados (portanto, se você estiver trocando o nome da empresa, a data é hoje).

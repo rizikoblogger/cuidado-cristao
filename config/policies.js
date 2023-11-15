@@ -26,4 +26,6 @@ module.exports.policies = {
   'classe/view-search-classe': true,
   'social/view-social-search': true,
 
+  'projeto/*': true,
+
 };

@@ -37,7 +37,7 @@ module.exports = {
           password: await sails.helpers.passwords.hashPassword('abc123')
         },
       ).fetch()
-      console.log(`Usuario criado`)
+      console.log(`Usuario created`)
     }
 
     let mother = await Church.create({
@@ -57,7 +57,7 @@ module.exports = {
       churchLearnings: await sails.helpers.geraListaPalavras(3, 5),
       churchMeetings: await sails.helpers.geraListaPalavras(3, 3),
     }).fetch()
-    console.log(`Igreja MOTHER criada`)
+    console.log(`Igreja MOTHER created`)
 
     let daugther = await Church.create({
       fullName: faker.company.name(),
@@ -70,7 +70,7 @@ module.exports = {
       tipo: 'DAUGHTER',
       church: mother.id
     }).fetch()
-    console.log(`Igreja DAUGHTER criada`)
+    console.log(`Igreja DAUGHTER created`)
 
     for (let i = 1; i < 5; i++) {
       await Classroom.create({
@@ -79,7 +79,7 @@ module.exports = {
         church: daugther.id
       })
     }
-    console.log(`Classroom criada`)
+    console.log(`Classroom created`)
 
     for (let i = 1; i < 5; i++) {
       await Contribution.create({
@@ -88,7 +88,7 @@ module.exports = {
         propose: faker.commerce.productDescription(),
         user: user.id
       })
-      console.log(`Contribution #${i} criada`)
+      console.log(`Contribution #${i} created`)
 
     }
 
@@ -98,7 +98,7 @@ module.exports = {
         record: faker.lorem.paragraph({min: 1, max: 3}),
         user: user.id
       })
-      console.log(`Usercare #${i} criada`)
+      console.log(`Usercare #${i} created`)
     }
 
     for (let i = 1; i < 5; i++) {
@@ -109,7 +109,7 @@ module.exports = {
         descricao: faker.lorem.paragraph(),
         users: users
       })
-      console.log(`SocialService #${i} criada`)
+      console.log(`SocialService #${i} created`)
     }
 
 
@@ -134,7 +134,13 @@ module.exports = {
         church: mother.id
       },
     ])
-    console.log(`Sermoes criados`)
+    console.log(`Sermoes created`)
+
+    await Resource.createEach([
+      {name: `Chevrollet Cabin 500T`, tipo: `Vehicle`, detail: `To be used by Sisters`},
+      {name: `Room #1`, tipo: `Room`, detail: `With 30 sq, green walls and air conditioning`},
+    ])
+    console.log(`Resources created`)
 
 
     sails.log('Finished custom shell script... (`sails run cria-dados-para-teste`)')
