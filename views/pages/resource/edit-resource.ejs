@@ -1,34 +1,93 @@
 <div id="edit-resource" v-cloak>
 
- <div class="container">
-  <div class="display-3"><%-__(`Edit Resource`)%></div>
-  <em class="text muted"><%=resource.id%></em>
-  <hr>
-  <label for="name"><%=__(`Name`)%></label>
-  <input type="text" class="form-control" id="name" minlength="3" maxlength="50" v-model="resource.name">
-  <label for="detail"><%=__(`Description`)%></label>
-  <input type="text" class="form-control" id="detail" maxlength="200" v-model="resource.detail">
-  <label for="location"><%=__(`Location`)%></label>
-  <input type="text" class="form-control" id="location" maxlength="200" v-model="resource.location">
-  <label for="church"><%=__(`Church`)%></label>
-  <span class="form-control">{{resource.church?resource.church.fullName:``}}</span>
+    <div class="container">
+        <div class="display-3"><%- __(`Edit Resource`) %></div>
+        <em class="text muted"><%= resource.id %></em>
+        <hr>
+        <ajax-form action="saveResource"
+                   :syncing.sync="syncing"
+                   :cloud-error.sync="cloudError"
+                   :form-data="formData"
+                   :form-rules="formRules"
+                   :form-errors.sync="formErrors"
+                   @submitted="submittedForm()">
 
-  <div class="btn-group-mt-2">
-     <button class="btn btn-primary m-1"><%=__(`Save`)%></button>  
-     <button class="btn btn-primary m-1"><%=__(`Cancel`)%></button>  
-  </div>
 
-  <hr>
+            <message id="msg" v-on:close="cleanMessage()" :severity="message.severity" :summary="message.summary"
+                     :details="message.details"></message>
+            <cloud-error v-if="cloudError"></cloud-error>
 
-  <label for="churchs"><%=__(`Available Churchs`)%></label>
-  <ul class="list-group" id="churchs">    
-    <li class="list-group-item" v-for="church in churchs">
-      <button class="btn btn-primary m-1"><em class="fa fa-plus"></em></button>
-      {{church.fullName}} - {{church.tipo}}
-    </li>  
-  </ul>
 
- </div>
-  
+            <input type="hidden" name="id" value="<%= resource.id %>">
+            <input type="hidden" name="_csrf" value="<%= _csrf %>">
+
+            <label for="tipo"><%=__('Tipo')%></label>
+            <input
+                    id="tipo"
+                    name="tipo"
+                    type="text"
+                    class="form-control"
+                    :class="[formErrors.tipo ? 'is-invalid' : '']"
+                    focus-first
+                    required
+                    minlength="3"
+                    maxlength="30"
+                    v-model="formData.tipo"
+            >
+
+            <label for="name"><%= __(`Name`) %></label>
+            <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    class="form-control"
+                    :class="[formErrors.name ? 'is-invalid' : '']"
+                    minlength="3"
+                    maxlength="50"
+                    v-model="formData.name"
+                    required
+            >
+            <label for="detail"><%= __(`Description`) %></label>
+            <input
+                    id="detail"
+                    name="detail"
+                    type="text"
+                    class="form-control"
+                    :class="[formErrors.detail ? 'is-invalid' : '']"
+                    maxlength="200"
+                    required
+                    v-model="formData.detail">
+            <label for="location"><%= __(`Location`) %></label>
+            <input
+                    id="location"
+                    name="location"
+                    type="text"
+                    class="form-control"
+                    :class="[formErrors.location ? 'is-invalid' : '']"
+                    maxlength="200"
+                    v-model="formData.location"
+            >
+            <label for="church"><%= __(`Church`) %></label>
+            <span class="form-control">{{resource.church?resource.church.fullName:``}}</span>
+
+            <div class="btn-group-mt-2">
+                <ajax-button type="submit" :syncing="syncing"
+                             class="btn btn-primary m-1"><%= __(`Save`) %></ajax-button>
+                <button type="button" class="btn btn-primary m-1" @click="cancel()"><%= __(`Cancel`) %></button>
+            </div>
+        </ajax-form>
+
+        <hr>
+
+        <label for="churchs"><%= __(`Available Churchs`) %></label>
+        <ul class="list-group" id="churchs">
+            <li class="list-group-item" v-for="church in churchs">
+                <button class="btn btn-primary m-1" @click="addChurch(church)"><em class="fa fa-plus"></em></button>
+                {{church.fullName}} - {{church.tipo}}
+            </li>
+        </ul>
+
+    </div>
+
 </div>
 <%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>

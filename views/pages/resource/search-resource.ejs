@@ -7,7 +7,7 @@
   <ul class="list-group mt-2">
     <li class="list-group-item" v-for="resource in resources">
       <a :href="'/resource/edit-resource/'+resource.id" class="btn btn-primary m-1"><em class="fa fa-pencil"></em></a>
-      {{resource.tipo}} {{resource.name}} 
+      {{resource.tipo}}: {{resource.name}} - {{resource.detail}}
     </li>
   </ul>
 

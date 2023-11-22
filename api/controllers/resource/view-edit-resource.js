@@ -23,15 +23,21 @@ module.exports = {
   fn: async function ({id}) {
 
     const churchs = await Church.find()
-    const resource = {}
+    let resource = {
+      tipo: ``,
+      name: ``,
+      detail: ``,
+      location: ``,
+      church: {fullName: ``, shortName: ``, tipo: ``}
+    }
 
     if(id!==`new`){
-      resource = await resource.find({id: id}).populate(`church`)
+      resource = await Resource.findOne({id: id}).populate(`church`)
 
     }
-    return {churchs: churchs, resource: resource};
+    return {churchs: churchs, resource: resource}
 
   }
 
 
-};
+}

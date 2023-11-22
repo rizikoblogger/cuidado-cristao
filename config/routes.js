@@ -94,6 +94,7 @@ module.exports.routes = {
   'DELETE /api/v1/classe/remove-user-classe': { action: 'classe/remove-user-classe' },
   'POST /api/v1/church/save-user-church': { action: 'church/save-user-church' },
   'POST /api/v1/sermon/save-sermon': { action: 'sermon/save-sermon' },
+  'POST /api/v1/resource/save-resource': { action: 'resource/save-resource' },
 
 
 
