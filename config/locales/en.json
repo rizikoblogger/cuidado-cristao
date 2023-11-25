@@ -240,5 +240,15 @@
 	"Go to English version": "Go to English version",
 	"Search Resources": "Search Resources",
 	"Edit Resource": "Edit Resource",
-	"Location": "Location"
+	"Location": "Location",
+	"The page you seek does not exist": "The page you seek does not exist",
+	"Think you are seeing this message in error?": "Think you are seeing this message in error?",
+	"Please": "Please",
+	"let us know.": "let us know.",
+	"User Search": "User Search",
+	"User": "User",
+	"It is not possible to create User! They should create themselves by clicking on [Sign Up] button": "It is not possible to create User! They should create themselves by clicking on [Sign Up] button",
+	"After that, you can manage them, but change password that can be done by themselves too.": "After that, you can manage them, but change password that can be done by themselves too.",
+	"After that, you can manage them, but change password can be done by themselves too.": "After that, you can manage them, but change password can be done by themselves too.",
+	"Edit User": "Edit User"
 }

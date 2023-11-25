@@ -351,6 +351,15 @@ sails generate controller nome-do-controller
 `
 e não se esqueça de criar também o PATH no arquivo routes.js.
 
+### Criando dados para teste
+
+Nosso prototipo ja possui um _script_ capaz de gerar dados para teste.
+O arquivo ``scripts/cria-dados-para-teste.js``. Para executa-lo, abra um
+novo Terminal/Console e digite ``sails run cria-dados-para-teste``.
+Depois disso, reinicie com ``sails lift``. **Se tudo correu bem, foi criado um
+usuario [admin@example.com] com a senha [abc123] e com Perfil [SuperAdmin]**
+
+
 ## Be happy!
 
 ### Links Adicionais

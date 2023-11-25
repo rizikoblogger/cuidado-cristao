@@ -53,6 +53,10 @@ module.exports.routes = {
   'GET /resource/search-resource': { action: 'resource/view-search-resource' },
   'GET /resource/edit-resource/:id': { action: 'resource/view-edit-resource' },
 
+  'GET /user/search-user': { action: 'user/view-search-user' },
+  'GET /user/edit-user/:id': { action: 'user/view-edit-user' },
+
+
 
 
   'GET /not-yet': { action: 'view-not-yet' },

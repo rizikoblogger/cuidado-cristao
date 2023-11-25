@@ -12,7 +12,7 @@
             <a class="btn btn-primary m-1" href="/classe/search-classe">      <%= __('To manage Groups') %></a>
             <a class="btn btn-primary m-1" href="/resource/search-resource">  <%= __('To manage Resources') %></a>
             <a class="btn btn-primary m-1" href="/sermon/search-sermon">      <%= __('To manage Sermoes') %></a>
-            <a class="btn btn-primary m-1" href="/not-yet">                   <%= __('To manage Users') %></a>
+            <a class="btn btn-primary m-1" href="/user/search-user">          <%= __('To manage Users') %></a>
             <a class="btn btn-primary m-1" href="/social/social-search">      <%= __('To manage Social Service') %></a>
 
         </div>
@@ -50,9 +50,8 @@
                 <div class="card-footer">
                     <button type="button" class="btn btn-primary m-1" data-bs-dismiss="modal"
                             @click="selecionar(churchSelecionadaId)"><%= __('Select') %></button>
-                    <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal"
-                            @click="goToCreateNewChurch()"><%= __('Create') %> <%= __('New') %></button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><%= __('Close') %></button>
+                    <a href="/welcome" class="btn btn-primary"><%= __('Close') %></a>
+
                 </div>
             </div>
 

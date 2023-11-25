@@ -7,7 +7,7 @@ module.exports = {
   description: 'Display "Edit sermon" page.',
 
   inputs: {
-    id: { type: 'string', required: true}
+    id: {type: 'string', required: true}
   },
 
 
@@ -23,8 +23,21 @@ module.exports = {
   fn: async function ({id}) {
 
     const churchs = await Church.find()
-    const sermon = await Sermon.findOne({id: id}).populate('church')
-    return {sermon: sermon, churchs: churchs};
+
+    if (id === `new`) {
+      const sermon = ({
+        church: {},
+        titulo: ``,
+        comentario: ``,
+        videoUrl: ``,
+      })
+      return {sermon: sermon, churchs: churchs};
+    } else {
+      const sermon = await Sermon.findOne({id: id}).populate('church')
+      return {sermon: sermon, churchs: churchs};
+
+    }
+
 
   }
 

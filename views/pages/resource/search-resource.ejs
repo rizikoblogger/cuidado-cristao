@@ -4,6 +4,7 @@
   <div class="display-3"><%=__(`Search Resources`)%></div>
   <hr>
   <a :href="'/resource/edit-resource/new'" class="btn btn-primary m-1"><%=__(`Create`)%></a>
+  <a href="/welcome" class="btn btn-primary m-1"><%=__(`Cancel`)%></a>
   <ul class="list-group mt-2">
     <li class="list-group-item" v-for="resource in resources">
       <a :href="'/resource/edit-resource/'+resource.id" class="btn btn-primary m-1"><em class="fa fa-pencil"></em></a>
