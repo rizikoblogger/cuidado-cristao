@@ -2,8 +2,6 @@
 
 um Projeto [Sails v1](https://sailsjs.com)
 
-## Criando meu primeiro projeto Sails
-
 ### Este tutorial considera que você já possui conhecimento mínimo nas seguintes tecnologias:
 
 * Javascript ES6; e
@@ -12,37 +10,38 @@ um Projeto [Sails v1](https://sailsjs.com)
 ### Consideramos ainda que você já instalou o Node.js na sua estação de trabalho e possui conhecimento mínimo quanto aos seguintes comandos de console:
 
 * npm; e
-* node;
+* node.
 
-### Passos iniciais:
+### O que ja foi feito e tu não precisas fazer:
 
-1) Instalar o sails.js
+1) Instalado o sails.js
    `npm i sails -g`
 
-2) Criar seu primeiro template de Projeto
-   `sails new nome-do-meu-projeto`
+2) Criado nosso primeiro template de Projeto
+   `sails new cuidado-cristao`
 
-- Quando perguntado, responda 1 - Web
+- Quando perguntado, foi respondido 1 - Web
 
-3) Navegue para o diretorio criado
-   `cd nome-do-meu-projeto`
+3) Navegou-se para o diretorio criado
+   `cd cuidado-cristao`
 
-4) Execute seu projeto recém criado para verificar se tudo está ok.
+4) Executado nosso projeto recém criado para verificar se tudo estava ok.
    `sails lift`
 
-   Se tudo estiver ok, voce poderá navegar para `http://localhost:1337` e ver seu primeiro projeto funcionando.
+   Como tudo estava ok, navegamos para `http://localhost:1337` e vimos o primeiro prototipo funcionando.
 
-5) Como boa prática, sugere-se instalar os seguintes pacotes adicionais:
+5) Como boa prática, instalamos os seguintes pacotes adicionais:
 
 * `dotenv-safe: npm i dotenv-safe --save`
 * `mongodb: npm i moongodb --save`
+* `sails-mongo adapter: npm i sails-mongo --save`
 
-6) Uma vez instalado o dotenv-safe, será necessário criar na raíz do Projeto dois arquivos, são eles _.env.example_ e _
+6) Uma vez instalado o dotenv-safe, foi necessário criar na raíz do Projeto dois arquivos, são eles _.env.example_ e _
    .env_:
 
-* .env.example - conterá o nome das variáveis de ambiente que deverão ser carregadas em memória antes da execução do
+* .env.example - contendo o nome das variáveis de ambiente que deverão ser carregadas em memória antes da execução do
   Projeto. Este arquivo DEVE SER ENVIADO PARA o repositório Git(ou equivalente); e
-* .env - conterá o nome das variáveis e os valores associdas as mesmas. Este arquivo NÃO PODE SER ENVIADO PARA O
+* .env - contendo o nome das variáveis e os valores associdas as mesmas. Este arquivo NÃO PODE SER ENVIADO PARA O
   repositório Git (ou equivalente). Deve existir somente na estação do desenvolvedor.
 
 <pre>
@@ -69,8 +68,7 @@ NODE_ENV=development
 require('dotenv-safe').config();
 `
 
-8) Agora podemos executar o Sails em ambiente de desenvolvimento, em Stagging ou em produção, bastando alterar o
-   conteúdo do arquivo .env e executar o Projeto com um dos seguintes comandos:
+8) Agora podemos executar o Sails com um dos seguintes comandos:
 
 * npm start; ou
 * node app.js; ou
