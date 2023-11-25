@@ -1,74 +1,296 @@
 # cuidado-cristao
 
-um Protótipo [Sails v1](https://sailsjs.com)
-
-## Sobre o Protótipo
-
-### O que é?
-
-É um software para ajudar as comunidades cristãs a gerenciar seus membros e a se integrarem.
-
-### Quem pode utilizá-lo?
-
-Qualquer igreja com dois ou mais membros
-
-### Como posso colaborar com o Protótipo?
-
-* Se você é um desenvolvedor de software, pode integrar a nossa equipe;
-* Se você é um especialista em Node.js, pode recomendar configurações de segurança e desempenho;
-* Se você é um especialista em Design (UIX) pode colaborar com o visual;
-* Se você é um apaixonado por computadores pode integrar nossa equipe de teste;
-
-* Mas principalmente, se você é um Crente, **pode cobrir todas as equipes com suas orações**!
-
-## Desenvolvedores...
+um Projeto [Sails v1](https://sailsjs.com)
 
 ### Este tutorial considera que você já possui conhecimento mínimo nas seguintes tecnologias:
 
-* [HTML 5](https://www.w3schools.com/html/);
-* [CSS](https://www.w3schools.com/html/css/);
-* [Javascript ES6](https://www.w3schools.com/js/) ;
-* [Sails.js](https://sailsjs.com) e
-* [MongoDB 3+](https://www.w3schools.com/mongodb/).
+* Javascript ES6; e
+* MongoDB 3+.
 
 ### Consideramos ainda que você já instalou o Node.js na sua estação de trabalho e possui conhecimento mínimo quanto aos seguintes comandos de console:
 
 * npm; e
-* node;
+* node.
 
-## Criando meu primeiro Protótipo Sails
+### O que ja foi feito e tu não precisas fazer:
 
-I) Localize e altere os seguintes textos contidos no Protótipo:
+1) Instalado o sails.js
+   `npm i sails -g`
 
-Quando você tiver seu produto, nome da empresa e marca finalizados, aqui estão os espaços reservados que você deverá trocar:
+2) Criado nosso primeiro template de Projeto
+   `sails new cuidado-cristao`
 
-* NEW_APP_NAME - O Nome do seu produto de software.
-* NOME_MINHA_IGREJA - Esse espaço reservado é usado para o nome da sua Igreja.
-* NEW_APP_COMPANY_NAME - Esse espaço reservado é usado para o nome da entidade nos termos legais e na política de privacidade e pode ser substituído pelo nome da empresa por trás do seu aplicativo.
-* DATE_PRIVACY_POLICY_LAST_UPDATED - Substitua isso pela data em que sua Política de Privacidade foi atualizada (portanto, se você estiver trocando o nome da empresa, a data é hoje).
-* DATE_TERMS_OF_SERVICE_LAST_UPDATED - Substitua isso pela data em que seus Termos de Serviço foram atualizados (portanto, se você estiver trocando o nome da empresa, a data é hoje).
-* NEW_APP_COMPANY_ABOUT_HREF - Este é o link na seção de direitos autorais do rodapé. Você provavelmente vai querer trocá-lo por um link para a página sobre a sua empresa ou site de marketing.
-Espaço reservado para o Logotipo - Para usar sua marca personalizada, você pode simplesmente substituir o arquivo de imagem em assets/images/logo.png por uma imagem personalizada de mesmo nome, ou alterar a imagem src no cabeçalho em views/layouts/layout.ejs.
+- Quando perguntado, foi respondido 1 - Web
 
-II) Altere o dicionário de internacionalização:
+3) Navegou-se para o diretorio criado
+   `cd cuidado-cristao`
 
-A internacionalização consiste em substituir palavras chaves existentes nos templates por seus significados em dicionário. Este dicionário considera a **localidade**
-configurada no navegador para selecionar qual dos dicionários disponíveis será utilizado. Por exemplo, se o navegador está configurado para o francês, então o Sails
-utilizará as definições constantes do arquivo ``config/locales/fr.json``.
+4) Executado nosso projeto recém criado para verificar se tudo estava ok.
+   `sails lift`
 
-* Utilize <%=__('Welcome')%> para definir uma chave de tradução, no corpo de um arquivo **.EJS**;
-* Utilize "Welcome":"Bem vindo" para definir o significado da chave, no arquivo en.json, por exemplo.
-* Quando o Sails não encontra uma correspondência de chave x significado, ele cria (em tempo de execução) um par chave:significado no arquivo associado a localidade e reproduz a chave (que agora é igual ao significado) na tela. Ex. Se utilizarmos <%=__('teste')%> e o arquivo de tradução principal for o português, então o Sails criará uma linha "teste":"teste" no arquivo pt.json e você verá na tela **teste**.
-* Para alterar o dicionário padrão, edite o arquivo ```config/i18n.js```
+   Como tudo estava ok, navegamos para `http://localhost:1337` e vimos o primeiro prototipo funcionando.
 
-III) Instruções detalhadas de como personalizar as integrações: https://www.sailsjs.tec.br/content/faq.ejs.html
+5) Como boa prática, instalamos os seguintes pacotes adicionais:
 
-IV) Instruções detalhadas de **como criar novas funcionalidades** pode ser encontrada na
-[Segunda Etapa destas Orientações passo-a-passo](https://www.sailsjs.tec.br/ext/passo-a-passo-faq.html) .
+* `dotenv-safe: npm i dotenv-safe --save`
+* `mongodb: npm i moongodb --save`
+* `sails-mongo adapter: npm i sails-mongo --save`
+
+6) Uma vez instalado o dotenv-safe, foi necessário criar na raíz do Projeto dois arquivos, são eles _.env.example_ e _
+   .env_:
+
+* .env.example - contendo o nome das variáveis de ambiente que deverão ser carregadas em memória antes da execução do
+  Projeto. Este arquivo DEVE SER ENVIADO PARA o repositório Git(ou equivalente); e
+* .env - contendo o nome das variáveis e os valores associdas as mesmas. Este arquivo NÃO PODE SER ENVIADO PARA O
+  repositório Git (ou equivalente). Deve existir somente na estação do desenvolvedor.
+
+<pre>
+# .env.example
+
+NODE_ENV=
+</pre>
+
+<pre>
+# .env
+
+NODE_ENV=development
+</pre>
+
+7) O Sails.js foi concebido para execução em ambiente Linux e, mesmo sendo multiplataforma, requer alguns peguenos
+   ajustes se você pretende utilizá-lo no Windows.
+
+* No arquivo package.json, altere a linha ["start": "NODE_ENV=production node app.js",] para ["start": "node app.js",]
+* No arquivo package.json, remova a
+  linha ["deploy": "echo 'This script assumes a dead-simple, opinionated setup on Heroku.'...]
+* No arquivo app.js, adicione uma primeira linha com o seguinte conteúdo:
+
+`
+require('dotenv-safe').config();
+`
+
+8) Agora podemos executar o Sails com um dos seguintes comandos:
+
+* npm start; ou
+* node app.js; ou
+* sails lift (este último sempre carregará o Sails em ambiente de desenvolvimento, independente do valor atribuído a
+  variável NODE_ENV, do arquivo .env.
+
+### Criando minhas funcionalidades:
+
+9) Para criar uma nova funcionalidade, tanto do tipo view quanto um Endpoint de API, utilize o comando abaixo.
+   Este comando criará um Controller (/api/controllers/NomefuncionalidadeController.js)
+   e uma entidade de persistencia chamada NomeFuncionalidade (/api/models/NomeFuncionalidade,js)
+
+   `sails generate api nome-funcionalidade`
+
+
+10) Para implementar comportamento na Nova Funcionalidade,
+
+* localize o respectivo Controller criado e adicione os métodos necessários. Ex.:
+
+<pre>
+module.exports = {
+
+get: async function (req, res) { res.send('OK') },
+post: async function (req, res) { res.send('OK') },
+put: async function (req, res) { res.send('OK') },
+delete: async function (req, res) { res.send('OK') },
+getAll: async function (req, res) { res.send('LIST') }
+
+}
+</pre>
+
+* adicione os PATH da requisicao no arquivo routes.js, associando o PATH com o controller do seguinte modo:
+
+<pre>
+'GET /api/v1/nova-funcionalidade':      'NovaFuncionalidadeController.get',
+'GET /api/v1/nova-funcionalidade/list': 'NovaFuncionalidadeController.getAll',
+</pre>
+
+* reinicie o aplicativo (ctrl+C depois sails lift) teste o path criado navegando
+  para `localhost:1337/api/v1/nova-funcionalidade` e a resposta deve ser 'OK'.
+
+* teste agora o outro path criado navegando para `localhost:1337/api/v1/nova-funcionalidade/list` e a resposta deve
+  ser 'LIST'.
+
+Observe que as respostas (response) atribuídas a variável res (passada como parametro) podem ser:
+
+* res.json(obj) para enviar um objeto no formato JSON para o requisitante (request);
+* res.send('texto') para enviar um texto qualquer para o requisitante. Este texto pode estar no formato html ou em texto
+  claro;
+* res.redirect('/addr') para informar ao requisitante que a requisição deve ser redirecionada para outro endereço
+  informado (addr); ou
+* res.view('', {}) para renderizar uma arquivo .ejs e enviá-lo como resposta. O arquivo deve estar abaixo do diretório
+  /view do Projeto e {} corresponde a um objeto a ser passado como parametro.
+  Ex.: `res.view('pages/faq',{param: 'teste'})`
+* Para visualizar os dados passados como parametro para a View renderizada com EJS (https://ejs.co/) faça o seguinte:
+
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang='pt-br'&gt;
+&lt;head&gt;&lt;/head&gt;
+&lt;body&gt;
+ Mostrando a palavra {{param}} aqui.
+ ou
+ Monstando &lt;%=param %&gt; também.
+
+ Acessando a variavel de ambiente environment exposta em SAILS_LOCALS
+ cujo valor seria o definido na variável de ambiente NODE_ENV ('development') <%- _environment %>
+
+<%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>
+
+Para executar um laço durante a renderização, fariamos:
+&lt;ul&gt;
+&lt;% objetotipoarray.forEach(objeto=> { %&gt;
+   &lt;li&gt;&lt;%=objeto.atributo %&gt;&lt;/li&gt;
+&lt;% }) %&gt;
+&lt;/ul&gt;
+&lt;body&gt;
+&lt;/html&gt;
+</pre>
+
+### Para manipular dados de/para banco de dados
+
+12) Para acessar os dados em tabelas ou coleções de dados (noSQL) o Sails se utiliza da biblioteca
+    Waterline (https://waterlinejs.org/).
+    Como já visto anteriormente, o comando `sails generate api nome-controller` cria um arquivo controller e um arquivo
+    model para ser utilizado como ORM de persistência.
+    Este arquivo define um Objeto Persistente que estará acessível para todos os componentes do Projeto.
+    Uma "Classe" Waterline possui atributos que podem ser manipulados e persistidos. Para saber como definir estes
+    atributos no Sails.js consulte: https://sailsjs.com/docs/concepts/models-and-orm/models.
+    Os métodos de manipulação mais comuns são:
+
+* await NomeObjeto.find({}).then(result=>console.log(result)) - lista de todos os objetos
+* await NomeObjeto.create({JSON contendo os dados}) - adicione um novo registro ao banco de dados
+* await NomeObjeto.destroyOne({id: _id}) - remove um registro cujo atributo id corresponda ao parametro _id
+* await NomeObjeto.find({id: 3}).then(result=>console.log(result)) - lista objetos cujop parametro id corresponda a 3
+* await NomeObjeto.count({atributo: _criterio}) - conta o total de registros que correspondem ao criterio passado
+  como parametro.
+
+
+### Obtendo parametros da requisição:
+
+13) Considerando uma requisição com a seguinte assinatura
+
+<pre>
+POST /api/v1/aluno/:id
+</pre>
+
+executada do seguinte modo
+
+<pre>
+POST http://localhost:1337/api/v1/aluno/34?page=2&size=10
+Content-Type: application/json
+
+{
+ matricula: 123,
+ disciplina: 18
+}
+
+</pre>
+
+e uma função:
+
+<pre>
+module.exports = {
+
+  getNotas: async function (req, res) { ... },
+
+}
+</pre>
+
+Poderíamos obter os dados da requisição do seguinte modo:
+
+<pre>
+const idAluno = req.params['id'] // seria = 34
+const page = req.query.page // seria 2
+const size = req.query.size // seria 10
+const matricula = req.body.matricula // seria 123
+const disciplina = req.body.disciplina // seria 18
+</pre>
+
+### Exemplo completo:
+
+<pre>
+/**
+
+* InfoController
+*
+* @description :: Server-side actions for handling incoming requests.
+* @help        :: See https://sailsjs.com/docs/concepts/actions
+  */
+
+module.exports = {
+
+  get: async function (req, res) {
+    const id = req.params['id'];
+    await Info.find({id: id})
+      .then(
+        info => {
+          res.json(info);
+        }
+      ).catch(err => {
+          res.notFound()
+          console.log(err.message)
+      });
+  },
+
+  getOne: async function (req, res) {
+    await Info.find({})
+      .then(
+        info => {
+          if (info.length > 0) {
+            res.json(info[0]);
+          } else {
+          Info.create({
+            version: '0.0.1',
+            date: new Date(),
+            description: 'snapshoot'
+          }).then(
+            info => res.json(info)
+          ).catch(err => console.log(err.message));
+      }
+    }).catch(err => console.log(err.message));
+  },
+
+  getAll: async function (req, res) {
+      const page = req.query.page | 0;
+      const size = req.query.size | 0;
+
+      await Info
+        .find()
+        .skip(page*size)
+        .limit(size)
+        .then(result => res.json(result))
+        .catch(err => console.log(err.message));
+  },
+
+  put: async function (req, res) {
+    let info = await Info.find({_id: req.params['id']});
+    return res.json(info.updateOne(
+        {
+        version: req.body.version,
+        description: req.body.description
+        }
+    ));
+  },
+
+  post: async function (req, res) {
+    await Info.create(req.body).then(
+      info => res.json(info)
+    ).catch(err => console.log(err));
+  },
+
+  faq: async function (req, res) {
+    res.view('pages/faq', {param: 'teste'});
+  }
+
+};
+</pre>
 
 ### Definindo o tipo e versão do banco de dados
 
-    O Sails se utiliza de adaptadores javascript para conexao com diversos bancos de dados.
+14) O Sails se utiliza de adaptadores javascript para conexao com diversos bancos de dados.
     Inicialmente, por padrão, o Sails já está configurado para conexão com o adaptador SailsDisk.
     Atualmente os adaptadores que compoem a instalação padrão do Sails são:
 
@@ -82,7 +304,7 @@ Existe uma série de outros adaptadores não nativos, como por exemplo OracleDB
 
 Para conectar a um banco MongoDB, por exemplo, é preciso:
 
-i) instalar o pacote sails-mongo e o mongodb;
+i) instalar o pacote sails-mongo (o mongodb já foi instalado anteriormente);
 ii) adicionar ao arquivo /config/datastores.js as seguintes linhas:
 
 <pre>
@@ -90,7 +312,7 @@ adapter: 'sails-mongo',
 url: 'mongodb://user:password@host:port/database',
 </pre>
 
-Os dados de conexão acima são um _template_ e deve ser atualizado para os dados reais de conexão com o BD.
+Os dados de conexão acima são um template e deve ser atualizado para os dados reais de conexão com o BD.
 
 iii) Configurar a política de atualização manipulação dos dados no arquivo congig/models.js, podendo ser:
 
@@ -121,100 +343,37 @@ migrate: 'alter',
 
 </pre>
 
-## Configurando a estação local de desenvolvimento
+### Pronto, O Projeto está funcionando!
 
-Sails permite isolar os parâmetros de configuração para o ambiente de desenvolvimento de
-forma bem simples, **basta adicionar ao seu Projeto o arquivo** ```config/local.js```.
+Para criar novos Endpoints isolados, ou seja, sem associação direta com um Modelo do Banco de Dados, utilize o comando:
+`
+sails generate controller nome-do-controller
+`
+e não se esqueça de criar também o PATH no arquivo routes.js.
 
-Este arquivo será lido pelo Sails e tudo que estiver definido lá irá sobrepor as demais
-definições do diretório```config/*.js```. Este é o **local** no qual suas definições **locais** da
-sua estação **local** devem ser adicionados.
-
-O arquivo ```.gitignore``` já deve ter uma entrada informado ao Git que este arquivo deve ser mantido
-restrito ao computador do desenvolvedor, mas sempre vale a pena dar uma conferida. Verifique se a entrada
-abaixo está presente no ````.gitignore````:
-
-<pre>
-################################################
-# Local Configuration
-#
-# Explicitly ignore files which contain:
-#
-# 1. Sensitive information you'd rather not push to
-#    your git repository.
-#    e.g., your personal API keys or passwords.
-#
-# 2. Developer-specific configuration
-#    Basically, anything that would be annoying
-#    to have to change every time you do a
-#    `git pull` on your laptop.
-#    e.g. your local development database, or
-#    the S3 bucket you're using for file uploads
-#    during development.
-#
-################################################
-
-config/local.js
-</pre>
-
-O arquivo ```config/local.js``` deve ter a seguinte estrutura:
-
-<pre>
-/**
- * Local environment settings
- *
- * Use this file to specify configuration settings for use while developing
- * the app on your personal system.
- *
- * For more information, check out:
- * https://sailsjs.com/docs/concepts/configuration/the-local-js-file
- */
-
-module.exports = {
-
- // Any configuration settings may be overridden below, whether it's built-in Sails
- // options or custom configuration specifically for your app (e.g. Stripe, Sendgrid, etc.)
-
- // O exemplo abaixo reescreve as definições do arquivo do dicionário
- // 'adapter' em 'config/datastores.js'
-
- datastores: {
-    default: {
-      adapter: 'sails-disk'
-    }
- }
-
-};
-</pre>
-
-## Adicionando dados falsos para teste
-
-Para adicionar dados falsos ao seu Protótipo:
-
-* Localize o arquivo ```scripts/cria-dados-para-teste``` e prepare-se para editá-lo;
-* Siga o modelo já implantando para expandir sua carga de dados;
-* Para conhecer mais recursos de criação de dados _fake_ visite o site [@Faker.js](https://fakerjs.dev/), mas preste bem a atenção em qual das versões está instalada no seu Protótipo.
-
-
+## Be happy!
 
 ### Links Adicionais
 
-+ [Sails.js Tech](https://www.sailsjs.tec.br)
-+ [Documentação do Sails framework](https://sailsjs.com/get-starte*)
++ [Documentação do Sails framework](https://sailsjs.com/get-starte*
 + [Notas da Versão/Atualização](https://sailsjs.com/documentation/upgrading)
 + [Dicas para deploy](https://sailsjs.com/documentation/concepts/deployment)
 + [Opções de Support gratúito](https://sailsjs.com/support)
 + [Opções de suporter profissional](https://sailsjs.com/enterprise)
 
-### Informações da versão
+### Informações da versão (Inglês)
 
-Este aplicativo foi originalmente gerado em 10 de janeiro de 2023 GMT-0300 (Horário Padrão de Brasília, usando Sails v1.5.3.)
+This app was originally generated on Tue Jan 10 2023 15:35:58 GMT-0300 (Horário Padrão de Brasíli* using Sails v1.5.3.
 
-Internamente, Sails usou  o ['sails-generate@2.0.7'](https://github.com/balderdashy/sails-generate/tree/v2.0.7/lib/core-generators/new).
-
-O template deste Protótipo é baseado em um aplicativo de geração de código expandido fornecido pela [equipe principal do Sails](https://sailsjs.com/about) com o propósito de tornar mais fácil para você criar em cima de recursos prontos, como autenticação, registro, verificação de e-mail, e faturamento. Para mais informações, [faça contato conosco](https://sailsjs.com/support).
-
-### Mais informações em português podem ser encontradas no sítio [Sails.j Tech Brazil](https://www.sailsjs.tec.br)
+<!-- Internally, Sails used [`sails-generate@2.0.7`](https://github.com/balderdashy/sails-generate/tree/v2.0.7/lib/core-generators/new). -->
 
 
-Observação: Os geradores de código são geralmente executados usando a CLI (interface de linha de comando) 'sails' instalada globalmente.  Esta versão da CLI é _environment-specific_ em vez de específica do aplicativo, portanto, ao longo do tempo, à medida que as dependências de um Protótipo são atualizadas ou o Protótipo é trabalhado por diferentes desenvolvedores em computadores diferentes usando versões diferentes do Node.js, a dependência do Sails em seu arquivo package.json pode diferir da versão da CLI do Sails instalada globalmente com a qual foi originalmente gerada.
+This project's boilerplate is based on an expanded seed app provided by the [Sails core team](https://sailsjs.com/about)
+to make it easier for you to build on top of ready-made features like authentication, enrollment, email verification,
+and billing. For more information, [drop us a line](https://sailsjs.com/support).
+
+
+<!--
+Note:  Generators are usually run using the globally-installed `sails` CLI (command-line interface).  This CLI version is _environment-specific_ rather than app-specific, thus over time, as a project's dependencies are upgraded or the project is worked on by different developers on different computers using different versions of Node.js, the Sails dependency in its package.json file may differ from the globally-installed Sails CLI release it was originally generated with.  (Be sure to always check out the relevant [upgrading guides](https://sailsjs.com/upgrading) before upgrading the version of Sails used by your app.  If you're stuck, [get help here](https://sailsjs.com/support).)
+-->
+
