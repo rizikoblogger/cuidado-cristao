@@ -20,7 +20,7 @@ module.exports = {
 
     const me = await User.findOne({id: this.req.me.id}).populate(`classrooms`)
 
-    const classes = await Classroom.find()
+    const classes = await Classroom.find().populate('church')
 
     return {classes:classes, myClasses: me.classrooms}
 
