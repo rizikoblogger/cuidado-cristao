@@ -68,10 +68,10 @@ module.exports = {
       const classroomsIds = []
 
       const churchId  = inputs.church.id
-      inputs.userCares.forEach(care=>userCaresIds.push(care.id))
-      inputs.socialServices.forEach(social=>socialServicesIds.push(social.id))
-      inputs.contributions.forEach(contribution=>contributionsIds.push(contribution.id))
-      inputs.classrooms.forEach(classroom=>classroomsIds.push(classroom.id))
+      if(inputs.userCares) inputs.userCares.forEach(care=>userCaresIds.push(care.id))
+      if(inputs.socialServices) inputs.socialServices.forEach(social=>socialServicesIds.push(social.id))
+      if(inputs.contributions) inputs.contributions.forEach(contribution=>contributionsIds.push(contribution.id))
+      if(inputs.classrooms) inputs.classrooms.forEach(classroom=>classroomsIds.push(classroom.id))
 
       await User.updateOne({id: inputs.id}, {
         emailAddress: inputs.emailAddress,
