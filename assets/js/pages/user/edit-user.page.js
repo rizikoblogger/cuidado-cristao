@@ -12,6 +12,7 @@ parasails.registerPage('edit-user', {
 
     // Atributos/Dados editaveis do formulario que nao necessitam de validacao alguma
     formData: {
+      id: ``
     },
 
     // Erros encontrados na validacao do formulario.
@@ -22,6 +23,9 @@ parasails.registerPage('edit-user', {
     // Atributos / Dados do Formulario e regras de validacao
     // Atributos definidos aqui sao copiados internamente para o Objeto formData
     formRules: {
+      emailAddress: {required: true, isEmail: true },
+      fullName: {required: true, minLength: 10},
+      isSuperAdmin: {required: true},
 
     },
 
@@ -57,16 +61,16 @@ parasails.registerPage('edit-user', {
       this.message = {}
       this.goto('/user/search-user')
     },
-     // Este metodo e um exemplo de metodo invocado pelo evento submitted
+    // Este metodo e um exemplo de metodo invocado pelo evento submitted
     // do componente <ajax-form>
     submittedForm: async function() {
       // Tudo aqui sera processado somente se a requisicao enviada
       // obtiver 200 OK como resposta.
-      this.cloudSuccess = true;
+      this.cloudSuccess = true
       this.message.severity = 'success'
-      this.message.summary = 'Saved Sucessfully!',
+      this.message.summary = 'Saved Sucessfully!'
       this.message.details = ''
 
     },
   }
-});
+})

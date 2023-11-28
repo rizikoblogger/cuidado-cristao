@@ -100,6 +100,8 @@ module.exports.routes = {
   'POST /api/v1/sermon/save-sermon': { action: 'sermon/save-sermon' },
   'POST /api/v1/resource/save-resource': { action: 'resource/save-resource' },
 
+  'POST /api/v1/user/save-user': { action: 'user/save-user' },
+
 
 
 }

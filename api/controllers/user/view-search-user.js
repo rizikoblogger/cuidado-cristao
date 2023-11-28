@@ -18,10 +18,34 @@ module.exports = {
 
   fn: async function () {
 
-    const users = await User.find().populate(`church`)
-    return {users};
+    const natives =  await User
+      .find()
+      .populate(`church`)
+      .populate(`userCares`)
+      .populate(`socialServices`)
+      .populate(`contributions`)
+      .populate(`classrooms`)
+
+    const users = []
+
+    natives.forEach(native=>{
+      const user = {
+        id: native.id,
+        emailAddress: native.emailAddress,
+        fullName: native.fullName,
+        isSuperAdmin: native.isSuperAdmin,
+        church: native.church,
+        userCares: native.userCares,
+        socialServices: native.socialServices,
+        contributions: native.contributions,
+        classrooms: native.classrooms
+      }
+      users.push(user)
+    })
+
+    return {users}
 
   }
 
 
-};
+}

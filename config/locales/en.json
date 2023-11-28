@@ -250,5 +250,21 @@
 	"It is not possible to create User! They should create themselves by clicking on [Sign Up] button": "It is not possible to create User! They should create themselves by clicking on [Sign Up] button",
 	"After that, you can manage them, but change password that can be done by themselves too.": "After that, you can manage them, but change password that can be done by themselves too.",
 	"After that, you can manage them, but change password can be done by themselves too.": "After that, you can manage them, but change password can be done by themselves too.",
-	"Edit User": "Edit User"
+	"Edit User": "Edit User",
+	"After that, you can manage them, but change password must be done by themselves too.": "After that, you can manage them, but change password must be done by themselves too.",
+	"Oh my": "Oh my",
+	"We have encountered an unexpected error": "We have encountered an unexpected error",
+	"Need help with your account": "Need help with your account",
+	"let us know": "let us know",
+	"Open a help request": "Open a help request",
+	"Is Full Admin": "Is Full Admin",
+	"Classrooms": "Classrooms",
+	"Social Services": "Social Services",
+	"User Cares": "User Cares",
+	"Contributions": "Contributions",
+	"As ADMIN you can only remove Users from Groups, Contributions, Services, but add.": "As ADMIN you can only remove Users from Groups, Contributions, Services, but add.",
+	"User should add themselvs voluntarily.": "User should add themselvs voluntarily.",
+	"As ADMIN you can only remove Users from Groups, Classrooms, Contributions, Services, but add.": "As ADMIN you can only remove Users from Groups, Classrooms, Contributions, Services, but add.",
+	"As ADMIN you can only change the name of users and set them as SuperAdmin.": "As ADMIN you can only change the name of users and set them as SuperAdmin.",
+	"User should add themselvs to Church, Group, Service, et al voluntarily.": "User should add themselvs to Church, Group, Service, et al voluntarily."
 }

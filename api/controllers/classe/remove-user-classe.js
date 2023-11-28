@@ -22,10 +22,13 @@ module.exports = {
 
     let list = []
     list.push(inputs.userId)
-    const classRoom = await Classroom.removeFromCollection(inputs.classroomId, 'users').members(list)
-    return {}
+    await Classroom.removeFromCollection(inputs.classroomId, 'users').members(list)
+
+    const classroom = await Classroom.findOne({id: inputs.classroomId})
+
+    return {classroom}
 
   }
 
 
-};
+}

@@ -18,10 +18,14 @@ module.exports = {
 
   fn: async function (inputs) {
 
-    let list = []
-    list.push(inputs.userId)
-    const classRoom = await Classroom.addToCollection(inputs.classroomId, 'users').members(list)
-    return {}
+    const lista = []
+    lista.push(inputs.classroomId)
+
+    await User.addToCollection(inputs.userId, `classrooms`).members(lista)
+
+    const user = await User.findOne({id: inputs.userId})
+
+    return {user}
 
   }
 
