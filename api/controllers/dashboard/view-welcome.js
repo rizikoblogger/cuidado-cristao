@@ -21,12 +21,13 @@ module.exports = {
 
   fn: async function () {
 
-    const user = await User.findOne({id: this.req.me.id}).populate(`church`)
-    const allTemples = await Church.find()
+    const user = await User.findOne({id: this.req.me.id}).populate(`church`).populate('classrooms')
+    const temples = await Church.find()
+    const groups = await Classroom.find()
     const myChurchs = []
     if(user.church) myChurchs.push(user.church)
 
-    return {allTemples, myChurchs}
+    return {user: user, temples: temples, myChurchs: myChurchs, groups: groups}
 
 
   }

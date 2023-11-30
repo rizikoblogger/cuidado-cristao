@@ -266,5 +266,13 @@
 	"User should add themselvs voluntarily.": "User should add themselvs voluntarily.",
 	"As ADMIN you can only remove Users from Groups, Classrooms, Contributions, Services, but add.": "As ADMIN you can only remove Users from Groups, Classrooms, Contributions, Services, but add.",
 	"As ADMIN you can only change the name of users and set them as SuperAdmin.": "As ADMIN you can only change the name of users and set them as SuperAdmin.",
-	"User should add themselvs to Church, Group, Service, et al voluntarily.": "User should add themselvs to Church, Group, Service, et al voluntarily."
+	"User should add themselvs to Church, Group, Service, et al voluntarily.": "User should add themselvs to Church, Group, Service, et al voluntarily.",
+	"User should add themselves to Church, Group, Service, et al voluntarily.": "User should add themselves to Church, Group, Service, et al voluntarily.",
+	"Users should add themselves to Church's Groups, Services, et al, voluntarily.": "Users should add themselves to Church's Groups, Services, et al, voluntarily.",
+	"Your are not member of any Group yet": "Your are not member of any Group yet",
+	"Classroom": "Classroom",
+	"Create new": "Create new",
+	"Change": "Change",
+	"Available": "Available",
+	"This class/group belongs to": "This class/group belongs to"
 }

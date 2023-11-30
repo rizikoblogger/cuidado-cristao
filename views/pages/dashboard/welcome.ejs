@@ -1,23 +1,26 @@
 <div id="welcome" v-cloak>
     <account-notification-banner></account-notification-banner>
     <div class="container pt-5 pb-5">
-        <h1><%= __('Welcome') %> <%= me.fullName %> !</h1>
+        <div class="display-3"><%= __('Welcome') %> <%= me.fullName %> !</div>
         <hr/>
 
- <% if(me.isSuperAdmin) { %>
+        <% if(me.isSuperAdmin) { %>
 
-        <span class="text-info fw-bolder"> <%= __('You had logged in as SuperAdmin') %> </span>
-        <div class="buttons mt-2">
-            <a class="btn btn-primary m-1" href="/church/search-church">      <%= __('To manage Churchs') %></a>
-            <a class="btn btn-primary m-1" href="/classe/search-classe">      <%= __('To manage Groups') %></a>
-            <a class="btn btn-primary m-1" href="/resource/search-resource">  <%= __('To manage Resources') %></a>
-            <a class="btn btn-primary m-1" href="/sermon/search-sermon">      <%= __('To manage Sermoes') %></a>
-            <a class="btn btn-primary m-1" href="/user/search-user">          <%= __('To manage Users') %></a>
-            <a class="btn btn-primary m-1" href="/social/social-search">      <%= __('To manage Social Service') %></a>
+            <span class="text-info fw-bolder"> <%= __('You had logged in as SuperAdmin') %> </span>
+            <div class="buttons mt-2">
+                <a class="btn btn-primary m-1" href="/church/search-church">      <%= __('To manage Churchs') %></a>
+                <a class="btn btn-primary m-1" href="/classe/search-classe">      <%= __('To manage Groups') %></a>
+                <a class="btn btn-primary m-1" href="/resource/search-resource">  <%= __('To manage Resources') %></a>
+                <a class="btn btn-primary m-1" href="/sermon/search-sermon">      <%= __('To manage Sermoes') %></a>
+                <a class="btn btn-primary m-1" href="/user/search-user">          <%= __('To manage Users') %></a>
+                <a class="btn btn-primary m-1"
+                   href="/social/social-search">      <%= __('To manage Social Service') %></a>
 
-        </div>
+            </div>
 
-  <% } %>
+            <hr>
+
+        <% } %>
 
         <div class="buttons">
             <a class="btn btn-primary m-1" href="/account/profile"><%= __('Update my email') %></a>
@@ -25,42 +28,76 @@
                     @click="toogleChurchList()"><%= __('Joint to a Church') %></button>
         </div>
 
+        <hr>
+        <div v-if="temples.length < 1"
+             class="text-danger fw-bolder"><%= __('It look like there is no Main Church created yet! Please, do create the first one at [Manage Churchs]') %></div>
 
         <div class="display-5 mt-2"><%= __('Joined to...') %></div>
-        <div class="mt-2" v-if="myChurchs.length < 1">
-            <span class="text-danger fw-bolder"><%= __('Your are not member of any Church yet') %>!</span>
-        </div>
-        <ul class="list-group mt-3">
-            <li class="list-group-item" v-for="church in myChurchs">{{church.tipo}}: {{church.fullName}}</li>
-        </ul>
 
-        <div v-if="allTemples.length < 1" class="text-danget fw-bolder"><%=__('It look like there is no Main Church created yet! Please, do create the first one at [Manage Churchs]')%></div>
+        <section id="join-church">
 
-        <div v-if="showChurchList">
+            <div class="mt-2" v-if="myChurchs.length < 1">
+                <span class="text-danger fw-bolder"><%= __('Your are not member of any Church yet') %>!</span>
+            </div>
+            <ul class="list-group mt-3">
+                <li class="list-group-item" v-for="church in myChurchs"><span class="display-6"><%=__('Church')%></span> {{church.tipo}}: {{church.fullName}}</li>
+            </ul>
 
-            <div class="card mt-2">
-                <div class="card-header"><%= __('Church') %> <%= __('Select') %></div>
-                <div class="card-body">
-                    <select name="church" id="church" class="form-select" v-model="churchSelecionadaId">
-                        <% allTemples.forEach(temple=> { %>
-                            <option value="<%= temple.id %>" label="<%= temple.fullName %> - <%= temple.tipo%>"></option>
-                        <% }) %>
-                    </select>
-                </div>
-                <div class="card-footer">
-                    <button type="button" class="btn btn-primary m-1" data-bs-dismiss="modal"
-                            @click="selecionar(churchSelecionadaId)"><%= __('Select') %></button>
-                    <a href="/welcome" class="btn btn-primary"><%= __('Close') %></a>
-
+            <div v-if="showChurchList">
+                <div class="card mt-2">
+                    <div class="card-header"><%= __('Church') %> <%= __('Select') %></div>
+                    <div class="card-body">
+                        <select name="church" id="church" class="form-select" v-model="churchSelecionadaId">
+                            <% temples.forEach(temple=> { %>
+                                <option value="<%= temple.id %>"
+                                        label="<%= temple.fullName %> - <%= temple.tipo %>"></option>
+                            <% }) %>
+                        </select>
+                    </div>
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-primary m-1" data-bs-dismiss="modal"
+                                @click="selecionarChurch(churchSelecionadaId)"><%= __('Select') %></button>
+                        <a href="/welcome" class="btn btn-primary"><%= __('Close') %></a>
+                    </div>
                 </div>
             </div>
 
+        </section>
 
-        </div>
+        <section id="join-classroom">
+
+            <div class="mt-2" v-if="user.classrooms?.length < 1">
+                <span class="text-danger fw-bolder"><%= __('Your are not member of any Group yet') %>!</span>
+            </div>
+            <ul class="list-group mt-3" v-if="user.classrooms?.length > 0">
+                <li class="list-group-item" v-for="group in user.classrooms"><span class="display-6"><%=__('Classroom')%></span> {{group.name}}</li>
+            </ul>
+
+            <div v-if="showGroupList">
+                <div class="card mt-2">
+                    <div class="card-header"><%= __('Classroom') %> <%= __('Select') %></div>
+                    <div class="card-body">
+                        <select name="group" id="group" class="form-select" v-model="groupSelecionadaId">
+                            <% groups.forEach( group => { %>
+                                <option value="<%= group.id %>"
+                                        label="<%= group.name %>"></option>
+                            <% }) %>
+                        </select>
+                    </div>
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-primary m-1" data-bs-dismiss="modal"
+                                @click="selecionarGroup(groupSelecionadaId)"><%= __('Select') %></button>
+                        <a href="/welcome" class="btn btn-primary"><%= __('Close') %></a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
 
     </div>
 
-    <message id="msg" v-on:close="update()" :severity="message.severity" v-bind:summary="message.summary" :details="message.details"></message>
+    <message id="msg" v-on:close="update()" :severity="message.severity" v-bind:summary="message.summary"
+             :details="message.details"></message>
 
     <router-view></router-view>
 

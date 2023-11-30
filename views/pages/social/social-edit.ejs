@@ -1,7 +1,7 @@
 <div id="social-edit" v-cloak>
 
     <div class="container">
-        <h1><%= __(`Social Edit`) ;%></h1>
+        <div class="display-3"><%= __(`Social Edit`) ;%></div>
         <hr>
 
         <message id="msg" v-on:close="cleanMessage()" :severity="message.severity" :summary="message.summary" :details="message.details"></message>

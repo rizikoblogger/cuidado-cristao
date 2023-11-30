@@ -23,6 +23,9 @@ parasails.registerPage('social-search', {
   methods: {
     novo: function() {
       this.goto(`/social/social-edit/new`)
+    },
+    goToEdit: function (id) {
+      this.goto('/social/social-edit/'+id)
     }
   }
 });

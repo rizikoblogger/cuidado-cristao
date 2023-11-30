@@ -23,6 +23,16 @@ parasails.registerPage('edit-classe', {
     cleanMessage: function () {
       this.message = {}
       window.location.reload()
+    },
+
+    selectChurch: function (church) {
+      this.classe.church = church
+      this.save()
+    },
+
+    save: function () {
+      //TODO: salvar
+      alert('Classe salva com sucesso '+ this.classe.church.fullName)
     }
   }
 })

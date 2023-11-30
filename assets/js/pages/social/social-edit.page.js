@@ -13,13 +13,11 @@ parasails.registerPage('social-edit', {
     syncing: false,
 
     // Atributos/Dados editaveis do formulario que nao necessitam de validacao alguma
-    formData: {
-
-    },
+    formData: {},
 
     // Erros encontrados na validacao do formulario.
     // Internamente, o Sails grava {invalido = 'true' ou 'false'} para cada campo do formData.
-    formErrors: { /* … */ },
+    formErrors: { /* … */},
 
     // Regras de validacao do formulario
     // Atributos / Dados do Formulario e regras de validacao
@@ -44,10 +42,10 @@ parasails.registerPage('social-edit', {
   //  ╦  ╦╔═╗╔═╗╔═╗╦ ╦╔═╗╦  ╔═╗
   //  ║  ║╠╣ ║╣ ║  ╚╦╝║  ║  ║╣
   //  ╩═╝╩╚  ╚═╝╚═╝ ╩ ╚═╝╩═╝╚═╝
-  beforeMount: function() {
+  beforeMount: function () {
     //…
   },
-  mounted: async function() {
+  mounted: async function () {
     _.extend(this, window.SAILS_LOCALS)
     this.formData = this.social
   },
@@ -58,7 +56,7 @@ parasails.registerPage('social-edit', {
   methods: {
     // Este metodo e um exemplo de metodo invocado pelo evento submitted
     // do componente <ajax-form>
-    submittedForm: async function() {
+    submittedForm: async function () {
       // Tudo aqui sera processado somente se a requisicao enviada
       // obtiver 200 OK como resposta.
       this.message.severity = `success`
@@ -71,6 +69,12 @@ parasails.registerPage('social-edit', {
     cleanMessage: function () {
       this.message = {}
       this.goto(`/social/social-search`)
+    },
+
+    goBack: function () {
+      this.goto('/social/social-search')
     }
   }
+
+
 })

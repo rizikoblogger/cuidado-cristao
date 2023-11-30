@@ -28,16 +28,28 @@ module.exports = {
       const social = await SocialService.updateOne({id: inputs.id}, {
         nome: inputs.nome,
         descricao: inputs.descricao,
-        users: [...inputs.users]
+        users: []
       })
+      const userIds = []
+      inputs.users.forEach(user=>{
+        userIds.push(user.id)
+      })
+      await SocialService.addToCollection(inputs.id, 'users').members(userIds)
+
       return {social}
 
     }else {
       const social = await SocialService.create({
         nome: inputs.nome,
         descricao: inputs.descricao,
-        users: [...inputs.users]
+        users: []
       }).fetch()
+
+      const userIds = []
+      inputs.users.forEach(user=>{
+        userIds.push(user.id)
+      })
+      await SocialService.addToCollection(inputs.id, 'users').members(userIds)
 
       return {social}
     }

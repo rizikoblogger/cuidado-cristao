@@ -1,7 +1,7 @@
 <div id="edit-profile" v-cloak>
   <account-notification-banner></account-notification-banner>
   <div class="container pt-5 pb-5">
-    <h1><%=__('Update personal info')%></h1>
+    <div class="display-3"><%=__('Update personal info')%></div>
     <hr/>
     <ajax-form action="updateProfile" :syncing.sync="syncing" :cloud-error.sync="cloudError" :form-data="formData" :form-rules="formRules" :form-errors.sync="formErrors" @submitted="submittedForm()">
       <div class="row">

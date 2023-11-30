@@ -33,6 +33,9 @@
                    :class="[formErrors.fullName ? 'is-invalid' : '']"
                    v-model.trim="formData.fullName"
             >
+            <div v-if="formErrors.fullName" class="text-danger fst-italic">
+                {{formErrors.fullName}}
+            </div>
 
 
             <div id="isSuperAdmin" class="form-check form-switch mt-2">
@@ -41,7 +44,11 @@
             </div>
 
             <label for="church"><%=__(`Church`)%></label>
-            <span class="form-control" id="church">{{user.church.fullName}}</span>
+            <span class="form-control" id="church">
+                {{user.church?.fullName}}
+                <em v-if="!user.church"><%=__('No record found')%></em>
+            </span>
+
 
             <label for="classrooms" v-if="user.classrooms?.length > 0"><%=__(`Classrooms`)%></label>
             <ul id="classrooms" class="list-group">
@@ -78,15 +85,13 @@
 
         <hr>
 
-        <div class="row">
-            <div class="col"></div>
-            <div class="col border border-1 border-black rounded-2">
+      <div class="alert alert-info">
                 <p class="text-body-emphasis">
                     <%=__(`As ADMIN you can only change the name of users and set them as SuperAdmin.`)%> <br>
-                    <%=__(`User should add themselvs to Church, Group, Service, et al voluntarily.`)%>
+                    <%=__(`Users should add themselves to Church's Groups, Services, et al, voluntarily.`)%>
                 </p>
-            </div>
-        </div>
+      </div>
+
 
 
     </div>

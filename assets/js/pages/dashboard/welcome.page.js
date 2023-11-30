@@ -5,9 +5,10 @@ parasails.registerPage('welcome', {
   data: {
     modal: '',
     pageLoadedAt: Date.now(),
-    temples: [],
     churchSelecionadaId: '',
+    groupSelecionadaId: '',
     showChurchList: false,
+    showGroupList: false,
     message: {
       severity: ``,
       summary: ``,
@@ -73,7 +74,7 @@ parasails.registerPage('welcome', {
       this.goto('/church-edit/new')
     },
 
-    selecionar: function (churchSelecionadaId) {
+    selecionarChurch: function (churchSelecionadaId) {
       Cloud.saveUserChurch.with({
         userId: this.me.id,
         churchId: churchSelecionadaId,
@@ -85,6 +86,23 @@ parasails.registerPage('welcome', {
         }
         this.myChurchs = []
         this.showChurchList = false
+
+
+      }).catch(err=>console.log(err))
+
+    },
+
+    selecionarGroup: function (selecionadaId) {
+      Cloud.saveUserClasse.with({
+        userId: this.me.id,
+        classroomId: selecionadaId,
+       }).then(()=>{
+        this.message = {
+          severity: `success`,
+          summary: `Saved successfully`,
+          details: ``
+        }
+        this.showGroupList = false
 
 
       }).catch(err=>console.log(err))

@@ -7,7 +7,7 @@ module.exports = {
   description: 'Display "Edit classe" page.',
 
   inputs: {
-    id: { type: 'string'}
+    id: {type: 'string'}
   },
 
   exits: {
@@ -21,8 +21,14 @@ module.exports = {
 
   fn: async function ({id}) {
 
-    const classe = await Classroom.findOne({id: id}).populate('church')
-    return {classe};
+    const churchs = await Church.find()
+
+    if (id === 'new') {
+      return {classe: {}, churchs: churchs}
+    } else {
+      const classe = await Classroom.findOne({id: id}).populate('church')
+      return {classe: classe, churchs: churchs};
+    }
 
   }
 
