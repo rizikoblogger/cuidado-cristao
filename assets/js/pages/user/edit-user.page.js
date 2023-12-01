@@ -24,7 +24,7 @@ parasails.registerPage('edit-user', {
     // Atributos definidos aqui sao copiados internamente para o Objeto formData
     formRules: {
       emailAddress: {required: true, isEmail: true },
-      fullName: {required: true, minLength: 10},
+      fullName: {required: true, minLength: 5},
       isSuperAdmin: {required: true},
 
     },

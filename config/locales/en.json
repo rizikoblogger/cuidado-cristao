@@ -311,5 +311,17 @@
 	"administrator": "administrator",
 	"Meacon": "Meacon",
 	"Priest": "Priest",
-	"Administrator": "Administrator"
+	"Administrator": "Administrator",
+	"Meeting description": "Meeting description",
+	"Learning description": "Learning description",
+	"Facilities description": "Facilities description",
+	"As you are also a %s, you can...": "As you are also a %s, you can...",
+	"As you are also a(n) %s, you can...": "As you are also a(n) %s, you can...",
+	"Deacon": "Deacon",
+	"Manage Contributions": "Manage Contributions",
+	"Print Members Report": "Print Members Report",
+	"Manage Cristian Cares": "Manage Cristian Cares",
+	"Print Own List of Contribution": "Print Own List of Contribution",
+	"Subscribe our Newsletter": "Subscribe our Newsletter",
+	"Ask to guidelines": "Ask to guidelines"
 }

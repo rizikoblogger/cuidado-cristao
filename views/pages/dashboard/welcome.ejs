@@ -23,6 +23,20 @@
 
         <% } %>
 
+        <% if(me.profile) {  %>
+
+            <span class="text-info fw-bolder"> <%= __('As you are also a(n) %s, you can...', me.profile.toUpperCase()) %> </span>
+            <div class="buttons mt-2">
+                <button :disabled="me.profile!=='administrator'" class="btn btn-primary m-1" >       <%= __('Manage Contributions') %></button>
+                <button :disabled="me.profile!=='priest'"        class="btn btn-primary m-1">        <%= __('Print Members Reports') %></button>
+                <button :disabled="me.profile!=='deacon'"        class="btn btn-primary m-1">        <%= __('Manage Cristian Cares') %></button>
+                <button :disabled="me.profile!=='member'"        class="btn btn-primary m-1">        <%= __('Print Own List of Contribution') %></button>
+                <button :disabled="me.profile!=='congregant'"    class="btn btn-primary m-1">        <%= __('Ask to guidelines') %></button>
+            </div>
+
+            <hr>
+
+        <%  } %>
         <span class="text-info fw-bolder"> <%= __('As a %s special user, you can...', me.emailStatus) %> </span>
         <div class="buttons mt-2'">
             <a class="btn btn-primary m-" href="/account/profile"><%= __('Update my email') %></a>
@@ -74,9 +88,9 @@
             </div>
             <ul class="list-group mt-3" v-if="user.classrooms?.length > 0">
                 <li class="list-group-item" v-for="group in user.classrooms">
-                    <button class="btn btn-sm btn-primary" @click="leave(group)">
-                        <em class="fa fa-sign-out" title="<%=__('Leave')%>"></em><%=__('Leave')%> </button>
-                    <span class="display-6"><%=__('Group')%></span> {{group.name}}</li>
+                    <span class="display-6"><%=__('Group')%></span> {{group.name}}
+                    <button class="btn btn-primary" @click="leave(group)"> <%=__('Leave')%> </button>
+                </li>
             </ul>
 
             <div v-if="showGroupList">

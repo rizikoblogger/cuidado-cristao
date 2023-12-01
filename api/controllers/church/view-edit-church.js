@@ -37,7 +37,10 @@ module.exports = {
           site: '',
           phone: '',
           linktree: '',
-          tipo: countChurch > 0?'DAUGHTER':'MOTHER'
+          tipo: countChurch > 0?'DAUGHTER':'MOTHER',
+          churchFacilities: [],
+          churchLearnings:[],
+          churchMeetings: [],
         }
       }
     }

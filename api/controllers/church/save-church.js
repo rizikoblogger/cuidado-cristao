@@ -82,7 +82,7 @@ module.exports = {
   exits: {
     redirect: {
       description: 'O dado foi atualizado ou adicionado.',
-      extendedDescription: 'Voltndo para a listagem atualizada"',
+      extendedDescription: 'Voltando para a listagem atualizada',
       responseType: 'redirect',
     }
   },

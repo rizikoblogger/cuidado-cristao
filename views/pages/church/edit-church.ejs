@@ -203,6 +203,11 @@
                             {{meet}}
                         </li>
                     </ul>
+                    <div class="input-group mt-1">
+                        <div class="input-group-text"><%=__('Name')%></div>
+                        <input type="text" class="form-control" id="text" placeholder="<%=__('Meeting description')%>" v-model="description">
+                        <button class="btn btn-primary" @click="addMeetingDescription()"><em class="fa fa-plus"></em></button>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary m-1" data-bs-dismiss="modal"><%= __('Close') %></button>
@@ -225,6 +230,11 @@
                             {{learning}}
                         </li>
                     </ul>
+                    <div class="input-group mt-1">
+                        <div class="input-group-text"><%=__('Name')%></div>
+                        <input type="text" class="form-control" id="text" placeholder="<%=__('Learning description')%>" v-model="description">
+                        <button class="btn btn-primary" @click="addLearningDescription()"><em class="fa fa-plus"></em></button>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary m-1" data-bs-dismiss="modal"><%= __('Close') %></button>
@@ -247,6 +257,11 @@
                             {{facility}}
                         </li>
                     </ul>
+                    <div class="input-group mt-1">
+                        <div class="input-group-text"><%=__('Name')%></div>
+                        <input type="text" class="form-control" id="text" placeholder="<%=__('Facilities description')%>" v-model="description">
+                        <button class="btn btn-primary" @click="addFacilitiesDescription()"><em class="fa fa-plus"></em></button>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary m-1" data-bs-dismiss="modal"><%= __('Close') %></button>

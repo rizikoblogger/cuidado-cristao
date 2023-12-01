@@ -4,6 +4,8 @@ parasails.registerPage('edit-church', {
   //  ╩╝╚╝╩ ╩ ╩╩ ╩╩═╝  ╚═╝ ╩ ╩ ╩ ╩ ╚═╝
   data: {
 
+    description: '',
+
     message: {
       severity: ``,
       summary: ``,
@@ -108,7 +110,7 @@ parasails.registerPage('edit-church', {
       const index = this.igreja.churchMeetings.indexOf(meet)
       this.igreja.churchMeetings.splice(index,1)
     },
-    
+
     removeLearning: function (learning) {
       const index = this.igreja.churchLearnings.indexOf(learning)
       this.igreja.churchLearnings.splice(index,1)
@@ -117,7 +119,28 @@ parasails.registerPage('edit-church', {
     removeFacility: function (facility){
       const index = this.igreja.churchFacilities.indexOf(facility)
       this.igreja.churchFacilities.splice(index,1)
-    }
+    },
+
+    addMeetingDescription: function (){
+      if(this.description.length > 3){
+         this.igreja.churchMeetings.push(this.description)
+         this.description = ''
+      }
+    },
+
+    addLearningDescription: function (){
+      if(this.description.length > 3){
+         this.igreja.churchLearnings.push(this.description)
+         this.description = ''
+      }
+    },
+
+    addFacilitiesDescription: function (){
+      if(this.description.length > 3){
+         this.igreja.churchFacilities.push(this.description)
+         this.description = ''
+      }
+    },
 
 
   }
