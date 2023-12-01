@@ -37,6 +37,21 @@
                 {{formErrors.fullName}}
             </div>
 
+            <label for="profile"><%=__('Profile')%></label>
+            <select
+                    name="profile"
+                    id="profile"
+                    class="form-select"
+                    v-model="formData.profile"
+            >
+                <option value="congregant"><%=__('Congregant')%></option>
+                <option value="member"><%=__('Member')%></option>
+                <option value="deacon"><%=__('Meacon')%></option>
+                <option value="priest"><%=__('Priest')%></option>
+                <option value="administrator"><%=__('Administrator')%></option>
+            </select>
+
+
 
             <div id="isSuperAdmin" class="form-check form-switch mt-2">
                 <input class="form-check-input" type="checkbox" id="isSuperAdmin" name="isSuperAdmin" v-model="formData.isSuperAdmin" >

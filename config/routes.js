@@ -56,8 +56,8 @@ module.exports.routes = {
   'GET /user/search-user': { action: 'user/view-search-user' },
   'GET /user/edit-user/:id': { action: 'user/view-edit-user' },
 
-
-
+  'GET /search-faq': { action: 'view-search-faq' },
+  'GET /edit-faq/:id': { action: 'view-edit-faq' },
 
   'GET /not-yet': { action: 'view-not-yet' },
 
@@ -102,6 +102,7 @@ module.exports.routes = {
 
   'POST /api/v1/user/save-user': { action: 'user/save-user' },
 
+  'POST /api/v1/save-faq': { action: 'save-faq' },
 
 
 }

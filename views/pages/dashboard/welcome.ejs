@@ -1,31 +1,34 @@
 <div id="welcome" v-cloak>
+
     <account-notification-banner></account-notification-banner>
+
     <div class="container pt-5 pb-5">
         <div class="display-3"><%= __('Welcome') %> <%= me.fullName %> !</div>
         <hr/>
 
         <% if(me.isSuperAdmin) { %>
 
-            <span class="text-info fw-bolder"> <%= __('You had logged in as SuperAdmin') %> </span>
+            <span class="text-info fw-bolder"> <%= __('As you are logged as a SuperAdmin, you can...') %> </span>
             <div class="buttons mt-2">
-                <a class="btn btn-primary m-1" href="/church/search-church">      <%= __('To manage Churchs') %></a>
-                <a class="btn btn-primary m-1" href="/classe/search-classe">      <%= __('To manage Groups') %></a>
-                <a class="btn btn-primary m-1" href="/resource/search-resource">  <%= __('To manage Resources') %></a>
-                <a class="btn btn-primary m-1" href="/sermon/search-sermon">      <%= __('To manage Sermoes') %></a>
-                <a class="btn btn-primary m-1" href="/user/search-user">          <%= __('To manage Users') %></a>
-                <a class="btn btn-primary m-1"
-                   href="/social/social-search">      <%= __('To manage Social Service') %></a>
-
+                <a class="btn btn-primary m-1" href="/church/search-church">      <%= __('Manage Churchs') %></a>
+                <a class="btn btn-primary m-1" href="/classe/search-classe">      <%= __('Manage Groups') %></a>
+                <a class="btn btn-primary m-1" href="/resource/search-resource">  <%= __('Manage Resources') %></a>
+                <a class="btn btn-primary m-1" href="/sermon/search-sermon">      <%= __('Manage Sermoes') %></a>
+                <a class="btn btn-primary m-1" href="/user/search-user">          <%= __('Manage Users') %></a>
+                <a class="btn btn-primary m-1" href="/social/social-search">      <%= __('Manage Social Service') %></a>
+                <a class="btn btn-primary m-1" href="/search-faq">                <%= __('Manage FAQ') %></a>
             </div>
 
             <hr>
 
         <% } %>
 
-        <div class="buttons">
-            <a class="btn btn-primary m-1" href="/account/profile"><%= __('Update my email') %></a>
-            <button type="button" class="btn btn-primary m-1" @click="toogleChurchList()"><%= __('Joint to a Church') %></button>
-            <button type="button" class="btn btn-primary m-1" @click="toogleGroupList()"><%= __('Joint to a Group') %></button>
+        <span class="text-info fw-bolder"> <%= __('As a %s special user, you can...', me.emailStatus) %> </span>
+        <div class="buttons mt-2'">
+            <a class="btn btn-primary m-" href="/account/profile"><%= __('Update my email') %></a>
+            <!-- Only confirmed users can Joint to -->
+            <button :disabled="me.emailStatus!=='confirmed'" type="button" class="btn btn-primary m-1" @click="toogleChurchList()"><%= __('Joint to a Church') %></button>
+            <button :disabled="me.emailStatus!=='confirmed'" type="button" class="btn btn-primary m-1" @click="toogleGroupList()"><%= __('Joint to a Group') %></button>
         </div>
 
         <hr>

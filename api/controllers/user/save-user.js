@@ -13,6 +13,10 @@ module.exports = {
       type: `string`
     },
 
+    profile: {
+      type: 'string'
+    },
+
     emailAddress: {
       type: 'string',
       required: true
@@ -74,6 +78,7 @@ module.exports = {
       if(inputs.classrooms) inputs.classrooms.forEach(classroom=>classroomsIds.push(classroom.id))
 
       await User.updateOne({id: inputs.id}, {
+        profile: inputs.profile,
         emailAddress: inputs.emailAddress,
         fullName: inputs.fullName,
         isSuperAdmin: inputs.isSuperAdmin,

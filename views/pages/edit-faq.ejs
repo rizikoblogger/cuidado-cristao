@@ -1,0 +1,30 @@
+<div id="edit-faq" v-cloak>
+
+ <div class="container">
+     <div class="display-3"><%=__('Edit Faq')%></div>
+     <em class="text muted"><%=faq.id%></em>
+     <hr>
+
+     <message id="msg" v-on:close="cleanMessage()" :severity="message.severity" :summary="message.summary" :details="message.details"></message>
+
+     <label for="question"><%=__('Question')%></label>
+     <input id="question" type="text" class="form-control" v-model = 'faq.question'>
+
+     <label for="answer"><%=__('Answer')%></label>
+     <input type="text" class="form-control" id="answer" v-model = 'faq.answer'>
+
+     <label for="lang"><%=__('Language')%></label>
+     <select name="" id="lang" class="form-select" v-model="faq.lang">
+         <option value="pt"><%=__('Portuguese')%></option>
+         <option value="en"><%=__('English')%></option>
+     </select>
+
+     <div class="btn-group mt-2">
+         <button class="btn btn-lg btn-primary m-1" @click="save(faq)"><%=__('Save')%></button>
+         <button class="btn btn-lg btn-primary m-1" @click="gotoback()"><%=__('Cancel')%></button>
+     </div>
+
+ </div>
+
+</div>
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>
