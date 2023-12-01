@@ -70,6 +70,10 @@ parasails.registerPage('welcome', {
       this.showChurchList = !this.showChurchList
     },
 
+    toogleGroupList: function () {
+      this.showGroupList = !this.showGroupList
+    },
+
     goToCreateNewChurch: function () {
       this.goto('/church-edit/new')
     },
@@ -116,7 +120,20 @@ parasails.registerPage('welcome', {
         details: ''
       }
       window.location.reload()
-    }
+    },
+
+    leave: function(classe){
+      Cloud
+        .removeUserClasse(this.me.id, classe.id)
+        .then(result=>{
+          this.message = {severity: `success`, summary: `Removido com sucesso`, details: ``}
+          console.log(result)
+        })
+        .catch(err=>{
+          this.message = {severity: `error`, summary: `Impossivel remover`, details: ``}
+          console.log(err)
+        })
+    },
 
   }
 })

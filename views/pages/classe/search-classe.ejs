@@ -7,8 +7,7 @@
 
     <div class="display-5"><%=__('My Groups')%></div>
     <ul class="list-group mt-2">
-        <li class="list-group-item" v-for="celula in myClasses" > <button class="btn btn-sm btn-primary" @click="leave(celula)">
-                <em class="fa fa-sign-out" title="<%=__('Leave')%>"></em><%=__('Leave')%> </button>
+        <li class="list-group-item" v-for="celula in myClasses" >
             {{celula.name}}
         </li>
     </ul>
@@ -17,12 +16,11 @@
     <ul class="list-group mt-2">
         <li class="list-group-item" v-for="celula in classes" >
             <button v-if="me.isSuperAdmin" class="btn btn-sm btn-primary m-1" @click="edit(celula)"> <em class="fa fa-pencil" title="<%=__('Edit')%>"></em><%=__('Edit')%> </button>
-            <button class="btn btn-sm btn-primary m-1" @click="joinTo(celula)"> <em class="fa fa-sign-in" title="<%=__('Enter')%>"></em><%=__('Enter')%> </button>
              {{celula.name}} ({{celula.church.shortName}})
         </li>
     </ul>
 
-    <button class="btn btn-secondary m-1" @click="goback()"><%=__('Cancel')%></button>
+    <button class="btn btn-primary mt-2" @click="goback()"><%=__('Cancel')%></button>
 
 </div>
 <%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>

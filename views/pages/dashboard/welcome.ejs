@@ -24,8 +24,8 @@
 
         <div class="buttons">
             <a class="btn btn-primary m-1" href="/account/profile"><%= __('Update my email') %></a>
-            <button type="button" class="btn btn-primary m-1"
-                    @click="toogleChurchList()"><%= __('Joint to a Church') %></button>
+            <button type="button" class="btn btn-primary m-1" @click="toogleChurchList()"><%= __('Joint to a Church') %></button>
+            <button type="button" class="btn btn-primary m-1" @click="toogleGroupList()"><%= __('Joint to a Group') %></button>
         </div>
 
         <hr>
@@ -70,12 +70,15 @@
                 <span class="text-danger fw-bolder"><%= __('Your are not member of any Group yet') %>!</span>
             </div>
             <ul class="list-group mt-3" v-if="user.classrooms?.length > 0">
-                <li class="list-group-item" v-for="group in user.classrooms"><span class="display-6"><%=__('Classroom')%></span> {{group.name}}</li>
+                <li class="list-group-item" v-for="group in user.classrooms">
+                    <button class="btn btn-sm btn-primary" @click="leave(group)">
+                        <em class="fa fa-sign-out" title="<%=__('Leave')%>"></em><%=__('Leave')%> </button>
+                    <span class="display-6"><%=__('Group')%></span> {{group.name}}</li>
             </ul>
 
             <div v-if="showGroupList">
                 <div class="card mt-2">
-                    <div class="card-header"><%= __('Classroom') %> <%= __('Select') %></div>
+                    <div class="card-header"><%= __('Group') %> <%= __('Select') %></div>
                     <div class="card-body">
                         <select name="group" id="group" class="form-select" v-model="groupSelecionadaId">
                             <% groups.forEach( group => { %>
