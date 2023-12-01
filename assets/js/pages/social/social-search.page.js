@@ -26,6 +26,9 @@ parasails.registerPage('social-search', {
     },
     goToEdit: function (id) {
       this.goto('/social/social-edit/'+id)
+    },
+    goToWelcome: function () {
+      this.goto('/welcome')
     }
   }
 });

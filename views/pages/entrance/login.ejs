@@ -19,10 +19,11 @@
         <cloud-error v-if="cloudError==='badCombo'"><%=__('The credentials you entered are not associated with an account')%>.</cloud-error>
         <cloud-error v-else-if="cloudError"></cloud-error>
         <div class="form-group">
-          <ajax-button :syncing="syncing" class="btn-dark btn-lg btn-block"><%=__('Sign in')%></ajax-button>
+          <ajax-button :syncing="syncing" class="btn-primary btn-lg btn-block"><%=__('Sign in')%></ajax-button>
+            <a href="/" class="btn btn-primary btn-lg btn-block"><%=__('Cancel')%></a>
         </div>
       </ajax-form>
-      <p class="text-center"><a href="/password/forgot"><%=__('Forgot your password')%>?</a></p>
+      <p class="text-center mt-3"><a href="/password/forgot"><%=__('Forgot your password')%>?</a></p>
     </div>
   </div>
 </div>

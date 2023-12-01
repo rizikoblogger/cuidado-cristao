@@ -5,18 +5,18 @@
 
     <message id="msg" v-on:close="cleanMessage()" :severity="message.severity" :summary="message.summary" :details="message.details"></message>
 
-    <div class="display-5"><%=__('My Groups')%></div>
-    <ul class="list-group mt-2">
-        <li class="list-group-item" v-for="celula in myClasses" >
-            {{celula.name}}
-        </li>
-    </ul>
-    <hr>
+
     <div class="display-5"><%=__('Groups of my Church')%></div>
     <ul class="list-group mt-2">
         <li class="list-group-item" v-for="celula in classes" >
-            <button v-if="me.isSuperAdmin" class="btn btn-sm btn-primary m-1" @click="edit(celula)"> <em class="fa fa-pencil" title="<%=__('Edit')%>"></em><%=__('Edit')%> </button>
-             {{celula.name}} ({{celula.church.shortName}})
+            <% if(me) { %>
+            <button v-if="me.isSuperAdmin" class="btn btn-sm btn-primary m-1" @click="edit(celula)">
+                <em class="fa fa-pencil" title="<%=__('Edit')%>"></em>
+                <%=__('Edit')%>
+            </button>
+            <% }        %>
+            <a href="/welcome" class="btn btn-sm btn-primary m-1"><%=__('Joint to')%></a>
+            {{celula.name}} ({{celula.church.shortName}})
         </li>
     </ul>
 

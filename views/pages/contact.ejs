@@ -27,7 +27,8 @@
         </div>
         <cloud-error v-if="cloudError"></cloud-error>
         <div class="form-group">
-          <ajax-button type="submit" :syncing="syncing" class="btn btn-dark btn-lg btn-block"><%=__('Send message')%></ajax-button>
+          <ajax-button type="submit" :syncing="syncing" class="btn btn-primary btn-lg btn-block m-1"><%=__('Send message')%></ajax-button>
+            <a href="/" class="btn btn-primary btn-lg btn-block m-1"><%=__('Cancel')%></a>
         </div>
       </ajax-form>
     </div>

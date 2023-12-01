@@ -25,19 +25,7 @@ parasails.registerPage('search-classe', {
   //  ╩╝╚╝ ╩ ╚═╝╩╚═╩ ╩╚═╝ ╩ ╩╚═╝╝╚╝╚═╝
   methods: {
     goback: function () {
-      this.goto('/welcome')
-    },
-    joinTo: function(classe){
-      Cloud
-        .saveUserClasse(this.me.id, classe.id)
-        .then(result=>{
-          this.message = {severity: `success`, summary: `Adicionado com sucesso`, details: ``}
-          console.log(result)
-        })
-        .catch(err=>{
-          this.message = {severity: `error`, summary: `Impossivel adicionar`, details: ``}
-          console.log(err)
-        })
+      this.goto('/')
     },
 
     cleanMessage: function () {
