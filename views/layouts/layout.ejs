@@ -22,7 +22,7 @@
     <!--STYLES END-->
 
   </head>
-  <body class='m-2'>
+  <body class="overflow-auto">
   <div purpose="page-wrap">
 
     <!-- inject header -->
@@ -32,8 +32,8 @@
     <%- include('../partials/email-alert.ejs') %>
 
        
-     <div style="overflow: visible; z-index: 99">
-         <%- body %>
+     <div class="cc-body-container">
+        <%- body %>
      </div>
   
     <%- include('../partials/footer.ejs') %>    
