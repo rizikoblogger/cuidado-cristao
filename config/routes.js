@@ -59,6 +59,9 @@ module.exports.routes = {
   'GET /search-faq': { action: 'view-search-faq' },
   'GET /edit-faq/:id': { action: 'view-edit-faq' },
 
+  'GET /contribution/search-contribution': { action: 'contribution/view-search-contribution' },
+  'GET /contribution/edit-contribution': { action: 'contribution/view-edit-contribution' },
+
   'GET /not-yet': { action: 'view-not-yet' },
 
   //  ╔╦╗╦╔═╗╔═╗  ╦═╗╔═╗╔╦╗╦╦═╗╔═╗╔═╗╔╦╗╔═╗   ┬   ╔╦╗╔═╗╦ ╦╔╗╔╦  ╔═╗╔═╗╔╦╗╔═╗
@@ -99,10 +102,12 @@ module.exports.routes = {
   'POST /api/v1/church/save-user-church': { action: 'church/save-user-church' },
   'POST /api/v1/sermon/save-sermon': { action: 'sermon/save-sermon' },
   'POST /api/v1/resource/save-resource': { action: 'resource/save-resource' },
-
+ 
   'POST /api/v1/user/save-user': { action: 'user/save-user' },
 
   'POST /api/v1/save-faq': { action: 'save-faq' },
+
+  'POST /api/v1/contribution/save-contribution': { action: 'contribution/save-contribution' },
 
 
 }

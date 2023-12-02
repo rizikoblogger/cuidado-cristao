@@ -20,10 +20,10 @@ parasails.registerPage('welcome', {
   //  ╦  ╦╔═╗╔═╗╔═╗╦ ╦╔═╗╦  ╔═╗
   //  ║  ║╠╣ ║╣ ║  ╚╦╝║  ║  ║╣
   //  ╩═╝╩╚  ╚═╝╚═╝ ╩ ╚═╝╩═╝╚═╝
-  beforeMount: function() {
+  beforeMount: function () {
     //…
   },
-  mounted: async function() {
+  mounted: async function () {
     _.extend(this, window.SAILS_LOCALS)
     /* gets churchs array from view-welcome */
   },
@@ -33,7 +33,7 @@ parasails.registerPage('welcome', {
   //   ╚╝ ╩╩╚═ ╩ ╚═╝╩ ╩╩═╝  ╩  ╩ ╩╚═╝╚═╝╚═╝
   // Configure deep-linking (aka client-side routing)
   virtualPagesRegExp: /^\/welcome\/?([^\/]+)?\/?/,
-  afterNavigate: async function(virtualPageSlug){
+  afterNavigate: async function (virtualPageSlug) {
     // `virtualPageSlug` is determined by the regular expression above, which
     // corresponds with `:unused?` in the server-side route for this page.
     switch (virtualPageSlug) {
@@ -50,7 +50,7 @@ parasails.registerPage('welcome', {
   //  ╩╝╚╝ ╩ ╚═╝╩╚═╩ ╩╚═╝ ╩ ╩╚═╝╝╚╝╚═╝
   methods: {
 
-    clickOpenExampleModalButton: async function() {
+    clickOpenExampleModalButton: async function () {
       this.goto('/welcome/hello')
       // Or, without deep links, instead do:
       // ```
@@ -58,7 +58,7 @@ parasails.registerPage('welcome', {
       // ```
     },
 
-    closeExampleModal: async function() {
+    closeExampleModal: async function () {
       this.goto('/welcome')
       // Or, without deep links, instead do:
       // ```
@@ -82,7 +82,8 @@ parasails.registerPage('welcome', {
       Cloud.saveUserChurch.with({
         userId: this.me.id,
         churchId: churchSelecionadaId,
-        type: 'CONGREGATION' }).then(result=>{
+        type: 'CONGREGATION'
+      }).then(result => {
         this.message = {
           severity: `success`,
           summary: `Saved successfully`,
@@ -92,7 +93,7 @@ parasails.registerPage('welcome', {
         this.showChurchList = false
 
 
-      }).catch(err=>console.log(err))
+      }).catch(err => console.log(err))
 
     },
 
@@ -100,7 +101,7 @@ parasails.registerPage('welcome', {
       Cloud.saveUserClasse.with({
         userId: this.me.id,
         classroomId: selecionadaId,
-       }).then(()=>{
+      }).then(() => {
         this.message = {
           severity: `success`,
           summary: `Saved successfully`,
@@ -109,7 +110,7 @@ parasails.registerPage('welcome', {
         this.showGroupList = false
 
 
-      }).catch(err=>console.log(err))
+      }).catch(err => console.log(err))
 
     },
 
@@ -122,18 +123,22 @@ parasails.registerPage('welcome', {
       window.location.reload()
     },
 
-    leave: function(classe){
+    leave: function (classe) {
       Cloud
         .removeUserClasse(this.me.id, classe.id)
-        .then(result=>{
-          this.message = {severity: `success`, summary: `Removido com sucesso`, details: ``}
+        .then(result => {
+          this.message = { severity: `success`, summary: `Removido com sucesso`, details: `` }
           console.log(result)
         })
-        .catch(err=>{
-          this.message = {severity: `error`, summary: `Impossivel remover`, details: ``}
+        .catch(err => {
+          this.message = { severity: `error`, summary: `Impossivel remover`, details: `` }
           console.log(err)
         })
     },
+
+    gotoSearchContributions: function () {
+      this.goto('/contribution/search-contribution')
+    }
 
   }
 })

@@ -27,7 +27,7 @@
 
             <span class="text-info fw-bolder"> <%= __('As you are also a(n) %s, you can...', me.profile.toUpperCase()) %> </span>
             <div class="buttons mt-2">
-                <button :disabled="me.profile!=='administrator'" class="btn btn-primary m-1" >       <%= __('Manage Contributions') %></button>
+                <button :disabled="me.profile!=='administrator'" class="btn btn-primary m-1" @click="gotoSearchContributions()">       <%= __('Manage Contributions') %></button>
                 <button :disabled="me.profile!=='priest'"        class="btn btn-primary m-1">        <%= __('Print Members Reports') %></button>
                 <button :disabled="me.profile!=='deacon'"        class="btn btn-primary m-1">        <%= __('Manage Cristian Cares') %></button>
                 <button :disabled="me.profile!=='member'"        class="btn btn-primary m-1">        <%= __('Print Own List of Contribution') %></button>
