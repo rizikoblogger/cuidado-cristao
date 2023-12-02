@@ -1,32 +1,54 @@
-<header class="p-2 navbar navbar-expand-sm navbar-dark bg-dark flex-column flex-md-row justify-content-between" purpose="page-header">
-  <a style="cursor: pointer;" class="navbar-brand mr-0" href="/"><img style="height: 20px;" class="logo" alt="Cuidado Cristao logo" src="/images/hero-cloud.png"/></a>
+<header class="fixed-top cc-navbar">
+  <nav class="navbar navbar-expand-lg mx-4 my-2">
+    <div class="container-fluid gap-2">
+      <a class="navbar-brand" href="#">
+        <img src="/images/hero-cloud.png" alt="Cuidado Cristao logo" height="24" />
+      </a>
 
-  <div class="navbar-nav flex-row">
-    <!-- LOGGED-IN NAVIGATION -->
-    <% if(me) { %>
-    <a class="nav-item nav-link ml-2 ml-md-0 mr-2 mr-md-0" href="/contact"><%=__('Help')%></a>
-    <!-- Only in desktop nav -->
-      <div class="nav-item dropdown d-none d-sm-block">
-      <a class="nav-link dropdown-toggle" id="header-account-menu-link" data-bs-toggle="dropdown"   aria-haspopup="true" aria-expanded="false"><%=__('Account')%></a>
-        <div style="left: auto; right: 0;" class="dropdown-menu" aria-labelledby="header-account-menu-link">
-          <a class="dropdown-item" href="/account"><%=__('Settings')%></a>
-          <a class="dropdown-item" href="/logout"><%=__('Sign out')%></a>
-        </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="navbar-collapse gap-2" id="navbarSupportedContent">
+        <!-- LOGGED-IN NAVIGATION -->
+        <% if(me) { %>
+          <a class="nav-link" href="/contact">
+            <%=__('Help')%>
+          </a>
+
+          <div class="nav-item dropdown" aria-labelledby="navbarDropdown">
+            <a class="nav-link dropdown-toggle" id="header-account-menu-link" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <%= __('Account') %>
+            </a>
+
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="/account">
+                <%=__('Settings')%>
+              </a>
+
+              <a class="dropdown-item" href="/logout">
+                <%=__('Sign out')%>
+              </a>
+            </div>
+          </div>
+
+          <!-- LOGGED-OUT NAVIGATION -->
+        <% } else { %>
+            <a class="nav-link" href="/faq">
+              <%=__('FAQ')%>
+            </a>
+
+            <a class="nav-link" href="/login">
+              <%=__('Log in')%>
+            </a>
+
+            <a class="nav-link" href="/signup">
+              <%=__('Sign up')%>
+            </a>
+        <% } %>
       </div>
-      <!-- Only in mobile nav -->
-      <a class="nav-item nav-link ml-2 mr-2 d-block d-sm-none" href="/account"><%=__('Account')%>&nbsp;<%=__('Settings')%></a>
-      <a class="nav-item nav-link ml-2 mr-2 d-block d-sm-none" href="/logout"><%=__('Sign out')%></a>
-      <% } else { %>
-      <!-- LOGGED-OUT NAVIGATION -->
-      <a class="nav-item nav-link ml-2 ml-md-0 mr-2" href="/faq"><%=__('FAQ')%></a>
-      <a class="nav-item nav-link ml-2 ml-md-0 mr-2" href="/login"><%=__('Log in')%></a>
-      <!-- Only in desktop nav -->
-      <div class="form-inline d-none ml-2 d-md-block" >
-        <a class="btn btn-outline-info" href="/signup"><%=__('Sign up')%></a>
-      </div>
-      <!-- Only in mobile nav -->
-      <a class="nav-item nav-link text-info ml-2 d-block d-md-none" href="/signup"><%=__('Sign up')%></a>
-    <% } %>
-  </div>
-  
+    </div>
+  </nav>
 </header>
