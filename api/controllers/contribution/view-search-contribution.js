@@ -36,7 +36,7 @@ module.exports = {
       totalRecords: totalRecords
     })
 
-    return {page};
+    return {page: page, contributions: contributions};
 
   }
 
