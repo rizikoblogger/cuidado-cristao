@@ -25,6 +25,7 @@ module.exports = {
 
     const contributions = await Contribution
       .find({})
+      .sort([{dtContribution: `DESC`}])
       .skip(skip*size)
       .limit(size).populate('user')
 
