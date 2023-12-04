@@ -1,53 +1,60 @@
 <header class="fixed-top cc-navbar">
-  <nav class="navbar navbar-expand-lg mx-4 my-2">
-    <div class="container-fluid gap-2">
-      <a class="navbar-brand" href="#">
-        <img src="/images/hero-cloud.png" alt="Cuidado Cristao logo" height="24" />
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid mx-4">
+      <a class="navbar-brand mr-4" href="#">
+        <img src="/images/hero-cloud.png" alt="Cuidado Cristao logo" height="24" class="d-inline-block allign-text-top">
+        <!-- <span class="px-2 text-white">Cuidado Cristão</span> -->
       </a>
-
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class-="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+        data-bs-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false"
+        aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="navbar-collapse collapse gap-2" id="navbarSupportedContent">
-        <!-- LOGGED-IN NAVIGATION -->
-        <% if(me) { %>
-          <a class="nav-link" href="/contact">
-            <%=__('Help')%>
-          </a>
-
-          <div class="nav-item dropdown" aria-labelledby="navbarDropdown">
-            <a class="nav-link dropdown-toggle" id="header-account-menu-link" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              <%= __('Account') %>
-            </a>
-
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="/account">
-                <%=__('Settings')%>
+      <div class="navbar-collapse collapse" id="main-navbar">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <!-- LOGGED-IN NAVIGATION -->
+          <% if(me) { %>
+            <!-- <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/welcome">Home</a>
+            </li> -->
+            <li class="nav-item">
+              <a class="nav-link" href="/contact">
+                <%=__('Help')%>
               </a>
+            </li>
 
-              <a class="dropdown-item" href="/logout">
-                <%=__('Sign out')%>
+            <li><a class="nav-item" href="/account">
+              <a class="nav-link" href="/contact">
+                <%=__('Account')%>
               </a>
-            </div>
-          </div>
+            </a></li>
 
-          <!-- LOGGED-OUT NAVIGATION -->
-        <% } else { %>
-            <a class="nav-link" href="/faq">
-              <%=__('FAQ')%>
-            </a>
+            <li class="nav-item"><a class="nav-link" href="/logout">
+              <%=__('Sign out')%>
+            </a></li>
 
-            <a class="nav-link" href="/login">
-              <%=__('Log in')%>
-            </a>
+            <!-- LOGGED-OUT NAVIGATION -->
+            <% } else { %>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/faq">
+                  <%=__('FAQ')%>
+                </a>
+              </li>  
 
-            <a class="nav-link" href="/signup">
-              <%=__('Sign up')%>
-            </a>
-        <% } %>
+              <li class="nav-item">
+                <a class="nav-link" href="/login">
+                  <%=__('Log in')%>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="/signup">
+                  <%=__('Sign up')%>
+                </a>
+              </li>
+            <% } %>
+        </ul>
       </div>
     </div>
   </nav>

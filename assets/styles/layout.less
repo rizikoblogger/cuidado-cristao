@@ -60,8 +60,7 @@ body.detected-mobile {
 
 
 // Custom Styling
-
-@body-top-padding: 75px; 
+@body-top-padding: 100px; 
 
 .cc-navbar {
   background-color: #343a40;
@@ -75,10 +74,13 @@ button.navbar-toggler {
   border: none !important;
 }
 
+.navbar-collapse li a {
+  border: none !important;
+}
+
 .cc-body-container {
-  padding-top: @body-top-padding ;
-  //min-height: calc(100vh - @body-top-padding);
-  min-height: 100vh;
+  padding-top: @body-top-padding;
+  min-height: calc(100vh - 17.5px);
 }
 
 .cc-footer {
