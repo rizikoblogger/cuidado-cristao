@@ -2,11 +2,13 @@
 
     <account-notification-banner></account-notification-banner>
 
-    <div class="container pt-5 pb-5">
+    <div class="container-fluid px-5">
+        <!-- TODO: better than a person name, a avatar in the navbar would be better, reducing page space usage-->
         <div class="display-3"><%= __('Welcome') %> <%= me.fullName %> !</div>
         <hr/>
 
         <% if(me.isSuperAdmin) { %>
+            <!-- TODO: this can be menus in the navbar (ref: hubspot GUI)-->
 
             <span class="text-info fw-bolder"> <%= __('As you are logged as a SuperAdmin, you can...') %> </span>
             <div class="buttons mt-2">

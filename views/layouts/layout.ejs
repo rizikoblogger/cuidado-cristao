@@ -22,7 +22,7 @@
     <!--STYLES END-->
 
   </head>
-  <body class="overflow-auto">
+  <body>
   <div purpose="page-wrap">
 
     <!-- inject header -->
@@ -32,13 +32,13 @@
     <%- include('../partials/email-alert.ejs') %>
 
        
-    <div class="position-absolute" style="width: 100%;">
      <div class="cc-body-container">
         <%- body %>
      </div>
 
-     <%- include('../partials/footer.ejs') %>
-    </div>
+     <div class="position-absolute container-fluid px-0">
+        <%- include('../partials/footer.ejs') %>
+     </div>
   </div>
   
   
