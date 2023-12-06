@@ -328,5 +328,21 @@
 	"Search Contribution": "Search Contribution",
 	"Date": "Date",
 	"Value": "Value",
-	"Propose": "Propose"
+	"Propose": "Propose",
+	"As you are logged as a SuperAdmin, you can": "As you are logged as a SuperAdmin, you can",
+	"Administrative modules: ": "Administrative modules: ",
+	"Administrative modules ": "Administrative modules ",
+	"Churches": "Churches",
+	"Resources": "Resources",
+	"Modules ": "Modules ",
+	"Users": "Users",
+	"Social Service": "Social Service",
+	"Frequently Asked Questions": "Frequently Asked Questions",
+	"Available Services": "Available Services",
+	"Members": "Members",
+	"Christian Care": "Christian Care",
+	"Guidelines": "Guidelines",
+	"No Main Church created yet! Please, create one at [ManageChurchs]": "No Main Church created yet! Please, create one at [ManageChurchs]",
+	"Welcome Back": "Welcome Back",
+	"No Main Church created yet! Please, create one at [Manage Churchs]": "No Main Church created yet! Please, create one at [Manage Churchs]"
 }
