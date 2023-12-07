@@ -51,13 +51,13 @@ parasails.registerComponent('paginador', {
   //  ╩ ╩ ╩ ╩ ╩╩═╝
   template: `
      <div id='paginador' class='text-center'>
-     <em class="fa fa-fast-backward m-2" @click='goToFirst()'></em>
-            <em class="fa fa-backward m-2" @click='goToPrevious()'></em>
-            <em class="badget m-2">{{+number + 1}}</em>
-            <em class="fa fa-forward m-2" @click='goToNext()'></em>
-            <em class="fa fa-fast-forward m-2" @click='goToLast()'></em>
+     <em class="fa fa-fast-backward m-2 pointer" @click='goToFirst()'></em>
+            <em class="fa fa-backward m-2 pointer" @click='goToPrevious()'></em>
+            <em class="badget m-2">{{+num + 1}}</em>
+            <em class="fa fa-forward m-2 pointer" @click='goToNext()'></em>
+            <em class="fa fa-fast-forward m-2 pointer" @click='goToLast()'></em>
             <br>
-     <em class="fw-bold">[ {{+number * +size}} - {{(+number * +size) + +size }} / {{ (total) }} ]</em>
+     <em class="fw-bold">[ {{+num * +siz}} - {{(+num * +siz) + +siz }} / {{ (tot) }} ]</em>
      </div>
   `,
 
@@ -67,7 +67,7 @@ parasails.registerComponent('paginador', {
   beforeMount: function () {
     this.cont = this.content;
     this.num = this.number;
-    this.siz = this.size;
+    this.siz = (this.size<this.total)?this.size:this.total;
     this.tot = this.total;
 
   },

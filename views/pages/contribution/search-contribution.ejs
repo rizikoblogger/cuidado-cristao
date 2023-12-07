@@ -34,12 +34,17 @@
               class="fa fa-eye"></em></a>
         </td>
         <td headers="1">
-            <js-timestamp :at="contrib.dtContribution" format="calendar" ></js-timestamp>  
+            <js-timestamp :at="contrib.dtContribution" format="calendar" ></js-timestamp>
 
         </td>
         <td headers="2">{{contrib.value}}</td>
         <td headers="3">{{contrib.propose}}</td>
       </tr>
+        <tr>
+            <td colspan="4">
+                <paginador :content="page.content" :number="page.number" :size="page.size" :total="page.totalRecords" v-on:paginated="paginate($event)"></paginador>
+            </td>
+        </tr>
     </table>
   </div>
 </div>
