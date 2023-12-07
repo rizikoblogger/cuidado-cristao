@@ -1,4 +1,3 @@
-const Contribution = require("../../models/Contribution");
 
 module.exports = {
 
@@ -9,7 +8,7 @@ module.exports = {
   description: 'Display "Edit contribution" page.',
 
   inputs: {
-    id: { type: 'string'}
+    id: { type: 'string' }
   },
 
 
@@ -22,12 +21,28 @@ module.exports = {
   },
 
 
-  fn: async function ({id}) {
+  fn: async function ({ id }) {
 
-    if(id==='new'){
-      return {};
-    }else{
-      const contribution = await Contribution.findOne({id: id}).populate('user')
+    const users = []
+
+    if (id === 'new') {
+      const allUser = await User.find()
+      allUser.forEach(user => {
+        var sanitizedUser = _.extend({}, user);
+        sails.helpers.redactUser(sanitizedUser);
+        users.push(sanitizedUser)
+      })
+      return {
+        users: users, contribution: {
+          dtContribution: new Date(),
+          value: 0,
+          propose: ``,
+          user: undefined
+        }
+      };
+    } else {
+      const contribution = await Contribution.findOne({ id: id }).populate(`user`)
+      return { contribution, users }
     }
 
   }

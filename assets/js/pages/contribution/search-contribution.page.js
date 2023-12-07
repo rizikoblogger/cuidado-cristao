@@ -12,8 +12,7 @@ parasails.registerPage('search-contribution', {
   beforeMount: function() {
     //…
   },
-  mounted: async function() {
-    //…
+  mounted: async function() {  
   },
 
   //  ╦╔╗╔╔╦╗╔═╗╦═╗╔═╗╔═╗╔╦╗╦╔═╗╔╗╔╔═╗

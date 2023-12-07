@@ -1,22 +1,42 @@
 <div id="search-contribution" v-cloak>
 
   <div class="container">
-    <div class="display-3"><%=__('Search Contribution')%></div>
-    <hr> 
+    <div class="display-3">
+      <%=__('Search Contribution')%>
+    </div>
+    <hr>
 
-    <table class="table table-striped">
-      <caption><%=__('Total')%>: {{contributions.size}}</caption>
+    <div class="btn-group mt-2">
+      <a href="/contribution/edit-contribution/new" class="btn btn-primary m-1"><%=__(`Create New`)%></a>
+      <a href="/welcome" class="btn btn-primary m-1"><%=__(`Cancel`)%></a>
+    </div>
+
+    <table class="table table-striped mt-2">
+      <caption>
+        <%=__('Total')%>: {{page.totalRecords}}
+      </caption>
       <tr>
         <th id="0"></th>
-        <th id="1"><%=__('Date')%></th>
-        <th id="2"><%=__('Value')%></th>
-        <th id="3"><%=__('Propose')%></th>
+        <th id="1">
+          <%=__('Date')%>
+        </th>
+        <th id="2">
+          <%=__('Value')%>
+        </th>
+        <th id="3">
+          <%=__('Propose')%>
+        </th>
       </tr>
-      <tr v-for="contrib in contributions">
+
+      <tr v-for="contrib in page.content">
         <td headers="0">
-          <a :href="'/contribution/edit-contribution/'+contrib.id" class="btn btn-sm btn-primary"><em class="fa fa-eye"></em></a>
+          <a :href="'/contribution/edit-contribution/'+contrib.id" class="btn btn-sm btn-primary"><em
+              class="fa fa-eye"></em></a>
         </td>
-        <td headers="1">{{contrib.dtContribution}}</td>
+        <td headers="1">
+            <js-timestamp :at="contrib.dtContribution" format="calendar" ></js-timestamp>  
+
+        </td>
         <td headers="2">{{contrib.value}}</td>
         <td headers="3">{{contrib.propose}}</td>
       </tr>

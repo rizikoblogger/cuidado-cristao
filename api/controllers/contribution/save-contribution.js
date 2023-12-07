@@ -44,7 +44,7 @@ module.exports = {
 
   fn: async function (inputs) {
 
-    if(inputs.id){
+    if(inputs.id&&inputs.id!==`0`){
       const contribution = await Contribution.updateOne({id: inputs.id},{
         dtContribution: inputs.dtContribution,    
         value: inputs.value,    

@@ -60,7 +60,7 @@ module.exports.routes = {
   'GET /edit-faq/:id': { action: 'view-edit-faq' },
 
   'GET /contribution/search-contribution': { action: 'contribution/view-search-contribution' },
-  'GET /contribution/edit-contribution': { action: 'contribution/view-edit-contribution' },
+  'GET /contribution/edit-contribution/:id': { action: 'contribution/view-edit-contribution' },
 
   'GET /not-yet': { action: 'view-not-yet' },
 
