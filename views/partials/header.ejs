@@ -1,60 +1,98 @@
-<header class="fixed-top cc-navbar">
-  <nav class="navbar navbar-expand-lg">
+<header class="cc-navbar">
+  <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Cuidado Cristão Navbar">
     <div class="container-fluid mx-4">
-      <a class="navbar-brand mr-4" href="#">
+
+      <a class="navbar-brand" href="#">
         <img src="/images/hero-cloud.png" alt="Cuidado Cristao logo" height="24" class="d-inline-block allign-text-top">
-        <!-- <span class="px-2 text-white">Cuidado Cristão</span> -->
       </a>
-      <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
-        data-bs-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false"
-        aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
 
-      <div class="navbar-collapse collapse" id="main-navbar">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <!-- LOGGED-IN NAVIGATION -->
-          <% if(me) { %>
-            <!-- <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="/welcome">Home</a>
-            </li> -->
-            <li class="nav-item">
-              <a class="nav-link" href="/contact">
-                <%=__('Help')%>
-              </a>
-            </li>
+      <div class="offcanvas offcanvas-end text-bg-dark px-2" tabindex="-1" id="offcanvasNavbar2"
+        aria-labelledby="offcanvasNavbar2Label" style="z-index: 2000 !important;">
 
-            <li><a class="nav-item" href="/account">
-              <a class="nav-link" href="/contact">
-                <%=__('Account')%>
-              </a>
-            </a></li>
+        <div class="offcanvas-header">
+          <div class="d-flex allign-text-center mt-2" style="gap: 16px;">
+            <img src="/images/hero-cloud.png" alt="Cuidado Cristao logo" height="24" class="d-inline-block allign-text-top">
 
-            <li class="nav-item"><a class="nav-link" href="/logout">
-              <%=__('Sign out')%>
-            </a></li>
+            <span class="strong">Cuidado Cristão</span>
+          </div>
 
-            <!-- LOGGED-OUT NAVIGATION -->
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+            aria-label="Close"></button>
+        </div>
+
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-start allign-text-center flex-grow-1 d-flex">
+            <% if(me) { %>
+              <!-- LOGGED-IN NAVIGATION -->
+              <li class="nav-item">
+                <a class="nav-link" href="/contact">
+                  <%=__('Help')%>
+                </a>
+              </li>
+
             <% } else { %>
+              <!-- LOGGED-OUT NAVIGATION -->
               <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="/faq">
                   <%=__('FAQ')%>
                 </a>
-              </li>  
+              </li>
 
               <li class="nav-item">
                 <a class="nav-link" href="/login">
                   <%=__('Log in')%>
                 </a>
-              </li>
-
+              </li>        
+              
               <li class="nav-item">
                 <a class="nav-link" href="/signup">
                   <%=__('Sign up')%>
                 </a>
-              </li>
+              </li>              
+
             <% } %>
-        </ul>
+          </ul>
+
+          <!-- TODO: função de busca -->
+          <!-- <form class="d-flex mt-3 mt-lg-0" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form> -->
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-end align-items-center">
+        <% if(me) { %>
+
+          <div class="dropdown-center">
+            <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
+              <div class="d-inline-block align-items-center g-2">
+                <span><%= me.fullName.split(" ")[0] %> <%= me.fullName.split(" ")[1][0] %></span>
+                <span class="fa fa-user-o fs-5 p-1 m-0 rounded-circle"></span>
+              </div>            
+            </a>
+
+            <ul class="dropdown-menu">
+              <li class="">
+                <a class="dropdown-item" href="/account">
+                  <%=__('Preferences')%>
+                </a>
+              </li>
+              <li class="dropdown-divider"></li>
+              <li>
+                <a class="dropdown-item" href="/logout">
+                <%=__('Sign out')%>
+              </a></li>
+            </ul>
+            
+          </div>  
+  
+          <% } %>
+
+          <button class="navbar-toggler ps-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2"
+        aria-controls="offcanvasNavbar2" aria-label="Toggle navigation">
+            <span class="fa fa-ellipsis-v fs-2"></span>
+          </button>
       </div>
     </div>
   </nav>
