@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Cuidado Cristão Navbar">
     <div class="container-fluid mx-4">
 
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="/">
         <img src="images/hero-cloud.png" alt="Cuidado Cristao logo" height="24" class="d-inline-block allign-text-top">
       </a>
 
@@ -67,7 +67,7 @@
           <div class="dropdown-center">
             <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
               <div class="d-inline-block align-items-center g-2">
-                <span><%= me.fullName.split(" ")[0] %> <%= me.fullName.split(" ")[1][0] %></span>
+                <span><%= me.fullName.split(" ")[0] %> <%= me.fullName.split(" ")[1][0] %> (<%=me.profile%>)/<%=me.church.shortName%></span>
                 <span class="fa fa-user-o fs-5 p-1 m-0 rounded-circle"></span>
               </div>
             </a>

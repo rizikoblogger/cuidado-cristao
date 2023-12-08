@@ -15,241 +15,273 @@
                     <!-- TODO: this can be menus in the navbar (ref: hubspot GUI)-->
 
                     <div class="card m-2 col-sm-2">
-                        <a class="" href="/church/search-church" style="text-decoration: none !important;">
+                        <a class="text-decoration-none" href="/church/search-church">
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <%= __('Churches') %>
                                 </h5>
-                                <small class="card-text" style="color: gray;"><%=__(`Manage religious organizations`)%></small>
+                                <small class="card-text text-muted"><%= __(`Manage religious organizations`) %></small>
                             </div>
                         </a>
                     </div>
 
                     <div class="card m-2 col-sm-2">
-                        <a class="" href="/classe/search-classe" style="text-decoration: none !important;">
+                        <a class="text-decoration-none" href="/classe/search-classe">
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <%= __('Groups') %>
                                 </h5>
-                                <small class="card-text" style="color: gray;"><%=__(`Manage groups in your organization`)%></small>
+                                <small class="card-text text-muted"><%= __(`Manage groups in your organization`) %></small>
                             </div>
                         </a>
                     </div>
 
                     <div class="card m-2 col-sm-2">
-                        <a class="" href="/resource/search-classe" style="text-decoration: none !important;">
+                        <a class="text-decoration-none" href="/resource/search-classe">
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <%= __('Resources') %>
                                 </h5>
-                                <small class="card-text" style="color: gray;"><%=__(`Manage Resources in a organization`)%></small>
+                                <small class="card-text text-muted"><%= __(`Manage Resources in a organization`) %></small>
                             </div>
                         </a>
                     </div>
 
                     <div class="card m-2 col-sm-2">
-                        <a class="" href="/sermon/search-sermon" style="text-decoration: none !important;">
+                        <a class="text-primary text-decoration-none" href="/sermon/search-sermon">
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <%= __('Sermons') %>
                                 </h5>
-                                <small class="card-text" style="color: gray;"><%=__(`Manage Sermons of your church`)%></small>
+                                <small class="card-text text-muted"><%= __(`Manage Sermons of your church`) %></small>
                             </div>
                         </a>
                     </div>
 
                     <div class="card m-2 col-sm-2">
-                        <a class="" href="/user/search-user" style="text-decoration: none !important;">
+                        <a class="text-decoration-none" href="/user/search-user">
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <%= __('Users') %>
                                 </h5>
-                                <small class="card-text" style="color: gray;"><%=__(`Manage Sermons of your church`)%></small>
+                                <small class="card-text text-muted"><%= __(`Manage Sermons of your church`) %></small>
                             </div>
                         </a>
                     </div>
 
                     <div class="card m-2 col-sm-2">
-                        <a class="" href="/social/social-search" style="text-decoration: none !important;">
+                        <a class="text-decoration-none" href="/social/social-search">
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <%= __('Social Service') %>
                                 </h5>
-                                <small class="card-text" style="color: gray;"><%=__(`Manage Sermons of your church`)%></small>
+                                <small class="card-text text-muted"><%= __(`Manage Sermons of your church`) %></small>
                             </div>
                         </a>
                     </div>
 
                     <div class="card m-2 col-sm-2">
-                        <a class="" href="/search-faq" style="text-decoration: none !important;">
+                        <a class="text-decoration-none" href="/search-faq">
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <%= __('Frequently Asked Questions') %>
                                 </h5>
-                                <small class="card-text" style="color: gray;"><%=__(`Manage Sermons of your church`)%></small>
+                                <small class="card-text text-muted"><%= __(`Manage Sermons of your church`) %></small>
                             </div>
                         </a>
                     </div>
 
                 <% } %>
 
-                <% if(me.profile) { %>
+                <%
+                // model/User.js
+                // ...
+                // profile: {
+                //     type: 'string',
+                //             isIn: ['congregant','member', 'deacon', 'priest', 'administrator'],
+                //             defaultsTo: 'congregant'
+                // },
+                %>
+
+                <% if(me.profile && me.profile === `administrator`) { %>
 
                     <div class="card m-2 col-sm-2">
-                            <a href="/contribution/search-contribution" style="text-decoration: none !important;">
-                                <div class="card-body">
-                                    <h5 class="card-title">
-                                        <%= __('Contributions') %>
-                                    </h5>
-                                    <small class="card-text" style="color: gray;"><%=__(`Manage Contributions in a organization`)%></small>
-                                </div>
-                            </a>
+                        <a class="text-decoration-none" href="/contribution/search-contribution">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <%= __('Contributions') %>
+                                </h5>
+                                <small class="card-text text-muted"><%= __(`Manage Contributions in a organization`) %></small>
+                            </div>
+                        </a>
                     </div>
 
                     <div class="card m-2 col-sm-2">
-                        <a href="#" style="text-decoration: none !important;">
+                        <a class="text-decoration-none" href="#">
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <%= __('Members') %>
                                 </h5>
-                                <small class="card-text" style="color: gray;"><%=__(`Get a full member report`)%></small>
+                                <small class="card-text text-muted"><%= __(`Get a full member report`) %></small>
                             </div>
                         </a>
                     </div>
 
                     <div class="card m-2 col-sm-2">
-                        <a href="#" style="text-decoration: none !important;">
+                        <a class="text-decoration-none" href="#">
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <%= __('Christian Care') %>
                                 </h5>
-                                <small class="card-text" style="color: gray;"><%=__(`Taking care of congregants`)%></small>
+                                <small class="card-text text-muted"><%= __(`Taking care of congregants`) %></small>
                             </div>
                         </a>
                     </div>
 
                     <div class="card m-2 col-sm-2">
-                        <a href="#" style="text-decoration: none !important;">
+                        <a class="text-decoration-none" href="#">
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <%= __('Guidelines') %>
                                 </h5>
-                                <small class="card-text" style="color: gray;"><%=__(`Organization guidelines`)%></small>
+                                <small class="card-text text-muted"><%= __(`Organization guidelines`) %></small>
                             </div>
                         </a>
                     </div>
 
                 <% } %>
             </div>
-        </div>
 
-        <hr>
-        <div v-if="temples.length < 1" class="text-danger fw-bolder">
-            <%= __('No Main Church created yet! Please, create one at [Manage Churchs]') %>
-        </div>
+            <div class="row g-0">
 
-        <div class="display-5 mt-2">
-            <%= __('Joined to...') %>
-        </div>
+                <!-- Church user belongs to -->
 
-        <section id="join-church">
+                <div v-if="temples.length < 1" class="text-danger fw-bolder">
+                    <%= __('No Main Church created yet! Please, create one at [Manage Churchs]') %>
+                </div>
 
-            <div class="mt-2" v-if="myChurchs.length < 1">
-                <span class="text-danger fw-bolder">
-                    <%= __('Your are not member of any Church yet') %>!
-                </span>
-            </div>
-            <ul class="list-group mt-3">
-                <li class="list-group-item" v-for="church in myChurchs"><span class="display-6">
-                        <%=__('Church')%>
-                    </span> {{church.tipo}}: {{church.fullName}}</li>
-            </ul>
-
-            <div v-if="showChurchList">
-                <div class="card mt-2">
-                    <div class="card-header">
-                        <%= __('Church') %>
-                            <%= __('Select') %>
+                <% if(myChurchs.length > 0) { %>
+                    <div class="card m-2 col-sm-2" v-for="church in myChurchs">
+                        <div class="link-primary text-decoration-none pointer" @click="toogleChurchList()">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <%= __('Change') %> <%=__(`Church`)%> {{church.shortName}}
+                                </h5>
+                                <small class="card-text text-muted">{{church.address}}</small>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <select name="church" id="church" class="form-select" v-model="churchSelecionadaId">
-                            <% temples.forEach(temple=> { %>
-                                <option value="<%= temple.id %>" label="<%= temple.fullName %> - <%= temple.tipo %>">
-                                </option>
-                                <% }) %>
-                        </select>
+
+                <% } else { %>
+
+                    <div class="card m-2 col-sm-2">
+                        <div class="link-primary text-decoration-none pointer" @click="toogleChurchList()">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <%= __('Joint to a Church') %>
+                                </h5>
+                                <small class="card-text text-muted"><%= __(`Select a Church to join and become a prayer`) %></small>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-footer">
-                        <button type="button" class="btn btn-primary m-1" data-bs-dismiss="modal"
-                            @click="selecionarChurch(churchSelecionadaId)">
-                            <%= __('Select') %>
-                        </button>
-                        <a href="/welcome" class="btn btn-primary">
-                            <%= __('Close') %>
-                        </a>
+
+                <% } %>
+
+                <!-- List of groups user belongs to -->
+
+                <div class="card m-2 col-sm-2">
+                    <div class="link-primary text-decoration-none pointer" @click="toogleGroupList()">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%= __('Joint to a Group') %>
+                            </h5>
+                            <small class="card-text text-muted"><%= __(`Select a Group to join and learn`) %></small>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-        </section>
-
-        <section id="join-classroom">
-
-            <div class="mt-2" v-if="user.classrooms?.length < 1">
-                <span class="text-danger fw-bolder">
-                    <%= __('Your are not member of any Group yet') %>!
-                </span>
-            </div>
-            <ul class="list-group mt-3" v-if="user.classrooms?.length > 0">
-                <li class="list-group-item" v-for="group in user.classrooms">
-                    <span class="display-6">
-                        <%=__('Group')%>
-                    </span> {{group.name}}
-                    <button class="btn btn-primary" @click="leave(group)">
-                        <%=__('Leave')%>
-                    </button>
-                </li>
-            </ul>
-
-            <div v-if="showGroupList">
-                <div class="card mt-2">
-                    <div class="card-header">
-                        <%= __('Group') %>
-                            <%= __('Select') %>
-                    </div>
-                    <div class="card-body">
-                        <select name="group" id="group" class="form-select" v-model="groupSelecionadaId">
-                            <% groups.forEach( group=> { %>
-                                <option value="<%= group.id %>" label="<%= group.name %>"></option>
-                                <% }) %>
-                        </select>
-                    </div>
-                    <div class="card-footer">
-                        <button type="button" class="btn btn-primary m-1" data-bs-dismiss="modal"
-                            @click="selecionarGroup(groupSelecionadaId)">
-                            <%= __('Select') %>
-                        </button>
-                        <a href="/welcome" class="btn btn-primary">
-                            <%= __('Close') %>
-                        </a>
+                <div class="card m-2 col-sm-2" v-for="group in user.classrooms">
+                    <div class="link-primary text-decoration-none pointer" @click="leave(group)">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%= __('Leave') %> <%=__(`Group`)%> {{group.name}}
+                            </h5>
+                            <small class="card-text text-muted">{{group.local}}</small>
+                        </div>
                     </div>
                 </div>
+
             </div>
 
-        </section>
+            <hr>
+
+            <section id="join-church">
+                <div v-if="showChurchList">
+                    <div class="card mt-2">
+                        <div class="card-header">
+                            <%= __('Church') %>
+                            <%= __('Select') %>
+                        </div>
+                        <div class="card-body">
+                            <select name="church" id="church" class="form-select" v-model="churchSelecionadaId">
+                                <% temples.forEach(temple=> { %>
+                                    <option value="<%= temple.id %>"
+                                            label="<%= temple.fullName %> - <%= temple.tipo %>">
+                                    </option>
+                                <% }) %>
+                            </select>
+                        </div>
+                        <div class="card-footer">
+                            <button type="button" class="btn btn-primary m-1" data-bs-dismiss="modal"
+                                    @click="selecionarChurch(churchSelecionadaId)">
+                                <%= __('Select') %>
+                            </button>
+                            <a href="/welcome" class="btn btn-primary">
+                                <%= __('Close') %>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="join-classroom">
+                <div v-if="showGroupList">
+                    <div class="card mt-2">
+                        <div class="card-header">
+                            <%= __('Group') %>
+                            <%= __('Select') %>
+                        </div>
+                        <div class="card-body">
+                            <select name="group" id="group" class="form-select" v-model="groupSelecionadaId">
+                                <% groups.forEach( group=> { %>
+                                    <option value="<%= group.id %>" label="<%= group.name %>"></option>
+                                <% }) %>
+                            </select>
+                        </div>
+                        <div class="card-footer">
+                            <button type="button" class="btn btn-primary m-1" data-bs-dismiss="modal"
+                                    @click="selecionarGroup(groupSelecionadaId)">
+                                <%= __('Select') %>
+                            </button>
+                            <a href="/welcome" class="btn btn-primary">
+                                <%= __('Close') %>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        </div>
+
+        <message id="msg" v-on:close="update()" :severity="message.severity" v-bind:summary="message.summary"
+                 :details="message.details"></message>
+
+        <router-view></router-view>
+
 
     </div>
 
-    <message id="msg" v-on:close="update()" :severity="message.severity" v-bind:summary="message.summary"
-        :details="message.details"></message>
-
-    <router-view></router-view>
-
 
 </div>
-
-<!--modal choose one church -->
-<!-- Button trigger modal -->
-
-
 <%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>
