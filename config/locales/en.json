@@ -361,5 +361,18 @@
 	"Select One...": "Select One...",
 	"Preferences": "Preferences",
 	"Select a Church to join and become a prayer": "Select a Church to join and become a prayer",
-	"Select a Group to join and learn": "Select a Group to join and learn"
+	"Select a Group to join and learn": "Select a Group to join and learn",
+	"Dashboard Reports": "Dashboard Reports",
+	"Administrators": "Administrators",
+	"Get a list with all administrators": "Get a list with all administrators",
+	"Priests": "Priests",
+	"Get a list with all priests": "Get a list with all priests",
+	"Deacons": "Deacons",
+	"Get a list with all deacons": "Get a list with all deacons",
+	"Get a list with all members": "Get a list with all members",
+	"Congregants": "Congregants",
+	"Get a list with all congregants": "Get a list with all congregants",
+	"All": "All",
+	"Get a list with all users": "Get a list with all users",
+	"Since": "Since"
 }

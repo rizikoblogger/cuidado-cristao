@@ -62,6 +62,9 @@ module.exports.routes = {
   'GET /contribution/search-contribution': { action: 'contribution/view-search-contribution' },
   'GET /contribution/edit-contribution/:id': { action: 'contribution/view-edit-contribution' },
 
+  'GET /report/dashboard-report': { action: 'report/view-dashboard-report' },
+  'GET /report/search-all': { action: 'report/view-search-all' },
+
   'GET /not-yet': { action: 'view-not-yet' },
 
   //  ╔╦╗╦╔═╗╔═╗  ╦═╗╔═╗╔╦╗╦╦═╗╔═╗╔═╗╔╦╗╔═╗   ┬   ╔╦╗╔═╗╦ ╦╔╗╔╦  ╔═╗╔═╗╔╦╗╔═╗
@@ -102,7 +105,7 @@ module.exports.routes = {
   'POST /api/v1/church/save-user-church': { action: 'church/save-user-church' },
   'POST /api/v1/sermon/save-sermon': { action: 'sermon/save-sermon' },
   'POST /api/v1/resource/save-resource': { action: 'resource/save-resource' },
- 
+
   'POST /api/v1/user/save-user': { action: 'user/save-user' },
 
   'POST /api/v1/save-faq': { action: 'save-faq' },

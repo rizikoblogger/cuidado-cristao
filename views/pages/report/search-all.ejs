@@ -1,0 +1,20 @@
+<div id="search-all" v-cloak>
+
+    <div class="text-dark-emphasis m-3 p-2">
+
+        <div class="mb-5">
+        <js-timestamp at="<%=new Date()%>"  ></js-timestamp>
+        </div>
+
+        <ul class="list-group">
+            <li class="list-group-item" v-for="(user, index) in users" >
+                <em class="badge bg-primary">{{index+1}}</em> {{user.fullName}} ({{user.emailAddress}}), <%=__('Since')%> <js-timestamp :at="user.createdAt" format="calendar"></js-timestamp>
+            </li>
+        </ul>
+
+    </div>
+
+
+
+</div>
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>

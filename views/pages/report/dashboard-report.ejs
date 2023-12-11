@@ -1,0 +1,95 @@
+<div id="dashboard-report" v-cloak>
+
+    <div class="container">
+        <div class="display-3"><%= __('Dashboard Reports') %></div>
+        <hr>
+        <div class="btn-group">
+            <a href="/" class="btn btn-primary m-1"><%= __('Cancel') %></a>
+        </div>
+        <div class="card-group mt-2">
+            <div class="card m-1">
+                <div class="card-body">
+                    <a class="text-decoration-none" href="/report/search-administrators">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%= __('Administrators') %>
+                            </h5>
+                            <small class="card-text text-muted"><%= __(`Get a list with all administrators`) %></small>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="card m-1">
+                <div class="card-body">
+                    <a class="text-decoration-none" href="/report/search-priests">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%= __('Priests') %>
+                            </h5>
+                            <small class="card-text text-muted"><%= __(`Get a list with all priests`) %></small>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="card m-1">
+                <div class="card-body">
+                    <a class="text-decoration-none" href="/report/search-deacons">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%= __('Deacons') %>
+                            </h5>
+                            <small class="card-text text-muted"><%= __(`Get a list with all deacons`) %></small>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="card m-1">
+                <div class="card-body">
+                    <a class="text-decoration-none" href="/report/search-members">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%= __('Members') %>
+                            </h5>
+                            <small class="card-text text-muted"><%= __(`Get a list with all members`) %></small>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-group mt-2">
+            <div class="card m-1">
+                <div class="card-body">
+                    <a class="text-decoration-none" href="/report/search-congregants">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%= __('Congregants') %>
+                            </h5>
+                            <small class="card-text text-muted"><%= __(`Get a list with all congregants`) %></small>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="card m-1">
+                <div class="card-body">
+                    <a class="text-decoration-none" href="/report/search-all">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%= __('All') %>
+                            </h5>
+                            <small class="card-text text-muted"><%= __(`Get a list with all users`) %></small>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>
