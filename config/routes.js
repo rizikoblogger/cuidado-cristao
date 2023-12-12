@@ -70,6 +70,10 @@ module.exports.routes = {
   'GET /report/search-members': { action: 'report/view-search-members' },
   'GET /report/search-congregants': { action: 'report/view-search-congregants' },
 
+  'GET /usercare/search-usercare': { action: 'usercare/view-search-usercare' },
+  'GET /usercare/edit-usercare/:id/:userId': { action: 'usercare/view-edit-usercare' },
+
+
 
   'GET /not-yet': { action: 'view-not-yet' },
 
