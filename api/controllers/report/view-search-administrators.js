@@ -1,16 +1,16 @@
 module.exports = {
 
 
-  friendlyName: 'View search all',
+  friendlyName: 'View search administrators',
 
 
-  description: 'Display "Search all" page.',
+  description: 'Display "Search administrators" page.',
 
 
   exits: {
 
     success: {
-      viewTemplatePath: 'pages/report/search-all'
+      viewTemplatePath: 'pages/report/search-administrators'
     }
 
   },
@@ -18,7 +18,7 @@ module.exports = {
 
   fn: async function () {
 
-    const list = await User.find().sort([{fullName: 'DESC'}]).populate('church')
+    const list = await User.find({profile: `administrator`}).sort([{fullName: 'DESC'}]).populate('church')
 
     const users = []
 
@@ -34,4 +34,4 @@ module.exports = {
   }
 
 
-}
+};

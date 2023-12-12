@@ -1,16 +1,16 @@
 module.exports = {
 
 
-  friendlyName: 'View search all',
+  friendlyName: 'View search diacons',
 
 
-  description: 'Display "Search all" page.',
+  description: 'Display "Search diacons" page.',
 
 
   exits: {
 
     success: {
-      viewTemplatePath: 'pages/report/search-all'
+      viewTemplatePath: 'pages/report/search-diacons'
     }
 
   },
@@ -18,7 +18,7 @@ module.exports = {
 
   fn: async function () {
 
-    const list = await User.find().sort([{fullName: 'DESC'}]).populate('church')
+    const list = await User.find({profile: `deacon`}).sort([{fullName: 'DESC'}]).populate('church')
 
     const users = []
 
@@ -30,8 +30,7 @@ module.exports = {
     })
 
     return {users}
-
   }
 
 
-}
+};

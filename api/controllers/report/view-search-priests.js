@@ -1,16 +1,16 @@
 module.exports = {
 
 
-  friendlyName: 'View search all',
+  friendlyName: 'View search priests',
 
 
-  description: 'Display "Search all" page.',
+  description: 'Display "Search priests" page.',
 
 
   exits: {
 
     success: {
-      viewTemplatePath: 'pages/report/search-all'
+      viewTemplatePath: 'pages/report/search-priests'
     }
 
   },
@@ -18,7 +18,7 @@ module.exports = {
 
   fn: async function () {
 
-    const list = await User.find().sort([{fullName: 'DESC'}]).populate('church')
+    const list = await User.find({profile: `priest`}).sort([{fullName: 'DESC'}]).populate('church')
 
     const users = []
 
@@ -34,4 +34,4 @@ module.exports = {
   }
 
 
-}
+};

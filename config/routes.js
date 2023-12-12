@@ -64,6 +64,12 @@ module.exports.routes = {
 
   'GET /report/dashboard-report': { action: 'report/view-dashboard-report' },
   'GET /report/search-all': { action: 'report/view-search-all' },
+  'GET /report/search-administrators': { action: 'report/view-search-administrators' },
+  'GET /report/search-priests': { action: 'report/view-search-priests' },
+  'GET /report/search-deacons': { action: 'report/view-search-diacons' },
+  'GET /report/search-members': { action: 'report/view-search-members' },
+  'GET /report/search-congregants': { action: 'report/view-search-congregants' },
+
 
   'GET /not-yet': { action: 'view-not-yet' },
 
