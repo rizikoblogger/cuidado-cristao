@@ -41,7 +41,7 @@
       <%  } %>
       <span class="text-info fw-bolder"> <%= __('As a %s special user, you can...', me.emailStatus) %> </span>
       <div class="buttons mt-2'">
-          <a class="btn btn-primary m-" href="/account/profile"><%= __('Update my email') %></a>
+          <a class="btn btn-primary m-1" href="/account/profile"><%= __('Update my email') %></a>
           <!-- Only confirmed users can Joint to -->
           <button :disabled="me.emailStatus!=='confirmed'" type="button" class="btn btn-primary m-1" @click="toogleChurchList()"><%= __('Joint to a Church') %></button>
           <button :disabled="me.emailStatus!=='confirmed'" type="button" class="btn btn-primary m-1" @click="toogleGroupList()"><%= __('Joint to a Group') %></button>
