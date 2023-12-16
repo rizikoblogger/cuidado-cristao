@@ -46,7 +46,8 @@
     "SocialService": true,
     "Usercare": true,
     "Sermon": true,
-    "Resource": true
+    "Resource": true,
+    "Guideline": true
 
     // …and any others.
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

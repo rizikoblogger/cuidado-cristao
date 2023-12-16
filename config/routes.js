@@ -73,6 +73,8 @@ module.exports.routes = {
   'GET /usercare/search-usercare': { action: 'usercare/view-search-usercare' },
   'GET /usercare/edit-usercare/:id/:userId': { action: 'usercare/view-edit-usercare' },
 
+  'GET /guideline/search-guideline': { action: 'guideline/view-search-guideline' },
+  'GET /guideline/edit-guideline/:id': { action: 'guideline/view-edit-guideline' },
 
 
   'GET /not-yet': { action: 'view-not-yet' },
@@ -121,6 +123,9 @@ module.exports.routes = {
   'POST /api/v1/save-faq': { action: 'save-faq' },
 
   'POST /api/v1/contribution/save-contribution': { action: 'contribution/save-contribution' },
+
+  'POST /api/v1/guideline/save-guideline': { action: 'guideline/save-guideline' },
+
 
 
 }

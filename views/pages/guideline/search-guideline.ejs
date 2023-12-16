@@ -1,0 +1,28 @@
+<div id="search-guideline" v-cloak>
+
+<div class="container">
+    <div class="display-3"><%=__(`Search Guidelines`)%></div>
+    <hr>
+
+    <div class="btn-group mt-2">
+        <% if(me && me.profile && me.profile === `administrator`) { %>
+           <a href="/guideline/edit-guideline/new" class="btn btn-primary m-1"><%=__(`Create New`)%></a>
+        <%     }  %>
+        <a href="/welcome" class="btn btn-primary m-1"><%=__(`Cancel`)%></a>
+    </div>
+
+    <ul class="list-group mt-2">
+        <li class="list-group-item" v-for="guideline in guidelines">
+            <span>
+                <% if(me && me.profile && me.profile === `administrator`) { %>
+                      <a :href="'/guideline/edit-guideline/'+guideline.id" class="btn btn-primary btn-sm m-1"><em class="fa fa-pencil"></em></a>
+                <%  }    %>
+                <em class="badge bg-primary">{{guideline.sequence}}</em>
+                {{guideline.text}}
+            </span>
+        </li>
+    </ul>
+</div>
+
+</div>
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>
