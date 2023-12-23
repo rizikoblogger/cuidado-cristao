@@ -50,6 +50,8 @@
             <ol>
                 <li v-for="faq in listEnglish" ><span class="fw-bolder">{{faq.question}}</span>: <em>{{faq.answer}}</em></li>
             </ol>
+            <hr>
+            <%- include('faq-plus.ejs') %>
         </div>
         <div class="col m-1 border border-1 border-primary">
             <h3 class="text-primary">Português</h3>
