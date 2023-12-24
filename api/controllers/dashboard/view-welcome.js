@@ -1,3 +1,5 @@
+const menuService = require('../../services/menuService')
+
 module.exports = {
 
 
@@ -27,10 +29,13 @@ module.exports = {
     const myChurchs = []
     if(user.church) myChurchs.push(user.church)
 
-    return {user: user, temples: temples, myChurchs: myChurchs, groups: groups}
-
-
+    return {
+      user: user,
+      temples: temples,
+      myChurchs: myChurchs,
+      groups: groups,
+      services: menuService.menuBuilder(this.req.me)
+    }
   }
-
 
 }

@@ -3,95 +3,26 @@
     <account-notification-banner></account-notification-banner>
 
     <div class="container-fluid px-5">
-        <span class="text-info fw-bolder">
-            <%= __('Available Services') %>
-        </span>
 
         <div class="container">
 
+            <span class="text-info fw-bolder">
+                <%= __('Modules') %>
+            </span>
+
             <div class="row g-0">
 
-                <% if(me.isSuperAdmin) { %>
-
-                    <div class="card m-2 col-sm-2">
-                        <a class="text-decoration-none" href="/church/search-church">
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    <%= __('Churches') %>
-                                </h5>
-                                <small class="card-text text-muted"><%= __(`Manage religious organizations`) %></small>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="card m-2 col-sm-2">
-                        <a class="text-decoration-none" href="/classe/search-classe">
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    <%= __('Groups') %>
-                                </h5>
-                                <small class="card-text text-muted"><%= __(`Manage groups in your organization`) %></small>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="card m-2 col-sm-2">
-                        <a class="text-decoration-none" href="/resource/search-classe">
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    <%= __('Resources') %>
-                                </h5>
-                                <small class="card-text text-muted"><%= __(`Manage Resources in a organization`) %></small>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="card m-2 col-sm-2">
-                        <a class="text-primary text-decoration-none" href="/sermon/search-sermon">
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    <%= __('Sermons') %>
-                                </h5>
-                                <small class="card-text text-muted"><%= __(`Manage Sermons of your church`) %></small>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="card m-2 col-sm-2">
-                        <a class="text-decoration-none" href="/user/search-user">
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    <%= __('Users') %>
-                                </h5>
-                                <small class="card-text text-muted"><%= __(`Manage Users of your church`) %></small>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="card m-2 col-sm-2">
-                        <a class="text-decoration-none" href="/social/social-search">
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    <%= __('Social Service') %>
-                                </h5>
-                                <small class="card-text text-muted"><%= __(`Manage Sermons of your church`) %></small>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="card m-2 col-sm-2">
-                        <a class="text-decoration-none" href="/search-faq">
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    <%= __('Frequently Asked Questions') %>
-                                </h5>
-                                <small class="card-text text-muted"><%= __(`Manage Sermons of your church`) %></small>
-                            </div>
-                        </a>
-                    </div>
-
-                <% } %>
-
+                <div class="card m-2 col-sm-2" v-for="service in services">
+                    <a class="text-decoration-none" :href="service.href">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                {{service.title}}
+                            </h5>
+                            <small class="card-text text-muted">{{service.description}}</small>
+                        </div>
+                    </a>
+                </div>
+                
                 <%
                 // model/User.js
                 // ...
@@ -102,54 +33,15 @@
                 // },
                 %>
 
-                <% if(me.profile && me.profile === `administrator`) { %>
-
-                    <div class="card m-2 col-sm-2">
-                        <a class="text-decoration-none" href="/contribution/search-contribution">
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    <%= __('Contributions') %>
-                                </h5>
-                                <small class="card-text text-muted"><%= __(`Manage Contributions in a organization`) %></small>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="card m-2 col-sm-2">
-                        <a class="text-decoration-none" href="/report/dashboard-report">
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    <%= __('Members') %>
-                                </h5>
-                                <small class="card-text text-muted"><%= __(`Get a full member report`) %></small>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="card m-2 col-sm-2">
-                        <a class="text-decoration-none" href="/usercare/search-usercare">
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    <%= __('Christian Care') %>
-                                </h5>
-                                <small class="card-text text-muted"><%= __(`Taking care of congregants`) %></small>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="card m-2 col-sm-2">
-                        <a class="text-decoration-none" href="/guideline/search-guideline">
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    <%= __('Guidelines') %>
-                                </h5>
-                                <small class="card-text text-muted"><%= __(`Organization guidelines`) %></small>
-                            </div>
-                        </a>
-                    </div>
-
-                <% } %>
             </div>
+
+        </div>
+
+        <div class="container">
+
+            <span class="text-info fw-bolder">
+                <%= __('My Churches') %>
+            </span>
 
             <div class="row g-0">
 
@@ -185,9 +77,18 @@
                     </div>
 
                 <% } %>
+            </div>
 
-                <!-- List of groups user belongs to -->
+        </div>
 
+        <div class="container">
+
+            <span class="text-info fw-bolder">
+                <%= __('Available Groups') %>
+            </span>
+
+            <!-- List of groups user belongs to -->
+            <div class="row g-0">
                 <div class="card m-2 col-sm-2">
                     <div class="link-primary text-decoration-none pointer" @click="toogleGroupList()">
                         <div class="card-body">
@@ -211,6 +112,8 @@
                 </div>
 
             </div>
+
+        </div>
 
             <hr>
 
