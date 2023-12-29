@@ -1,0 +1,38 @@
+<div id="search-church" class="container" v-cloak>
+
+    <div class="display-3"><%=__('Church Search')%></div>
+    <hr>
+
+    <div class="btn-group mt-2">
+        <button v-if="me.isSuperAdmin" class="btn btn-success m-1" @click="create()"><%=__('Create')%> <%=__('New')%></button>
+        <button class="btn btn-secondary m-1" @click="goToBack()"><%=__('Cancel')%></button>
+    </div>
+
+    <div class="mt-2 card-group" >
+        <div class="card m-1" v-for="igreja in page.content">
+            <div class="card-header">
+                <span class="fw-bolder">{{igreja.shortName}}</span>
+
+            </div>
+            <div class="card-body">
+                {{igreja.fullName}}<br>
+                {{igreja.tipo}}
+            </div>
+            <div class="card-footer">
+                <div class="btn-group">
+                    <button v-if="me.isSuperAdmin" class="btn btn-primary bnt-lg m-1" @click="goToEdit(igreja.id)"><em class="fa fa-pencil"></em></button>
+                    <button v-if="me.isSuperAdmin" class="btn btn-danger btn-lg m-1" @click="goToEdit(igreja.id)"><em class="fa fa-trash"></em></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+</div>
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>

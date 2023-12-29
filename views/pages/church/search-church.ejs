@@ -1,39 +1,48 @@
-<div id="search-church" class="container" v-cloak>
+<div id="search-church" v-cloak>
 
-    <div class="display-3"><%=__('Church Search')%></div>
+  <div class="container-fluid px-5">
+
+    <div class="d-flex justify-content-between">
+      <h3>
+        <%= __("Churches") %>
+      </h3>
+
+      <button v-if="me.isSuperAdmin" class="btn btn-success m-1" @click="create()">
+        <%=__('Create')%> <%=__('Church')%>
+      </button>
+    </div>
+
     <hr>
 
-    <div class="btn-group mt-2">
-        <button v-if="me.isSuperAdmin" class="btn btn-success m-1" @click="create()"><%=__('Create')%> <%=__('New')%></button>
-        <button class="btn btn-secondary m-1" @click="goToBack()"><%=__('Cancel')%></button>
+    <div class="container">
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"><%= __("Id") %></th>
+            <th scope="col"><%= __("Church Name") %></th>
+            <th scope="col"><%= __("Type") %></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr v-for="igreja in page.content">
+            <th scope="row">{{ igreja.id }}</td>
+            <td scope="row">{{ igreja.shortName }}</td>
+            <td scope="row">{{ igreja.tipo }}</td>
+            <td scope="row">
+              <a href="#" class="btn btn-light" v-if="me.isSuperAdmin" @click="goToEdit(igreja.id)">
+                <span class="fa fa-pencil"></span>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
     </div>
 
-    <div class="mt-2 card-group" >
-        <div class="card m-1" v-for="igreja in page.content">
-            <div class="card-header">
-                <span class="fw-bolder">{{igreja.shortName}}</span>
-
-            </div>
-            <div class="card-body">
-                {{igreja.fullName}}<br>
-                {{igreja.tipo}}
-            </div>
-            <div class="card-footer">
-                <div class="btn-group">
-                    <button v-if="me.isSuperAdmin" class="btn btn-primary bnt-lg m-1" @click="goToEdit(igreja.id)"><em class="fa fa-pencil"></em></button>
-                    <button v-if="me.isSuperAdmin" class="btn btn-danger btn-lg m-1" @click="goToEdit(igreja.id)"><em class="fa fa-trash"></em></button>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-
-
-
-
-
-
+  </div>
 
 </div>
 <%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>
