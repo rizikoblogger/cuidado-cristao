@@ -409,5 +409,10 @@
 	"Delete Church": "Delete Church",
 	"This cannot be undone": "This cannot be undone",
 	"Delete Church Forever": "Delete Church Forever",
-	"Stored Sermons Count": "Stored Sermons Count"
+	"Stored Sermons Count": "Stored Sermons Count",
+	"Choose a Church": "Choose a Church",
+	"https://www.youtube.com/embed/": "https://www.youtube.com/embed/",
+	"Remove Sermon": "Remove Sermon",
+	"Are you really shure you want to remove sermon with title": "Are you really shure you want to remove sermon with title",
+	"Delete Sermon Forever": "Delete Sermon Forever"
 }

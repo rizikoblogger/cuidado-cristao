@@ -37,10 +37,7 @@
           <td scope="row">{{ sermon.titulo }}</td>
           <td scope="row">{{ sermon.videoURL }}</td>
           <td scope="row">
-            <!-- <a href="#" class="btn btn-light" v-if="me.isSuperAdmin" @click="goToEdit(igreja.id)">
-              <span class="fa fa-pencil"></span>
-            </a> -->
-            <a :href=`'/sermon/edit-sermon/'+sermon.id` class="btn btn-light" >
+            <a :href='`/sermon/edit-sermon/`+sermon.id' class="btn btn-light" >
               <span class="fa fa-pencil"></span>
             </a>
           </td>
