@@ -1,48 +1,122 @@
 <div id="edit-sermon" v-cloak>
 
-  <div class="container">
+  <div class="container-fluid px-5">
 
-    <message id="msg" v-on:close="cleanMessage()" :severity="message.severity" :summary="message.summary" :details="message.details"></message>
+    <div class="d-flex justify-content-between">
 
-    <div class="display-3">
-      <%=__('Edit Sermon')%>
+      <div class="d-flex align-self-center">
+        <h3 v-if="sermon.id">
+          <%= __("Update") %>
+            <%= __("Sermon") %>
+        </h3>
+
+        <h3 v-else>
+          <%= __("Create") %>
+            <%= __("Sermon") %>
+        </h3>
+
+        <a class="btn btn-light ms-2" @click="cancel()">
+          <%= __('Go Back'); %>
+            <span class="fa fa-arrow-left"></span>
+        </a>
+      </div>
+
+      <!-- <div class="">
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <%= __('Delete'); %>
+            <span class="fa fa-trash"></span>
+        </button>
+      </div> -->
     </div>
-    <em class="text-muted">
-      <%=sermon.id%>
-    </em>
     <hr>
-    
-    <label for="title"><%=__('Title')%></label>
-    <input type="text" class="form-control" id="title" v-model="sermon.titulo" minlength="3" maxlength="50" required placeholder="<%=__('Title for Sermon')%>">
 
-    <label for="comentario"><%=__('Comment')%></label>
-    <input type="text" class="form-control" id="comentario" v-model="sermon.comentario" minlength="3" maxlength="200" required placeholder="<%=__('Full comment or description')%>">
+    <message id="msg" v-on:close="cleanMessage()" :severity="message.severity" :summary="message.summary"
+      :details="message.details"></message>
 
-    <label for="videourl"><%=__('Video URL') %></label>
-    <input type="url" class="form-control" id="videourl" v-model="sermon.videoUrl" minlength="5"  maxlength="100" required placeholder="<%=__('https://www.youtube.com/embed/oxmA4NtqR33?si=pzjvV0CgJsLpaxxe')%>">
+    <div class="container">
 
-    <label for="church"><%=__(`Church`)%></label>
-    <span class="form-control" id="church">{{sermon.church.shortName}} - {{sermon.church.fullName}}</span>
+      <label for="title">
+        <%=__('Title')%>
+      </label>
+      <input type="text" class="form-control" id="title" v-model="sermon.titulo" minlength="3" maxlength="50" required
+        placeholder="<%=__('Title for Sermon')%>">
 
-    <div class="btn-group mt-2">
-      <button class="btn btn-primary m-1" @click="save(sermon)"><%=__('Save')%></button>
-      <button class="btn btn-primary m-1" @click="cancel()"><%=__('Cancel')%></button>
+      <label for="comentario">
+        <%=__('Comment')%>
+      </label>
+      <input type="text" class="form-control" id="comentario" v-model="sermon.comentario" minlength="3" maxlength="200"
+        required placeholder="<%=__('Full comment or description')%>">
+
+      <label for="videourl">
+        <%=__('Video URL') %>
+      </label>
+      <input type="url" class="form-control" id="videourl" v-model="sermon.videoUrl" minlength="5" maxlength="100"
+        required placeholder="<%=__('https://www.youtube.com/embed/')%>">
+
+      <label for="church">
+        <%=__(`Church`)%>
+      </label>
+
+      <span class="form-control" id="church" v-if="sermon.church.shortName">{{sermon.church.shortName}} -
+        {{sermon.church.fullName}}</span>
+
+      <span class="form-control" id="church" v-else>
+        <%= __("Choose a Church") %>
+      </span>
+
+      <label for="churchs">
+        <%=__('Available Churchs')%>
+      </label>
+      <ul class="list-group" id="churchs">
+        <em class="text-muted">
+          <%=__('Click to select')%>
+        </em>
+        <li class="list-group-item" v-for="church in churchs">
+          <button class="btn btn-primary m-1" title="<%=__(`Select`)%>" @click="selectChurch(church)"><em
+              class="fa fa-plus"></em> </button>
+          {{church.shortName}} - {{church.fullName}}
+        </li>
+      </ul>
+
+      <div class="btn-group mt-2">
+        <button class="btn btn-success m-1" @click="save(sermon)">
+          <span class="fa fa-save pe-2"></span>
+          <%= __('Save') %>
+        </button>
+      </div>
     </div>
 
-    <hr>
+    <!-- Modals  -->
+    <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog border border-danger">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              <%= __('Remove Sermon') %>
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <%= __('Are you really shure you want to remove sermon with title') %>
+              <span class="fw-bolder">
+                '{{sermon.titulo}}''
+              </span>
+              ?
+              <%= __('This cannot be undone') %>.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-light m-1" data-bs-dismiss="modal">
+              <%= __('Cancel Operation') %>
+            </button>
 
-    <label for="churchs"><%=__('Available Churchs')%></label>
-    <ul class="list-group" id="churchs">
-      <em class="text-muted"><%=__('Click to select')%></em>
-      <li class="list-group-item" v-for="church in churchs">
-        <button class="btn btn-primary m-1" title="<%=__(`Select`)%>" @click="selectChurch(church)"><em class="fa fa-plus"></em> </button>
-        {{church.shortName}} -  {{church.fullName}}
-      </li>
-    </ul>
-
-    
-    
-    
+            <button type="button" class="btn btn-danger m-1" data-bs-dismiss="modal" @click="cancel()">
+              <%= __('Delete Sermon Forever') %>
+                <span class="fa fa-trash ms-2"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div> -->
   </div>
 </div>
 <%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>
