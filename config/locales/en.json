@@ -398,5 +398,15 @@
 	"Join Church": "Join Church",
 	"Join Group": "Join Group",
 	"Id": "Id",
-	"Church Name": "Church Name"
+	"Church Name": "Church Name",
+	"Update Church": "Update Church",
+	"Create Church": "Create Church",
+	"Update": "Update",
+	"Discard": "Discard",
+	"Remove Church": "Remove Church",
+	"Are you really shure you want to remove": "Are you really shure you want to remove",
+	"Cancel Operation": "Cancel Operation",
+	"Delete Church": "Delete Church",
+	"This cannot be undone": "This cannot be undone",
+	"Delete Church Forever": "Delete Church Forever"
 }
