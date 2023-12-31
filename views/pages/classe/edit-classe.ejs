@@ -1,43 +1,96 @@
 <div id="edit-classe" v-cloak>
 
-    <div class="container">
-        <div class="display-3"><%= __('Edit Group') %></div>
-        <em class="text-muted"><%= classe.id %></em>
-        <hr>
+    <div class="container-fluid px-5">
 
-        <div class="btn-group">
+        <div class="d-flex justify-content-between">
 
-            <a href="/classe/edit-classe/new" class="btn btn-primary m-1"><%= __('Create new') %></a>
-            <a href="/classe/search-classe" class="btn btn-primary m-1"><%= __('Cancel') %></a>
+            <div class="d-flex align-self-center">
+                <h3 v-if="classe.id">
+                    <%= __("Update") %> {{classe.name}}
+                </h3>
+
+                <h3 v-else>
+                    <%= __("Create Group") %>
+                </h3>
+
+                <a class="btn btn-light ms-2" href="/classe/search-classe">
+                    <%= __('Go Back'); %>
+                        <span class="fa fa-arrow-left"></span>
+                </a>
+            </div>
+
+            <!-- <div class="">
+          <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <%= __('Delete'); %>
+              <span class="fa fa-trash"></span>
+          </button>
+        </div> -->
+
         </div>
 
-        <message id="msg" v-on:close="cleanMessage()" :severity="message.severity" :summary="message.summary"
-                 :details="message.details"></message>
-
-        <label class="mt-2" for="name"><%= __(`Name`) %></label>
-        <input type="text" id="name" name="name" class="form-control" v-model="classe.name">
-
-        <label for="local"><%= __(`Local`) %></label>
-        <input type="text" id="local" name="local" class="form-control" v-model="classe.local">
-
-        <label for="church"><%= __(`This class/group belongs to`) %></label>
-        <span id="church" class="form-control"><%= classe.church?.fullName %> (<%= classe.church?.tipo %>)</span>
-
-        <button class="btn btn-primary mt-2"><%= __('Save') %></button>
-
         <hr>
-
-        <div class="display-6"><%= __('Available') %> <%= __('Church') %>s</div>
-
-        <ul class="list-group">
-            <li class="list-group-item" v-for="church in churchs">
-                <button class="btn btn-primary btn-sm" @click="selectChurch(church)"><em class="fa fa-plus"></em></button>
-                {{church.fullName}} ({{church.tipo}})
-            </li>
-        </ul>
-
-
     </div>
 
+    <message id="msg" v-on:close="cleanMessage()" :severity="message.severity" :summary="message.summary"
+        :details="message.details"></message>
+
+    <div class="container">
+        <label class="mt-2" for="name">
+            <%= __(`Name`) %>
+        </label>
+        <input type="text" id="name" name="name" class="form-control" v-model="classe.name">
+
+        <label for="local">
+            <%= __(`Local`) %>
+        </label>
+        <input type="text" id="local" name="local" class="form-control" v-model="classe.local">
+
+
+        <label for="church">
+            <%= __(`The church a group belongs`) %>
+        </label>
+        <select class="form-select" aria-label="church select">
+            <option selected>Select a Church</option>
+            <option v-for="church in churchs">{{church.fullName}}</option>
+        </select>
+
+        <button class="btn btn-primary mt-2">
+            <span class="fa fa-save pe-2"></span>
+            <%= __('Save') %>
+        </button>
+    </div>
+
+    <!-- Delete Modal -->
+    <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog border border-danger">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                        <%= __('Remove Church') %>
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <%= __('Are you really shure you want to remove') %>
+                        <span class="fw-bolder">
+                            {{classe.name}}
+                        </span>
+                        ?
+                        <%= __('This cannot be undone') %>.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light m-1" data-bs-dismiss="modal">
+                        <%= __('Cancel Operation') %>
+                    </button>
+
+                    <button type="button" class="btn btn-danger m-1" data-bs-dismiss="modal" @click="remover()">
+                        <%= __('Delete Church Forever') %>
+                            <span class="fa fa-trash ms-2"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div> -->
 </div>
-<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>
+
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser(); %>

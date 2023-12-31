@@ -1,26 +1,59 @@
-<div id="search-classe" class="container" v-cloak>
+<div id="search-classe" v-cloak>
 
-    <div class="display-3"><%=__('Group Search')%></div>
-    <hr>
+    <div class="container-fluid px-5">
+  
+      <div class="d-flex justify-content-between">
+        <h3>
+          <%= __("Manage Groups") %>
+        </h3>
+  
+        <a href="/classe/edit-classe/new" v-if="me.isSuperAdmin" class="btn btn-success m-1">
+          <%=__('Create')%> <%=__('Group')%>
+        </a>
 
-    <message id="msg" v-on:close="cleanMessage()" :severity="message.severity" :summary="message.summary" :details="message.details"></message>
+      </div>
+  
+      <hr>
 
+      <message id="msg" v-on:close="cleanMessage()" :severity="message.severity" :summary="message.summary" :details="message.details"></message>
+  
+      <div class="container">
 
-    <div class="display-5"><%=__('Groups of my Church')%></div>
-    <ul class="list-group mt-2">
-        <li class="list-group-item" v-for="celula in classes" >
-            <% if(me) { %>
-            <button v-if="me.isSuperAdmin" class="btn btn-sm btn-primary m-1" @click="edit(celula)">
-                <em class="fa fa-pencil" title="<%=__('Edit')%>"></em>
-                <%=__('Edit')%>
-            </button>
-            <% }        %>
-            <a href="/welcome" class="btn btn-sm btn-primary m-1"><%=__('Joint to')%></a>
-            {{celula.name}} ({{celula.church.shortName}})
-        </li>
-    </ul>
+        <span class="text-info fw-bolder">
+            <%=__('My Church Groups')%>
+        </span>
+  
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col"><%= __("Group Name") %></th>
+              <th scope="col"><%= __("Church Name") %></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+  
+          <tbody>
+            <tr v-for="celula in classes">
+              <th scope="row">{{ celula.name }}</td>
+              <td scope="row">{{ celula.church.shortName }}</td>
+              <td scope="row">
+                <a href="#" class="btn btn-light" v-if="me.isSuperAdmin" @click="edit(celula)" >
+                  <span class="fa fa-pencil"></span>
+                </a>
+                
+                <a href="/welcome" class="btn btn-light">
+                    <%=__('Join in')%>
+                    <span class="fa fa-plus"></span>
+                  </a>
 
-    <button class="btn btn-primary mt-2" @click="goback()"><%=__('Cancel')%></button>
-
-</div>
-<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+  
+      </div>
+  
+    </div>
+  
+  </div>
+  <%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>

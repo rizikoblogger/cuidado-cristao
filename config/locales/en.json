@@ -414,5 +414,12 @@
 	"https://www.youtube.com/embed/": "https://www.youtube.com/embed/",
 	"Remove Sermon": "Remove Sermon",
 	"Are you really shure you want to remove sermon with title": "Are you really shure you want to remove sermon with title",
-	"Delete Sermon Forever": "Delete Sermon Forever"
+	"Delete Sermon Forever": "Delete Sermon Forever",
+	"Group Name": "Group Name",
+	"My Church Groups": "My Church Groups",
+	"Join in": "Join in",
+	"Create Group": "Create Group",
+	"This group belongs to": "This group belongs to",
+	"A church the group belong": "A church the group belong",
+	"The church a group belongs": "The church a group belongs"
 }
