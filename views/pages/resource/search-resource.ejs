@@ -1,17 +1,48 @@
 <div id="search-resource" v-cloak>
 
-<div class="container">
-  <div class="display-3"><%=__(`Search Resources`)%></div>
-  <hr>
-  <a :href="'/resource/edit-resource/new'" class="btn btn-primary m-1"><%=__(`Create`)%></a>
-  <a href="/welcome" class="btn btn-primary m-1"><%=__(`Cancel`)%></a>
-  <ul class="list-group mt-2">
-    <li class="list-group-item" v-for="resource in resources">
-      <a :href="'/resource/edit-resource/'+resource.id" class="btn btn-primary m-1"><em class="fa fa-pencil"></em></a>
-      {{resource.tipo}}: {{resource.name}} - {{resource.detail}}
-    </li>
-  </ul>
+  <div class="container-fluid px-5">
 
-</div>
+    <div class="d-flex justify-content-between">
+      <h3>
+        <%=__(`Resources`)%>
+      </h3>
+
+      <a href="/resource/edit-resource/new" class="btn btn-success m-1">
+        <%=__('Create')%> <%=__('Resource')%>
+      </a>
+    </div>
+
+    <hr>
+
+    <div class="container">
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"><%= __("Name") %></th>
+            <th scope="col"><%= __("Type") %></th>
+            <th scope="col"><%= __("Description") %></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr v-for="resource in resources">
+            <th scope="row">{{ resource.name }}</td>
+            <td scope="row">{{ resource.tipo }}</td>
+            <td scope="row">{{ resource.detail }}</td>
+            <td scope="row">
+              <a :href="'/resource/edit-resource/'+resource.id" class="btn btn-light">
+                <span class="fa fa-pencil"></span>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+  </div>
+
 </div>
 <%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>
