@@ -28,7 +28,7 @@ module.exports = {
       name: ``,
       detail: ``,
       location: ``,
-      church: {fullName: ``, shortName: ``, tipo: ``}
+      church: {fullName: ``, shortName: ``, tipo: ``, id: ``}
     }
 
     if(id!==`new`){

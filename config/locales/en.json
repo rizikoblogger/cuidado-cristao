@@ -422,5 +422,7 @@
 	"This group belongs to": "This group belongs to",
 	"A church the group belong": "A church the group belong",
 	"The church a group belongs": "The church a group belongs",
-	"Resource": "Resource"
+	"Resource": "Resource",
+	"Create Resource": "Create Resource",
+	"The church a resource belongs": "The church a resource belongs"
 }
