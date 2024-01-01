@@ -16,11 +16,6 @@
   </div>
 
   <div class="container">
-
-    <caption>
-      <%=__('Stored Sermons Count')%>: {{sermons.length}}
-    </caption>
-
     <table class="table">
       <thead>
         <tr>
@@ -33,7 +28,7 @@
 
       <tbody>
         <tr v-for="sermon in sermons">
-          <th scope="row">{{ sermon.church.shortName }}</td>
+          <td scope="row">{{ sermon.church?.shortName }}</td>
           <td scope="row">{{ sermon.titulo }}</td>
           <td scope="row">{{ sermon.videoURL }}</td>
           <td scope="row">
