@@ -1,32 +1,58 @@
 <div id="search-faq" v-cloak>
 
-<div class="container">
-    <div class="display-3"><%=__('Search Faq')%></div>
-    <hr>
-    <div class="btn-group mt-2">
-        <a href="/edit-faq/new" class="btn btn-lg btn-primary m-1"><%=__('Create New')%></a>
-        <a href="/" class="btn btn-lg btn-primary m-1"><%=__('Cancel')%></a>
+  <div class="container-fluid px-5">
+
+    <div class="d-flex justify-content-between">
+      <h3>
+        <%= __("Manage FAQs") %>
+      </h3>
+
+      <a href="/edit-faq/new" class="btn btn-success m-1">
+        <%=__('Add')%>
+          <%=__('FAQ')%>
+      </a>
+
     </div>
 
-   <table class="table table-striped">
-       <tr>
-           <th id="0"></th>
-           <th id="1"><%=__('Language')%></th>
-           <th id="2"><%=__('Question')%></th>
-           <th id="3"><%=__('Answer')%></th>
-       </tr>
+    <hr>
+  </div>
 
-       <tr v-for="faq in faqs">
-           <td headers="0">
-                <a :href="'/edit-faq/'+faq.id" class="btn btn-danger m-1" > <em class="fa fa-edit"></em> </a>
-           </td>
-           <td headers="1">{{faq.lang}}</td>
-           <td headers="2">{{faq.question}}</td>
-           <td headers="3">{{faq.answer}}</td>
-       </tr>
-   </table>
+  <div class="container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">
+            <%= __("id") %>
+          </th>
+          <th scope="col">
+            <%= __("Question") %>
+          </th>
+          <th scope="col">
+            <%= __("Answer") %>
+          </th>
+          <th scope="col">
+            <%= __("Language") %>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
 
-</div>
+      <tbody>
+        <tr v-for="faq in faqs">
+          <td scope="row">{{ faq.id }}</td>
+          <td scope="row">{{ faq.question }}</td>
+          <td scope="row">{{ faq.answer }}</td>
+          <td scope="row">{{ faq.lang }}</td>
+          <td scope="row">
+            <a :href="'/edit-faq/'+faq.id" class="btn btn-light">
+              <span class="fa fa-pencil"></span>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
 
 </div>
 <%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>

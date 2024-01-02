@@ -1,30 +1,69 @@
 <div id="edit-faq" v-cloak>
 
- <div class="container">
-     <div class="display-3"><%=__('Edit Faq')%></div>
-     <em class="text muted"><%=faq.id%></em>
-     <hr>
+  <div class="container-fluid px-5">
 
-     <message id="msg" v-on:close="cleanMessage()" :severity="message.severity" :summary="message.summary" :details="message.details"></message>
+    <div class="d-flex justify-content-between">
 
-     <label for="question"><%=__('Question')%></label>
-     <input id="question" type="text" class="form-control" v-model = 'faq.question'>
+      <div class="d-flex align-self-center">
+        <h3 v-if="faq.id">
+          <%= __("Update") %>
+            <%= __("FAQ") %> #{{faq.id}}
+        </h3>
 
-     <label for="answer"><%=__('Answer')%></label>
-     <input type="text" class="form-control" id="answer" v-model = 'faq.answer'>
+        <h3 v-else>
+          <%= __("Create FAQ") %>
+        </h3>
 
-     <label for="lang"><%=__('Language')%></label>
-     <select name="" id="lang" class="form-select" v-model="faq.lang">
-         <option value="pt"><%=__('Portuguese')%></option>
-         <option value="en"><%=__('English')%></option>
-     </select>
+        <a class="btn btn-light ms-2" href="#" @click="gotoback()">
+          <%= __('Go Back'); %>
+            <span class="fa fa-arrow-left"></span>
+        </a>
+      </div>
 
-     <div class="btn-group mt-2">
-         <button class="btn btn-lg btn-primary m-1" @click="save(faq)"><%=__('Save')%></button>
-         <button class="btn btn-lg btn-primary m-1" @click="gotoback()"><%=__('Cancel')%></button>
-     </div>
+      <!-- <div class="">
+      <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <%= __('Delete'); %>
+          <span class="fa fa-trash"></span>
+      </button>
+    </div> -->
 
- </div>
+    </div>
+
+    <hr>
+
+    <message id="msg" v-on:close="cleanMessage()" :severity="message.severity" :summary="message.summary"
+      :details="message.details"></message>
+  </div>
+
+  <div class="container">
+    <label for="lang">
+      <%=__('Language')%>
+    </label>
+    <select name="" id="lang" class="form-select" v-model="faq.lang">
+      <option value="pt">
+        <%=__('Portuguese')%>
+      </option>
+      <option value="en">
+        <%=__('English')%>
+      </option>
+    </select>
+
+    <label for="question">
+      <%=__('Question')%>
+    </label>
+    <input id="question" type="text" class="form-control" v-model='faq.question'>
+
+    <label for="answer">
+      <%=__('Answer')%>
+    </label>
+    <textarea class="form-control" id="answer" rows="3" v-model='faq.answer'></textarea>
+
+    <button class="btn btn-primary mt-2" @click="save(faq)">
+      <span class="fa fa-save pe-2"></span>
+      <%= __('Save') %>
+    </button>
+
+  </div>
 
 </div>
 <%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>
