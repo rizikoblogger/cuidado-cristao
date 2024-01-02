@@ -1,115 +1,131 @@
 <div id="edit-user" v-cloak>
+  <div class="container-fluid px-5 pb-3">
 
-    <div class="container">
-        <div class="display-3"><%= __(`Edit User`); %></div>
-        <em class="text-muted"><%= user.id; %></em>
-        <hr>
+    <div class="d-flex justify-content-between">
 
-        <ajax-form action="saveUser"
-                   :syncing.sync="syncing"
-                   :cloud-error.sync="cloudError"
-                   :form-data="formData"
-                   :form-rules="formRules"
-                   :form-errors.sync="formErrors"
-                   @submitted="submittedForm()">
+      <div class="d-flex align-self-center">
+        <h3>
+          <%= __("Update") %>
+            <%= __("User") %> #{{user.id}}
+        </h3>
 
-            <input type="hidden" name="_csrf" value="<%= _csrf; %>">
-            <input type="hidden" name="id" value="<%= user.id; %>">
-
-            <label for="emailAddress"><%=__(`Email`)%></label>
-            <input class="form-control"
-                   id="emailAddress"
-                   name="emailAddress"
-                   type="email" disabled="disabled"
-                   :class="[formErrors.emailAddress ? 'is-invalid' : '']"
-                   v-model.trim="formData.emailAddress"
-                   focus-first>
-
-            <label for="fullName"><%=__(`Full Name`)%></label>
-            <input class="form-control"
-                   id="fullName"
-                   name="fullName"
-                   type="text"
-                   :class="[formErrors.fullName ? 'is-invalid' : '']"
-                   v-model.trim="formData.fullName"
-            >
-            <div v-if="formErrors.fullName" class="text-danger fst-italic">
-                {{formErrors.fullName}}
-            </div>
-
-            <label for="profile"><%=__('Profile')%></label>
-            <select
-                    name="profile"
-                    id="profile"
-                    class="form-select"
-                    v-model="formData.profile"
-            >
-                <option value="congregant"><%=__('Congregant')%></option>
-                <option value="member"><%=__('Member')%></option>
-                <option value="deacon"><%=__('Deacon')%></option>
-                <option value="priest"><%=__('Priest')%></option>
-                <option value="administrator"><%=__('Administrator')%></option>
-            </select>
-
-
-
-            <div id="isSuperAdmin" class="form-check form-switch mt-2">
-                <input class="form-check-input" type="checkbox" id="isSuperAdmin" name="isSuperAdmin" v-model="formData.isSuperAdmin" >
-                <label class="form-check-label" for="isSuperAdmin"><%=__(`Is Full Admin`)%></label>
-            </div>
-
-            <label for="church"><%=__(`Church`)%></label>
-            <span class="form-control" id="church">
-                {{user.church?.fullName}}
-                <em v-if="!user.church"><%=__('No record found')%></em>
-            </span>
-
-
-            <label for="classrooms" v-if="user.classrooms?.length > 0"><%=__(`Classrooms`)%></label>
-            <ul id="classrooms" class="list-group">
-                <li class="list-group-item" v-for="classroom in user.classrooms">{{classroom.id}} - {{classroom.name}}</li>
-            </ul>
-
-            <label for="socialServices" v-if="user.socialServices?.length > 0"><%=__(`Social Services`)%></label>
-            <ul id="socialServices" class="list-group">
-                <li class="list-group-item" v-for="social in user.socialServices">{{social.id}} - {{social.name}}</li>
-            </ul>
-
-            <label for="userCares" v-if="user.userCares?.length > 0"><%=__(`User Cares`)%></label>
-            <ul id="userCares" class="list-group">
-                <li class="list-group-item" v-for="usercare in user.userCares">{{usercare.id}} - {{usercare.name}}</li>
-            </ul>
-
-            <label for="contributions" v-if="user.contributions?.length > 0"><%=__(`Contributions`)%></label>
-            <ul id="contributions" class="list-group">
-                <li class="list-group-item" v-for="contribution in user.contributions">{{contribution.dtContribution}} - {{contribution.propose}} </li>
-            </ul>
-
-            <cloud-error v-if="cloudError"></cloud-error>
-
-            <message id="msg" v-on:close="cleanMessage()" :severity="message.severity" :summary="message.summary"
-                     :details="message.details"></message>
-
-            <div class="btn-group mt-2">
-                <ajax-button type="submit" :syncing="syncing"
-                             class="btn btn-primary m-1"><%= __('Save'); %></ajax-button>
-                <a href="/user/search-user" class="btn btn-primary m-1"><%= __(`Cancel`) %></a>
-            </div>
-
-        </ajax-form>
-
-        <hr>
-
-      <div class="alert alert-info">
-                <p class="text-body-emphasis">
-                    <%=__(`As ADMIN you can only change the name of users and set them as SuperAdmin.`)%> <br>
-                    <%=__(`Users should add themselves to Church's Groups, Services, et al, voluntarily.`)%>
-                </p>
+        <a class="btn btn-light ms-2" href="/user/search-user">
+          <%= __('Go Back'); %>
+            <span class="fa fa-arrow-left"></span>
+        </a>
       </div>
 
-
+      <div class="">
+        <!-- <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <%= __('Delete'); %>
+              <span class="fa fa-trash"></span>
+          </button> -->
+      </div>
 
     </div>
+
+    <hr>
+  </div>
+
+  <cloud-error v-if="cloudError"></cloud-error>
+
+  <message id="msg" v-on:close="cleanMessage()" :severity="message.severity" :summary="message.summary"
+    :details="message.details"></message>
+
+  <div class="container">
+    <ajax-form action="saveUser" :syncing.sync="syncing" :cloud-error.sync="cloudError" :form-data="formData"
+      :form-rules="formRules" :form-errors.sync="formErrors" @submitted="submittedForm()">
+
+      <input type="hidden" name="_csrf" value="<%= _csrf; %>">
+      <input type="hidden" name="id" value="<%= user.id; %>">
+
+      <div id="isSuperAdmin" class="form-check form-switch mt-2">
+        <input class="form-check-input" type="checkbox" id="isSuperAdmin" name="isSuperAdmin"
+          v-model="formData.isSuperAdmin">
+        <label class="form-check-label" for="isSuperAdmin">
+          <%=__(`Is Full Admin`)%>
+        </label>
+      </div>
+
+      <label for="emailAddress">
+        <%=__(`Email`)%>
+      </label>
+      <input class="form-control" id="emailAddress" name="emailAddress" type="email" disabled="disabled"
+        :class="[formErrors.emailAddress ? 'is-invalid' : '']" v-model.trim="formData.emailAddress" focus-first>
+
+      <label for="fullName">
+        <%=__(`Full Name`)%>
+      </label>
+      <input class="form-control" id="fullName" name="fullName" type="text"
+        :class="[formErrors.fullName ? 'is-invalid' : '']" v-model.trim="formData.fullName">
+      <div v-if="formErrors.fullName" class="text-danger fst-italic">
+        {{formErrors.fullName}}
+      </div>
+
+      <label for="profile">
+        <%=__('Profile')%>
+      </label>
+      <select name="profile" id="profile" class="form-select" v-model="formData.profile">
+        <option value="congregant">
+          <%=__('Congregant')%>
+        </option>
+        <option value="member">
+          <%=__('Member')%>
+        </option>
+        <option value="deacon">
+          <%=__('Deacon')%>
+        </option>
+        <option value="priest">
+          <%=__('Priest')%>
+        </option>
+        <option value="administrator">
+          <%=__('Administrator')%>
+        </option>
+      </select>
+
+      <label for="church">
+        <%=__(`Church`)%>
+      </label>
+      <input v-if="user.church" class="form-control" disabled id="church" :value="user.church?.fullName" />
+      <input v-else class="form-control" disabled id="church" :value="user.church?.fullName" />
+
+      <label for="classrooms" v-if="user.classrooms?.length > 0">
+        <%=__(`Classrooms`)%>
+      </label>
+      <ul id="classrooms" class="list-group">
+        <li class="list-group-item" v-for="classroom in user.classrooms">{{classroom.id}} - {{classroom.name}}
+        </li>
+      </ul>
+
+      <label for="socialServices" v-if="user.socialServices?.length > 0">
+        <%=__(`Social Services`)%>
+      </label>
+      <ul id="socialServices" class="list-group">
+        <li class="list-group-item" v-for="social in user.socialServices">{{social.id}} - {{social.name}}</li>
+      </ul>
+
+      <label for="userCares" v-if="user.userCares?.length > 0">
+        <%=__(`User Cares`)%>
+      </label>
+      <ul id="userCares" class="list-group">
+        <li class="list-group-item" v-for="usercare in user.userCares">{{usercare.id}} - {{usercare.name}}</li>
+      </ul>
+
+      <label for="contributions" v-if="user.contributions?.length > 0">
+        <%=__(`Contributions`)%>
+      </label>
+      <ul id="contributions" class="list-group">
+        <li class="list-group-item" v-for="contribution in user.contributions">{{contribution.dtContribution}} -
+          {{contribution.propose}} </li>
+      </ul>
+
+      <ajax-button type="submit" :syncing="syncing" class="btn btn-success mt-4">
+        <span class="fa fa-save pe-2"></span>
+        <%= __('Save') %>
+      </ajax-button>
+
+    </ajax-form>
+  </div>
 
 </div>
 <%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser(); %>

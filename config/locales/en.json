@@ -425,5 +425,11 @@
 	"Resource": "Resource",
 	"Create Resource": "Create Resource",
 	"The church a resource belongs": "The church a resource belongs",
-	"The church a sermon belongs to": "The church a sermon belongs to"
+	"The church a sermon belongs to": "The church a sermon belongs to",
+	"Email Status": "Email Status",
+	"Users with role 'Admin' can change the name of other users and set them as SuperAdmin.": "Users with role 'Admin' can change the name of other users and set them as SuperAdmin.",
+	"Users with role 'Admin' can only change the name and role of other users.": "Users with role 'Admin' can only change the name and role of other users.",
+	"Attention!": "Attention!",
+	"Users with role 'Admin' cannot change other uses email": "Users with role 'Admin' cannot change other uses email",
+	"Users with role 'Admin' cannot change other users email": "Users with role 'Admin' cannot change other users email"
 }

@@ -1,44 +1,44 @@
 <div id="search-user" v-cloak>
 
+  <div class="container-fluid px-5">
+
+    <div class="d-flex justify-content-between">
+      <h3>
+        <%= __("Users") %>
+      </h3>
+    </div>
+
+    <hr>
+
     <div class="container">
-        <div class="display-3"><%=__(`User Search`)%></div>
-        <hr>
-        <div class="btn-group mt-1">
-            <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary m-1" >
-                <%=__(`Create New`)%>
-            </button>
-            <a href="/welcome" class="btn btn-primary m-1"><%=__(`Cancel`)%></a>
-        </div>
-        <ul class="list-group mt-2">
-            <li class="list-group-item" v-for="user in users">
-                <a :href="'/user/edit-user/'+user.id" class="btn btn-sm btn-primary"><em class="fa fa-pencil"></em></a>
-                <span><em :class="user.isSuperAdmin?'fa fa-star text-danger':'fa fa-user'"></em></span> {{user.emailAddress}} - {{user.fullName}} ({{user.emailStatus}})
-            </li>
-        </ul>
-    </div>
 
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">
+              <%=__('Name')%>
+            </th>
+            <th scope="col">
+              <%=__('Email')%>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
 
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"><%=__(`Create New`)%> <%=__(`User`)%></h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="<%=__(`Close`)%>"></button>
-                </div>
-                <div class="modal-body">
-                    <p class="text-body-emphasis">
-                        <%=__(`It is not possible to create User! They should create themselves by clicking on [Sign Up] button`)%>
-                        <br><br>
-                        <%=__(`After that, you can manage them, but change password must be done by themselves too.`)%>
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
+        <tbody>
+          <tr v-for="user in users">
+            <td scope="row">{{ user.fullName }}</td>
+            <td scope="row">{{ user.emailAddress }}</td>
+            <td scope="row">
+              <a :href="'/user/edit-user/'+user.id" class="btn btn-light">
+                <span class="fa fa-pencil"></span>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+  </div>
 
 </div>
 
