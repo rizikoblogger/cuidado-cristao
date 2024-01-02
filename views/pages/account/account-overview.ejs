@@ -1,49 +1,64 @@
 <div id="account-overview" v-cloak>
   <account-notification-banner></account-notification-banner>
-  <div class="container pt-5 pb-5">
-    <div class="display-3"><%=__('My account')%></div>
-    <hr/>
+
+  <div class="container-fluid px-5">
+  
+    <div class="d-flex justify-content-between">
+      <h3>
+        <%= __("My Account") %>
+      </h3>
+    </div>
+
+    <hr>
+  
     <div class="row mb-3">
-      <div class="col-sm-6">
+      <div class="col-4">
         <h4><%=__('Personal information')%></h4>
       </div>
-      <div class="col-sm-6">
+      <div class="col-4">
           <span class="float-sm-right">
-            <a style="width: 150px" class="btn btn-sm btn-outline-info" href="/account/profile"><%=__('Edit profile')%></a>
+            <a style="width: 150px" class="btn btn-sm btn-outline-info" href="/account/profile"><%=__('Update Profile')%></a>
           </span>
       </div>
     </div>
+
     <div class="row">
-      <div class="col-3"><%=__('As')%>:</div>
-      <div class="col"><strong>{{me.profile?me.profile.toUpperCase():"<%=__('Visitor')%>"}}</strong></div>
+      <div class="col-2 fw-bold"><%=__('Name')%>:</div>
+      <div class="col">{{me.fullName}}</div>
     </div>
-      <div class="row">
-      <div class="col-3"><%=__('Name')%>:</div>
-      <div class="col"><strong>{{me.fullName}}</strong></div>
-    </div>
+
     <div class="row">
-      <div class="col-3"><%=__('Email')%>:</div>
+      <div class="col-2 fw-bold"><%=__('E-mail')%>:</div>
       <div class="col">
-        <strong :class="[me.emailStatus === 'unconfirmed' || me.emailStatus === 'change-requested' ? 'text-muted' : '']">{{me.emailChangeCandidate ? me.emailChangeCandidate : me.emailAddress}}</strong>
+        <span :class="[me.emailStatus === 'unconfirmed' || me.emailStatus === 'change-requested' ? 'text-muted' : '']">{{me.emailChangeCandidate ? me.emailChangeCandidate : me.emailAddress}}</span>
         <span v-if="me.emailStatus === 'unconfirmed' || me.emailStatus === 'change-requested'" class="badge badge-pill badge-warning"><%=__('Unverified')%></span>
       </div>
     </div>
+
+    <div class="row">
+      <div class="col-2 fw-bold"><%=__('Role')%>:</div>
+      <div class="col">{{me.profile?me.profile.toUpperCase():"<%=__('Visitor')%>"}}</div>
+    </div>
+
     <hr/>
+
     <div class="row mb-3">
-      <div class="col-sm-6">
-        <h4><%=__('Password')%></h4>
+      <div class="col-4">
+        <h4><%=__('Security')%></h4>
       </div>
-      <div class="col-sm-6">
+      <div class="col-4">
           <span class="float-sm-right">
-            <a style="width: 150px" class="btn btn-sm btn-outline-info" href="/account/password"><%=__('Change password')%></a>
+            <a style="width: 150px" class="btn btn-sm btn-outline-info" href="/account/password"><%=__('Update password')%></a>
           </span>
       </div>
     </div>
     <div class="row">
-      <div class="col-3"><%=__('Password')%>:</div>
-      <div class="col"><strong>••••••••••</strong></div>
+      <div class="col-2 fw-bold"><%=__('Password')%>:</div>
+      <div class="col">***</div>
     </div>
+    
     <hr/>
+
     <div class="row mb-3" v-if="isBillingEnabled">
       <div class="col-sm-6">
         <h4><%=__('Billing')%></h4>
