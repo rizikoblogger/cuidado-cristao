@@ -8,10 +8,10 @@ module.exports = {
 
 
   inputs: {
-    id: {type: 'string'},
-    nome: {type: 'string', required: true},
-    descricao: {type: 'string', required: false},
-    users: {type: 'ref'}
+    id: { type: 'string' },
+    nome: { type: 'string', required: true },
+    descricao: { type: 'string', required: false },
+    users: { type: 'ref' }
   },
 
 
@@ -25,33 +25,41 @@ module.exports = {
   fn: async function (inputs) {
 
     if (inputs.id) {
-      const social = await SocialService.updateOne({id: inputs.id}, {
+      const social = await SocialService.updateOne({ id: inputs.id }, {
         nome: inputs.nome,
         descricao: inputs.descricao,
         users: []
       })
-      const userIds = []
-      inputs.users.forEach(user=>{
-        userIds.push(user.id)
-      })
-      await SocialService.addToCollection(inputs.id, 'users').members(userIds)
 
-      return {social}
+      if (Array.isArray(inputs.users) && inputs.users.length > 0) {
+        const userIds = []
 
-    }else {
+        inputs.users.forEach(user => {
+          userIds.push(user.id)
+        })
+
+        await SocialService.addToCollection(inputs.id, 'users').members(userIds)
+      }
+
+
+      return { social }
+
+    } else {
       const social = await SocialService.create({
         nome: inputs.nome,
         descricao: inputs.descricao,
         users: []
       }).fetch()
 
-      const userIds = []
-      inputs.users.forEach(user=>{
-        userIds.push(user.id)
-      })
-      await SocialService.addToCollection(inputs.id, 'users').members(userIds)
+      if (Array.isArray(inputs.users) && inputs.users.length > 0) {
+        const userIds = []
+        inputs.users.forEach(user => {
+          userIds.push(user.id)
+        })
+        await SocialService.addToCollection(inputs.id, 'users').members(userIds)
+      }
 
-      return {social}
+      return { social }
     }
 
   }

@@ -1,32 +1,64 @@
-<div id="social-search" class="container" v-cloak>
+<div id="social-search" v-cloak>
+  <div class="container-fluid px-5">
 
-    <div class="display-3"><%= __('Social Search') ;%></div>
+    <div class="d-flex justify-content-between">
+      <h3>
+        <%= __("Social Services") %>
+      </h3>
+
+      <a @click="novo()" v-if="loggedIn" class="btn btn-success m-1">
+        <%=__('Add')%> <%=__('Service')%>
+      </a>
+    </div>
+
     <hr>
+  </div>
 
-    <button v-if="loggedIn" class="btn btn-primary mt-2" @click="novo()"><%= __('Create New') ;%></button>
-    <a href="/" class="btn btn-primary mt-2"><%=__('Cancel')%></a>
+  <div class="container">
 
-    <div class="display-6">
-        <%= __('We need volunteers to help us on...') ;%>
-    </div>
+    <template v-if="list.length > 1">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">
+              <%= __("id") %>
+            </th>
+            <th scope="col">
+              <%= __("Name") %>
+            </th>
+            <th scope="col">
+              <%= __("Description") %>
+            </th>
+            <th scope="col">
+              <%= __("Created At") %>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+    
+        <tbody>
+          <tr v-for="social in list">
+            <td scope="row">{{ social.id }}</td>
+            <td scope="row">{{ social.nome }}</td>
+            <td scope="row">{{ social.descricao }}</td>
+            <td scope="row">{{ dateConversion(social.createdAt) }}</td>
+            <td scope="row">
+              <a href="#" class="btn btn-light" v-if="me.isSuperAdmin" @click="goToEdit(social.id)">
+                <span class="fa fa-pencil"></span>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </template>
+    
+    <template v-else>
+      <div class="text-info fw-bolder">
+        <%= __(`No Social Services registered yet.`) ;%>
+      </div>
+    </template>
 
-    <div class="card-group mt-2">
-        <div class="card m-1" v-for="social in list">
-            <div class="card-header">{{social.nome}}</div>
-            <div class="card-body"><p>
-                    {{social.descricao}}
-                </p></div>
-            <div class="card-footer">
-                <button class="btn btn-sm btn-primary m-1" @click="goToWelcome()" ><em class="fa fa-sign-in"></em> <%= __(`Join to`) ;%></button>
-                <% if(me?.isSuperAdmin) { %>
-                <button class="btn btn-sm btn-primary m-1" @click="goToEdit(social.id)"><em class="fa fa-pencil"></em> <%= __(`Edit`) ;%></button>
-                <% } %>
-            </div>
-        </div>
-    </div>
-
-    <div v-if="list.length < 1" class="text-danger fw-bolder"><%= __(`No record found`) ;%></div>
-
+  </div>
 
 </div>
 <%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser(); %>

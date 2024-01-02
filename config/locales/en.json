@@ -431,5 +431,12 @@
 	"Users with role 'Admin' can only change the name and role of other users.": "Users with role 'Admin' can only change the name and role of other users.",
 	"Attention!": "Attention!",
 	"Users with role 'Admin' cannot change other uses email": "Users with role 'Admin' cannot change other uses email",
-	"Users with role 'Admin' cannot change other users email": "Users with role 'Admin' cannot change other users email"
+	"Users with role 'Admin' cannot change other users email": "Users with role 'Admin' cannot change other users email",
+	"Add": "Add",
+	"Service": "Service",
+	"No Social Services registered yet.": "No Social Services registered yet.",
+	"Create Social Service": "Create Social Service",
+	"id": "id",
+	"No volunteers": "No volunteers",
+	"Created At": "Created At"
 }

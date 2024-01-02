@@ -1,59 +1,80 @@
 <div id="social-edit" v-cloak>
 
-    <div class="container">
-        <div class="display-3"><%= __(`Social Edit`) ;%></div>
-        <hr>
+  <div class="container-fluid px-5">
 
-        <message id="msg" v-on:close="cleanMessage()" :severity="message.severity" :summary="message.summary" :details="message.details"></message>
+    <div class="d-flex justify-content-between">
 
-        <ajax-form action="saveSocial"
-                   :syncing.sync="syncing"
-                   :cloud-error.sync="cloudError"
-                   :form-data="formData"
-                   :form-rules="formRules"
-                   :form-errors.sync="formErrors"
-                   @submitted="submittedForm()">
+      <div class="d-flex align-self-center">
+        <h3 v-if="social.id">
+          <%= __("Update") %> <%= __("Service") %> #{{social.id}}
+        </h3>
 
-            <label for="nome"><%= __('Name') ;%></label>
-            <input class="form-control"
-                   id="nome"
-                   name="nome"
-                   type="text"
-                   :class="[formErrors.nome ? 'is-invalid' : '']"
-                   v-model.trim="formData.nome"
-                   placeholder="<%= __(`Type a Name`) ;%>"
-                   focus-first>
+        <h3 v-else>
+          <%= __("Create Social Service") %>
+        </h3>
 
-            <label for="descricao"><%= __('Description') ;%></label>
-            <textarea class="form-control"
-                   id="descricao"
-                   name="descricao"
-                   :class="[formErrors.descricao ? 'is-invalid' : '']"
-                   v-model.trim="formData.descricao"
-                   placeholder="<%= __(`Type a description`) ;%>"
-                     ></textarea>
+        <a class="btn btn-light ms-2" href="#" @click="goBack()">
+          <%= __('Go Back'); %>
+            <span class="fa fa-arrow-left"></span>
+        </a>
+      </div>
 
-            <label for="users"><%= __('Volunteers') ;%></label>
-            <ul class="list-group">
-                <li v-if="social.users.length < 1" class="list-group-item"><%= __('No record found') ;%></li>
-                <li class="list-group-item" v-for="user in social.users">{{user.fullName}}</li>
-            </ul>
-
-            <input type="hidden" name="id" value="<%=social.id%>">
-            <input type="hidden" name="users" value="<%=social.users%>">
-
-            <cloud-error v-if="cloudError"></cloud-error>
-
-            <div class="btn-group mt-2">
-                <ajax-button type="submit" :syncing="syncing"
-                             class="btn btn-primary m-1"><%= __('Save') ;%></ajax-button>
-                <button class="btn btn-primary m-1" @click="goBack()"><%= __(`Cancel`) ;%></button>
-            </div>
-
-        </ajax-form>
-
+      <!-- <div class="">
+      <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <%= __('Delete'); %>
+          <span class="fa fa-trash"></span>
+      </button>
+    </div> -->
 
     </div>
+
+    <hr>
+
+    <cloud-error v-if="cloudError"></cloud-error>
+
+    <message id="msg" v-on:close="cleanMessage()" :severity="message.severity" :summary="message.summary"
+    :details="message.details"></message>
+
+  </div>
+  
+  <div class="container">
+
+    <ajax-form action="saveSocial" :syncing.sync="syncing" :cloud-error.sync="cloudError" :form-data="formData"
+      :form-rules="formRules" :form-errors.sync="formErrors" @submitted="submittedForm()">
+
+      <label for="nome">
+        <%= __('Name') ;%>
+      </label>
+      <input class="form-control" id="nome" name="nome" type="text" :class="[formErrors.nome ? 'is-invalid' : '']"
+        v-model.trim="formData.nome" placeholder="<%= __(`Type a Name`) ;%>" focus-first>
+
+      <label for="descricao">
+        <%= __('Description') ;%>
+      </label>
+      <textarea class="form-control" id="descricao" name="descricao" :class="[formErrors.descricao ? 'is-invalid' : '']"
+        v-model.trim="formData.descricao" placeholder="<%= __(`Type a description`) ;%>"></textarea>
+
+      <label for="users">
+        <%= __('Volunteers') ;%>
+      </label>
+      <ul class="list-group">
+        <li v-if="social.users.length < 1" class="list-group-item">
+          <%= __('No record found') ;%>
+        </li>
+        <li class="list-group-item" v-for="user in social.users">{{user.fullName}}</li>
+      </ul>
+
+      <input type="hidden" name="id" value="<%=social.id%>">
+      <input type="hidden" name="users" value="<%=social.users%>">
+
+
+      <ajax-button type="submit" :syncing="syncing" class="btn btn-success mt-4">
+        <span class="fa fa-save pe-2"></span>
+        <%= __('Save') %>
+      </ajax-button>
+    </ajax-form>
+
+  </div>
 
 </div>
 <%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser(); %>

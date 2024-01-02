@@ -29,6 +29,10 @@ parasails.registerPage('social-search', {
     },
     goToWelcome: function () {
       this.goto('/welcome')
+    },
+    dateConversion: function (timestamp) {
+      var date = new Date(Number(timestamp))
+      return date.toLocaleDateString()
     }
   }
 });

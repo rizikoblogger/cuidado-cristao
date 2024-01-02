@@ -1,0 +1,32 @@
+<div id="social-search" class="container" v-cloak>
+
+    <div class="display-3"><%= __('Social Search') ;%></div>
+    <hr>
+
+    <button v-if="loggedIn" class="btn btn-primary mt-2" @click="novo()"><%= __('Create New') ;%></button>
+    <a href="/" class="btn btn-primary mt-2"><%=__('Cancel')%></a>
+
+    <div class="display-6">
+        <%= __('We need volunteers to help us on...') ;%>
+    </div>
+
+    <div class="card-group mt-2">
+        <div class="card m-1" v-for="social in list">
+            <div class="card-header">{{social.nome}}</div>
+            <div class="card-body"><p>
+                    {{social.descricao}}
+                </p></div>
+            <div class="card-footer">
+                <button class="btn btn-sm btn-primary m-1" @click="goToWelcome()" ><em class="fa fa-sign-in"></em> <%= __(`Join to`) ;%></button>
+                <% if(me?.isSuperAdmin) { %>
+                <button class="btn btn-sm btn-primary m-1" @click="goToEdit(social.id)"><em class="fa fa-pencil"></em> <%= __(`Edit`) ;%></button>
+                <% } %>
+            </div>
+        </div>
+    </div>
+
+    <div v-if="list.length < 1" class="text-danger fw-bolder"><%= __(`No record found`) ;%></div>
+
+
+</div>
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser(); %>
