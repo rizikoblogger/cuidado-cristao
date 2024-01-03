@@ -30,7 +30,7 @@
                         <div class="dropdown">
                             <button class="nav nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown"
                                     aria-expanded="false">
-                                <%= __('System') %>
+                                <%= __('Modules') %>
                             </button>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="/church/search-church"><%= __('Churches') %></a></li>
@@ -176,7 +176,6 @@
                         <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
                             <div class="d-inline-block align-items-center g-2">
                 <span><%= me.fullName.split(" ")[0] %> <%= me.fullName.split(" ")[1][0] %>
-                  (<%= me.profile %>)<%= me.church ? "-" + me.church.shortName : "" %>
                 </span>
                                 <span class="fa fa-user-o fs-5 p-1 m-0 rounded-circle"></span>
                             </div>
