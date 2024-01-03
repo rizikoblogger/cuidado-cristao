@@ -7,33 +7,7 @@
         <em class="text-start"><%= __(`Welcome`) %>  <%= __(`A brand new app.`) %> </em>
         <em class="position-absolute end-0"> <a href="/projeto/overview-en"><%=__('About The Project')%></a></em>
     </div>
-    <hr>
-    <p>
-    </p>
-    <div class="display-5">
-        <strong>
-            <%= __(`What`) %>
-        </strong>
-
-    </div>
-    <div class="display-5">
-        <%= __(`What is it`) %>
-
-    </div>
-    <div class="display-5">
-        <strong>
-            <%= __(`Who`) %>
-        </strong>
-    </div>
-    <div class="display-5">
-        <%= __(`Who should use it`) %>
-
-    </div>
-    <div class="display-5">
-        <strong>
-            <%= __(`How`) %>
-        </strong>
-    </div>
+    <hr>    
 
     <div class="display-6">
         <%=__('You can use this system on a computer, tablet or mobile phone')%>.
@@ -58,6 +32,8 @@
             <ol>
                 <li v-for="faq in listPortuguese" ><span class="fw-bolder">{{faq.question}}</span>: <em>{{faq.answer}}</em></li>
             </ol>
+            <hr>
+            <%- include('faq-plus-br.ejs') %>
         </div>
 
     </div>
