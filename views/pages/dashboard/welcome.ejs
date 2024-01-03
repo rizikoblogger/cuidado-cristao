@@ -43,19 +43,19 @@
 
         <cc-card-list name="<%= __('My Groups') %>">
 
-            <cc-card 
+            <cc-card
                 title="<%= __('Join Group') %>"
                 href="#"
                 description="<%= __(`Select a Group to join and start learning`) %>"
-                //@click="toogleGroupList()"
+                <% //@click="toogleGroupList()" %>
             />
 
             <!-- List of groups user belongs to -->
             <cc-card v-for="classroom in user.classrooms"
                 :title="classroom.name"
-                :description="group.local"
+                :description="classroom.local"
                 href="#"
-                //@click="leave(group)"
+                <% //@click="leave(group)" %>
             />
 
         </cc-card-list>
