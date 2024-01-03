@@ -448,5 +448,8 @@
 	"Update Profile": "Update Profile",
 	"E-mail": "E-mail",
 	"Update password": "Update password",
-	"Update my account": "Update my account"
+	"Update my account": "Update my account",
+	"User does not belong to any church": "User does not belong to any church",
+	"My churches": "My churches",
+	"User not linked to a church": "User not linked to a church"
 }
