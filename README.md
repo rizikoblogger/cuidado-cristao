@@ -389,7 +389,7 @@ Visite [Sails Actions & Controllers](https://www.sailsjs.tec.br/#actions) para s
 
 ### Informações da versão (Inglês)
 
-This app was originally generated on Tue Jan 10 2023 15:35:58 GMT-0300 (Horário Padrão de Brasíli* using Sails v1.5.3.
+This app was originally generated on Tue Jan 10 2023 15:35:58 GMT-0300 (Horário Padrão de Brasília) using Sails v1.5.3.
 
 <!-- Internally, Sails used [`sails-generate@2.0.7`](https://github.com/balderdashy/sails-generate/tree/v2.0.7/lib/core-generators/new). -->
 

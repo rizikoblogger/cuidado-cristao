@@ -1,8 +1,8 @@
 {
   "name": "eclesiastico",
-  "private": true,
+  "private": false,
   "version": "0.0.0",
-  "description": "a Sails application",
+  "description": "Cristian Care Project aims to give a free and open-source Web Software to whom want to manager its congregant also as a communit of IT Servants of God`s Kingdom.",
   "keywords": [],
   "dependencies": {
     "@sailshq/connect-redis": "^6.1.3",
@@ -32,10 +32,10 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/anonymous node/sails user/eclesiastico.git"
+    "url": "https://github.com/rizikoblogger/cuidado-cristao"
   },
-  "author": "anonymous node/sails user",
-  "license": "",
+  "author": "Batista Barao da Taquara Church",
+  "license": "MIT",
   "engines": {
     "node": "^16.18"
   }
