@@ -1,0 +1,41 @@
+########################################################
+#       How to run this Project as Final User          #
+########################################################
+
+Basic installation
+
+1) Install Node.js (>16.4.0) from https://nodejs.org/en/download;
+2) Install Git Client from https://git-scm.com/downloads;
+3) Run [>$ git clone https://github.com/rizikoblogger/cuidado-cristao];
+4) Go to created/cloned folder/directory and run [>$ npm install] command;
+5) Set O.S. Environment to 'production' one. (On Windows: setx NODE_ENV "production", on Linux: SET NODE_ENV=production); 
+6) Run [>$ npm start] command; and
+7) After that, open a Brownser and go to localhost:80.
+
+With Docker
+
+1) Install and run Docker Daemon from https://docs.docker.com/engine/install/;
+2) Install Git Client from https://git-scm.com/downloads;
+3) Run [>$ git clone https://github.com/rizikoblogger/cuidado-cristao];
+4) Go to created/cloned folder/directory and run [>$ docker pull node:16.15.1] command;
+5) Wait for downloading and - after that - run [>$ docker build -t .] command (do not avoid the last dot character];
+6) Then, [>$ docker run -d -p 80:80 --ip localhost [image_id da imagem gerada]] command; and
+7) After that, open a Brownser and go to localhost:80.
+
+Advanced Settings
+
+1) To change server address or port, edit config/env/production.js file before running it;
+2) To change MongoDB database settings,  before running it, edit config/datastores.js with:
+   - adapter: 'sails-mongo',
+   - url: process.env.MONGO_URL,
+   // (On Windows: setx MONGO_URL "mongo-full-url", on Linux: SET MONGO_URL=mongo-full-url)
+3) To change application messages and menu text, edit config/locales/__.json
+
+ATTENTION!
+
+# When it is the first time you are running it for production, you have to create - signup -  
+a brand new user. The first User will be an ADMIN by default. After that you have to create a 
+brand new Church as [MOTHER]. Users should create their own credentials by themselves, because
+Admins cannot do it.
+
+# Developers should ignore this file and read README.md one.
