@@ -1,0 +1,39 @@
+<div id="edit-contribution" v-cloak>
+
+  <message id="msg" v-on:close="cleanMessage()" :severity="message.severity" :summary="message.summary" :details="message.details"></message>
+
+<div class="container">
+  <div class="display-3"><%=__(`Edit Contribution`)%></div>
+  <em class="text-muted"><%= contribution.id %></em>
+  <hr>
+  <label for="from"><%=__(`From`)%></label>
+
+  <% if(contribution?.id) {  %>
+  <span class="form-control"><%=contribution.user?.fullName%> <%=__(`as`)%> <%=contribution.user?.profile?.toUpperCase() %> </span>
+  <% } else {                %>
+      <select name="user" id="user" class="form-select" v-model="contribution.user">
+        <option value="" label="<%=__(`Select One...`)%>"></option>
+        <option v-for="user in users" :value="user" :label="user.fullName"></option>
+      </select>
+  <% }                       %>  
+
+  <label for="propose"><%=__(`Propose`)%></label>
+  <input type="text" class="form-control" id="propose" v-model="contribution.propose">
+  <label for="value"><%=__(`Value`)%></label>
+  <input type="number" class="form-control" id="value" v-model="contribution.value" v-on:blur="formatValue()">
+  <label for="dtContribution"><%=__(`Date of Contribution`)%></label>
+  <span class="form-control" v-if="!showDateField">
+    <js-timestamp  :at="contribution.dtContribution" format="calendar"></js-timestamp>  
+    <em class="fa fa-calendar pointer" @click="updateDate()"></em>
+  </span>
+  <input v-if="showDateField" class="form-control" type="date" name="dtContribution" id="dtContribution" v-model="contribution.dtContribution">
+
+  <div class="btn-group mt-2">
+    <button class="btn btn-primary m-1" @click="save()"><%=(`Save`)%></button>
+    <button class="btn btn-primary m-1" @click="cancel()"><%=(`Cancel`)%></button>
+  </div>
+
+</div>
+
+</div>
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>

@@ -1,0 +1,361 @@
+<div id="edit-church" v-cloak>
+
+  <div class="container-fluid px-5">
+
+    <div class="d-flex justify-content-between">
+
+      <div class="d-flex align-self-center">
+        <h3 v-if="igreja.id">
+          <%= __("Update") %> {{igreja.shortName}}
+        </h3>
+
+        <h3 v-else>
+          <%= __("Create Church") %>
+        </h3>
+
+        <a class="btn btn-light ms-2" @click="goToBack()">
+          <%= __('Go Back'); %>
+            <span class="fa fa-arrow-left"></span>
+        </a>
+      </div>
+
+      <div class="">
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <%= __('Delete'); %>
+            <span class="fa fa-trash"></span>
+        </button>
+      </div>
+
+    </div>
+
+    <hr>
+  </div>
+
+  <message id="msg" v-on:close="update()" :severity="message.severity" v-bind:summary="message.summary"
+    :details="message.details"></message>
+
+  <cloud-error v-if="cloudError==='badCombo'">
+    <%=__('The main Church (or Mother) cannot be removed')%>.
+  </cloud-error>
+
+  <div class="container">
+    <ajax-form action="saveChurch" :syncing.sync="syncing" :cloud-error.sync="cloudError" :form-data="formData"
+      :form-rules="formRules" :form-errors.sync="formErrors" @submitted="submittedForm()">
+
+      <input type="hidden" name="_csrf" id="_csrf" value="<%= _csrf %>">
+      <input type="hidden" name="id" id="id" value="<%= igreja.id %>">
+
+      <label for="shortName">
+        <%= __('Short Name'); %>
+      </label>
+      <input type="text" class="form-control" id="shortName" name="shortName" v-model="igreja.shortName" required
+        minlength="3">
+
+      <label for="fullName">
+        <%= __('Full Name'); %>
+      </label>
+      <input type="text" class="form-control" id="fullName" name="fullName" v-model="igreja.fullName" required
+        minlength="10">
+
+      <label for="email">
+        <%= __('Email'); %>
+      </label>
+      <input type="email" class="form-control" id="email" name="email" required minlength="5" v-model="igreja.email">
+
+      <label for="address">
+        <%= __('Address'); %>
+      </label>
+      <input type="text" class="form-control" id="address" name="address" v-model="igreja.address">
+
+      <div class="row m-1">
+        <div class="col">
+
+          <label for="site">
+            <%= __('Site'); %>
+          </label>
+          <input type="url" class="form-control" id="site" name="site" v-model="igreja.site">
+
+          <label for="phone">
+            <%= __('Phone'); %>
+          </label>
+          <input type="tel" class="form-control" id="phone" name="phone" v-model="igreja.phone">
+
+          <label for="linktree">
+            <%= __('Linktree'); %>
+          </label>
+          <input type="url" class="form-control" id="linktree" name="linktree" v-model="igreja.linktree">
+
+          <label for="our-community">
+            <%= __('Our Community') %>
+          </label>
+          <textarea class="form-control" id="our-community" name="ourCommunityText" v-model="igreja.ourCommunityText"
+            rows="2"></textarea>
+
+          <label for="church-mission">
+            <%= __('Church Mission') %>
+          </label>
+          <textarea class="form-control" id="church-mission" name="churchMissionText" v-model="igreja.churchMissionText"
+            rows="2"></textarea>
+
+          <label for="join-to-group">
+            <%= __('Join to a Group') %>
+          </label>
+          <textarea class="form-control" id="join-to-group" name="joinToGroupText" v-model="igreja.joinToGroupText"
+            rows="2"></textarea>
+
+          <label for="church-beliefs">
+            <%= __('Church Beliefs') %>
+          </label>
+          <textarea class="form-control" id="church-beliefs" name="churchBeliefsText" v-model="igreja.churchBeliefsText"
+            rows="2"></textarea>
+
+          <label for="tipo">
+            <%= __('Type'); %>
+          </label>
+          <input name="tipo" id="tipo" type="text" class="form-control" v-model="igreja.tipo" disabled="disabled">
+        </div>
+        <div class="col">
+
+          <div class="text-start">
+            <span>
+              <%=__(`Manage`)%>:
+                <a href="#" data-bs-toggle="modal" data-bs-target="#meetings">
+                  <%=__(`Meettings`) %>
+                </a> |
+                <a href="#" data-bs-toggle="modal" data-bs-target="#learning">
+                  <%=__(`Learning`) %>
+                </a> |
+                <a href="#" data-bs-toggle="modal" data-bs-target="#facilities">
+                  <%=__(`Facilites`) %>
+                </a> |
+                <a href="/sermon/search-sermon">
+                  <%=__(`Sermon`) %>
+                </a> |
+                <a href="/classe/search-classe">
+                  <%=__(`Group`) %>
+                </a>
+            </span>
+          </div>
+
+          <div class="accordion mt-3" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                  aria-expanded="true" aria-controls="collapseOne">
+                  <%=__(`Groups`)%>
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <ul class="list-group">
+                    <li class="list-group-item" v-for="grupo in igreja.classrooms">{{grupo.name}} - {{grupo.local}}</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  <%=__(`Sermons`)%>
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <ul class="list-group">
+                    <li class="list-group-item" v-for="sermao in igreja.sermons">{{sermao.titulo}}</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  <%=__(`Meetings`)%>
+                </button>
+              </h2>
+              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <ul class="list-group">
+                    <li class="list-group-item" v-for="meet in igreja.churchMeetings">{{meet}}</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingFour">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                  <%=__('Learning')%>
+                </button>
+              </h2>
+              <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <ul class="list-group">
+                    <li class="list-group-item" v-for="learn in igreja.churchLearnings">{{learn}}</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingFive">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                  <%=__(`Facilities`)%>
+                </button>
+              </h2>
+              <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <ul class="list-group">
+                    <li class="list-group-item" v-for="fac in igreja.churchFacilities">{{fac}}</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+      <ajax-button type="submit" :syncing="syncing" class="btn btn-success mt-4">
+        <span class="fa fa-save pe-2"></span>
+        <%= __('Save') %>
+      </ajax-button>
+
+      <cloud-error v-if="cloudError"></cloud-error>
+
+    </ajax-form>
+  </div>
+
+  <!-- Modals -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog border border-danger">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">
+            <%= __('Remove Church') %>
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <%= __('Are you really shure you want to remove') %>
+          <span class="fw-bolder">
+            {{igreja.shortName}}
+          </span>
+          ?
+          <%= __('This cannot be undone') %>.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-light m-1" data-bs-dismiss="modal">
+            <%= __('Cancel Operation') %>
+          </button>
+
+          <button type="button" class="btn btn-danger m-1" data-bs-dismiss="modal" @click="remover()">
+            <%= __('Delete Church Forever') %> 
+            <span class="fa fa-trash ms-2"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="meetings" tabindex="-1" aria-labelledby="meetingsLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="meetingsLabel">
+            <%= __('Manage') %> <%=__('Meetings')%>
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <ul class="list-group mt-1">
+            <li class="list-group-item" v-for="meet in igreja.churchMeetings">
+              <button class="btn btn-danger m-1" @click="removeMeeting(meet)"><em class="fa fa-trash"></em></button>
+              {{meet}}
+            </li>
+          </ul>
+          <div class="input-group mt-1">
+            <div class="input-group-text">
+              <%=__('Name')%>
+            </div>
+            <input type="text" class="form-control" id="text" placeholder="<%=__('Meeting description')%>"
+              v-model="description">
+            <button class="btn btn-primary" @click="addMeetingDescription()"><em class="fa fa-plus"></em></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="learning" tabindex="-1" aria-labelledby="learningLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="learningLabel">
+            <%= __('Manage') %>
+              <%=__('Learnings')%>
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <ul class="list-group mt-1">
+            <li class="list-group-item" v-for="learning in igreja.churchLearnings">
+              <button class="btn btn-danger m-1" @click="removeLearning(learning)"><em
+                  class="fa fa-trash"></em></button>
+              {{learning}}
+            </li>
+          </ul>
+          <div class="input-group mt-1">
+            <div class="input-group-text">
+              <%=__('Name')%>
+            </div>
+            <input type="text" class="form-control" id="text" placeholder="<%=__('Learning description')%>"
+              v-model="description">
+            <button class="btn btn-primary" @click="addLearningDescription()"><em class="fa fa-plus"></em></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="facilities" tabindex="-1" aria-labelledby="facilitiesLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="facilitiesLabel">
+            <%= __('Manage') %>
+              <%=__('Facilities')%>
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <ul class="list-group mt-1">
+            <li class="list-group-item" v-for="facility in igreja.churchFacilities">
+              <button class="btn btn-danger m-1" @click="removeFacility(facility)"><em
+                  class="fa fa-trash"></em></button>
+              {{facility}}
+            </li>
+          </ul>
+          <div class="input-group mt-1">
+            <div class="input-group-text">
+              <%=__('Name')%>
+            </div>
+            <input type="text" class="form-control" id="text" placeholder="<%=__('Facilities description')%>"
+              v-model="description">
+            <button class="btn btn-primary" @click="addFacilitiesDescription()"><em class="fa fa-plus"></em></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser(); %>

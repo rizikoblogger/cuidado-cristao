@@ -1,0 +1,58 @@
+<div id="search-faq" v-cloak>
+
+  <div class="container-fluid px-5">
+
+    <div class="d-flex justify-content-between">
+      <h3>
+        <%= __("Manage FAQs") %>
+      </h3>
+
+      <a href="/edit-faq/new" class="btn btn-success m-1">
+        <%=__('Add')%>
+          <%=__('FAQ')%>
+      </a>
+
+    </div>
+
+    <hr>
+  </div>
+
+  <div class="container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">
+            <%= __("id") %>
+          </th>
+          <th scope="col">
+            <%= __("Question") %>
+          </th>
+          <th scope="col">
+            <%= __("Answer") %>
+          </th>
+          <th scope="col">
+            <%= __("Language") %>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr v-for="faq in faqs">
+          <td scope="row">{{ faq.id }}</td>
+          <td scope="row">{{ faq.question }}</td>
+          <td scope="row">{{ faq.answer }}</td>
+          <td scope="row">{{ faq.lang }}</td>
+          <td scope="row">
+            <a :href="'/edit-faq/'+faq.id" class="btn btn-light">
+              <span class="fa fa-pencil"></span>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+</div>
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>

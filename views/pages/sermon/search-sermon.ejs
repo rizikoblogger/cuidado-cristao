@@ -1,0 +1,45 @@
+<div id="search-sermon" v-cloak>
+
+  <div class="container-fluid px-5">
+
+    <div class="d-flex justify-content-between">
+      <h3>
+        <%= __("Sermons") %>
+      </h3>
+
+      <a href="/sermon/edit-sermon/new" class="btn btn-success m-1">
+        <%=__('Create')%> <%=__('Sermon')%>
+      </a>
+    </div>
+
+    <hr>
+  </div>
+
+  <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col"><%=__('Church')%></th>
+          <th scope="col"><%=__('Title')%></th>
+          <th scope="col"> <%=__('Video URL')%></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr v-for="sermon in sermons">
+          <td scope="row">{{ sermon.church?.shortName }}</td>
+          <td scope="row">{{ sermon.titulo }}</td>
+          <td scope="row">{{ sermon.videoURL }}</td>
+          <td scope="row">
+            <a :href='`/sermon/edit-sermon/`+sermon.id' class="btn btn-light" >
+              <span class="fa fa-pencil"></span>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>

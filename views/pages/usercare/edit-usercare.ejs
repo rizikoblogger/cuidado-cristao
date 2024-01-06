@@ -1,0 +1,27 @@
+<div id="edit-usercare" v-cloak>
+
+<div class="container">
+    <div class="display-3"><%=__(`Edit Usercare`)%></div>
+    <em class="text-muted"><%=usercare.id%></em>
+    <hr>
+    <label for="user"><%=__(`Care of`)%></label>
+    <span class="form-control" id="user"><%=usercare.user.fullName%></span>
+    <label for="data-contact"><%=__(`Contact Date`)%></label>
+    <span id="data-contact" class="form-control"><%=usercare.dtContact%></span>
+    <label for="who-cares"><%=__(`Who cares`)%></label>
+    <input type="text" class="form-control" id="who-cares" v-model="usercare.whoCares">
+    <label for="record"><%=__(`Record`)%></label>
+    <textarea name="record" id="record" cols="30" rows="5" class="form-control" v-model="usercare.record"></textarea>
+
+    <div class="btn-group mt-2">
+        <button class="btn btn-primary m-1" @click="save()"><%=__(`Save`)%></button>
+        <a href="/usercare/search-usercare" class="btn btn-primary m-1"><%=__(`Cancel`)%></a>
+    </div>
+
+
+
+</div>
+
+
+</div>
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>

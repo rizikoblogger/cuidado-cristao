@@ -1,0 +1,20 @@
+<div id="search-administrators" v-cloak>
+
+    <div class="text-dark-emphasis m-3 p-2">
+        <div class="text-start"><button class="btn btn-primary" onclick="window.history.back()"><em class="fa fa-backward"></em></button></div>
+        <div class="text-end"><button class="btn btn-info" onclick="window.print()"><em class="fa fa-print"></em></button></div>
+        <div class="mb-5">
+            <%=(new Date()).toDateString()%>
+            <hr>
+        </div>
+
+        <ul class="list-group">
+            <li class="list-group-item" v-for="(user, index) in users" >
+                <em class="badge bg-primary">{{index+1}}</em> {{user.fullName}} ({{user.emailAddress}}), <%=__('Since')%> <js-timestamp :at="user.createdAt" format="calendar"></js-timestamp>
+            </li>
+        </ul>
+
+    </div>
+
+</div>
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>

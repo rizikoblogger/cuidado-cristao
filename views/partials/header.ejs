@@ -1,0 +1,214 @@
+<header class="cc-navbar">
+    <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Cuidado Cristão Navbar">
+        <div class="container-fluid mx-4">
+
+            <a class="navbar-brand" href="/">
+                <img src="/images/hero-cloud.png" alt="Cuidado Cristao logo" height="24"
+                     class="d-inline-block allign-text-top">
+            </a>
+
+            <div class="offcanvas offcanvas-end text-bg-dark px-2" tabindex="-1" id="offcanvasNavbar2"
+                 aria-labelledby="offcanvasNavbar2Label" style="z-index: 2000 !important;">
+
+                <div class="offcanvas-header">
+                    <div class="d-flex allign-text-center mt-2" style="gap: 16px;">
+                        <img src="images/hero-cloud.png" alt="Cuidado Cristao logo" height="24"
+                             class="d-inline-block allign-text-top">
+
+                        <span class="strong">Cuidado Cristão</span>
+                    </div>
+
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button>
+                </div>
+
+                <div class="offcanvas-body">
+
+                    <!-- alinhado a esquerda -->
+
+                    <% if(me && me.isSuperAdmin) { %>
+                        <div class="dropdown">
+                            <button class="nav nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                <%= __('Modules') %>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/church/search-church"><%= __('Churches') %></a></li>
+                                <li><a class="dropdown-item" href="/classe/search-classe"> <%= __('Groups') %></a></li>
+                                <li><a class="dropdown-item" href="/resource/search-classe"><%= __('Resources') %></a>
+                                </li>
+                                <li><a class="dropdown-item" href="/sermon/search-sermon"> <%= __('Sermons') %></a></li>
+                                <li><a class="dropdown-item"
+                                       href="/social/social-search">  <%= __('Social Service') %></a></li>
+                                <li><a class="dropdown-item"
+                                       href="/search-faq"> <%= __('Frequently Asked Questions') %></a></li>
+                                <li class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="/user/search-user">  <%= __('Users') %></a></li>
+                            </ul>
+                        </div>
+
+                    <% } %>
+
+                    <% if(me && me.profile && me.profile === `administrator`) { %>
+                        <div class="dropdown">
+                            <button class="nav nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                <%= __('Admin') %>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item"
+                                       href="/contribution/search-contribution"><%= __('Contributions') %></a></li>
+                                <li><a class="dropdown-item" href="/report/dashboard-report"><%= __('Members') %></a>
+                                </li>
+                                <li><a class="dropdown-item"
+                                       href="/usercare/search-usercare"><%= __('Christian Care') %></a></li>
+                                <li><a class="dropdown-item"
+                                       href="/guideline/search-guideline"><%= __('Guidelines') %></a></li>
+                            </ul>
+                        </div>
+                    <% } %>
+
+                    <% if(me && me.profile && me.profile === `priest`) { %>
+                        <div class="dropdown">
+                            <button class="nav nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                <%= __('Priest') %>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/sermon/search-sermon"> <%= __('Sermons') %></a></li>
+                                <li><a class="dropdown-item"
+                                       href="/usercare/search-usercare"><%= __('Christian Care') %></a></li>
+                            </ul>
+                        </div>
+                    <% } %>
+
+                    <% if(me && me.profile && me.profile === `deacon`) { %>
+                        <div class="dropdown">
+                            <button class="nav nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                <%= __('Deacon') %>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/report/dashboard-report"><%= __('Members') %></a>
+                                </li>
+                                <li><a class="dropdown-item"
+                                       href="/usercare/search-usercare"><%= __('Christian Care') %></a></li>
+                            </ul>
+                        </div>
+                    <% } %>
+
+                    <% if(me && me.profile && me.profile === `member`) { %>
+
+                        <div class="dropdown">
+                            <button class="nav nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                <%= __('Member') %>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/guideline/search-guideline"><%= __('Guidelines') %></a></li>
+
+                            </ul>
+                        </div>
+
+                    <% } %>
+
+                    <% if(me && me.profile && me.profile === `congregant`) { %>
+
+                        <div class="dropdown">
+                            <button class="nav nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                <%= __('Congregant') %>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/guideline/search-guideline"><%= __('Guidelines') %></a></li>
+
+                            </ul>
+                        </div>
+
+                    <% } %>
+
+                    <!-- alinhado a direita --->
+
+                    <ul class="navbar-nav justify-content-start allign-text-center flex-grow-1 d-flex">
+                        <% if(me) { %>
+                            <!-- LOGGED-IN NAVIGATION -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="/contact">
+                                    <%= __('Help') %>
+                                </a>
+                            </li>
+
+                        <% } else { %>
+                            <!-- LOGGED-OUT NAVIGATION -->
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="/faq">
+                                    <%= __('FAQ') %>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="/login">
+                                    <%= __('Log in') %>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="/signup">
+                                    <%= __('Sign up') %>
+                                </a>
+                            </li>
+
+                        <% } %>
+                    </ul>
+
+                    <!-- TODO: função de busca -->
+                    <!-- <form class="d-flex mt-3 mt-lg-0" role="search">
+                      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                      <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form> -->
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-end align-items-center">
+                <% if(me) { %>
+
+                    <div class="dropdown-center">
+                        <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div class="d-inline-block align-items-center g-2">
+                <span><%= me.fullName.split(" ")[0] %> <%= me.fullName.split(" ")[1][0] %>
+                </span>
+                                <span class="fa fa-user-o fs-5 p-1 m-0 rounded-circle"></span>
+                            </div>
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            <li class="">
+                                <a class="dropdown-item" href="/account">
+                                    <%= __('Preferences') %>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="/account/profile">
+                                    <%= __('Update my email') %>
+                                </a>
+                            </li>
+                            <li class="dropdown-divider"></li>
+                            <li>
+                                <a class="dropdown-item" href="/logout">
+                                    <%= __('Sign out') %>
+                                </a></li>
+                        </ul>
+
+                    </div>
+
+                <% } %>
+
+                <button class="navbar-toggler ps-4" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasNavbar2"
+                        aria-controls="offcanvasNavbar2" aria-label="Toggle navigation">
+                    <span class="fa fa-ellipsis-v fs-2"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+</header>

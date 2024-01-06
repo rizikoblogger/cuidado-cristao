@@ -1,0 +1,20 @@
+<% if(me&&me.emailChangeCandidate) { %>
+  <div class="container-fluid">
+
+    <div class="alert alert-secondary mt-5 small" role="alert">
+      <%=__('Your updated email address needs verification')%>&nbsp;<strong><%= me.emailChangeCandidate %></strong>,
+      <%=__('You will still need to sign in as')%>&nbsp;<strong><%= me.emailAddress %></strong>.
+    </div>
+
+  </div>
+
+  <% } else if(me&&me.emailStatus === 'unconfirmed') { %>
+  <div class="container-fluid">
+
+    <div class="alert alert-secondary mt-5 small" role="alert">
+      <%=__('Your updated email address needs verification')%>
+      <strong><%= me.emailChangeCandidate ? me.emailChangeCandidate : me.emailAddress%></strong>.
+    </div>
+    
+  </div>
+  <% } %>

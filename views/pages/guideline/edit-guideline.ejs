@@ -1,0 +1,23 @@
+<div id="edit-guideline" v-cloak>
+
+<div class="container">
+
+    <message id="msg" v-on:close="cleanMessage()" :severity="message.severity" :summary="message.summary" :details="message.details"></message>
+
+    <div class="display-3"><%=__(`Edit Guideline`)%></div>
+    <em class="text-muted"><%=guideline.id%></em>
+    <hr>
+    <label for="sequence"><%=__(`Sequence`)%></label>
+    <input type="number" class="form-control" id="sequence" v-model="guideline.sequence">
+    <label for="text"><%=__(`Guideline`)%></label>
+    <textarea class="form-control" name="text" id="text" cols="30" rows="10" v-model="guideline.text"></textarea>
+
+    <div class="btn-group">
+        <button class="btn btn-primary m-1" @click="save()" ><%=__(`Save`)%></button>
+        <a href="/guideline/search-guideline" class="btn btn-primary m-1"><%=__(`Cancel`)%></a>
+    </div>
+
+</div>
+
+</div>
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>

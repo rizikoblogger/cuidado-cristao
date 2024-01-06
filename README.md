@@ -351,7 +351,33 @@ sails generate controller nome-do-controller
 `
 e não se esqueça de criar também o PATH no arquivo routes.js.
 
-## Be happy!
+### Criando dados para teste
+
+Nosso prototipo ja possui um _script_ capaz de gerar dados para teste.
+O arquivo ``scripts/cria-dados-para-teste.js``. Para executa-lo, abra um
+novo Terminal/Console e digite ``sails run cria-dados-para-teste``.
+Depois disso, reinicie com ``sails lift``. **Se tudo correu bem, foi criado um
+usuario [admin@example.com] com a senha [abc123] e com Perfil [SuperAdmin]**
+
+
+## Estamos felizes que você tenha lido até aqui!
+
+Porém, temos um pouco mais de informação importante pra você, o Sails Action 2:
+
+### Sails Action 2 ###
+
+Esta versão foi inicialmente criada com os conceitos de Actions 1, também chamados de _Controllers_.
+Estes _Controllers_ são arquivos que contém funções que respondem como **ações** de resposta às requisições HTTP
+mapeadas como rotas (ex. /api/v1/aluno/:id apontando para /controllers/AlunoController.editAluno), mas atualmente
+estamos dando preferência ao uso das **Action 2**.
+
+No caso do Action 2, existem três peguenas mudanças:
+
+1) O Comando de console para criação seria ```sails generate action aluno``` (e nao generate controller como antes);
+2) A rota agora deve ser '/api/v1/aluno/:id' apontando para action: '/controllers/edit-aluno', sendo edit.js o arquivo definição da action, com uma única functions.
+3) Não é possível definir várias funções de ação em um arquivo de controle, mas somente uma ação por arquivo.
+
+Visite [Sails Actions & Controllers](https://www.sailsjs.tec.br/#actions) para saber mais.
 
 ### Links Adicionais
 
@@ -363,7 +389,7 @@ e não se esqueça de criar também o PATH no arquivo routes.js.
 
 ### Informações da versão (Inglês)
 
-This app was originally generated on Tue Jan 10 2023 15:35:58 GMT-0300 (Horário Padrão de Brasíli* using Sails v1.5.3.
+This app was originally generated on Tue Jan 10 2023 15:35:58 GMT-0300 (Horário Padrão de Brasília) using Sails v1.5.3.
 
 <!-- Internally, Sails used [`sails-generate@2.0.7`](https://github.com/balderdashy/sails-generate/tree/v2.0.7/lib/core-generators/new). -->
 

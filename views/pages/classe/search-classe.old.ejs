@@ -1,0 +1,26 @@
+<div id="search-classe" class="container" v-cloak>
+
+    <div class="display-3"><%=__('Group Search')%></div>
+    <hr>
+
+    <message id="msg" v-on:close="cleanMessage()" :severity="message.severity" :summary="message.summary" :details="message.details"></message>
+
+
+    <div class="display-5"><%=__('Groups of my Church')%></div>
+    <ul class="list-group mt-2">
+        <li class="list-group-item" v-for="celula in classes" >
+            <% if(me) { %>
+            <button v-if="me.isSuperAdmin" class="btn btn-sm btn-primary m-1" @click="edit(celula)">
+                <em class="fa fa-pencil" title="<%=__('Edit')%>"></em>
+                <%=__('Edit')%>
+            </button>
+            <% }        %>
+            <a href="/welcome" class="btn btn-sm btn-primary m-1"><%=__('Joint to')%></a>
+            {{celula.name}} ({{celula.church.shortName}})
+        </li>
+    </ul>
+
+    <button class="btn btn-primary mt-2" @click="goback()"><%=__('Cancel')%></button>
+
+</div>
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>

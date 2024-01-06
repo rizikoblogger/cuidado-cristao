@@ -1,0 +1,46 @@
+<div id="search-user" v-cloak>
+
+  <div class="container-fluid px-5">
+
+    <div class="d-flex justify-content-between">
+      <h3>
+        <%= __("Users") %>
+      </h3>
+    </div>
+
+    <hr>
+
+    <div class="container">
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">
+              <%=__('Name')%>
+            </th>
+            <th scope="col">
+              <%=__('Email')%>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr v-for="user in users">
+            <td scope="row">{{ user.fullName }}</td>
+            <td scope="row">{{ user.emailAddress }}</td>
+            <td scope="row">
+              <a :href="'/user/edit-user/'+user.id" class="btn btn-light">
+                <span class="fa fa-pencil"></span>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>

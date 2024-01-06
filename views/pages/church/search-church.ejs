@@ -1,0 +1,48 @@
+<div id="search-church" v-cloak>
+
+  <div class="container-fluid px-5">
+
+    <div class="d-flex justify-content-between">
+      <h3>
+        <%= __("Churches") %>
+      </h3>
+
+      <button v-if="me.isSuperAdmin" class="btn btn-success m-1" @click="create()">
+        <%=__('Create')%> <%=__('Church')%>
+      </button>
+    </div>
+
+    <hr>
+
+    <div class="container">
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"><%= __("Id") %></th>
+            <th scope="col"><%= __("Church Name") %></th>
+            <th scope="col"><%= __("Type") %></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr v-for="igreja in page.content">
+            <th scope="row">{{ igreja.id }}</td>
+            <td scope="row">{{ igreja.shortName }}</td>
+            <td scope="row">{{ igreja.tipo }}</td>
+            <td scope="row">
+              <a href="#" class="btn btn-light" v-if="me.isSuperAdmin" @click="goToEdit(igreja.id)">
+                <span class="fa fa-pencil"></span>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+  </div>
+
+</div>
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>

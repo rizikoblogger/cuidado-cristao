@@ -1,0 +1,89 @@
+<div id="edit-resource" v-cloak>
+
+  <div class="container-fluid px-5">
+
+    <div class="d-flex justify-content-between">
+
+      <div class="d-flex align-self-center">
+        <h3 v-if="resource.id">
+          <%= __("Update") %> '{{resource.name}}'
+        </h3>
+
+        <h3 v-else>
+          <%= __("Create Resource") %>
+        </h3>
+
+        <a class="btn btn-light ms-2" @click="cancel()">
+          <%= __('Go Back'); %>
+            <span class="fa fa-arrow-left"></span>
+        </a>
+      </div>
+
+      <!-- <div class="">
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <%= __('Delete'); %>
+            <span class="fa fa-trash"></span>
+        </button>
+      </div> -->
+
+    </div>
+
+    <hr>
+  </div>
+
+  <message id="msg" v-on:close="cleanMessage()" :severity="message.severity" :summary="message.summary"
+    :details="message.details"></message>
+
+  <cloud-error v-if="cloudError"></cloud-error>
+
+  <div class="container">
+    <ajax-form action="saveResource" :syncing.sync="syncing" :cloud-error.sync="cloudError" :form-data="formData"
+      :form-rules="formRules" :form-errors.sync="formErrors" @submitted="submittedForm()">
+
+      <input type="hidden" name="id" value="<%= resource.id %>">
+      <input type="hidden" name="_csrf" value="<%= _csrf %>">
+
+      <label for="tipo">
+        <%=__('Tipo')%>
+      </label>
+      <input id="tipo" name="tipo" type="text" class="form-control" :class="[formErrors.tipo ? 'is-invalid' : '']"
+        focus-first required minlength="3" maxlength="30" v-model="formData.tipo">
+
+      <label for="name">
+        <%= __(`Name`) %>
+      </label>
+      <input id="name" name="name" type="text" class="form-control" :class="[formErrors.name ? 'is-invalid' : '']"
+        minlength="3" maxlength="50" v-model="formData.name" required>
+
+      <label for="detail">
+        <%= __(`Description`) %>
+      </label>
+      <input id="detail" name="detail" type="text" class="form-control" :class="[formErrors.detail ? 'is-invalid' : '']"
+        maxlength="200" required v-model="formData.detail">
+
+      <label for="location">
+        <%= __(`Location`) %>
+      </label>
+      <input id="location" name="location" type="text" class="form-control"
+        :class="[formErrors.location ? 'is-invalid' : '']" maxlength="200" v-model="formData.location">
+
+      <label for="church">
+        <%= __(`The church a resource belongs`) %>
+      </label>
+      <input class="form-control" disabled aria-label="church" v-if="resource.id" :value="resource.church?.name">
+
+      <select class="form-select" aria-label="church select" v-else>
+        <option selected>Select a Church</option>
+        <option v-for="church in churchs" :value="church.id">{{church.fullName}}</option>
+      </select>
+
+
+      <ajax-button type="submit" :syncing="syncing" class="btn btn-success mt-4">
+        <span class="fa fa-save pe-2"></span>
+        <%= __('Save') %>
+      </ajax-button>
+    </ajax-form>
+  </div>
+
+</div>
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>

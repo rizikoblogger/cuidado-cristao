@@ -1,102 +1,132 @@
-<div id="welcome">
-  <account-notification-banner></account-notification-banner>
-  <div class="container pt-5 pb-5">
-    <h1>Welcome!</h1>
-    <hr/>
-    <p>This is a page that only logged-in people can visit. Don't you feel special? Try clicking on a button below to do some things you can't do when you're logged out.</p>
-    <div class="buttons">
-      <a class="btn btn-info" href="/account/profile">Update my email</a>
-      <button class="btn btn-outline-info ml-2" @click="clickOpenExampleModalButton()">Open a modal</button>
-    </div>
-  </div>
+<div id="welcome" v-cloak>
 
-  <router-view></router-view>
+    <account-notification-banner></account-notification-banner>
 
-  <!--  ╔═╗═╗ ╦╔═╗╔╦╗╔═╗╦  ╔═╗  ┌┬┐┌─┐┌┬┐┌─┐┬
-        ║╣ ╔╩╦╝╠═╣║║║╠═╝║  ║╣   ││││ │ ││├─┤│
-        ╚═╝╩ ╚═╩ ╩╩ ╩╩  ╩═╝╚═╝  ┴ ┴└─┘─┴┘┴ ┴┴─┘  -->
-  <modal class="example-modal" v-if="modal==='example'" @close="closeExampleModal()" v-cloak>
-    <div class="modal-header">
-      <h2 class="modal-title">Example modal</h2>
-      <p class="modal-intro">At your leisure, please peruse this excerpt from a whale of a tale.</p>
-      <hr>
+    <div class="container-fluid px-5">
+
+        <%
+        // model/User.js
+        // ...
+        // profile: {
+        //     type: 'string',
+        //             isIn: ['congregant','member', 'deacon', 'priest', 'administrator'],
+        //             defaultsTo: 'congregant'
+        // },
+        %>
+
+        <cc-card-list name="<%= __('Modules') %>">
+
+            <cc-card v-for="service in services" :href="service.href" :title="service.title"
+                :description="service.description" />
+
+        </cc-card-list>
+
+        <cc-card-list name="<%= __('My Churches') %>">
+            <!-- TODO: move this warning to be generated in the backend -->
+            <!-- TODO: move to the top of the page ?-->
+
+            <template v-if="temples.length < 1">
+                <cc-warning message="<%= __('No Main Church created yet! Please, create one at [Manage Churchs]') %>" />
+            </template>
+
+            <template v-else-if="temples.length > 0">
+                <!-- Churches user belongs to -->
+                <cc-card v-for="church in myChurchs" :title="church.shortName" :description="church.address" href="#" />
+            </template>
+
+            <template v-else>
+                <cc-card title="<%= __('Join Church') %>" description="<%= __(`Select a Church to join in`) %>"
+                    href="#" />
+            </template>
+
+        </cc-card-list>
+
+        <cc-card-list name="<%= __('My Groups') %>">
+
+            <cc-card
+                title="<%= __('Join Group') %>"
+                href="#"
+                description="<%= __(`Select a Group to join and start learning`) %>"
+                <% //@click="toogleGroupList()" %>
+            />
+
+            <!-- List of groups user belongs to -->
+            <cc-card v-for="classroom in user.classrooms"
+                :title="classroom.name"
+                :description="classroom.local"
+                href="#"
+                <% //@click="leave(group)" %>
+            />
+
+        </cc-card-list>
+
+        <hr>
+
+        <!-- TODO: move this to its own page -->
+        <!-- <section id="join-church">
+            <div v-if="showChurchList">
+                <div class="card mt-2">
+                    <div class="card-header">
+                        <%= __('Church') %>
+                            <%= __('Select') %>
+                    </div>
+                    <div class="card-body">
+                        <select name="church" id="church" class="form-select" v-model="churchSelecionadaId">
+                            <% temples.forEach(temple=> { %>
+                                <option value="<%= temple.id %>" label="<%= temple.fullName %> - <%= temple.tipo %>">
+                                </option>
+                                <% }) %>
+                        </select>
+                    </div>
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-primary m-1" data-bs-dismiss="modal"
+                            @click="selecionarChurch(churchSelecionadaId)">
+                            <%= __('Select') %>
+                        </button>
+                        <a href="/welcome" class="btn btn-primary">
+                            <%= __('Close') %>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="join-classroom">
+            <div v-if="showGroupList">
+                <div class="card mt-2">
+                    <div class="card-header">
+                        <%= __('Group') %>
+                            <%= __('Select') %>
+                    </div>
+                    <div class="card-body">
+                        <select name="group" id="group" class="form-select" v-model="groupSelecionadaId">
+                            <% groups.forEach( group=> { %>
+                                <option value="<%= group.id %>" label="<%= group.name %>"></option>
+                                <% }) %>
+                        </select>
+                    </div>
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-primary m-1" data-bs-dismiss="modal"
+                            @click="selecionarGroup(groupSelecionadaId)">
+                            <%= __('Select') %>
+                        </button>
+                        <a href="/welcome" class="btn btn-primary">
+                            <%= __('Close') %>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </section> -->
+
     </div>
-    <div class="modal-body">
-      <h5 class="pb-2 mb-3 border-bottom">Chapter 1: Loomings.</h5>
-      <p>Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people's hats off—then, I account it high time to get to sea as soon as I can. This is my substitute for pistol and ball. With a philosophical flourish Cato throws himself upon his sword; I quietly take to the ship. There is nothing surprising in this. If they but knew it, almost all men in their degree, some time or other, cherish very nearly the same feelings towards the ocean with me.</p>
-      <div class="js-timestamp-examples">
-        <h5 class="pt-4 pb-2 mb-3 border-bottom">About 2 years ago</h5>
-        <p>
-          <js-timestamp :at="pageLoadedAt-(2*365*24*60*60*1000)"></js-timestamp><br/>
-          <js-timestamp :at="pageLoadedAt-(2*365*24*60*60*1000)" format="timeago" short="true"></js-timestamp><br/>
-          <js-timestamp :at="pageLoadedAt-(2*365*24*60*60*1000)" format="calendar"></js-timestamp><br/>
-        </p>
-        <h5 class="pt-4 pb-2 mb-3 border-bottom">About 2 months ago</h5>
-        <p>
-          <js-timestamp :at="pageLoadedAt-(2*30*24*60*60*1000)"></js-timestamp><br/>
-          <js-timestamp :at="pageLoadedAt-(2*30*24*60*60*1000)" format="timeago" short="true"></js-timestamp><br/>
-          <js-timestamp :at="pageLoadedAt-(2*30*24*60*60*1000)" format="calendar"></js-timestamp><br/>
-        </p>
-        <h5 class="pt-4 pb-2 mb-3 border-bottom">2 days ago</h5>
-        <p>
-          <js-timestamp :at="pageLoadedAt-(2*24*60*60*1000)"></js-timestamp><br/>
-          <js-timestamp :at="pageLoadedAt-(2*24*60*60*1000)" format="timeago" short="true"></js-timestamp><br/>
-          <js-timestamp :at="pageLoadedAt-(2*24*60*60*1000)" format="calendar"></js-timestamp><br/>
-        </p>
-        <h5 class="pt-4 pb-2 mb-3 border-bottom">2 hours ago</h5>
-        <p>
-          <js-timestamp :at="pageLoadedAt-(2*60*60*1000)"></js-timestamp><br/>
-          <js-timestamp :at="pageLoadedAt-(2*60*60*1000)" format="timeago" short="true"></js-timestamp><br/>
-          <js-timestamp :at="pageLoadedAt-(2*60*60*1000)" format="calendar"></js-timestamp><br/>
-        </p>
-        <h5 class="pt-4 pb-2 mb-3 border-bottom">15 minutes ago</h5>
-        <p>
-          <js-timestamp :at="pageLoadedAt-(15*60*1000)"></js-timestamp><br/>
-          <js-timestamp :at="pageLoadedAt-(15*60*1000)" format="timeago" short="true"></js-timestamp><br/>
-          <js-timestamp :at="pageLoadedAt-(15*60*1000)" format="calendar"></js-timestamp><br/>
-        </p>
-        <h5 class="pt-4 pb-2 mb-3 border-bottom">45 seconds ago</h5>
-        <p>
-          <js-timestamp :at="pageLoadedAt-(45*1000)"></js-timestamp><br/>
-          <js-timestamp :at="pageLoadedAt-(45*1000)" format="timeago" short="true"></js-timestamp><br/>
-          <js-timestamp :at="pageLoadedAt-(45*1000)" format="calendar"></js-timestamp><br/>
-        </p>
-        <h5 class="pt-4 pb-2 mb-3 border-bottom">Right now</h5>
-        <p>
-          <js-timestamp :at="pageLoadedAt"></js-timestamp><br/>
-          <js-timestamp :at="pageLoadedAt" format="timeago" short="true"></js-timestamp><br/>
-          <js-timestamp :at="pageLoadedAt" format="calendar"></js-timestamp><br/>
-        </p>
-        <h5 class="pt-4 pb-2 mb-3 border-bottom">In an hour</h5>
-        <p>
-          <js-timestamp :at="pageLoadedAt+(60*60*1000)"></js-timestamp><br/>
-          <js-timestamp :at="pageLoadedAt+(60*60*1000)" format="timeago" short="true"></js-timestamp><br/>
-          <js-timestamp :at="pageLoadedAt+(60*60*1000)" format="calendar"></js-timestamp><br/>
-        </p>
-        <h5 class="pt-4 pb-2 mb-3 border-bottom">In two days</h5>
-        <p>
-          <js-timestamp :at="pageLoadedAt+(2*24*60*60*1000)"></js-timestamp><br/>
-          <js-timestamp :at="pageLoadedAt+(2*24*60*60*1000)" format="timeago" short="true"></js-timestamp><br/>
-          <js-timestamp :at="pageLoadedAt+(2*24*60*60*1000)" format="calendar"></js-timestamp><br/>
-        </p>
-        <h5 class="pt-4 pb-2 mb-3 border-bottom">In about two months</h5>
-        <p>
-          <js-timestamp :at="pageLoadedAt+(2*30*24*60*60*1000)"></js-timestamp><br/>
-          <js-timestamp :at="pageLoadedAt+(2*30*24*60*60*1000)" format="timeago" short="true"></js-timestamp><br/>
-          <js-timestamp :at="pageLoadedAt+(2*30*24*60*60*1000)" format="calendar"></js-timestamp><br/>
-        </p>
-        <h5 class="pt-4 pb-2 mb-3 border-bottom">In about two years</h5>
-        <p>
-          <js-timestamp :at="pageLoadedAt+(2*365*24*60*60*1000)"></js-timestamp><br/>
-          <js-timestamp :at="pageLoadedAt+(2*365*24*60*60*1000)" format="timeago" short="true"></js-timestamp><br/>
-          <js-timestamp :at="pageLoadedAt+(2*365*24*60*60*1000)" format="calendar"></js-timestamp><br/>
-        </p>
-      </div>
-    </div>
-    <div class="modal-footer flex-row-reverse justify-content-between">
-      <button type="button" data-dismiss="modal" class="btn btn-info">Close</button>
-      <button type="button" data-dismiss="modal" class="btn btn-outline-info">Cancel</button>
-    </div>
-  </modal>
+
+    <message id="msg" v-on:close="update()" :severity="message.severity" v-bind:summary="message.summary"
+        :details="message.details"></message>
+
+    <router-view></router-view>
+</div>
+
+
 </div>
 <%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>

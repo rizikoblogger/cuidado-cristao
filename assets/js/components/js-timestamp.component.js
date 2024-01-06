@@ -72,7 +72,7 @@ parasails.registerComponent('jsTimestamp', {
     // If calendar timestamp, just set it the once.
     // (Also don't allow usage with `short`.)
     if(this.formatType === 'calendar') {
-      this.formattedTimestamp = moment(this.at).format('MM-DD-YYYY');
+      this.formattedTimestamp = moment(this.at).format('DD/MM/YYYY');
       if (this.short) {
         throw new Error('Invalid usage of <js-timestamp>:  Cannot use `short="true"` at the same time as `format="calendar"`.');
       }
@@ -91,7 +91,7 @@ parasails.registerComponent('jsTimestamp', {
       if(this.formatType === 'timeago') {
         this._formatTimeago();
       } else if(this.formatType === 'calendar') {
-        this.formattedTimestamp = moment(this.at).format('MM-DD-YYYY');
+        this.formattedTimestamp = moment(this.at).format('DD/MM/YYYY');
       } else {
         throw new Error();
       }

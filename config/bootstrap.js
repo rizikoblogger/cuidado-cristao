@@ -59,9 +59,12 @@ module.exports.bootstrap = async function() {
   }//∞
 
   // By convention, this is a good place to set up fake data during development.
-  await User.createEach([
-    { emailAddress: 'admin@example.com', fullName: 'Ryan Dahl', isSuperAdmin: true, password: await sails.helpers.passwords.hashPassword('abc123') },
-  ]);
+  // but, we changed it to run outside with a generator script.
+  // await User.createEach([
+  //   { emailAddress: 'admin@example.com', fullName: 'Ryan Dahl', isSuperAdmin: true, password: await sails.helpers.passwords.hashPassword('abc123') },
+  // ]);
+  // run fake data creator - if there is no data
+  // await require('../scripts/cria-dados-para-teste').fn()
 
   // Save new bootstrap version
   await sails.helpers.fs.writeJson.with({

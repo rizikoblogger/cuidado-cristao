@@ -1,0 +1,64 @@
+<div id="social-search" v-cloak>
+  <div class="container-fluid px-5">
+
+    <div class="d-flex justify-content-between">
+      <h3>
+        <%= __("Social Services") %>
+      </h3>
+
+      <a @click="novo()" v-if="loggedIn" class="btn btn-success m-1">
+        <%=__('Add')%> <%=__('Service')%>
+      </a>
+    </div>
+
+    <hr>
+  </div>
+
+  <div class="container">
+
+    <template v-if="list.length > 1">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">
+              <%= __("id") %>
+            </th>
+            <th scope="col">
+              <%= __("Name") %>
+            </th>
+            <th scope="col">
+              <%= __("Description") %>
+            </th>
+            <th scope="col">
+              <%= __("Created At") %>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+    
+        <tbody>
+          <tr v-for="social in list">
+            <td scope="row">{{ social.id }}</td>
+            <td scope="row">{{ social.nome }}</td>
+            <td scope="row">{{ social.descricao }}</td>
+            <td scope="row">{{ dateConversion(social.createdAt) }}</td>
+            <td scope="row">
+              <a href="#" class="btn btn-light" v-if="me.isSuperAdmin" @click="goToEdit(social.id)">
+                <span class="fa fa-pencil"></span>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </template>
+    
+    <template v-else>
+      <div class="text-info fw-bolder">
+        <%= __(`No Social Services registered yet.`) ;%>
+      </div>
+    </template>
+
+  </div>
+
+</div>
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser(); %>
