@@ -1,5 +1,7 @@
 # cuidado-cristao
 
+##  O Projeto Cuidado Cristão tem como objetivo disponibilizar um Software Web livre e de código aberto para quem quer gerenciar seus congregados como comunidade dos Servos do Reino de Deus
+
 um Projeto [Sails v1](https://sailsjs.com)
 
 ### Este tutorial considera que você já possui conhecimento mínimo nas seguintes tecnologias:
