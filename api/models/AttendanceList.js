@@ -1,5 +1,5 @@
 /**
- * Classroom.js
+ * AttendanceList.js
  *
  * @description :: A model definition represents a database table/collection.
  * @docs        :: https://sailsjs.com/docs/concepts/models-and-orm/models
@@ -12,17 +12,8 @@ module.exports = {
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-    name: {
-      type: 'string',
-      description: 'The name of classroom.',
-      required: true
-    },
-
-    local: {
-      type: 'string',
-      description: 'The location of class. it can be at Church or some home out there',
-      required: true
-    },
+    description: {type: `string`, required: true},
+    scheduledTo: {type: `string`, columnType: `date`, required: true},
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
@@ -32,21 +23,11 @@ module.exports = {
     //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
-    /* 1 to n with Church */
-    church: {model: `Church`},
+    classroom: {model: `Classroom`, required: true},
 
-    users: {
-      collection: `User`,
-      via: 'classrooms'
-    },
-
-    attendances: {
-      collection: `AttendanceList`,
-      via: `classroom`
-    }
   },
 
-  tableName: 'classroomEclesia'
+  tableName: `attendaceListEclesia`
 
 }
 

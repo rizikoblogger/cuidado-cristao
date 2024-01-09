@@ -47,7 +47,8 @@
     "Usercare": true,
     "Sermon": true,
     "Resource": true,
-    "Guideline": true
+    "Guideline": true,
+    "AttendanceList": true
 
     // …and any others.
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
