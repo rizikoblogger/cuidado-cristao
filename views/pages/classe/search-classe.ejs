@@ -6,10 +6,11 @@
         <h3>
           <%= __("Manage Groups") %>
         </h3>
-  
-        <a href="/classe/edit-classe/new" v-if="me.isSuperAdmin" class="btn btn-success m-1">
-          <%=__('Create')%> <%=__('Group')%>
-        </a>
+  <% if (me) { %>   
+    <a href="/classe/edit-classe/new" v-if="me.isSuperAdmin" class="btn btn-success m-1">
+      <%=__('Create')%> <%=__('Group')%>
+    </a>
+    <% } %>
 
       </div>
   
@@ -37,9 +38,11 @@
               <th scope="row">{{ celula.name }}</td>
               <td scope="row">{{ celula.church.shortName }}</td>
               <td scope="row">
-                <a href="#" class="btn btn-light" v-if="me.isSuperAdmin" @click="edit(celula)" >
-                  <span class="fa fa-pencil"></span>
-                </a>
+                <% if (me) { %>                 
+                  <a href="#" class="btn btn-light" v-if="me.isSuperAdmin" @click="edit(celula)" >
+                    <span class="fa fa-pencil"></span>
+                  </a>
+                  <% } %>
                 
                 <a href="/welcome" class="btn btn-light">
                     <%=__('Join in')%>
