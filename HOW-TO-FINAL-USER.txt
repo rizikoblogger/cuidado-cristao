@@ -1,3 +1,5 @@
+# Developers should ignore this file and read README.md one.
+
 ########################################################
 #       How to run this Project as Final User          #
 ########################################################
@@ -37,5 +39,3 @@ ATTENTION!
 a brand new user. The first User will be an ADMIN by default. After that you have to create a 
 brand new Church as [MOTHER]. Users should create their own credentials by themselves, because
 Admins cannot do it.
-
-# Developers should ignore this file and read README.md one.
