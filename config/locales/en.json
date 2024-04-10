@@ -39,5 +39,21 @@
 	"You can use this system on a computer, tablet or mobile phone": "You can use this system on a computer, tablet or mobile phone",
 	"You can access with congregant, member, deacon, priest, or administrator": "You can access with congregant, member, deacon, priest, or administrator",
 	"Ir para versao em portugues do brasil": "Ir para versao em portugues do brasil",
-	"Go to English version": "Go to English version"
+	"Go to English version": "Go to English version",
+	"Social Services": "Social Services",
+	"Add": "Add",
+	"Service": "Service",
+	"id": "id",
+	"Name": "Name",
+	"Description": "Description",
+	"Created At": "Created At",
+	"No Social Services registered yet.": "No Social Services registered yet.",
+	"If this is the first time you are running it for production, ": "If this is the first time you are running it for production, ",
+	"Manage Groups": "Manage Groups",
+	"Create": "Create",
+	"Group": "Group",
+	"My Church Groups": "My Church Groups",
+	"Group Name": "Group Name",
+	"Church Name": "Church Name",
+	"Join in": "Join in"
 }

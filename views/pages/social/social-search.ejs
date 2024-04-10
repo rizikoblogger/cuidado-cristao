@@ -43,9 +43,11 @@
             <td scope="row">{{ social.descricao }}</td>
             <td scope="row">{{ dateConversion(social.createdAt) }}</td>
             <td scope="row">
-              <a href="#" class="btn btn-light" v-if="me.isSuperAdmin" @click="goToEdit(social.id)">
-                <span class="fa fa-pencil"></span>
-              </a>
+              <% if (me) { %>
+                <a href="#" class="btn btn-light" v-if="me.isSuperAdmin" @click="goToEdit(social.id)">
+                  <span class="fa fa-pencil"></span>
+                </a>
+              <% } %>                
             </td>
           </tr>
         </tbody>
