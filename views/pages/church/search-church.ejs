@@ -21,7 +21,7 @@
             <div class="card-footer">
                 <div class="btn-group">
                     <button v-if="me.isSuperAdmin" class="btn btn-primary bnt-lg m-1" @click="goToEdit(igreja.id)"><em class="fa fa-pencil"></em></button>
-                    <button v-if="me.isSuperAdmin" class="btn btn-danger btn-lg m-1" @click="goToEdit(igreja.id)"><em class="fa fa-trash"></em></button>
+                    <button v-if="me.isSuperAdmin" class="btn btn-primary btn-lg m-1" @click="remove(igreja.id)"><em class="fa fa-trash"></em></button>
                 </div>
             </div>
         </div>

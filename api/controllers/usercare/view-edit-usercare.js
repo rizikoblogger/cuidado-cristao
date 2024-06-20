@@ -29,19 +29,22 @@ module.exports = {
 
     if(id===`new`){
 
-      const user = await User.findOne({id: userId})
+      const User = sails.models.user;
+
+      const user = await User.findOne({id: userId}).populate(`church`)
+      const me = await User.findOne({id: this.req.me.id})
 
       return {
         usercare: {
           dtContact: new Date(),
           record: ``,
-          whoCares: ``,
+          whoCares: me,
           user: user
         }
       }
     }else{
-      const usercare = await Usercare.find({id: id}).populate(`user`)
-      return {usercare}
+      const usercare = await Usercare.findOne({id: id}).populate(`user`).populate('whoCares')
+      return {usercare: usercare}
     }
 
   }

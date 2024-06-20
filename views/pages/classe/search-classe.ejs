@@ -5,6 +5,10 @@
 
     <message id="msg" v-on:close="cleanMessage()" :severity="message.severity" :summary="message.summary" :details="message.details"></message>
 
+    <div class="btn-group mt-2">
+      <a href="/classe/edit-classe/new" class="btn btn-success m-1"><%=__('Create New')%></a>
+    <button class="btn btn-primary m-1" @click="goback()"><%=__('Cancel')%></button>
+    </div>
 
     <div class="display-5"><%=__('Groups of my Church')%></div>
     <ul class="list-group mt-2">
@@ -20,7 +24,6 @@
         </li>
     </ul>
 
-    <button class="btn btn-primary mt-2" @click="goback()"><%=__('Cancel')%></button>
 
 </div>
 <%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>

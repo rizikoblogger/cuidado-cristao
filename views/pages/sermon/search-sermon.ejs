@@ -2,6 +2,10 @@
 
     <div class="container">
       <div class="display-3"><%=__('Search Sermon')%></div>
+      <div class="btn-group mt-2">
+        <a href="/sermon/edit-sermon/new" class="btn btn-primary m-1"><%=__('Create New')%></a>
+        <a href="/welcome" class="btn btn-primary m-1"><%=__('Cancel')%></a>
+      </div>
       <hr>
       <table class="table table-striped">
         <caption><%=__('Total')%>: {{sermons.length}}</caption>
@@ -15,7 +19,7 @@
         </thead>
         <tbody>
           <tr v-for="sermon in sermons">
-            <td headers="0"> 
+            <td headers="0">
               <a :href="`/sermon/edit-sermon/`+sermon.id" class="btn btn-sm btn-primary"><em class="fa fa-pencil"></em></a>
             </td>
             <td headers="1">{{sermon.church.shortName}}</td>
@@ -25,12 +29,9 @@
         </tbody>
       </table>
 
-      <div class="btn-group mt-2">
-        <a href="/sermon/edit-sermon/new" class="btn btn-primary m-1"><%=__('Create New')%></a>
-        <a href="/welcome" class="btn btn-primary m-1"><%=__('Cancel')%></a>
-      </div>
-
     </div>
- 
+
 </div>
 <%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>
+<script setup lang="ts">
+</script>

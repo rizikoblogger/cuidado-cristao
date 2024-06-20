@@ -3,9 +3,6 @@
     <account-notification-banner></account-notification-banner>
 
     <div class="container-fluid px-5">
-        <span class="text-info fw-bolder">
-            <%= __('Available Services') %>
-        </span>
 
         <div class="container">
 
@@ -36,7 +33,7 @@
                     </div>
 
                     <div class="card m-2 col-sm-2">
-                        <a class="text-decoration-none" href="/resource/search-classe">
+                        <a class="text-decoration-none" href="/resource/search-resource">
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <%= __('Resources') %>
@@ -74,7 +71,7 @@
                                 <h5 class="card-title">
                                     <%= __('Social Service') %>
                                 </h5>
-                                <small class="card-text text-muted"><%= __(`Manage Sermons of your church`) %></small>
+                                <small class="card-text text-muted"><%= __(`Manage church's Social Service`) %></small>
                             </div>
                         </a>
                     </div>
@@ -85,7 +82,7 @@
                                 <h5 class="card-title">
                                     <%= __('Frequently Asked Questions') %>
                                 </h5>
-                                <small class="card-text text-muted"><%= __(`Manage Sermons of your church`) %></small>
+                                <small class="card-text text-muted"><%= __(`Create answers to your main questions`) %></small>
                             </div>
                         </a>
                     </div>
@@ -102,7 +99,7 @@
                 // },
                 %>
 
-                <% if(me.profile && me.profile === `administrator`) { %>
+                <% if((me.profile && me.profile === `administrator`) || me.isSuperAdmin) { %>
 
                     <div class="card m-2 col-sm-2">
                         <a class="text-decoration-none" href="/contribution/search-contribution">
@@ -164,9 +161,9 @@
                         <div class="link-primary text-decoration-none pointer" @click="toogleChurchList()">
                             <div class="card-body">
                                 <h5 class="card-title">
-                                    <%= __('Change') %> <%=__(`Church`)%> {{church.shortName}}
+                                    <%= __('Change') %> <%=__('Selected')%> <%=__(`Church`)%>
                                 </h5>
-                                <small class="card-text text-muted">{{church.address}}</small>
+                                <small class="card-text text-muted"> at {{church.address}}</small>
                             </div>
                         </div>
                     </div>

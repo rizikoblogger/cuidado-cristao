@@ -13,7 +13,7 @@ parasails.registerPage('search-church', {
     //…
   },
   mounted: async function() {
- 
+
   },
 
   //  ╦╔╗╔╔╦╗╔═╗╦═╗╔═╗╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
@@ -34,6 +34,16 @@ parasails.registerPage('search-church', {
 
     create: function() {
       this.goto('/church/edit-church/new')
+    },
+
+    remove: function(id) {
+      Cloud
+        .deleteChurch(id)
+        .then(()=>{this.goto(`/church/search-church`)})
+        .catch((err)=>{
+          console.log(err)
+          alert('Sorry! Something goes wrong')
+        })
     }
   }
 });

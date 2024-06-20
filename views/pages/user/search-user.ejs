@@ -12,7 +12,7 @@
         <ul class="list-group mt-2">
             <li class="list-group-item" v-for="user in users">
                 <a :href="'/user/edit-user/'+user.id" class="btn btn-sm btn-primary"><em class="fa fa-pencil"></em></a>
-                <span><em :class="user.isSuperAdmin?'fa fa-star text-danger':'fa fa-user'"></em></span> {{user.emailAddress}} - {{user.fullName}} ({{user.emailStatus}})
+                <span><em :class="user.isSuperAdmin?'fa fa-star text-danger':'fa fa-user'"></em></span> {{user.emailAddress}} - {{user.fullName}} ({{user.emailStatus?user.emailStatus:`unconfirmed`}})
             </li>
         </ul>
     </div>

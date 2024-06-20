@@ -23,7 +23,16 @@ parasails.registerPage('edit-usercare', {
 
     //TODO:
     save: function () {
-      alert(`Saved `+ this.usercare.record)
+      Cloud
+        .saveUsercare
+        .with(this.usercare)
+        .then(()=>{
+          alert(`Saved successfully`)
+        })
+        .catch((err)=>{
+          console.log(err)
+          alert('Error on saving')
+        })
     }
   }
 });

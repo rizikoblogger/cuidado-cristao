@@ -158,7 +158,7 @@
         <div class="btn-group mt-2">
             <ajax-button type="submit" :syncing="syncing" class="btn btn-primary m-1"><%= __('Save') %></ajax-button>
 
-            <button type="button" class="btn btn-danger m-1" data-bs-toggle="modal"
+            <button type="button" class="btn btn-primary m-1" data-bs-toggle="modal"
                     data-bs-target="#exampleModal"><%= __('Delete'); %></button>
             <button class="btn btn-secondary m-1" @click="goToBack()"><%= __('Cancel'); %></button>
         </div>
@@ -199,7 +199,7 @@
                 <div class="modal-body">
                     <ul class="list-group mt-1">
                         <li class="list-group-item" v-for="meet in igreja.churchMeetings">
-                            <button class="btn btn-danger m-1" @click="removeMeeting(meet)"><em class="fa fa-trash"></em></button>
+                            <button class="btn btn-primary m-1" @click="removeMeeting(meet)"><em class="fa fa-trash"></em></button>
                             {{meet}}
                         </li>
                     </ul>
@@ -226,7 +226,7 @@
                 <div class="modal-body">
                     <ul class="list-group mt-1">
                         <li class="list-group-item" v-for="learning in igreja.churchLearnings">
-                            <button class="btn btn-danger m-1" @click="removeLearning(learning)"><em class="fa fa-trash"></em></button>
+                            <button class="btn btn-primary m-1" @click="removeLearning(learning)"><em class="fa fa-trash"></em></button>
                             {{learning}}
                         </li>
                     </ul>
@@ -253,7 +253,7 @@
                 <div class="modal-body">
                     <ul class="list-group mt-1">
                         <li class="list-group-item" v-for="facility in igreja.churchFacilities">
-                            <button class="btn btn-danger m-1" @click="removeFacility(facility)"><em class="fa fa-trash"></em></button>
+                            <button class="btn btn-primary m-1" @click="removeFacility(facility)"><em class="fa fa-trash"></em></button>
                             {{facility}}
                         </li>
                     </ul>
