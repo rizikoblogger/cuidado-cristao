@@ -1,5 +1,5 @@
 /**
- * Classroom.js
+ * Guideline.js
  *
  * @description :: A model definition represents a database table/collection.
  * @docs        :: https://sailsjs.com/docs/concepts/models-and-orm/models
@@ -12,17 +12,32 @@ module.exports = {
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-    name: {
-      type: 'string',
-      description: 'The name of classroom.',
-      required: true
+
+    order: {
+      type: 'number',
+      required: true,
+      description: `Order to ordering`
     },
 
-    local: {
+    title: {
       type: 'string',
-      description: 'The location of class. it can be at Church or some home out there',
-      required: true
+      required: true,
+      description: 'Title of guideline'
     },
+
+    text: {
+      type: 'string',
+      required: true,
+      description: `The Guideline by itself`
+    },
+
+    from: {
+      type: 'string',
+      required: true,
+      description: 'Who issued this guideline'
+    },
+
+
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
@@ -32,21 +47,14 @@ module.exports = {
     //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
-    /* 1 to n with Church */
-    church : { model: `Church`},
 
-    users: {
-      collection: `User`,
-      via: 'classrooms'
-    },
-
-    guidelines: {
-      collection: `Guideline`,
-      via: 'tos'
+    tos: {
+      collection: `Classroom`,
+      via: `guidelines`,
+      description: 'List of model/Classroom.js that should see this guideline'
     }
+
   },
 
-  tableName: 'classroomEclesia'
-
-}
+};
 

@@ -1,0 +1,42 @@
+<div id="edit-guideline" class="container" v-cloak>
+
+<div class="display-3"><%=__('Edit Guideline')%></div>
+<hr>
+
+<label for="from"><%=__('From')%></label>
+<input type="text" class="form-control" id="from" v-model="guideline.from" required placeholder="The name of sender">
+
+<label for="order"><%=__('Order')%></label>
+<input type="number" class="form-control" id="order" v-model="guideline.order" required placeholder="Order to ordering">
+
+<label for="title"><%=__('Title')%></label>
+<input type="text" class="form-control" id="title" v-model="guideline.title" required placeholder="Title of guideline">
+
+<label for="text"><%=__('Text')%></label>
+<input type="text" class="form-control" id="text" v-model="guideline.text" required placeholder="The Guideline by itself">
+
+<label for="classrooms"><%=__('Groups')%></label>
+<ul class="list-group form-control" id="classrooms">
+  <li class="list-group-item" v-for="classroom in guideline.tos">
+    <button class="btn btn-primary btn-sm" @click="remove(classroom)"><em class="fa fa-trash"></em></button>
+    {{classroom.name}}
+  </li>
+</ul>
+
+<div class="btn-group mt-2">
+  <button class="btn btn-primary m-1" @click="save()"><%=__('Save')%></button>
+  <a href="/" class="btn btn-primary m-1"><%=__('Cancel')%></a>
+</div>
+
+<hr>
+
+<ul class="list-group">
+  <li class="list-group-item" v-for="classroom in classrooms">
+    <button class="btn btn-primary" @click="addClassroom(classroom)"><em class="fa fa-plus"></em></button>
+    {{classroom.name}}
+  </li>
+</ul>
+
+
+</div>
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>
