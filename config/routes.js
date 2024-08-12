@@ -112,8 +112,11 @@ module.exports.routes = {
   'DELETE /api/v1/delete-church': { action: 'church/delete-church' },
 
   'POST /api/v1/social/save-social': { action: 'social/save-social' },
+
   'POST /api/v1/classe/save-user-classe': { action: 'classe/save-user-classe' },
   'DELETE /api/v1/classe/remove-user-classe': { action: 'classe/remove-user-classe' },
+  'POST /api/v1/classe/save-classe': { action: 'classe/save-classe' },
+
   'POST /api/v1/church/save-user-church': { action: 'church/save-user-church' },
   'POST /api/v1/sermon/save-sermon': { action: 'sermon/save-sermon' },
   'POST /api/v1/resource/save-resource': { action: 'resource/save-resource' },

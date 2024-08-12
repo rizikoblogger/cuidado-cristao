@@ -49,12 +49,12 @@
         <label for="church">
             <%= __(`The church a group belongs`) %>
         </label>
-        <select class="form-select" aria-label="church select">
+        <select class="form-select" aria-label="church select" v-model="classe.church">
             <option selected>Select a Church</option>
-            <option v-for="church in churchs">{{church.fullName}}</option>
+            <option v-for="church in churchs" :value="church.id">{{church.fullName}}</option>
         </select>
 
-        <button class="btn btn-primary mt-2">
+        <button type="button" class="btn btn-primary mt-2" @click="save()">
             <span class="fa fa-save pe-2"></span>
             <%= __('Save') %>
         </button>

@@ -114,7 +114,8 @@
           </label>
           <input name="tipo" id="tipo" type="text" class="form-control" v-model="igreja.tipo" disabled="disabled">
         </div>
-        <div class="col">
+
+        <div class="col" v-if="igreja.id">
 
           <div class="text-start">
             <span>
@@ -123,16 +124,16 @@
                   <%=__(`Meettings`) %>
                 </a> |
                 <a href="#" data-bs-toggle="modal" data-bs-target="#learning">
-                  <%=__(`Learning`) %>
+                  <%=__(`Learnings`) %>
                 </a> |
                 <a href="#" data-bs-toggle="modal" data-bs-target="#facilities">
                   <%=__(`Facilites`) %>
                 </a> |
                 <a href="/sermon/search-sermon">
-                  <%=__(`Sermon`) %>
+                  <%=__(`Sermons`) %>
                 </a> |
                 <a href="/classe/search-classe">
-                  <%=__(`Group`) %>
+                  <%=__(`Groups`) %>
                 </a>
             </span>
           </div>
