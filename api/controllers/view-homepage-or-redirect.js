@@ -27,19 +27,20 @@ module.exports = {
 
     if (this.req.me) {
       throw {redirect:'/welcome'}
-    }
-    const exist = await Church.count({tipo: 'MOTHER'})
-    if(exist>0){
-
-      const mainChurch = await Church.findOne({tipo: 'MOTHER'})
-      const classRooms = await Classroom.find()
-      const socialServices = await SocialService.find()
-      const sermons = await Sermon.find()
-
-      return {mainChurch: mainChurch, classRooms: classRooms, socialServices: socialServices, sermons: sermons }
-
     }else{
-      return {mainChurch: {shortName: ``}, classRooms: [], socialServices: [], sermons: []}
+      const exist = await Church.count({tipo: 'MOTHER'})
+      if(exist>0){
+        
+        const mainChurch = await Church.findOne({tipo: 'MOTHER'})
+        const classRooms = await Classroom.find()
+        const socialServices = await SocialService.find()
+        const sermons = await Sermon.find()
+        
+        return {mainChurch: mainChurch, classRooms: classRooms, socialServices: socialServices, sermons: sermons }
+        
+      }else{
+        return {mainChurch: {shortName: ``}, classRooms: [], socialServices: [], sermons: []}
+      }
     }
 
   }

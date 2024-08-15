@@ -44,7 +44,7 @@
       <input type="hidden" name="_csrf" value="<%= _csrf %>">
 
       <label for="tipo">
-        <%=__('Tipo')%>
+        <%=__('Type')%>
       </label>
       <input id="tipo" name="tipo" type="text" class="form-control" :class="[formErrors.tipo ? 'is-invalid' : '']"
         focus-first required minlength="3" maxlength="30" v-model="formData.tipo">
@@ -72,9 +72,9 @@
       </label>
       <input class="form-control" disabled aria-label="church" v-if="resource.id" :value="resource.church?.name">
 
-      <select class="form-select" aria-label="church select" v-else>
-        <option selected>Select a Church</option>
-        <option v-for="church in churchs" :value="church.id">{{church.fullName}}</option>
+      <select class="form-select" aria-label="church select" name="church" v-else v-model="formData.church">
+        <option selected><%=__('Select a Church')%></option>
+        <option v-for="church in churchs" :value="church">{{church.fullName}}</option>
       </select>
 
 
