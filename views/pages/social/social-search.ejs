@@ -7,7 +7,8 @@
       </h3>
 
       <a @click="novo()" v-if="loggedIn" class="btn btn-success m-1">
-        <%=__('Add')%> <%=__('Service')%>
+        <%=__('Add')%>
+          <%=__('Service')%>
       </a>
     </div>
 
@@ -35,7 +36,7 @@
             <th scope="col"></th>
           </tr>
         </thead>
-    
+
         <tbody>
           <tr v-for="social in list">
             <td scope="row">{{ social.id }}</td>
@@ -43,15 +44,18 @@
             <td scope="row">{{ social.descricao }}</td>
             <td scope="row">{{ dateConversion(social.createdAt) }}</td>
             <td scope="row">
-              <a href="#" class="btn btn-light" v-if="me.isSuperAdmin" @click="goToEdit(social.id)">
-                <span class="fa fa-pencil"></span>
-              </a>
+              <% if (me) { %>
+                <a href="#" class="btn btn-light" v-if="me.isSuperAdmin" @click="goToEdit(social.id)">
+                  <span class="fa fa-pencil"></span>
+                </a>
+                <% } %>
+
             </td>
           </tr>
         </tbody>
       </table>
     </template>
-    
+
     <template v-else>
       <div class="text-info fw-bolder">
         <%= __(`No Social Services registered yet.`) ;%>
