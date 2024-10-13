@@ -18,7 +18,7 @@ um Projeto [Sails v1](https://sailsjs.com)
    `npm i sails -g`
 
 2) Testar a instalação
-   `sails --version
+   `sails --version`
 
 3) Criar arquivo de banco de dados local
    O Sails cria um bando de dados local de testes pra voce automaticamente, basta criar um arquivo [config/local.js] com o seguinte conteúdo
