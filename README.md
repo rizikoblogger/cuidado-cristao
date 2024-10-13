@@ -12,25 +12,32 @@ um Projeto [Sails v1](https://sailsjs.com)
 * npm; e
 * node.
 
-### O que ja foi feito e tu não precisas fazer:
+### O que tu precisas fazer:
 
-1) Instalado o sails.js
+1) Instalar o sails.js
    `npm i sails -g`
 
-2) Criado nosso primeiro template de Projeto
-   `sails new cuidado-cristao`
+2) Testar a instalação
+   `sails --version
 
-- Quando perguntado, foi respondido 1 - Web
+3) Criar arquivo de banco de dados local
+   O Sails cria um bando de dados local de testes pra voce automaticamente, basta criar um arquivo [config/local.js] com o seguinte conteúdo
+   <pre>
+module.exports = {
+    datastores: {
+        default: {
+            adapter: 'sails-disk'
+        }
+    }
+}
+   </pre>
 
-3) Navegou-se para o diretorio criado
-   `cd cuidado-cristao`
-
-4) Executado nosso projeto recém criado para verificar se tudo estava ok.
+4) Executar nosso projeto recém importado para verificar se tudo está ok.
    `sails lift`
 
-   Como tudo estava ok, navegamos para `http://localhost:1337` e vimos o primeiro prototipo funcionando.
+   Estava ok, navegue para `http://localhost:1337` e veja o primeiro prototipo funcionando.
 
-5) Como boa prática, instalamos os seguintes pacotes adicionais:
+5) Atente que instalamos os seguintes pacotes adicionais:
 
 * `dotenv-safe: npm i dotenv-safe --save`
 * `mongodb: npm i moongodb --save`
@@ -82,6 +89,9 @@ require('dotenv-safe').config();
    e uma entidade de persistencia chamada NomeFuncionalidade (/api/models/NomeFuncionalidade,js)
 
    `sails generate api nome-funcionalidade`
+
+   Para criar novos Endpoints isolados, ou seja, sem associação direta com um Modelo do Banco de Dados, utilize o comando:
+   `sails generate controller nome-do-controller` e não se esqueça de criar também o PATH no arquivo config/routes.js.
 
 
 10) Para implementar comportamento na Nova Funcionalidade,
@@ -288,6 +298,7 @@ module.exports = {
 };
 </pre>
 
+
 ### Definindo o tipo e versão do banco de dados
 
 14) O Sails se utiliza de adaptadores javascript para conexao com diversos bancos de dados.
@@ -343,15 +354,7 @@ migrate: 'alter',
 
 </pre>
 
-### Pronto, O Projeto está funcionando!
-
-Para criar novos Endpoints isolados, ou seja, sem associação direta com um Modelo do Banco de Dados, utilize o comando:
-`
-sails generate controller nome-do-controller
-`
-e não se esqueça de criar também o PATH no arquivo routes.js.
-
-### Criando dados para teste
+## Criando dados para teste
 
 Nosso prototipo ja possui um _script_ capaz de gerar dados para teste.
 O arquivo ``scripts/cria-dados-para-teste.js``. Para executa-lo, abra um
@@ -360,7 +363,7 @@ Depois disso, reinicie com ``sails lift``. **Se tudo correu bem, foi criado um
 usuario [admin@example.com] com a senha [abc123] e com Perfil [SuperAdmin]**
 
 
-## Estamos felizes que você tenha lido até aqui!
+> Estamos felizes que você tenha lido até aqui!
 
 Porém, temos um pouco mais de informação importante pra você, o Sails Action 2:
 
@@ -381,7 +384,7 @@ Visite [Sails Actions & Controllers](https://www.sailsjs.tec.br/#actions) para s
 
 ### Links Adicionais
 
-+ [Documentação do Sails framework](https://sailsjs.com/get-starte*
++ [Documentação do Sails framework](https://sailsjs.com/get-starte)*
 + [Notas da Versão/Atualização](https://sailsjs.com/documentation/upgrading)
 + [Dicas para deploy](https://sailsjs.com/documentation/concepts/deployment)
 + [Opções de Support gratúito](https://sailsjs.com/support)
