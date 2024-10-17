@@ -21,8 +21,9 @@ um Projeto [Sails v1](https://sailsjs.com)
    `sails --version`
 
 3) Criar arquivo de banco de dados local
-   O Sails cria um bando de dados local de testes pra voce automaticamente, basta criar um arquivo [config/local.js] com o seguinte conteúdo
-   <pre>
+
+   O Sails cria um bando de dados local de testes pra voce automaticamente, basta criar um arquivo [config/local.js] com o seguinte conteúdo: <br>
+   <code>
 module.exports = {
     datastores: {
         default: {
@@ -30,7 +31,7 @@ module.exports = {
         }
     }
 }
-   </pre>
+   </code>
 
 4) Executar nosso projeto recém importado para verificar se tudo está ok.
    `sails lift`
