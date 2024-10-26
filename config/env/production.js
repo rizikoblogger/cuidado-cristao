@@ -47,8 +47,8 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
     default: {
-      adapter: process.env.DATASTORE_ADAPTER | 'sails-disk',
-      url: process.env.DATASTORE_URL | 'mysql://user:password@host:port/database',
+      adapter: process.env.DATASTORE_ADAPTER ,
+      url: process.env.DATASTORE_URL ,
       //--------------------------------------------------------------------------
       //  /\   To avoid checking it in to version control, you might opt to set
       //  ||   sensitive credentials like `url` using an environment variable.
@@ -354,7 +354,7 @@ module.exports = {
   * this, just try deploying without setting it and see if it works.)       *
   *                                                                         *
   ***************************************************************************/
-  port: process.env.SERVER_PORT | 80,
+  port: process.env.SERVER_PORT ,
 
 
 
@@ -388,11 +388,11 @@ module.exports = {
   *                                                                         *
   ***************************************************************************/
   custom: {
-    baseUrl: process.env.BASE_URL | 'http://localhost:1337',
-    internalEmailAddress: process.env.INTERNAL_EMAIL_ADDRESS | 'support@example.com',
+    baseUrl: process.env.BASE_URL ,
+    internalEmailAddress: process.env.INTERNAL_EMAIL_ADDRESS ,
 
-    sendgridSecret: process.env.SENDGRID_SECRET | 'SG.fake.3e0Bn0qSQVnwb1E4qNPz9JZP5vLZYqjh7sn8S93oSHU',
-    stripeSecret: process.env.STRIPE_SECRET | 'sk_prod__fake_Nfgh82401348jaDa3lkZ0d9Hm',
+    sendgridSecret: process.env.SENDGRID_SECRET ,
+    stripeSecret: process.env.STRIPE_SECRET ,
     //--------------------------------------------------------------------------
     // /\   OR, to avoid checking them in to version control, you might opt to
     // ||   set sensitive credentials like these using environment variables.

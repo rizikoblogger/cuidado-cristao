@@ -389,7 +389,7 @@ Visite [Sails Actions & Controllers](https://www.sailsjs.tec.br/#actions) para s
 + [Notas da Versão/Atualização](https://sailsjs.com/documentation/upgrading)
 + [Dicas para deploy](https://sailsjs.com/documentation/concepts/deployment)
 + [Opções de Support gratúito](https://sailsjs.com/support)
-+ [Opções de suporter profissional](https://sailsjs.com/enterprise)
++ [Opções de suporte profissional](https://sailsjs.com/enterprise)
 
 ### Informações da versão (Inglês)
 
