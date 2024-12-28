@@ -35,7 +35,7 @@
             <th scope="col"></th>
           </tr>
         </thead>
-    
+
         <tbody>
           <tr v-for="social in list">
             <td scope="row">{{ social.id }}</td>
@@ -47,13 +47,13 @@
                 <a href="#" class="btn btn-light" v-if="me.isSuperAdmin" @click="goToEdit(social.id)">
                   <span class="fa fa-pencil"></span>
                 </a>
-              <% } %>                
+              <% } %>
             </td>
           </tr>
         </tbody>
       </table>
     </template>
-    
+
     <template v-else>
       <div class="text-info fw-bolder">
         <%= __(`No Social Services registered yet.`) ;%>

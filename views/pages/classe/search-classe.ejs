@@ -1,30 +1,30 @@
 <div id="search-classe" v-cloak>
 
     <div class="container-fluid px-5">
-  
+
       <div class="d-flex justify-content-between">
         <h3>
           <%= __("Manage Groups") %>
         </h3>
   <% if (me) { %>
-   
+
     <a href="/classe/edit-classe/new" v-if="me.isSuperAdmin" class="btn btn-success m-1">
       <%=__('Create')%> <%=__('Group')%>
     </a>
   <% } %>
 
       </div>
-  
+
       <hr>
 
       <message id="msg" v-on:close="cleanMessage()" :severity="message.severity" :summary="message.summary" :details="message.details"></message>
-  
+
       <div class="container">
 
         <span class="text-info fw-bolder">
             <%=__('My Church Groups')%>
         </span>
-  
+
         <table class="table">
           <thead>
             <tr>
@@ -33,19 +33,19 @@
               <th scope="col"></th>
             </tr>
           </thead>
-  
+
           <tbody>
             <tr v-for="celula in classes">
               <th scope="row">{{ celula.name }}</td>
               <td scope="row">{{ celula.church.shortName }}</td>
               <td scope="row">
                 <% if (me) { %>
-                 
+
                   <a href="#" class="btn btn-light" v-if="me.isSuperAdmin" @click="edit(celula)" >
                     <span class="fa fa-pencil"></span>
                   </a>
                 <% } %>
-                
+
                 <a href="/welcome" class="btn btn-light">
                     <%=__('Join in')%>
                     <span class="fa fa-plus"></span>
@@ -55,10 +55,10 @@
             </tr>
           </tbody>
         </table>
-  
+
       </div>
-  
+
     </div>
-  
+
   </div>
   <%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>
