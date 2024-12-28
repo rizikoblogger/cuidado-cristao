@@ -38,7 +38,12 @@ module.exports = {
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
     user: {
       model: `User`,
-      description: 'Record of contact, pray, service or any other relationship with User'
+      description: 'The ID of cared User'
+    },
+
+    owner: {
+      model: 'User',
+      description: 'The ID of who cares of'
     }
   },
 

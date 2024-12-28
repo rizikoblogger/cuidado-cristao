@@ -64,25 +64,34 @@ module.exports = {
 
   fn: async function (inputs) {
 
-    if(inputs.id) {
+    const User = sails.models.user
+
+    if (inputs.id) {
 
       const userCaresIds = []
       const socialServicesIds = []
       const contributionsIds = []
       const classroomsIds = []
 
-      const churchId  = inputs.church.id
-      if(inputs.userCares) inputs.userCares.forEach(care=>userCaresIds.push(care.id))
-      if(inputs.socialServices) inputs.socialServices.forEach(social=>socialServicesIds.push(social.id))
-      if(inputs.contributions) inputs.contributions.forEach(contribution=>contributionsIds.push(contribution.id))
-      if(inputs.classrooms) inputs.classrooms.forEach(classroom=>classroomsIds.push(classroom.id))
+      if (inputs.userCares) {
+        inputs.userCares.forEach(care => userCaresIds.push(care.id))
+      }
+      if (inputs.socialServices) {
+        inputs.socialServices.forEach(social => socialServicesIds.push(social.id))
+      }
+      if (inputs.contributions) {
+        inputs.contributions.forEach(contribution => contributionsIds.push(contribution.id))
+      }
+      if (inputs.classrooms) {
+        inputs.classrooms.forEach(classroom => classroomsIds.push(classroom.id))
+      }
 
       await User.updateOne({id: inputs.id}, {
         profile: inputs.profile,
         emailAddress: inputs.emailAddress,
         fullName: inputs.fullName,
         isSuperAdmin: inputs.isSuperAdmin,
-        church: churchId,
+        church: inputs.church ? inputs.church.id : undefined,
         userCares: [],
         socialServices: [],
         contributions: [],

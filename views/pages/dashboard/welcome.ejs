@@ -45,17 +45,15 @@
 
             <cc-card
                 title="<%= __('Join Group') %>"
-                href="#"
+                href="/classe/search-classe"
                 description="<%= __(`Select a Group to join and start learning`) %>"
-                <% //@click="toogleGroupList()" %>
             />
 
             <!-- List of groups user belongs to -->
             <cc-card v-for="classroom in user.classrooms"
                 :title="classroom.name"
                 :description="classroom.local"
-                href="#"
-                <% //@click="leave(group)" %>
+                href="/classe/search-classe"
             />
 
         </cc-card-list>
@@ -128,5 +126,5 @@
 </div>
 
 
-</div>
+
 <%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>

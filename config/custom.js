@@ -22,7 +22,7 @@ module.exports.custom = {
   * > but it can also be used for user-uploaded images, webhooks, etc.      *
   *                                                                         *
   **************************************************************************/
-  baseUrl: 'http://localhost:1337',
+  baseUrl: process.env.BASE_URL,
 
   /**************************************************************************
   *                                                                         *
@@ -32,7 +32,7 @@ module.exports.custom = {
   * > that is displayed all over the app when it's first generated.         *
   *                                                                         *
   **************************************************************************/
-  platformCopyrightYear: '2021',
+  platformCopyrightYear: '2025',
 
   /**************************************************************************
   *                                                                         *
@@ -69,7 +69,7 @@ module.exports.custom = {
 
   // The sender that all outgoing emails will appear to come from.
   fromEmailAddress: 'noreply@example.com',
-  fromName: 'The NEW_APP_NAME Team',
+  fromName: 'The Cristiam Care Team',
 
   // Email address for receiving support messages & other correspondences.
   // > If you're using the default privacy policy, this will be referenced

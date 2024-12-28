@@ -42,7 +42,7 @@ module.exports = {
 
     billingCardExpYear: {
       type: 'string',
-      example: '2023',
+      example: '2025',
       description: 'Omit if removing card info.',
       whereToGet: { description: 'Credit card info is provided by Stripe after completing the checkout flow.' }
     },

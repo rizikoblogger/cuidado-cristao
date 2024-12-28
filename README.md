@@ -7,70 +7,25 @@ um Projeto [Sails v1](https://sailsjs.com)
 ### Este tutorial considera que você já possui conhecimento mínimo nas seguintes tecnologias:
 
 * Javascript ES6; e
-* MongoDB 3+.
+* MongoDB 4+.
 
 ### Consideramos ainda que você já instalou o Node.js na sua estação de trabalho e possui conhecimento mínimo quanto aos seguintes comandos de console:
 
 * npm; e
 * node.
 
-### O que ja foi feito e tu não precisas fazer:
+### Preparação do Ambiente:
 
-1) Instalado o sails.js
-   `npm i sails -g`
+```npm install sails -g```
 
-2) Criado nosso primeiro template de Projeto
-   `sails new cuidado-cristao`
+#### Definindo as Variáveis de Ambiente (ENVIRONMENT VARIABLES)
 
-- Quando perguntado, foi respondido 1 - Web
+O Projeto requer que as seguintes variáveis de ambiente estejam disponíveis:
 
-3) Navegou-se para o diretorio criado
-   `cd cuidado-cristao`
+* NODE_ENV (production o development)
+* BASE_URL (endereco http no qual o sistema será executado. ex: http://localhost:1337)
 
-4) Executado nosso projeto recém criado para verificar se tudo estava ok.
-   `sails lift`
-
-   Como tudo estava ok, navegamos para `http://localhost:1337` e vimos o primeiro prototipo funcionando.
-
-5) Como boa prática, instalamos os seguintes pacotes adicionais:
-
-* `dotenv-safe: npm i dotenv-safe --save`
-* `mongodb: npm i moongodb --save`
-* `sails-mongo adapter: npm i sails-mongo --save`
-
-6) Uma vez instalado o dotenv-safe, foi necessário criar na raíz do Projeto dois arquivos, são eles _.env.example_ e _
-   .env_:
-
-* .env.example - contendo o nome das variáveis de ambiente que deverão ser carregadas em memória antes da execução do
-  Projeto. Este arquivo DEVE SER ENVIADO PARA o repositório Git(ou equivalente); e
-* .env - contendo o nome das variáveis e os valores associdas as mesmas. Este arquivo NÃO PODE SER ENVIADO PARA O
-  repositório Git (ou equivalente). Deve existir somente na estação do desenvolvedor.
-
-<pre>
-# .env.example
-
-NODE_ENV=
-</pre>
-
-<pre>
-# .env
-
-NODE_ENV=development
-</pre>
-
-7) O Sails.js foi concebido para execução em ambiente Linux e, mesmo sendo multiplataforma, requer alguns peguenos
-   ajustes se você pretende utilizá-lo no Windows.
-
-* No arquivo package.json, altere a linha ["start": "NODE_ENV=production node app.js",] para ["start": "node app.js",]
-* No arquivo package.json, remova a
-  linha ["deploy": "echo 'This script assumes a dead-simple, opinionated setup on Heroku.'...]
-* No arquivo app.js, adicione uma primeira linha com o seguinte conteúdo:
-
-`
-require('dotenv-safe').config();
-`
-
-8) Agora podemos executar o Sails com um dos seguintes comandos:
+> Agora, na raiz do Projeto, podemos executar o Sails com um dos seguintes comandos:
 
 * npm start; ou
 * node app.js; ou
@@ -134,7 +89,7 @@ Observe que as respostas (response) atribuídas a variável res (passada como pa
 &lt;body&gt;
  Mostrando a palavra {{param}} aqui.
  ou
- Monstando &lt;%=param %&gt; também.
+ Mostrando &lt;%=param %&gt; também.
 
  Acessando a variavel de ambiente environment exposta em SAILS_LOCALS
  cujo valor seria o definido na variável de ambiente NODE_ENV ('development') <%- _environment %>
@@ -391,7 +346,7 @@ Visite [Sails Actions & Controllers](https://www.sailsjs.tec.br/#actions) para s
 
 ### Informações da versão (Inglês)
 
-This app was originally generated on Tue Jan 10 2023 15:35:58 GMT-0300 (Horário Padrão de Brasília) using Sails v1.5.3.
+This app was originally generated on Tue Jan 10 2025 15:35:58 GMT-0300 (Horário Padrão de Brasília) using Sails v1.5.3.
 
 <!-- Internally, Sails used [`sails-generate@2.0.7`](https://github.com/balderdashy/sails-generate/tree/v2.0.7/lib/core-generators/new). -->
 
