@@ -143,7 +143,7 @@ without necessarily having a billing card.`
 
     billingCardExpYear: {
       type: 'string',
-      example: '2023',
+      example: '2025',
       description: 'The four-digit expiration year from this user\'s default billing card, formatted as YYYY (or empty string if no credit card is set up).',
       extendedDescription: 'To ensure PCI compliance, this data comes from Stripe, where it reflects the user\'s default payment source.'
     },
@@ -175,7 +175,14 @@ without necessarily having a billing card.`
 
     userCares: {
       collection: `Usercare`,
-      via: `user`
+      via: `owner`,
+      description: 'Usercare this User takes care of'
+    },
+
+    myCares: {
+      collection: 'Usercare',
+      via: 'user',
+      description: 'Cares of me'
     },
 
     socialServices: {

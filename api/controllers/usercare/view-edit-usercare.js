@@ -11,7 +11,7 @@ module.exports = {
     userId: {
       type: `string`,
       required: false,
-      description: `The model/User.js id to associate when creating a brand new UserCare`
+      description: `The model/User.js who will be cared of`
     }
   },
 
@@ -28,20 +28,23 @@ module.exports = {
   fn: async function ({id, userId}) {
 
     if(id===`new`){
-
-      const user = await User.findOne({id: userId})
-
+      let user = await User.findOne(userId)
+      await sails.helpers.redactUser(user)
       return {
         usercare: {
           dtContact: new Date(),
           record: ``,
           whoCares: ``,
-          user: user
+          user: user,
+          owner: this.req.me.id
         }
       }
     }else{
-      const usercare = await Usercare.find({id: id}).populate(`user`)
-      return {usercare}
+      const usercare = await Usercare.findOne({id: id})
+      let user = await User.findOne(userId)
+      await sails.helpers.redactUser(user)
+      usercare.user = user
+      return {usercare: usercare}
     }
 
   }

@@ -24,7 +24,8 @@
             <td headers="4">
                 <ul class="list-group">
                     <li class="list-group-item" v-for="usercare in user.userCares">
-                        <a :href="'/usercare/edit-usercare/'+usercare.id+'/edit'" class="btn btn-sm btn-primary"><em class="fa fa-eye"></em></a>
+                        <a :href="'/usercare/edit-usercare/'+usercare.id+'/'+user.id" class="btn btn-sm btn-primary"><em class="fa fa-eye"></em></a>
+                        <js-timestamp :at="usercare.createdAt"></js-timestamp>: {{usercare.record}}
                     </li>
                 </ul>
             </td>

@@ -28,14 +28,17 @@
 
         <tbody>
           <tr v-for="igreja in page.content">
-            <th scope="row">{{ igreja.id }}</td>
-            <td scope="row">{{ igreja.shortName }}</td>
-            <td scope="row">{{ igreja.tipo }}</td>
-            <td scope="row">
+            <th scope="row">{{ igreja.id }}</th>
+            <th scope="row">{{ igreja.shortName }}</th>
+            <th scope="row">{{ igreja.tipo }}</th>
+            <th scope="row">
+              <button class="btn btn-success" title="Join it" @click="join(igreja.id)">
+                <span class="fa fa-plus"></span> <%=__('Join')%>
+              </button>
               <a href="#" class="btn btn-light" v-if="me.isSuperAdmin" @click="goToEdit(igreja.id)">
                 <span class="fa fa-pencil"></span>
               </a>
-            </td>
+            </th>
           </tr>
         </tbody>
       </table>

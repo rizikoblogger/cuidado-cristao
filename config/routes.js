@@ -129,6 +129,9 @@ module.exports.routes = {
 
   'POST /api/v1/guideline/save-guideline': { action: 'guideline/save-guideline' },
 
+  'POST /api/v1/usercare/save-usercare': { action: 'usercare/save-usercare' },
+
+
 
 
 }
