@@ -22,8 +22,37 @@ um Projeto [Sails v1](https://sailsjs.com)
 
 O Projeto requer que as seguintes variáveis de ambiente estejam disponíveis:
 
-* NODE_ENV (production o development)
-* BASE_URL (endereco http no qual o sistema será executado. ex: http://localhost:1337)
+  <pre class="bg-dark text-success p-2">
+                                <code>
+# Are you running as [production] or [development]?
+NODE_ENV=production
+# Where (domain) will your server run?
+BASE_URL=http://localhost
+# Which server port should be exposed?
+SERVER_PORT=80
+# Who will send emails from Application to clients?
+FROM_EMAIL_ADDRESS=no_reply@example.com
+# How sender want to be recognized?
+FROM_NAME=The Cristan Care`s Team
+# Who will receive customer support emails?
+INTERNAL_EMAIL_ADDRESS=support+development@example.com
+# Brand new emails should be validated [true] or [false]?
+VERIFY_EMAIL_ADDRESS=false
+# To receive payments - you should create an 'https://stripe.com/' account
+STRIPE_PUBLISHABLE_KEY=k_test_Zzd814nldl91104qor5911gjald
+STRIPE_SECRET=sk_test_Zzd814nldl91104qor5911gjald
+# To send emails - you should create an 'https://sendgrid.com' account
+SENDGRID_SECRET=sk_prod__fake_Nfgh82401348jaDa3lkZ0d9Hm
+# Which kind of database adapter must to be used [sails-disk], [sails-mongo], [sails-mysql]...
+# https://sailsjs.com/documentation/concepts/extending-sails/adapters/available-adapters
+DATASTORE_ADAPTER=sails-disk
+DATASTORE_URL=mysql://user:password@host:port/database
+# Is it a MONGO_DB NO-SQL database?
+IS_MONGO_DB=false
+# The unique Encryption Key for the application
+DATA_ENCRYPTION_KEYS_DEFAULT=ffliOnsljHYX05U58V5AkDXHqMT+bTlVOKT+Q0LUpcA=
+                                </code>
+                            </pre>
 
 > Agora, na raiz do Projeto, podemos executar o Sails com um dos seguintes comandos:
 
