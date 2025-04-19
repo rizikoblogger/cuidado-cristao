@@ -10,7 +10,7 @@ Basic installation
 2) Install Git Client from https://git-scm.com/downloads;
 3) Run [>$ git clone https://github.com/rizikoblogger/cuidado-cristao];
 4) Go to created/cloned folder/directory and run [>$ npm install] command;
-5) Set O.S. Environment to 'production' one. (On Windows: setx NODE_ENV "production", on Linux: SET NODE_ENV=production); 
+5) Set O.S. Environment as described bellow (On Windows: setx NODE_ENV "production", on Linux: SET NODE_ENV=production); 
 6) Run [>$ npm start] command; and
 7) After that, open a Brownser and go to localhost:80.
 
@@ -29,8 +29,8 @@ Advanced Settings
 1) To change server address or port, edit config/env/production.js file before running it;
 2) To change MongoDB database settings,  before running it, edit config/datastores.js with:
    - adapter: 'sails-mongo',
-   - url: process.env.MONGO_URL,
-   // (On Windows: setx MONGO_URL "mongo-full-url", on Linux: SET MONGO_URL=mongo-full-url)
+   - url: process.env.DATASTORE_URL,
+   // (On Windows: setx DATASTORE_URL "mongo-full-url", on Linux: SET DATASTORE_URL=mongo-full-url)
 3) To change application messages and menu text, edit config/locales/__.json
 
 ATTENTION!
@@ -39,3 +39,33 @@ ATTENTION!
 a brand new user. The first User will be an ADMIN by default. After that you have to create a 
 brand new Church as [MOTHER]. Users should create their own credentials by themselves, because
 Admins cannot do it.
+
+Environment Variables
+
+# Are you running as [production] or [development]?
+NODE_ENV=production
+# Where (domain) will your server run?
+BASE_URL=http://localhost
+# Which server port should be exposed?
+SERVER_PORT=80
+# Who will send emails from Application to clients?
+FROM_EMAIL_ADDRESS=no_reply@example.com
+# How sender want to be recognized?
+FROM_NAME=The Cristan Care`s Team
+# Who will receive customer support emails?
+INTERNAL_EMAIL_ADDRESS=support+development@example.com
+# Brand new emails should be validated [true] or [false]?
+VERIFY_EMAIL_ADDRESS=false
+# To receive payments - you should create an 'https://stripe.com/' account
+STRIPE_PUBLISHABLE_KEY=k_test_Zzd814nldl91104qor5911gjald
+STRIPE_SECRET=sk_test_Zzd814nldl91104qor5911gjald
+# To send emails - you should create an 'https://sendgrid.com' account
+SENDGRID_SECRET=sk_prod__fake_Nfgh82401348jaDa3lkZ0d9Hm
+# Which kind of database adapter must to be used [sails-disk], [sails-mongo], [sails-mysql]...
+# https://sailsjs.com/documentation/concepts/extending-sails/adapters/available-adapters
+DATASTORE_ADAPTER=sails-disk
+DATASTORE_URL=mysql://user:password@host:port/database
+# Is it a MONGO_DB NO-SQL database?
+IS_MONGO_DB=false
+# The unique Encryption Key for the application
+DATA_ENCRYPTION_KEYS_DEFAULT=ffliOnsljHYX05U58V5AkDXHqMT+bTlVOKT+Q0LUpcA=
