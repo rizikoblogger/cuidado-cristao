@@ -1,5 +1,9 @@
 # cuidado-cristao
 
+> PAY ATTENTION! This README was written in Brazilian Portuguese because they are our main customer/client. If you want to get it in English, please, contact us.
+
+> Besides, this is an i18n project, so if you want to contribute with translations, please, contact us too.
+
 ##  O Projeto Cuidado Cristão tem como objetivo disponibilizar um Software Web livre e de código aberto para quem quer gerenciar seus congregados como comunidade dos Servos do Reino de Deus
 
 um Projeto [Sails v1](https://sailsjs.com)
