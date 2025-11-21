@@ -1,8 +1,8 @@
 {
   "name": "eclesiastic",
   "private": false,
-  "version": "2025.1",
-  "description": "Cristian Care Project aims to give a free and open-source Web Software to whom want to manager its congregant also as a communit of IT Servants of God`s Kingdom.",
+  "version": "2025.2",
+  "description": "Cristian Care Project aims to give a free and open-source Web Software to whom want to manager its congregant also as a community of IT Servants of God`s Kingdom.",
   "keywords": [],
   "dependencies": {
     "@sailshq/connect-redis": "^6.1.3",

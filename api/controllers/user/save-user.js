@@ -32,6 +32,10 @@ module.exports = {
       type: `boolean`, required: true
     },
 
+    emailStatus: {
+      type: `string`, required: false
+    },
+
     church: {
       type: 'ref', description: `An Object which represents a model/Church.js instance`
     },
@@ -91,6 +95,7 @@ module.exports = {
         emailAddress: inputs.emailAddress,
         fullName: inputs.fullName,
         isSuperAdmin: inputs.isSuperAdmin,
+        emailStatus: inputs.emailStatus?inputs.emailStatus:`unconfirmed`,
         church: inputs.church ? inputs.church.id : undefined,
         userCares: [],
         socialServices: [],
