@@ -225,5 +225,9 @@
 	"Please": "Please",
 	"let us know": "let us know",
 	"Open a help request": "Open a help request",
-	"Join": "Join"
+	"Join": "Join",
+	"Is Email Confirmed": "Is Email Confirmed",
+	"Statuses": "Statuses",
+	"Status": "Status",
+	"Confirmed (Y/N)": "Confirmed (Y/N)"
 }
