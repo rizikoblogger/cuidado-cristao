@@ -39,6 +39,12 @@ parasails.registerPage('edit-user', {
     // dentro metodo invocado pelo evento 'submitted' [@submitted="submittedForm()"]
     // invocado pelo <ajax-form> para caso de sucesso.
     cloudSuccess: false,
+
+    // Flag de email confirmado
+    // Inicialmente atualizado na montagem
+    // Mas altera o [emailStatus] do usuario no backend
+    // se modificado
+    isEmailConfirmed: false,
   },
 
 
@@ -51,6 +57,7 @@ parasails.registerPage('edit-user', {
   mounted: async function () {
     _.extend(this, window.SAILS_LOCALS)
     this.formData = this.user
+    if(this.formData.emailStatus===`confirmed`) this.isEmailConfirmed = true
   },
 
   //  ╦╔╗╔╔╦╗╔═╗╦═╗╔═╗╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
@@ -72,5 +79,12 @@ parasails.registerPage('edit-user', {
       this.message.details = ''
 
     },
+    changeEmailConfirmedStatus: function() {
+      if(this.isEmailConfirmed){
+        this.formData.emailStatus = `confirmed`
+      } else {
+        this.formData.emailStatus = `unconfirmed`
+      }
+    }
   }
 })
