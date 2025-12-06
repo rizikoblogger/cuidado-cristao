@@ -400,3 +400,7 @@ Note:  Generators are usually run using the globally-installed `sails` CLI (comm
 - Added [Manually Confirmed Email] option at Administration > Users > Edit User.
 - Updated dependencies.
 
+> 2025.3
+
+- README.md updated
+
