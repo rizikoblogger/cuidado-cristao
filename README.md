@@ -212,9 +212,9 @@ const disciplina = req.body.disciplina // seria 18
 
 module.exports = {
 
-  get: async function (req, res) {
+  get: function (req, res) {
     const id = req.params['id'];
-    await Info.find({id: id})
+    Info.find({id: id})
       .then(
         info => {
           res.json(info);
@@ -225,8 +225,8 @@ module.exports = {
       });
   },
 
-  getOne: async function (req, res) {
-    await Info.find({})
+  getOne: function (req, res) {
+    Info.find({})
       .then(
         info => {
           if (info.length > 0) {
@@ -243,11 +243,11 @@ module.exports = {
     }).catch(err => console.log(err.message));
   },
 
-  getAll: async function (req, res) {
+  getAll: function (req, res) {
       const page = req.query.page | 0;
       const size = req.query.size | 0;
 
-      await Info
+      Info
         .find()
         .skip(page*size)
         .limit(size)
@@ -255,7 +255,7 @@ module.exports = {
         .catch(err => console.log(err.message));
   },
 
-  put: async function (req, res) {
+  put: function (req, res) {
     let info = await Info.find({_id: req.params['id']});
     return res.json(info.updateOne(
         {
@@ -265,8 +265,8 @@ module.exports = {
     ));
   },
 
-  post: async function (req, res) {
-    await Info.create(req.body).then(
+  post: function (req, res) {
+    Info.create(req.body).then(
       info => res.json(info)
     ).catch(err => console.log(err));
   },
