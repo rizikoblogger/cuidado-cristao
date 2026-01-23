@@ -198,6 +198,14 @@ without necessarily having a billing card.`
     classrooms: {
       collection: `Classroom`,
       via: `users`
+    },
+
+    creates: {
+      collection: `Financial`, via: `createdBy`
+    },
+
+    updates: {
+      collection: `Financial`, via: `updatedBy`
     }
 
   },

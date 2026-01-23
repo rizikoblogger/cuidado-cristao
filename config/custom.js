@@ -61,7 +61,9 @@ module.exports.custom = {
   * (https://app.sendgrid.com/settings/api_keys)                            *
   *                                                                         *
   **************************************************************************/
-  sendgridSecret: process.env.SENDGRID_SECRET,
+  sendgridSecret: process.env.SENDGRID_SECRET || undefined,
+  mailgunApiKey: process.env.MAIL_GUN_API_KEY || undefined,
+  mailgunDomain: process.env.MAIL_GUN_DOMAIN || undefined,
   //--------------------------------------------------------------------------
   // /\  Configure this to enable support for automated emails.
   // ||  (Important for password recovery, verification, contact form, etc.)
