@@ -45,7 +45,7 @@ VERIFY_EMAIL_ADDRESS=false
 # To receive payments - you should create an 'https://stripe.com/' account
 STRIPE_PUBLISHABLE_KEY=k_test_Zzd814nldl91104qor5911gjald
 STRIPE_SECRET=sk_test_Zzd814nldl91104qor5911gjald
-# To send emails - you should create an 'https://sendgrid.com' account
+# To send emails with SendGrid - you should create an 'https://sendgrid.com' account
 SENDGRID_SECRET=sk_prod__fake_Nfgh82401348jaDa3lkZ0d9Hm
 # Which kind of database adapter must to be used [sails-disk], [sails-mongo], [sails-mysql]...
 # https://sailsjs.com/documentation/concepts/extending-sails/adapters/available-adapters
@@ -55,6 +55,10 @@ DATASTORE_URL=mysql://user:password@host:port/database
 IS_MONGO_DB=false
 # The unique Encryption Key for the application
 DATA_ENCRYPTION_KEYS_DEFAULT=ffliOnsljHYX05U58V5AkDXHqMT+bTlVOKT+Q0LUpcA=
+# The MailGun SAS API KEY - if you want to use MailGun
+let apiKey = process.env.MAIL_GUN_API_KEY=MG.HJDJSADKJHDFHUEHBSJNN_RDDS
+# The MailGun SAS domain
+MAIL_GUN_DOMAIN=mg.domain.com
                                 </code>
                             </pre>
 
