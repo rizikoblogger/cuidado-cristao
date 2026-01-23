@@ -1,5 +1,5 @@
 /**
- * Guideline.js
+ * Center.js
  *
  * @description :: A model definition represents a database table/collection.
  * @docs        :: https://sailsjs.com/docs/concepts/models-and-orm/models
@@ -12,8 +12,15 @@ module.exports = {
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-    sequence: {type: `number`, required: true, unique: true},
-    text: { type: `string`, required: true, description: ``}
+
+    name: {
+      type: 'string', description: 'The name of cost center.', required: true
+    },
+
+    note: {
+      type: 'string', description: 'A note about this cost center.', required: true
+    },
+
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
@@ -24,9 +31,14 @@ module.exports = {
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
 
+    financials: {
+      collection: 'Financial',
+      via: 'center'
+    }
+
   },
 
-  tableName: `guidelineEclesia`
+  tableName: `costcenterEclesia`
 
 };
 
