@@ -73,7 +73,7 @@ module.exports.models = {
     updatedAt: { type: 'number', autoUpdatedAt: true, },
     id: {
       type: Boolean(process.env.IS_MONGO_DB)?'string':'number',
-      autoIncrement: Boolean(process.env.IS_MONGO_DB)?false:true,
+      autoIncrement: !Boolean(process.env.IS_MONGO_DB),
       columnName: Boolean(process.env.IS_MONGO_DB)?'_id':'id'
     },
 
@@ -94,9 +94,9 @@ module.exports.models = {
   *                                                                             *
   ******************************************************************************/
 
-  dataEncryptionKeys: {
-    default: process.env.DATA_ENCRYPTION_KEYS_DEFAULT
-  },
+  // dataEncryptionKeys: {
+  //   default: process.env.DATA_ENCRYPTION_KEYS_DEFAULT
+  // },
 
 
   /***************************************************************************
