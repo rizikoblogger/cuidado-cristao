@@ -6,11 +6,11 @@
 
 Basic installation
 
-1) Install Node.js (>16.4.0) from https://nodejs.org/en/download;
+1) Install Node.js (>22.21.1) from https://nodejs.org/en/download;
 2) Install Git Client from https://git-scm.com/downloads;
 3) Run [>$ git clone https://github.com/rizikoblogger/cuidado-cristao];
 4) Go to created/cloned folder/directory and run [>$ npm install] command;
-5) Set O.S. Environment as described bellow (On Windows: setx NODE_ENV "production", on Linux: SET NODE_ENV=production); 
+5) Set O.S. Environment as described bellow (On Windows: setx NODE_ENV "production", on Linux: SET NODE_ENV=production);
 6) Run [>$ npm start] command; and
 7) After that, open a Brownser and go to localhost:80.
 
@@ -35,8 +35,8 @@ Advanced Settings
 
 ATTENTION!
 
-# When it is the first time you are running it for production, you have to create - signup -  
-a brand new user. The first User will be an ADMIN by default. After that you have to create a 
+# When it is the first time you are running it for production, you have to create - signup -
+a brand new user. The first User will be an ADMIN by default. After that you have to create a
 brand new Church as [MOTHER]. Users should create their own credentials by themselves, because
 Admins cannot do it.
 
