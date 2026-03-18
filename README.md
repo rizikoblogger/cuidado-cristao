@@ -54,7 +54,7 @@ DATASTORE_URL=mysql://user:password@host:port/database
 # Is it a MONGO_DB NO-SQL database?
 IS_MONGO_DB=false
 # The unique Encryption Key for the application
-DATA_ENCRYPTION_KEYS_DEFAULT=ffliOnsljHYX05U58V5AkDXHqMT+bTlVOKT+Q0LUpcA=
+DATA_ENCRYPTION_KEYS_DEFAULT=C13A6FB53049A9C566C0878DA8E1F90E2385DC3535AFD44BBA497907DE22080D
 # The MailGun SAS API KEY - if you want to use MailGun
 let apiKey = process.env.MAIL_GUN_API_KEY=MG.HJDJSADKJHDFHUEHBSJNN_RDDS
 # The MailGun SAS domain
